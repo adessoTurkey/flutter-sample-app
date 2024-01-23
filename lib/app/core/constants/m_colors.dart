@@ -1,0 +1,7 @@
+
+
+
+abstract final class MColors{
+  
+}
+
