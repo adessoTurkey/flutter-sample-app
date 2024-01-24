@@ -21,6 +21,8 @@ class HomePage extends StatelessWidget {
         final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(
             bottomNavigationBar: BottomNavigationBar(
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
               type: BottomNavigationBarType.fixed,
               currentIndex: tabsRouter.activeIndex,
               items: <BottomNavigationBarItem>[
