@@ -9,9 +9,9 @@ dependencies:
   flutter_gen: ^5.4.0
   flutter_localizations:
     sdk: flutter
+  font_awesome_flutter: ^10.6.0
   get_it: ^7.6.7
   intl: any
- 
   shared_preferences: ^2.2.2
   talker_flutter: ^3.6.0
 description: A new Flutter project.
@@ -28,7 +28,7 @@ flutter:
   generate: true
   assets:
     - assets/images/
-  
+
   uses-material-design: true
 flutter_gen:
   line_length: 80
@@ -38,8 +38,6 @@ flutter_gen:
     outputs:
       package_parameter_enabled: true
       class_name: MovieAssets
-
-
 
 name: flutter_movie_app
 version: 1.0.0+1

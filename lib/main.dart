@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_movie_app/app/core/config/app_router.dart';
 import 'package:flutter_movie_app/app/core/initialization/initialization_adapter.dart';
 import 'package:flutter_movie_app/app/core/logger/m_logger.dart';
-import 'package:flutter_movie_app/app/features/home/bloc/navigation_bar_bloc.dart';
 import 'package:flutter_movie_app/app/features/home/home_page.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/localization/bloc/localization_bloc.dart';
@@ -20,9 +20,6 @@ void main() {
 
   runApp(MultiBlocProvider(providers: [
     BlocProvider(create: (_) => LocalizationsBloc()),
-    BlocProvider(
-        create: (_) => NavigationBarBloc()
-          ..add(const ChangeNavigationBarIndexEvent(index: 0))),
   ], child: const MyApp()));
 }
 
@@ -32,14 +29,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final router= AppRouter();
+    return MaterialApp.router(
+      routerConfig: router.config(),
       title: 'Flutter Demo',
       theme: ThemeData(
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
     );
   }
 }

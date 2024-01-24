@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/app/features/home/bloc/navigation_bar_bloc.dart';
-import 'package:flutter_movie_app/app/features/movies/movies_page.dart';
+import 'package:flutter_movie_app/app/core/config/app_router.dart';
+import 'package:flutter_movie_app/app/core/constants/m_colors.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -10,45 +10,48 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        bottomNavigationBar: BlocBuilder<NavigationBarBloc, NavigationBarState>(
-      builder: (context, state) {
-        if (state is NavigationBarChangeIndexState) {
-          return BottomNavigationBar(
-            currentIndex: state.index,
-            items: <BottomNavigationBarItem>[
-            _NavigationBarItem(
-                iconData: Icons.movie,
-                iconColor: state.index == 0 ? Colors.blue : Colors.black),
-            _NavigationBarItem(
-                iconData: Icons.movie,
-                iconColor: state.index == 1 ? Colors.blue : Colors.black),
-            _NavigationBarItem(
-                iconData: Icons.movie,
-                iconColor: state.index == 2 ? Colors.blue : Colors.black),
-            _NavigationBarItem(
-                iconData: Icons.movie,
-                iconColor: state.index == 3 ? Colors.blue : Colors.black)
-          ],
-          onTap: (index){
-            context.read<NavigationBarBloc>().add(ChangeNavigationBarIndexEvent(index: index));
-          },);
-        }
-        return Container();
+    return AutoTabsRouter(
+      routes: const [
+        MoviesRoute(),
+        TvSeriesRoute(),
+        SearchRoute(),
+        ProfileRoute()
+      ],
+      builder: (context, child) {
+        final tabsRouter = AutoTabsRouter.of(context);
+        return Scaffold(
+            bottomNavigationBar: BottomNavigationBar(
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              type: BottomNavigationBarType.fixed,
+              currentIndex: tabsRouter.activeIndex,
+              items: <BottomNavigationBarItem>[
+                _NavigationBarItem(
+                    iconData: FontAwesomeIcons.film,
+                    iconColor: _navigationItemColor(tabsRouter.activeIndex, 0)),
+                _NavigationBarItem(
+                    iconData: FontAwesomeIcons.tv,
+                    iconColor: _navigationItemColor(tabsRouter.activeIndex, 1)),
+                _NavigationBarItem(
+                    iconData: FontAwesomeIcons.magnifyingGlass,
+                    iconColor: _navigationItemColor(tabsRouter.activeIndex, 2)),
+                _NavigationBarItem(
+                    iconData: FontAwesomeIcons.user,
+                    iconColor: _navigationItemColor(tabsRouter.activeIndex, 3))
+              ],
+              onTap: (index) {
+                tabsRouter.setActiveIndex(index);
+              },
+            ),
+            body: child);
       },
+    );
+  }
 
-    
-      
-    ),
-    body:  BlocBuilder<NavigationBarBloc,NavigationBarState>(
-      builder: (_,state){
-        if(state is NavigationBarChangeIndexState){
-          return const MoviesPage();
-        }
-
-        return Container();
-      },
-    ));
+  Color _navigationItemColor(int selectedIndex, int itemIndex) {
+    return selectedIndex == itemIndex
+        ? MColors.navigationSelectedItem
+        : MColors.navigationUnselectedItem;
   }
 }
 
@@ -56,5 +59,5 @@ class _NavigationBarItem extends BottomNavigationBarItem {
   final IconData iconData;
   final Color iconColor;
   _NavigationBarItem({required this.iconData, required this.iconColor})
-      : super(icon: Icon(iconData, color: iconColor),label:"");
+      : super(icon: Icon(iconData, color: iconColor), label: "");
 }
