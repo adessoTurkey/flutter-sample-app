@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: router.config(),
       title: 'Flutter Demo',
-      theme: ThemeFactory.getTheme(Themes.light),
+      theme: getIt<ThemeFactory>().getTheme(Themes.light),
     );
   }
 }
