@@ -45,5 +45,6 @@ void _configureInjection() {
     ..registerSingleton<AppRouter>(AppRouter())
     ..registerSingleton<LightTheme>(LightTheme())
     ..registerSingleton<DarkTheme>(DarkTheme())
+    ..registerSingleton<ThemeFactory>(ThemeFactory())
     ..registerLazySingleton<Talker>(() => talker);
 }
