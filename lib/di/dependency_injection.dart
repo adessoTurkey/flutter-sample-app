@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_movie_app/app/core/themes/themes.dart';
 import 'package:flutter_movie_app/localization/localization_helper.dart';
 import 'package:get_it/get_it.dart';
 import 'package:talker_flutter/talker_flutter.dart';
@@ -42,5 +43,7 @@ void _configureInjection() {
       LocalizationHelper.new,
     )
     ..registerSingleton<AppRouter>(AppRouter())
+    ..registerSingleton<LightTheme>(LightTheme())
+    ..registerSingleton<DarkTheme>(DarkTheme())
     ..registerLazySingleton<Talker>(() => talker);
 }
