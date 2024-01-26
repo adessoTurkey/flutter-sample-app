@@ -8,9 +8,15 @@ class MovieListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: list.length,
       itemBuilder: (context, index) {
-        return const MovieCellView();
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: MovieCellView(
+            imageURL: list[index],
+          ),
+        );
       },
     );
   }

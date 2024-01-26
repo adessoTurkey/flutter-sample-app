@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class ImageContainerView extends StatelessWidget {
   final String imageURL;
+  final String placeholderImage;
   final Size? containerSize;
-  
+
   const ImageContainerView({
     required this.imageURL,
+    required this.placeholderImage,
     this.containerSize,
     super.key,
   });
@@ -19,6 +21,16 @@ class ImageContainerView extends StatelessWidget {
         child: Image.network(
           imageURL,
           fit: BoxFit.fill,
+          loadingBuilder: (BuildContext context, Widget child,
+              ImageChunkEvent? loadingProgress) {
+            if (loadingProgress == null) return child;
+            return ClipRRect(
+              child: Image.asset(
+                placeholderImage,
+                fit: BoxFit.fill,
+              ),
+            );
+          },
         ),
       ),
     );

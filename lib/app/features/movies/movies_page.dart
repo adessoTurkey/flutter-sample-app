@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/features/movies/movies.dart';
 
 @RoutePage()
@@ -15,14 +16,21 @@ class _MoviesPageState extends State<MoviesPage> {
   static final List<String> _list = [
     "https://musicart.xboxlive.com/7/6e355100-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080",
     "https://m.media-amazon.com/images/M/MV5BZWEwNzQ4NzUtMWRmYS00NDdiLTg5NDItODA5M2M4YTM0ZTE2XkEyXkFqcGdeQXVyMTAzNjU2NjM1._V1_FMjpg_UX1000_.jpg",
+    "https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_.jpg",
     "https://musicart.xboxlive.com/7/6e355100-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080",
+    "https://m.media-amazon.com/images/M/MV5BZWEwNzQ4NzUtMWRmYS00NDdiLTg5NDItODA5M2M4YTM0ZTE2XkEyXkFqcGdeQXVyMTAzNjU2NjM1._V1_FMjpg_UX1000_.jpg",
+    "https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_.jpg",
     "https://musicart.xboxlive.com/7/6e355100-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080",
+    "https://m.media-amazon.com/images/M/MV5BZWEwNzQ4NzUtMWRmYS00NDdiLTg5NDItODA5M2M4YTM0ZTE2XkEyXkFqcGdeQXVyMTAzNjU2NjM1._V1_FMjpg_UX1000_.jpg",
+    "https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_.jpg",
     "https://musicart.xboxlive.com/7/6e355100-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080",
-    "https://musicart.xboxlive.com/7/6e355100-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080"
+    "https://m.media-amazon.com/images/M/MV5BZWEwNzQ4NzUtMWRmYS00NDdiLTg5NDItODA5M2M4YTM0ZTE2XkEyXkFqcGdeQXVyMTAzNjU2NjM1._V1_FMjpg_UX1000_.jpg",
+    "https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_.jpg"
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: MColors.electricBlue,
       body: SafeArea(
         child: ListView(
           children: [
@@ -48,10 +56,11 @@ class _MoviesPageState extends State<MoviesPage> {
                   children: [
                     const MoviesCarouselCardInfoView(),
                     const Divider(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    SizedBox(height: 500, child: MovieListView(list: _list))
+                    SizedBox(
+                      height:
+                          (MoviesConstants.movieCellHeight + 25) * _list.length,
+                      child: MovieListView(list: _list),
+                    )
                   ],
                 ),
               ),
