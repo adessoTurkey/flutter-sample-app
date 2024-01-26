@@ -6,6 +6,7 @@ import 'package:flutter_movie_app/app/core/logger/m_logger.dart';
 import 'package:flutter_movie_app/app/core/themes/themes.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/localization/bloc/localization_bloc.dart';
+import 'package:flutter_movie_app/responsive/responsive.dart';
 
 void main() {
   final features = <InitializationAdapter>[
@@ -29,11 +30,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final router= AppRouter();
-    return MaterialApp.router(
-      routerConfig: router.config(),
-      title: 'Flutter Demo',
-      theme: getIt<ThemeFactory>().getTheme(Themes.light),
+    var responSiveType = context.responsiveType();
+    final router = AppRouter();
+    return BlocProvider(
+      create: (_) => ResponsiveConfigurationBloc()
+        ..add(ChangeConfigurationEvent(responsiveType: responSiveType)),
+      child: MaterialApp.router(
+        routerConfig: router.config(),
+        title: 'Flutter Demo',
+        theme: getIt<ThemeFactory>().getTheme(Themes.light),
+      ),
     );
   }
 }
