@@ -1,12 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_movie_app/app/core/themes/themes.dart';
 import 'package:flutter_movie_app/localization/localization_helper.dart';
+import 'package:flutter_movie_app/responsive/configuration/configuration.dart';
+import 'package:flutter_movie_app/responsive/configuration/large_configuration.dart';
+import 'package:flutter_movie_app/responsive/configuration/medium_configuration.dart';
+import 'package:flutter_movie_app/responsive/configuration/small_configuration.dart';
 import 'package:get_it/get_it.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
 import '../app/core/config/app_router.dart';
 import '../app/core/initialization/initialization_adapter.dart';
-
 
 final getIt = GetIt.instance;
 
@@ -32,10 +35,9 @@ void _configureBlocInjection() {
 
 // Used for class injections
 void _configureInjection() {
-    final talker = TalkerFlutter.init(
+  final talker = TalkerFlutter.init(
     settings: TalkerSettings(enabled: !kReleaseMode),
   );
-
 
   // Register singleton instances using GetIt
   getIt
@@ -46,5 +48,9 @@ void _configureInjection() {
     ..registerSingleton<LightTheme>(LightTheme())
     ..registerSingleton<DarkTheme>(DarkTheme())
     ..registerSingleton<ThemeFactory>(ThemeFactory())
+    ..registerSingleton<LargeConfiguration>(LargeConfiguration())
+    ..registerSingleton<MediumConfiguration>(MediumConfiguration())
+    ..registerSingleton<SmallConfiguration>(SmallConfiguration())
+    ..registerSingleton<ResponsiveConfigurationFactory>(ResponsiveConfigurationFactory())
     ..registerLazySingleton<Talker>(() => talker);
 }
