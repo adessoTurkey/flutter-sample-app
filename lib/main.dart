@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/config/app_router.dart';
 import 'package:flutter_movie_app/app/core/initialization/initialization_adapter.dart';
 import 'package:flutter_movie_app/app/core/logger/m_logger.dart';
-import 'package:flutter_movie_app/app/features/home/home_page.dart';
+import 'package:flutter_movie_app/app/core/themes/themes.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/localization/bloc/localization_bloc.dart';
 
@@ -33,11 +33,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: router.config(),
       title: 'Flutter Demo',
-      theme: ThemeData(
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: getIt<ThemeFactory>().getTheme(Themes.light),
     );
   }
 }
