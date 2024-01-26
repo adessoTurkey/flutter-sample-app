@@ -25,10 +25,7 @@ class MovieAssets {
 
   static const String package = 'flutter_movie_app';
 
-  static const AssetGenImage teams01 = AssetGenImage('assets/teams.01.jpg');
-
-  /// List of all assets
-  static List<AssetGenImage> get values => [teams01];
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class AssetGenImage {
