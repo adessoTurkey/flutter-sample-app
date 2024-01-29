@@ -1,19 +1,17 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/themes/theme_enum.dart';
 import 'package:flutter_movie_app/app/core/themes/themes.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 
-class ThemeFactory {
-   ThemeData getTheme(Themes theme) {
-    late BaseTheme baseTheme;
+abstract final class ThemeFactory {
+   static ATheme getTheme(ThemeEnum theme) {
+    late ATheme baseTheme;
     switch (theme) {
-      case Themes.light:
+      case ThemeEnum.light:
         baseTheme = getIt<LightTheme>();
-      case Themes.dark:
+      case ThemeEnum.dark:
         baseTheme = getIt<DarkTheme>();
     }
 
-    return baseTheme.themeData;
+    return baseTheme;
   }
 }
-
-enum Themes { light, dark }

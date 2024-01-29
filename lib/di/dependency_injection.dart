@@ -47,7 +47,6 @@ void _configureInjection() {
     ..registerSingleton<AppRouter>(AppRouter())
     ..registerSingleton<LightTheme>(LightTheme())
     ..registerSingleton<DarkTheme>(DarkTheme())
-    ..registerSingleton<ThemeFactory>(ThemeFactory())
     ..registerSingleton<LargeConfiguration>(LargeConfiguration())
     ..registerSingleton<MediumConfiguration>(MediumConfiguration())
     ..registerSingleton<SmallConfiguration>(SmallConfiguration())
