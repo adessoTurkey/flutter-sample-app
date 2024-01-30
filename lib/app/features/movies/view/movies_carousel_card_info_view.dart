@@ -12,7 +12,7 @@ class MoviesCarouselCardInfoView extends StatelessWidget {
       children: [
         RatingView(
           rating: 4.2,
-          size: RatingViewSizeEnum.large,
+          ratingViewSize: RatingViewSizeEnum.large,
         ),
         Text(
           "Joker",

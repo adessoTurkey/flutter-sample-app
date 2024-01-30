@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
 
@@ -54,7 +55,9 @@ class _CarouselViewState extends State<CarouselView> {
 
   Widget carouselCardWidget(String imageURL) {
     return Container(
-      margin: const EdgeInsets.only(right: 20),
+      margin: const EdgeInsets.only(
+        right: WidgetsConstants.carouselCardRightPadding,
+      ),
       child: Card(
         clipBehavior: Clip.hardEdge,
         child: ImageContainerView(

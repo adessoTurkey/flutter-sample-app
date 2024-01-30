@@ -16,7 +16,7 @@ class MoviesCarouselView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      height: 450,
+      height: MoviesConstants.movieCarouselContainerHeight,
       child: Stack(
         children: [
           Container(
@@ -24,7 +24,10 @@ class MoviesCarouselView extends StatelessWidget {
             height: MoviesConstants.movieCarouselBlueContainerHeight,
           ),
           const Padding(
-            padding: EdgeInsets.only(top: 24.0, left: 32.0),
+            padding: EdgeInsets.only(
+              top: MoviesConstants.movieCarouselHeaderTopPadding,
+              left: MoviesConstants.movieCarouselHeaderLeftPadding,
+            ),
             child: Text(
               "Movies",
               style: TextStyle(

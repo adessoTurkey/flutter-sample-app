@@ -19,11 +19,10 @@ class ReleaseDateView extends StatelessWidget {
           size: 20,
         ),
         const SizedBox(
-          width: 10,
+          width: WidgetsConstants.releaseDateViewSizedBoxHegiht,
         ),
         Text(
           releaseDate,
-          style: const TextStyle(color: MColors.almostBlack),
         ),
       ],
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
+import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class MovieListView extends StatelessWidget {
   final List<String> list;
@@ -17,6 +18,14 @@ class MovieListView extends StatelessWidget {
             imageURL: list[index],
           ),
         );
+      },
+    );
+  }
+
+  Widget _test() {
+    return ConfigurationWidget(
+      onConfigurationReady: (configuration) {
+        return Container();
       },
     );
   }

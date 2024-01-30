@@ -46,9 +46,9 @@ class _MoviesPageState extends State<MoviesPage> {
               color: Colors.white,
               child: Padding(
                 padding: const EdgeInsets.only(
-                  top: 24.0,
-                  left: 32.0,
-                  right: 32.0,
+                  top: MoviesConstants.moviePageListViewPaddingTop,
+                  left: MoviesConstants.moviePageListViewPaddingLeft,
+                  right: MoviesConstants.moviePageListViewPaddingRight,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +58,7 @@ class _MoviesPageState extends State<MoviesPage> {
                     const Divider(),
                     SizedBox(
                       height:
-                          (MoviesConstants.movieCellHeight + 25) * _list.length,
+                          (WidgetsConstants.movieCellHeight + 25) * _list.length,
                       child: MovieListView(list: _list),
                     )
                   ],

@@ -10,7 +10,7 @@ class MovieCellView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 8,
+      elevation: WidgetsConstants.movieCellCardElevation,
       shadowColor: Colors.black26,
       clipBehavior: Clip.hardEdge,
       surfaceTintColor: Colors.white,
@@ -19,13 +19,15 @@ class MovieCellView extends StatelessWidget {
           ImageContainerView(
             imageURL: imageURL,
             containerSize: const Size(
-              MoviesConstants.movieCellImageWidth,
-              MoviesConstants.movieCellHeight,
+              WidgetsConstants.movieCellImageWidth,
+              WidgetsConstants.movieCellHeight,
             ),
             placeholderImage: MovieAssets.images.poster1.path,
           ),
           const Padding(
-            padding: EdgeInsets.only(left: 18.0),
+            padding: EdgeInsets.only(
+              left: WidgetsConstants.movieCellBodyPaddingLeft,
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,19 +54,23 @@ class MovieCellView extends StatelessWidget {
                       releaseDate: "21.02.2022",
                     ),
                     Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 6, vertical: 10),
+                      padding: EdgeInsets.symmetric(
+                        horizontal:
+                            WidgetsConstants.movieCellDividerPaddingHorizontal,
+                        vertical:
+                            WidgetsConstants.movieCellDividerPaddingVertical,
+                      ),
                       child: SizedBox(
-                        height: 10,
+                        height: WidgetsConstants.movieCellDividerHeight,
                         child: VerticalDivider(
-                          width: 10,
+                          width: WidgetsConstants.movieCellDividerWidth,
                           color: Colors.black,
                         ),
                       ),
                     ),
                     RatingView(
                       rating: 4.3,
-                      size: RatingViewSizeEnum.medium,
+                      ratingViewSize: RatingViewSizeEnum.medium,
                     ),
                   ],
                 )
