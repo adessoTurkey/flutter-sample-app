@@ -4,12 +4,12 @@ import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
 
 class CarouselView extends StatefulWidget {
-  final List<String> images;
+  final List list;
   final double height;
   final Function(int currentIndex) onPageChanged;
 
   const CarouselView({
-    required this.images,
+    required this.list,
     required this.height,
     required this.onPageChanged,
     super.key,
@@ -43,10 +43,10 @@ class _CarouselViewState extends State<CarouselView> {
       height: widget.height,
       child: PageView.builder(
         controller: controller,
-        itemCount: widget.images.length,
+        itemCount: widget.list.length,
         onPageChanged: widget.onPageChanged,
         itemBuilder: (context, index) {
-          var image = widget.images[index];
+          var image = widget.list[index].imageURL;
           return carouselCardWidget(image);
         },
       ),

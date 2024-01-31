@@ -17,4 +17,28 @@ final class DarkTheme extends ATheme{
     return const TextStyle().movieCellMovieNameTextStyle(fontSize, MColors.white);
   }
 
+  @override
+  TextStyle movieCellMovieGenresTextStyle(double fontSize) {
+    return const TextStyle()
+        .movieCellMovieGenresTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle moviesViewHeaderTextStyle(double fontSize) {
+    return const TextStyle()
+        .moviesViewHeaderTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle carouselCardSubTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .carouselCardTitleTextStyle(fontSize, Colors.white);
+  }
+
+  @override
+  TextStyle carouselCardTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .carouselCardSubTitleTextStyle(fontSize, Colors.white);
+  }
+
 }

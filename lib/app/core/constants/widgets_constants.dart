@@ -5,6 +5,7 @@ abstract final class WidgetsConstants {
   //Movie Cell
   static const double movieCellHeight = 130;
   static const double movieCellImageWidth = 100;
+  static const double movieCellInfoContainerWidth = 250;
   static const double movieCellBodyPaddingLeft = 18;
   static const double movieCellDividerHeight = 10;
   static const double movieCellDividerWidth = 10;
