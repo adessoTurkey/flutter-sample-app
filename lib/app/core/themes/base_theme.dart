@@ -16,7 +16,7 @@ abstract  class ATheme {
 
   ThemeData get themeData => ThemeData(
         useMaterial3: true,
-        appBarTheme: appbarTheme,
+                appBarTheme: appbarTheme,
         bottomNavigationBarTheme: bottomNavigationTheme,
       );
 

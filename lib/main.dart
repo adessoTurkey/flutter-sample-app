@@ -7,6 +7,9 @@ import 'package:flutter_movie_app/app/core/themes/bloc/theme_bloc.dart';
 import 'package:flutter_movie_app/app/core/themes/theme_enum.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/localization/bloc/localization_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_movie_app/localization/localization.dart';
+import 'package:flutter_movie_app/localization/localization_delegate.dart';
 import 'package:flutter_movie_app/responsive/responsive.dart';
 
 void main() {
@@ -42,6 +45,8 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<ThemeBloc, ThemeState>(builder: (_, state) {
         if (state is GetThemeState) {
           return MaterialApp.router(
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
             routerConfig: router.config(),
             title: 'Flutter Demo',
             theme: state.theme.themeData,
