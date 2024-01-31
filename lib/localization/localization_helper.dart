@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:flutter_movie_app/localization/i10n.dart';
+import 'package:flutter_movie_app/l10n/i10n.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Class for handling localization
