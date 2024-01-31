@@ -16,5 +16,8 @@ final class DarkTheme extends ATheme{
   TextStyle movieCellMovieNameTextStyle(double fontSize) {
     return const TextStyle().movieCellMovieNameTextStyle(fontSize, MColors.white);
   }
+  
+  @override
+  TextStyle splashTextStyle(double fontSize) => const TextStyle().textStyleW300(fontSize, MColors.black25);
 
 }

@@ -32,6 +32,7 @@ flutter:
   uses-material-design: true
 flutter_gen:
   line_length: 80
+  flutter_svg : true
   output: lib/gen/
   assets:
     enabled: true

@@ -4,7 +4,7 @@ abstract  class ATheme {
   BottomNavigationBarThemeData get bottomNavigationTheme;
   AppBarTheme get appbarTheme;
   
-  TextStyle movieCellMovieNameTextStyle(double fontSize);
+ 
 
   ThemeData get themeData => ThemeData(
         useMaterial3: true,
@@ -12,5 +12,8 @@ abstract  class ATheme {
         bottomNavigationBarTheme: bottomNavigationTheme,
       );
 
+ TextStyle movieCellMovieNameTextStyle(double fontSize);
+
+ TextStyle splashTextStyle(double fontSize);
 
 }

@@ -4,6 +4,8 @@ import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/features/home/home.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../core/config/app_router.dart';
+
 @RoutePage()
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -20,13 +22,14 @@ class _LoginPage extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
+            
             decoration: const BoxDecoration(
+              color: Colors.red,
                 image: DecorationImage(
                     image: AssetImage("assets/images/login_bg.jpg"),
                     fit: BoxFit.cover)),
             child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 32, right: 32, top: 64, bottom: 32),
+                padding:  EdgeInsets.zero,
                 child: Column(
                   children: [
                     const SizedBox(height: 64),
@@ -49,14 +52,14 @@ class _LoginPage extends State<LoginPage> {
                       obscureText: !passwordVisible,
                       style: const TextStyle(color: MColors.white),
                       decoration: InputDecoration(
-                          hintText: "Enter your password",
+                         hintText: "Enter your password",
                           hintStyle: const TextStyle(color: MColors.white),
                           labelText: "Password",
                           labelStyle: const TextStyle(color: MColors.white),
                           suffixIcon: IconButton(
                               icon: SvgPicture.asset("assets/images/eye.svg"),
                               onPressed: () {
-                                setState(() {
+                                setState(() { 
                                   passwordVisible = !passwordVisible;
                                 });
                               })),
@@ -84,9 +87,7 @@ class _LoginPage extends State<LoginPage> {
                         minimumSize: const Size.fromHeight(40),
                       ),
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const HomePage()));
+                       context.pushRoute(const HomeRoute());
                       },
                       child: const Text(
                         "Login",
@@ -119,3 +120,7 @@ class _LoginPage extends State<LoginPage> {
                 ))));
   }
 }
+
+
+
+

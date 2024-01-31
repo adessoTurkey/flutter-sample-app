@@ -20,4 +20,7 @@ final class LightTheme extends ATheme{
     return const TextStyle().movieCellMovieNameTextStyle(fontSize, MColors.almostBlack);
   }
 
+    @override
+  TextStyle splashTextStyle(double fontSize) => const TextStyle().textStyleW300(fontSize, MColors.white);
+
 }

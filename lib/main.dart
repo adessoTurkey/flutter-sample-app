@@ -11,6 +11,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/localization/localization_delegate.dart';
 import 'package:flutter_movie_app/responsive/responsive.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   final features = <InitializationAdapter>[
