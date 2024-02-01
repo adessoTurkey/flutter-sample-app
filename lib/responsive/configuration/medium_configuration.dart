@@ -7,6 +7,9 @@ class MediumConfiguration extends ResponsiveConfiguration {
   Size get movieCarouselContainerSize => const Size(0, 300);
 
   @override
+  Size get movieCarouselContainerSize => const Size(0, 300);
+
+  @override
   double get movieCellMovieNameTextSize => 18;
 
   @override

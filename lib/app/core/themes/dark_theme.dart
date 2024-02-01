@@ -13,6 +13,15 @@ final class DarkTheme extends ATheme {
   
   
   @override
+  AppBarTheme get appbarTheme => const AppBarTheme();
+
+  @override
+  Color get primaryColor => MColors.electricBlue;
+
+  @override
+  Color get scaffoldBackgroundColor => MColors.white;
+
+  @override
   TextStyle movieCellMovieNameTextStyle(double fontSize) {
     return const TextStyle().movieCellMovieNameTextStyle(fontSize, MColors.white);
   }

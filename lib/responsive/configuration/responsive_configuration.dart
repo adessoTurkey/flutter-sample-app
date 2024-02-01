@@ -50,5 +50,8 @@ abstract class ResponsiveConfiguration {
   double get headerTextSize;
   double get carouselCardTitleTextSize;
   double get carouselCardSubTitleTextSize;
+  double get releaseDateViewDateTextSize;
+  double get releaseDateViewDateIconSize;
+  
 }
 

@@ -8,6 +8,9 @@ class SmallConfiguration extends ResponsiveConfiguration {
   Size get movieCarouselContainerSize => const Size(0, 250);
 
   @override
+  Size get movieCarouselContainerSize => const Size(0, 250);
+
+  @override
   double get movieCellMovieNameTextSize => 16;
 
   @override
