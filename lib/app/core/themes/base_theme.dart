@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
-abstract  class ATheme {
+abstract class ATheme {
   BottomNavigationBarThemeData get bottomNavigationTheme;
   AppBarTheme get appbarTheme;
-  
+  Color get primaryColor;
+  Color get scaffoldBackgroundColor;
+
   TextStyle movieCellMovieNameTextStyle(double fontSize);
 
   TextStyle movieCellMovieGenresTextStyle(double fontSize);
@@ -14,11 +16,15 @@ abstract  class ATheme {
 
   TextStyle carouselCardSubTitleTextStyle(double fontSize);
 
+  TextStyle ratingViewRateTextStyle(double fontSize);
+
+  TextStyle releaseDateViewDateTextStyle(double fontSize);
+
   ThemeData get themeData => ThemeData(
         useMaterial3: true,
-                appBarTheme: appbarTheme,
+        appBarTheme: appbarTheme,
         bottomNavigationBarTheme: bottomNavigationTheme,
+        primaryColor: primaryColor,
+        scaffoldBackgroundColor: scaffoldBackgroundColor
       );
-
-
 }

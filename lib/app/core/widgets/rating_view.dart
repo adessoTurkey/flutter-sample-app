@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
+import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 enum RatingViewSizeEnum {
-  large(Size(90, 50), 20, 18),
-  medium(Size(80, 50), 16, 14),
+  large(Size(100, 50), 18, 18),
+  medium(Size(80, 50), 16, 16),
   small(Size(75, 50), 14, 12);
 
   final Size size;
@@ -25,36 +26,37 @@ class RatingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: WidgetsConstants.ratingViewPaddingHorizontal,
-        vertical: WidgetsConstants.ratingViewPaddingVertical,
-      ),
-      width: ratingViewSize.size.width,
-      decoration: const BoxDecoration(
-        color: MColors.electricBlue,
-        borderRadius: BorderRadius.all(
-          Radius.circular(WidgetsConstants.ratingViewCornerRadius),
-        ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          FaIcon(
-            FontAwesomeIcons.solidStar,
-            color: Colors.white,
-            size: ratingViewSize.iconSize,
+    return ConfigurationWidget(
+      onConfigurationReady: (configuration, theme) {
+        return Container(
+          padding: const EdgeInsets.symmetric(
+            horizontal: WidgetsConstants.ratingViewPaddingHorizontal,
+            vertical: WidgetsConstants.ratingViewPaddingVertical,
           ),
-          Text(
-            rating.toString(),
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: ratingViewSize.fontSize,
+          decoration: BoxDecoration(
+            color: theme.themeData.primaryColor,
+            borderRadius: const BorderRadius.all(
+              Radius.circular(WidgetsConstants.ratingViewCornerRadius),
             ),
-          )
-        ],
-      ),
+          ),
+          child: Wrap(
+            spacing: 8,
+            direction: Axis.horizontal,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              FaIcon(
+                FontAwesomeIcons.solidStar,
+                color: theme.themeData.scaffoldBackgroundColor,
+                size: ratingViewSize.iconSize,
+              ),
+              Text(
+                rating.toString(),
+                style: theme.ratingViewRateTextStyle(ratingViewSize.fontSize),
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 }

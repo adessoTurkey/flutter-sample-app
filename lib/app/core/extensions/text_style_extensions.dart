@@ -37,4 +37,21 @@ extension TextStyleExtensions on TextStyle {
         fontWeight: _light,
         color: color,
       );
+
+  TextStyle ratingViewRateTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _light,
+        color: color,
+      );
+
+
+  TextStyle releaseDateViewDateTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _light,
+        color: color,
+      );
+
+    
 }

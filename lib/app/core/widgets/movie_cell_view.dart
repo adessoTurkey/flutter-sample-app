@@ -17,15 +17,15 @@ class MovieCellView extends StatelessWidget {
           elevation: WidgetsConstants.movieCellCardElevation,
           shadowColor: Colors.black26,
           clipBehavior: Clip.hardEdge,
-          surfaceTintColor: Colors.white,
+          surfaceTintColor: theme.themeData.scaffoldBackgroundColor,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               ImageContainerView(
                 imageURL: movie.imageURL,
-                containerSize: const Size(
-                  WidgetsConstants.movieCellImageWidth,
-                  WidgetsConstants.movieCellHeight,
+                containerSize: Size(
+                  configuration.movieCellImageWidth,
+                  configuration.movieCellImageWidth,
                 ),
                 placeholderImage: MovieAssets.images.poster1.path,
               ),

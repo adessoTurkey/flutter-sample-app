@@ -6,10 +6,16 @@ class SmallConfiguration extends ResponsiveConfiguration {
   Size get ratingViewSize => const Size(75, 50);
 
   @override
+  Size get movieCarouselContainerSize => const Size(0, 250);
+
+  @override
   double get movieCellMovieNameTextSize => 16;
 
   @override
   double get movieCellMovieGenresTextSize => 14;
+
+  @override
+  double get movieCellImageWidth => 80;
 
   @override
   double get headerTextSize => 26;
@@ -19,4 +25,10 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   @override
   double get carouselCardSubTitleTextSize => 16;
+
+  @override
+  double get releaseDateViewDateTextSize => 10;
+
+  @override
+  double get releaseDateViewDateIconSize => 16;
 }

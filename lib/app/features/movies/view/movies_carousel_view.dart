@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movies/models/movie_model.dart';
+import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class MoviesCarouselView extends StatelessWidget {
@@ -19,12 +20,12 @@ class MoviesCarouselView extends StatelessWidget {
     return ConfigurationWidget(
       onConfigurationReady: (configuration, theme) {
         return Container(
-          color: Colors.white,
+          color: theme.themeData.scaffoldBackgroundColor,
           height: MoviesConstants.movieCarouselContainerHeight,
           child: Stack(
             children: [
               Container(
-                color: MColors.electricBlue,
+                color: theme.themeData.primaryColor,
                 height: MoviesConstants.movieCarouselBlueContainerHeight,
               ),
               Padding(
@@ -33,7 +34,7 @@ class MoviesCarouselView extends StatelessWidget {
                   left: MoviesConstants.movieCarouselHeaderLeftPadding,
                 ),
                 child: Text(
-                  "Movies",
+                  context.localization.moviesPageTite,
                   style: theme.moviesViewHeaderTextStyle(
                     configuration.headerTextSize,
                   ),
@@ -43,7 +44,7 @@ class MoviesCarouselView extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 child: CarouselView(
                   list: movieList,
-                  height: MoviesConstants.movieCarouselHeight,
+                  height: configuration.movieCarouselContainerSize.height,
                   onPageChanged: onPageChanged,
                 ),
               ),

@@ -25,7 +25,7 @@ class _MoviesPageState extends State<MoviesPage> {
           body: Stack(
             children: [
               Container(
-                color: MColors.electricBlue,
+                color: theme.themeData.primaryColor,
                 height: context.screenSize.width,
                 width: context.screenSize.width,
               ),
@@ -33,16 +33,9 @@ class _MoviesPageState extends State<MoviesPage> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      MoviesCarouselView(
-                        movieList: mockMovies,
-                        onPageChanged: (currentIndex) {
-                          setState(() {
-                            currentPage = currentIndex;
-                          });
-                        },
-                      ),
+                      _carouselView(),
                       Container(
-                        color: Colors.white,
+                        color: theme.themeData.scaffoldBackgroundColor,
                         child: Padding(
                           padding: const EdgeInsets.only(
                             top: MoviesConstants.moviePageListViewPaddingTop,
@@ -58,9 +51,9 @@ class _MoviesPageState extends State<MoviesPage> {
                               ),
                               const Divider(),
                               SizedBox(
-                                height:
-                                    (WidgetsConstants.movieCellHeight + 25) *
-                                        mockMovies.length,
+                                height: (WidgetsConstants.movieCellHeight +
+                                        WidgetsConstants.movieCellSpacing) *
+                                    mockMovies.length,
                                 child: MovieListView(movieList: mockMovies),
                               )
                             ],
@@ -74,6 +67,17 @@ class _MoviesPageState extends State<MoviesPage> {
             ],
           ),
         );
+      },
+    );
+  }
+
+  Widget _carouselView() {
+    return MoviesCarouselView(
+      movieList: mockMovies,
+      onPageChanged: (currentIndex) {
+        setState(() {
+          currentPage = currentIndex;
+        });
       },
     );
   }

@@ -1,7 +1,6 @@
 abstract final class MoviesConstants {
 
   //Movie Carousel View
-  static const double movieCarouselHeight = 350;
   static const double movieCarouselBlueContainerHeight = 200;
   static const double movieCarouselContainerHeight = 450;
   static const double movieCarouselHeaderTopPadding = 24;

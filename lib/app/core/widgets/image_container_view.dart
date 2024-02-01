@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ImageContainerView extends StatelessWidget {
   final String imageURL;
@@ -16,21 +18,18 @@ class ImageContainerView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: containerSize?.width,
-      height: containerSize?.height,
       child: ClipRRect(
-        child: Image.network(
-          imageURL,
+        child: CachedNetworkImage(
           fit: BoxFit.fill,
-          loadingBuilder: (BuildContext context, Widget child,
-              ImageChunkEvent? loadingProgress) {
-            if (loadingProgress == null) return child;
-            return ClipRRect(
-              child: Image.asset(
-                placeholderImage,
-                fit: BoxFit.fill,
-              ),
+          imageUrl: imageURL,
+          placeholder: (context, url) {
+            return Image.asset(
+              placeholderImage,
+              fit: BoxFit.fill,
             );
           },
+          errorWidget: (context, url, error) =>
+              const FaIcon(FontAwesomeIcons.exclamation),
         ),
       ),
     );

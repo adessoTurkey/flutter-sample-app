@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/constants/constants.dart';
+import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ReleaseDateView extends StatelessWidget {
@@ -9,22 +9,25 @@ class ReleaseDateView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        const FaIcon(
-          FontAwesomeIcons.calendar,
-          color: MColors.electricBlue,
-          size: 20,
-        ),
-        const SizedBox(
-          width: WidgetsConstants.releaseDateViewSizedBoxHegiht,
-        ),
-        Text(
-          releaseDate,
-        ),
-      ],
+    return ConfigurationWidget(
+      onConfigurationReady: (configuration, theme) {
+        return Wrap(
+          spacing: 10,
+          direction: Axis.horizontal,
+          children: [
+            FaIcon(
+              FontAwesomeIcons.calendar,
+              color: theme.themeData.primaryColor,
+              size: configuration.releaseDateViewDateIconSize,
+            ),
+            Text(
+              releaseDate,
+              style: theme.releaseDateViewDateTextStyle(
+                  configuration.releaseDateViewDateTextSize),
+            ),
+          ],
+        );
+      },
     );
   }
 }

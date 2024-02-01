@@ -15,6 +15,12 @@ final class LightTheme extends ATheme{
    @override
   AppBarTheme get appbarTheme => const AppBarTheme(color: MColors.vibrantBlue);
 
+  @override
+  Color get primaryColor => MColors.electricBlue;
+
+  @override
+  Color get scaffoldBackgroundColor => MColors.white;
+
 @override
   TextStyle movieCellMovieNameTextStyle(double fontSize) {
     return const TextStyle().movieCellMovieNameTextStyle(fontSize, MColors.almostBlack);
@@ -33,13 +39,26 @@ final class LightTheme extends ATheme{
 
   @override
   TextStyle carouselCardSubTitleTextStyle(double fontSize) {
-    return const TextStyle().carouselCardTitleTextStyle(fontSize, MColors.almostBlack);
+    return const TextStyle()
+        .carouselCardSubTitleTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override
   TextStyle carouselCardTitleTextStyle(double fontSize) {
     return const TextStyle()
-        .carouselCardSubTitleTextStyle(fontSize, MColors.almostBlack);
+        .carouselCardTitleTextStyle(fontSize, MColors.almostBlack);
   }
 
+  @override
+  TextStyle ratingViewRateTextStyle(double fontSize) {
+    return const TextStyle().ratingViewRateTextStyle(fontSize, Colors.white);
+  }
+
+
+
+  @override
+  TextStyle releaseDateViewDateTextStyle(double fontSize) {
+    return const TextStyle()
+        .releaseDateViewDateTextStyle(fontSize, MColors.black25);
+  }
 }

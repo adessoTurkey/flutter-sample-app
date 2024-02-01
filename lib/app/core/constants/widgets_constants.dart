@@ -3,8 +3,8 @@ abstract final class WidgetsConstants {
   static const double carouselCardRightPadding = 20;
 
   //Movie Cell
-  static const double movieCellHeight = 130;
-  static const double movieCellImageWidth = 100;
+  static const double movieCellHeight = 150;
+  static const double movieCellSpacing = 25;
   static const double movieCellInfoContainerWidth = 250;
   static const double movieCellBodyPaddingLeft = 18;
   static const double movieCellDividerHeight = 10;
