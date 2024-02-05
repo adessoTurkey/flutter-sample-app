@@ -1,5 +1,13 @@
 {
   "hello": "Merhaba",
-   "we" : "Biz"
-
+  "we" : "Biz",
+  "movie" : "movie",
+  "enterEmail" : "Email giriniz",
+  "email" : "Email",
+  "enterPassword" : "Şifre giriniz",
+  "password" : "Şifre",
+  "forgatPassword" : "Şifremi unuttum",
+  "login" : "Giriş",
+  "dontHaveAccount" : "Hesabım yok",
+  "registerNow" : "Kayıt ol"
 }

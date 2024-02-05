@@ -12,31 +12,25 @@ import 'package:flutter/widgets.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/a.png
-  AssetGenImage get a => const AssetGenImage('assets/images/a.png');
-
-  /// File path: assets/images/b.png
-  AssetGenImage get b => const AssetGenImage('assets/images/b.png');
-
   /// File path: assets/images/eye.svg
   String get eye => 'assets/images/eye.svg';
 
   /// File path: assets/images/heart.png
   AssetGenImage get heart => const AssetGenImage('assets/images/heart.png');
 
-  /// File path: assets/images/login_bg.jpg
+  /// File path: assets/images/login_bg.png
   AssetGenImage get loginBg =>
-      const AssetGenImage('assets/images/login_bg.jpg');
+      const AssetGenImage('assets/images/login_bg.png');
 
   /// File path: assets/images/logo.svg
   String get logo => 'assets/images/logo.svg';
 
-  /// File path: assets/images/splash_bg.jpg
+  /// File path: assets/images/splash_bg.png
   AssetGenImage get splashBg =>
-      const AssetGenImage('assets/images/splash_bg.jpg');
+      const AssetGenImage('assets/images/splash_bg.png');
 
   /// List of all assets
-  List<dynamic> get values => [a, b, eye, heart, loginBg, logo, splashBg];
+  List<dynamic> get values => [eye, heart, loginBg, logo, splashBg];
 }
 
 class MovieAssets {

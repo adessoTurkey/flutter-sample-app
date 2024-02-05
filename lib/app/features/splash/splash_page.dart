@@ -16,23 +16,28 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Timer(const Duration(seconds: 3),
+    Future.delayed(const Duration(seconds: 3),
         () => context.pushRoute(const LoginRoute()));
-    return Scaffold(body: ConfigurationWidget(
-      onConfigurationReady: (config, theme) {
-        return Container(
-          decoration: const BoxDecoration(color: MColors.vibrantBlue),
-          child: Stack(
-            children: [
-              Align(
-                alignment: FractionalOffset.center,
-                child: SvgPicture.asset(
-                  MovieAssets.images.logo,
-                  width: config.splashLogoSize.width,
-                  height: config.splashLogoSize.height,
+    var splashBg = MovieAssets.images.splashBg.path;
+    return Scaffold(
+      body: ConfigurationWidget(
+        onConfigurationReady: (config, theme) {
+          return Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(splashBg), fit: BoxFit.cover),
+            ),
+            child: Stack(
+              children: [
+                Align(
+                  alignment: FractionalOffset.center,
+                  child: SvgPicture.asset(
+                    MovieAssets.images.logo,
+                    width: config.splashLogoSize.width,
+                    height: config.splashLogoSize.height,
+                  ),
                 ),
-              ),
-              Align(
+                Align(
                   alignment: FractionalOffset.bottomCenter,
                   child: Padding(
                     padding: config.splashBottomPadding,
@@ -46,8 +51,8 @@ class SplashPage extends StatelessWidget {
                         5.horizontalSizedBox,
                         Image.asset(
                           MovieAssets.images.heart.path,
-                          width: 19,
-                          height: 19,
+                          width: config.splashHeartSize.width,
+                          height: config.splashHeartSize.height,
                         ),
                         5.horizontalSizedBox,
                         Text(
@@ -56,11 +61,13 @@ class SplashPage extends StatelessWidget {
                         )
                       ],
                     ),
-                  )),
-            ],
-          ),
-        );
-      },
-    ));
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
   }
 }

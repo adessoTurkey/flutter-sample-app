@@ -1,6 +1,13 @@
 {
   "hello": "Hello",
-  "we" : "We"
-
-  
+  "we" : "We",
+  "movie" : "movie",
+  "enterEmail" : "Enter your email",
+  "email" : "Email",
+  "enterPassword" : "Enter your password",
+  "password" : "Password",
+  "forgatPassword" : "Forgat Password?",
+  "login" : "Login",
+  "dontHaveAccount" : "Don't have an account?",
+  "registerNow" : "Register Now"
 }

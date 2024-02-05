@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
-abstract  class ATheme {
+abstract class ATheme {
   BottomNavigationBarThemeData get bottomNavigationTheme;
   AppBarTheme get appbarTheme;
-  
- 
 
   ThemeData get themeData => ThemeData(
         useMaterial3: true,
@@ -12,8 +10,17 @@ abstract  class ATheme {
         bottomNavigationBarTheme: bottomNavigationTheme,
       );
 
- TextStyle movieCellMovieNameTextStyle(double fontSize);
+  TextStyle movieCellMovieNameTextStyle(double fontSize);
 
- TextStyle splashTextStyle(double fontSize);
+  TextStyle splashTextStyle(double fontSize);
 
+  TextStyle whiteTextStyle();
+
+  TextStyle forgatPassword(double fontSize);
+
+  TextStyle login(double fontSize);
+
+  TextStyle dontHaveAccount(double fontSize);
+
+  TextStyle registerNow(double fontSize);
 }
