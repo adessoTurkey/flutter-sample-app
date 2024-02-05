@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
+import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
@@ -41,13 +42,13 @@ class _LoginPage extends State<LoginPage> {
                     width: config.loginLogoSize.width,
                     height: config.loginLogoSize.height,
                   ),
-                  64.horizontalSizedBox,
+                  64.verticalSizedBox,
                   TextField(
                     style: theme.whiteTextStyle(),
                     decoration: InputDecoration(
                       hintStyle: theme.whiteTextStyle(),
-                      hintText: "Enter your email",
-                      labelText: "Email",
+                      hintText: context.localization.enterEmail,
+                      labelText: context.localization.email,
                       labelStyle: theme.whiteTextStyle(),
                     ),
                   ),
@@ -56,9 +57,9 @@ class _LoginPage extends State<LoginPage> {
                     obscureText: !passwordVisible,
                     style: theme.whiteTextStyle(),
                     decoration: InputDecoration(
-                      hintText: "Enter your password",
+                      hintText: context.localization.enterPassword,
                       hintStyle: theme.whiteTextStyle(),
-                      labelText: "Password",
+                      labelText: context.localization.password,
                       labelStyle: theme.whiteTextStyle(),
                       suffixIcon: IconButton(
                         icon: SvgPicture.asset(
@@ -81,7 +82,7 @@ class _LoginPage extends State<LoginPage> {
                       TextButton(
                         onPressed: () {},
                         child: Text(
-                          "Forgat Password?",
+                          context.localization.forgatPassword,
                           style: theme
                               .forgatPassword(config.forgatPasswordTextSize),
                         ),
@@ -103,7 +104,7 @@ class _LoginPage extends State<LoginPage> {
                       );
                     },
                     child: Text(
-                      "Login",
+                      context.localization.login,
                       style: theme.login(config.loginTextSize),
                     ),
                   ),
@@ -112,14 +113,14 @@ class _LoginPage extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Don't have an account?",
+                        context.localization.dontHaveAccount,
                         style: theme
                             .dontHaveAccount(config.dontHaveAccountTextSize),
                       ),
                       TextButton(
                           onPressed: () {},
                           child: Text(
-                            "Register Now",
+                            context.localization.registerNow,
                             style:
                                 theme.registerNow(config.registerNowTextSize),
                           )),

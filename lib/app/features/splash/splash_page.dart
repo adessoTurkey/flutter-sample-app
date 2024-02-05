@@ -24,8 +24,12 @@ class SplashPage extends StatelessWidget {
         onConfigurationReady: (config, theme) {
           return Container(
             decoration: BoxDecoration(
+              color: MColors.vibrantBlue,
               image: DecorationImage(
-                  image: AssetImage(splashBg), fit: BoxFit.cover),
+                  colorFilter: ColorFilter.mode(
+                      MColors.vibrantBlue.withOpacity(0.2), BlendMode.dstATop),
+                  image: AssetImage(splashBg),
+                  fit: BoxFit.cover),
             ),
             child: Stack(
               children: [
@@ -56,7 +60,7 @@ class SplashPage extends StatelessWidget {
                         ),
                         5.horizontalSizedBox,
                         Text(
-                          "movie",
+                          context.localization.movie,
                           style: theme.splashTextStyle(config.splashTextSize),
                         )
                       ],
