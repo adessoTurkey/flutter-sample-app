@@ -1,10 +1,8 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_movie_app/api_call/network/network.dart';
 import 'package:flutter_movie_app/app/core/themes/themes.dart';
 import 'package:flutter_movie_app/localization/localization_helper.dart';
 import 'package:flutter_movie_app/responsive/configuration/configuration.dart';
-import 'package:flutter_movie_app/responsive/configuration/large_configuration.dart';
-import 'package:flutter_movie_app/responsive/configuration/medium_configuration.dart';
-import 'package:flutter_movie_app/responsive/configuration/small_configuration.dart';
 import 'package:get_it/get_it.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
@@ -47,6 +45,7 @@ void _configureInjection() {
     ..registerSingleton<AppRouter>(AppRouter())
     ..registerSingleton<LightTheme>(LightTheme())
     ..registerSingleton<DarkTheme>(DarkTheme())
+    ..registerSingleton<ErrorParser>(ErrorParser())
     ..registerSingleton<LargeConfiguration>(LargeConfiguration())
     ..registerSingleton<MediumConfiguration>(MediumConfiguration())
     ..registerSingleton<SmallConfiguration>(SmallConfiguration())
