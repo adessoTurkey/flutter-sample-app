@@ -1,18 +1,16 @@
 import 'package:flutter_movie_app/responsive/configuration/configuration.dart';
-import 'package:flutter_movie_app/responsive/configuration/large_configuration.dart';
-import 'package:flutter_movie_app/responsive/configuration/medium_configuration.dart';
-import 'package:flutter_movie_app/responsive/configuration/small_configuration.dart';
 import 'package:flutter_movie_app/responsive/responsive_type_enum.dart';
+import '../../di/dependency_injection.dart';
 
 class ResponsiveConfigurationFactory {
   static ResponsiveConfiguration getConfigutation(ResponsiveType type) {
     switch (type) {
       case ResponsiveType.largeMobile:
-        return LargeConfiguration();
+        return  getIt<LargeConfiguration>();
       case ResponsiveType.mediumMobile:
-        return MediumConfiguration();
+        return getIt<MediumConfiguration>();
       case ResponsiveType.smallMobile:
-        return SmallConfiguration();
+        return getIt<SmallConfiguration>();
     }
   }
 }
