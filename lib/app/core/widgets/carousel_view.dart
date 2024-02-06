@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
-<<<<<<< HEAD
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
-=======
->>>>>>> 653d78f ([feature-movies_page] movies view scrolling fixed, some widgets updated.)
 
 class CarouselView extends StatefulWidget {
   final List list;
@@ -58,7 +54,6 @@ class _CarouselViewState extends State<CarouselView> {
   }
 
   Widget carouselCardWidget(String imageURL) {
-<<<<<<< HEAD
     return ConfigurationWidget(
       onConfigurationReady: (configuration, theme) {
         return Container(
@@ -74,19 +69,6 @@ class _CarouselViewState extends State<CarouselView> {
           ),
         );
       },
-=======
-    return Container(
-      margin: const EdgeInsets.only(
-        right: WidgetsConstants.carouselCardRightPadding,
-      ),
-      child: Card(
-        clipBehavior: Clip.hardEdge,
-        child: ImageContainerView(
-          imageURL: imageURL,
-          placeholderImage: MovieAssets.images.poster1.path,
-        ),
-      ),
->>>>>>> 653d78f ([feature-movies_page] movies view scrolling fixed, some widgets updated.)
     );
   }
 }
