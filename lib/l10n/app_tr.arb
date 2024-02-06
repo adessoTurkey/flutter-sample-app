@@ -8,7 +8,6 @@
   "conflict_error": "Hata {errorCode}",
   "no_data_error": "Hata {errorCode}"
 
-  "hello": "Merhaba",
   "moviesPageTite": "Filmler",
   "moviesPagePopularTitle": "Popular",
   "moviesPageAppBarTitle": "Popular Movies"
