@@ -7,4 +7,19 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   @override
   double get movieCellMovieNameTextSize => 14;
+
+  @override
+  double get durationViewIconSize => 14;
+
+  @override
+  double get durationViewTextSize => 14;
+
+  @override
+  double get rateViewIconSize => 30;
+
+  @override
+  double get rateViewTextSize => 20;
+
+  @override
+  double get movieDetailDescriptionTextSize => 14;
 }

@@ -7,4 +7,19 @@ class MediumConfiguration extends ResponsiveConfiguration {
 
   @override
   double get movieCellMovieNameTextSize => 16;
+
+  @override
+  double get durationViewIconSize => 16;
+
+  @override
+  double get durationViewTextSize => 16;
+
+  @override
+  double get rateViewIconSize => 30;
+
+  @override
+  double get rateViewTextSize => 20;
+
+  @override
+  double get movieDetailDescriptionTextSize => 16;
 }

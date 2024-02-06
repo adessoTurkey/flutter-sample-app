@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoTabsRouter(
       routes: const [
-        MoviesRoute(),
+        MovieDetailRoute(),
         TvSeriesRoute(),
         SearchRoute(),
         ProfileRoute()
