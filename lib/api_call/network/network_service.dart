@@ -46,13 +46,13 @@ class NetworkService {
       onReceiveProgress,
     );
     final result = await compute(
-      executeRequest<T>,
+      _executeRequest<T>,
       req,
     );
     return result;
   }
 
-  Future<NetworkResponse<T>> executeRequest<T>(
+  Future<NetworkResponse<T>> _executeRequest<T>(
     PreparedNetworkRequest request,
   ) async {
     try {
