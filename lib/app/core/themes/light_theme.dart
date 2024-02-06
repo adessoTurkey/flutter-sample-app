@@ -3,16 +3,16 @@ import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/extensions/text_style_extensions.dart';
 import 'package:flutter_movie_app/app/core/themes/base_theme.dart';
 
-final class LightTheme extends ATheme{
+final class LightTheme extends ATheme {
   @override
-  BottomNavigationBarThemeData get bottomNavigationTheme => const BottomNavigationBarThemeData(
-    selectedItemColor: MColors.electricBlue,
-    unselectedItemColor: MColors.almostBlack,
-    backgroundColor: MColors.white,
-    
-  );
+  BottomNavigationBarThemeData get bottomNavigationTheme =>
+      const BottomNavigationBarThemeData(
+        selectedItemColor: MColors.electricBlue,
+        unselectedItemColor: MColors.almostBlack,
+        backgroundColor: MColors.white,
+      );
 
-   @override
+  @override
   AppBarTheme get appbarTheme => const AppBarTheme(color: MColors.vibrantBlue);
 
   @override
@@ -21,9 +21,10 @@ final class LightTheme extends ATheme{
   @override
   Color get scaffoldBackgroundColor => MColors.white;
 
-@override
+  @override
   TextStyle movieCellMovieNameTextStyle(double fontSize) {
-    return const TextStyle().movieCellMovieNameTextStyle(fontSize, MColors.almostBlack);
+    return const TextStyle()
+        .movieCellMovieNameTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override
@@ -34,7 +35,7 @@ final class LightTheme extends ATheme{
 
   @override
   TextStyle moviesViewHeaderTextStyle(double fontSize) {
-    return const TextStyle().moviesViewHeaderTextStyle(fontSize, Colors.white);
+    return const TextStyle().moviesViewHeaderTextStyle(fontSize, MColors.white);
   }
 
   @override
@@ -51,14 +52,24 @@ final class LightTheme extends ATheme{
 
   @override
   TextStyle ratingViewRateTextStyle(double fontSize) {
-    return const TextStyle().ratingViewRateTextStyle(fontSize, Colors.white);
+    return const TextStyle().ratingViewRateTextStyle(fontSize, MColors.white);
   }
-
-
 
   @override
   TextStyle releaseDateViewDateTextStyle(double fontSize) {
     return const TextStyle()
         .releaseDateViewDateTextStyle(fontSize, MColors.black25);
+  }
+
+  @override
+  TextStyle moviesPageListViewTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .moviesPageListViewTitleTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle moviesPageAppBarTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .moviesPageAppBarTitleTextStyle(fontSize, MColors.white);
   }
 }

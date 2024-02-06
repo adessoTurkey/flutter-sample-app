@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movies/models/movie_model.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
@@ -13,11 +12,10 @@ class MovieCellView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConfigurationWidget(
       onConfigurationReady: (configuration, theme) {
-        return Card(
-          elevation: WidgetsConstants.movieCellCardElevation,
+        return CustomCard(
+          elevation: configuration.movieCellCardElevation,
           shadowColor: Colors.black26,
-          clipBehavior: Clip.hardEdge,
-          surfaceTintColor: theme.themeData.scaffoldBackgroundColor,
+          backgroundColor: theme.themeData.scaffoldBackgroundColor,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -30,9 +28,9 @@ class MovieCellView extends StatelessWidget {
                 placeholderImage: MovieAssets.images.poster1.path,
               ),
               Container(
-                width: WidgetsConstants.movieCellInfoContainerWidth,
-                padding: const EdgeInsets.only(
-                  left: WidgetsConstants.movieCellBodyPaddingLeft,
+                width: configuration.movieCellInfoContainerWidth,
+                padding: EdgeInsets.only(
+                  left: configuration.movieCellBodyPaddingLeft,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,24 +60,24 @@ class MovieCellView extends StatelessWidget {
                         ReleaseDateView(
                           releaseDate: movie.releaseDate,
                         ),
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal: WidgetsConstants
-                                .movieCellDividerPaddingHorizontal,
-                            vertical: WidgetsConstants
-                                .movieCellDividerPaddingVertical,
+                            horizontal:
+                                configuration.movieCellDividerPaddingHorizontal,
+                            vertical:
+                                configuration.movieCellDividerPaddingVertical,
                           ),
                           child: SizedBox(
-                            height: WidgetsConstants.movieCellDividerHeight,
+                            height: configuration.movieCellDividerHeight,
                             child: VerticalDivider(
-                              width: WidgetsConstants.movieCellDividerWidth,
+                              width: configuration.movieCellDividerWidth,
                               color: Colors.black,
                             ),
                           ),
                         ),
                         RatingView(
                           rating: movie.rating,
-                          ratingViewSize: RatingViewSizeEnum.medium,
+                          type: RatingViewType.movieCell
                         ),
                       ],
                     )

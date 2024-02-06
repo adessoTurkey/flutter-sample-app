@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movies/models/movie_model.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
@@ -21,17 +20,17 @@ class MoviesCarouselView extends StatelessWidget {
       onConfigurationReady: (configuration, theme) {
         return Container(
           color: theme.themeData.scaffoldBackgroundColor,
-          height: MoviesConstants.movieCarouselContainerHeight,
+          height: configuration.movieCarouselContainerHeight,
           child: Stack(
             children: [
               Container(
                 color: theme.themeData.primaryColor,
-                height: MoviesConstants.movieCarouselBlueContainerHeight,
+                height: configuration.movieCarouselBlueContainerHeight,
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                  top: MoviesConstants.movieCarouselHeaderTopPadding,
-                  left: MoviesConstants.movieCarouselHeaderLeftPadding,
+                padding: EdgeInsets.only(
+                  top: configuration.movieCarouselHeaderTopPadding,
+                  left: configuration.movieCarouselHeaderLeftPadding,
                 ),
                 child: Text(
                   context.localization.moviesPageTite,

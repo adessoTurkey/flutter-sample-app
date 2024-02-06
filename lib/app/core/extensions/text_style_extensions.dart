@@ -38,13 +38,11 @@ extension TextStyleExtensions on TextStyle {
         color: color,
       );
 
-  TextStyle ratingViewRateTextStyle(double fontSize, Color color) =>
-      copyWith(
+  TextStyle ratingViewRateTextStyle(double fontSize, Color color) => copyWith(
         fontSize: fontSize,
         fontWeight: _light,
         color: color,
       );
-
 
   TextStyle releaseDateViewDateTextStyle(double fontSize, Color color) =>
       copyWith(
@@ -53,5 +51,17 @@ extension TextStyleExtensions on TextStyle {
         color: color,
       );
 
-    
+  TextStyle moviesPageListViewTitleTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
+  TextStyle moviesPageAppBarTitleTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
 }

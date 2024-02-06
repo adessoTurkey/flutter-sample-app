@@ -20,11 +20,14 @@ abstract class ATheme {
 
   TextStyle releaseDateViewDateTextStyle(double fontSize);
 
+  TextStyle moviesPageListViewTitleTextStyle(double fontSize);
+
+  TextStyle moviesPageAppBarTitleTextStyle(double fontSize);
+
   ThemeData get themeData => ThemeData(
-        useMaterial3: true,
-        appBarTheme: appbarTheme,
-        bottomNavigationBarTheme: bottomNavigationTheme,
-        primaryColor: primaryColor,
-        scaffoldBackgroundColor: scaffoldBackgroundColor
-      );
+      useMaterial3: true,
+      appBarTheme: appbarTheme,
+      bottomNavigationBarTheme: bottomNavigationTheme,
+      primaryColor: primaryColor,
+      scaffoldBackgroundColor: scaffoldBackgroundColor);
 }

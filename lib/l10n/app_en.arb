@@ -1,6 +1,7 @@
 {
   "hello": "Hello",
-  "moviesPageTite": "Movies"
-
+  "moviesPageTite": "Movies",
+  "moviesPagePopularTitle": "Popular",
+  "moviesPageAppBarTitle": "Popular Movies"
   
 }

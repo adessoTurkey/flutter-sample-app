@@ -1,4 +1,6 @@
 {
   "hello": "Merhaba",
-  "moviesPageTite": "Filmler"
+  "moviesPageTite": "Filmler",
+  "moviesPagePopularTitle": "Popular",
+  "moviesPageAppBarTitle": "Popular Movies"
 }

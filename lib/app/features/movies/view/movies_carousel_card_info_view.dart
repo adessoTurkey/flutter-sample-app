@@ -14,10 +14,7 @@ class MoviesCarouselCardInfoView extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            RatingView(
-              rating: movie.rating,
-              ratingViewSize: RatingViewSizeEnum.large,
-            ),
+            RatingView(rating: movie.rating, type: RatingViewType.carousel),
             Text(
               movie.movieName,
               style: theme.carouselCardTitleTextStyle(
