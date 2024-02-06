@@ -10,10 +10,11 @@ class NetworkService {
     dioClient,
     httpHeaders,
   })  : _dio = dioClient,
-        _headers = httpHeaders ?? {};
+        _headers = httpHeaders ?? NetworkConstants.headers;
   Dio? _dio;
   final String baseUrl;
   final Map<String, String> _headers;
+
   Future<Dio> _getDefaultDioClient() async {
     _headers['content-type'] = NetworkConstants.contentType;
     final dio = Dio()
