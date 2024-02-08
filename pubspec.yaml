@@ -32,6 +32,7 @@ flutter:
   generate: true
   assets:
     - assets/
+    - assets/images/
     - .env
 
   uses-material-design: true

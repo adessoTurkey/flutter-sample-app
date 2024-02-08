@@ -6,8 +6,7 @@
   "bad_request_error": "Hata {errorCode}",
   "not_found_error": "Hata {errorCode}",
   "conflict_error": "Hata {errorCode}",
-  "no_data_error": "Hata {errorCode}"
-
+  "no_data_error": "Hata {errorCode}",
   "moviesPageTite": "Filmler",
   "moviesPagePopularTitle": "Popular",
   "moviesPageAppBarTitle": "Popular Movies"

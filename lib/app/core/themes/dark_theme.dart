@@ -24,12 +24,6 @@ final class DarkTheme extends ATheme {
   Color get scaffoldBackgroundColor => MColors.white;
 
   @override
-  TextStyle movieCellMovieNameTextStyle(double fontSize) {
-    return const TextStyle()
-        .movieCellMovieNameTextStyle(fontSize, MColors.white);
-  }
-
-  @override
   TextStyle movieCellMovieGenresTextStyle(double fontSize) {
     return const TextStyle()
         .movieCellMovieGenresTextStyle(fontSize, MColors.white);
