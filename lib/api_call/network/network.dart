@@ -4,4 +4,4 @@ export 'network_request.dart';
 export 'network_response.dart';
 export 'network_service.dart';
 export 'network_constants.dart';
-export 'error_parser.dart';
+export '../error/error.dart';

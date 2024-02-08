@@ -16,7 +16,7 @@ class NetworkService {
   final Map<String, String> _headers;
 
   Future<Dio> _getDefaultDioClient() async {
-    _headers['content-type'] = NetworkConstants.contentType;
+    _headers.addAll(NetworkConstants.headers);
     final dio = Dio()
       ..options.baseUrl = baseUrl
       ..options.headers = _headers
