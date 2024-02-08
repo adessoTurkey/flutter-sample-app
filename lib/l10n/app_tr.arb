@@ -1,5 +1,7 @@
 {
   "hello": "Merhaba",
-  "rateViewText": "Rate"
+  "rateViewRateButtonText": "Rate",
+  "rateViewShareButtonText": "Paylaş",
+  "movieDetailTrailerText": "Fragman"
 
 }

@@ -1,5 +1,7 @@
 {
   "hello": "Hello",
-  "rateViewText": "Rate"
+  "rateViewRateButtonText": "Rate",
+  "rateViewShareButtonText": "Share",
+  "movieDetailTrailerText": "Trailer"
   
 }

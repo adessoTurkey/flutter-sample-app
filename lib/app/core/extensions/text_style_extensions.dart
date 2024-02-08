@@ -14,7 +14,7 @@ extension TextStyleExtensions on TextStyle {
 
   TextStyle durationViewTextStyle(double fontSize, Color color) => copyWith(
         fontSize: fontSize,
-        fontWeight: _light5,
+        fontWeight: _light4,
         color: color,
       );
 
@@ -27,6 +27,40 @@ extension TextStyleExtensions on TextStyle {
       copyWith(
         fontSize: fontSize,
         fontWeight: _light4,
+        color: color,
+      );
+
+  TextStyle movieDetailTrailerTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
+  TextStyle movieDetailMovieTitleTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+  TextStyle movieDetailMovieGenresTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _light4,
+        color: color,
+      );
+
+  TextStyle movieDetailCastLeftLabelTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _light4,
+        color: color,
+      );
+
+  TextStyle movieDetailCastRightLabelTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
         color: color,
       );
 }

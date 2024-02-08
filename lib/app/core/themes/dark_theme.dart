@@ -23,13 +23,44 @@ final class DarkTheme extends ATheme {
         .durationViewTextStyle(fontSize, MColors.almostBlack);
   }
 
-  @override 
+  @override
   TextStyle rateViewTextStyle(double fontSize) {
     return const TextStyle().rateViewTextStyle(fontSize, MColors.almostBlack);
   }
-  
+
   @override
   TextStyle movieDetailDescriptionTextStyle(double fontSize) {
-    return const TextStyle().movieDetailDescriptionTextStyle(fontSize, MColors.almostBlack);
+    return const TextStyle()
+        .movieDetailDescriptionTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle movieDetailTrailerTextStyle(double fontSize) {
+    return const TextStyle()
+        .movieDetailTrailerTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle movieDetailMovieGenresTextStyle(double fontSize) {
+    return const TextStyle()
+        .movieDetailMovieGenresTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle movieDetailMovieTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .movieDetailMovieTitleTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle movieDetailCastLeftLabelTextStyle(double fontSize) {
+    return const TextStyle()
+        .movieDetailCastLeftLabelTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle movieDetailCastRightLabelTextStyle(double fontSize) {
+    return const TextStyle()
+        .movieDetailCastRightLabelTextStyle(fontSize, MColors.electricBlue);
   }
 }

@@ -15,9 +15,11 @@ class DurationView extends StatelessWidget {
           spacing: 10,
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
-            FaIcon(FontAwesomeIcons.clock,
-                color: MColors.electricBlue,
-                size: configuration.durationViewIconSize),
+            FaIcon(
+              FontAwesomeIcons.clock,
+              color: MColors.electricBlue,
+              size: configuration.durationViewIconSize,
+            ),
             Text(
               "${durationTime.toString()} min",
               style: theme

@@ -9,4 +9,16 @@ abstract class ResponsiveConfiguration {
   double get rateViewIconSize;
   double get rateViewTextSize;
   double get movieDetailDescriptionTextSize;
+  double get movieDetailTrailerTextSize;
+  double get movieDetailMovieTitleTextSize;
+  double get movieDetailMovieGenresTextSize;
+  double get movieDetailCastLabelTextSize;
+  double get movieDetailImageHeight;
+  double get movieDetailTopRowPaddingAll;
+  double get movieDetailPagePaddingHorizontal;
+  double get movieDetailPagePaddingVerical;
+  double get starRatingIconSize;
+  double get starRatingIconSpacingPaddingHorizontal;
+  double get circularButtonWidgetDefaultRadiusSize;
+  double get movieDetailShareButtonPaddingLeft;
 }

@@ -9,7 +9,7 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   double get movieCellMovieNameTextSize => 18;
 
   @override
-  double get durationViewIconSize => 24;
+  double get durationViewIconSize => 22;
 
   @override
   double get durationViewTextSize => 20;
@@ -22,4 +22,40 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   
   @override
   double get movieDetailDescriptionTextSize => 18;
+  
+  @override
+  double get movieDetailTrailerTextSize => 20;
+  
+  @override
+  double get movieDetailMovieGenresTextSize => 24;
+  
+  @override
+  double get movieDetailMovieTitleTextSize => 36;
+  
+  @override
+  double get movieDetailCastLabelTextSize => 18;
+  
+  @override
+  double get movieDetailImageHeight => 400;
+  
+  @override
+  double get movieDetailTopRowPaddingAll => 12;
+  
+  @override
+  double get movieDetailPagePaddingHorizontal => 24;
+  
+  @override
+  double get movieDetailPagePaddingVerical => 24;
+  
+  @override
+  double get starRatingIconSize => 36;
+  
+  @override
+  double get starRatingIconSpacingPaddingHorizontal => 2;
+  
+  @override
+  double get circularButtonWidgetDefaultRadiusSize => 30;
+  
+  @override
+  double get movieDetailShareButtonPaddingLeft => 24;
 }
