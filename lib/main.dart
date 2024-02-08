@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_movie_app/api_call/network/network.dart';
 import 'package:flutter_movie_app/app/core/config/app_router.dart';
 import 'package:flutter_movie_app/app/core/initialization/initialization_adapter.dart';
 import 'package:flutter_movie_app/app/core/logger/m_logger.dart';
@@ -11,8 +12,11 @@ import 'package:flutter_movie_app/localization/bloc/localization_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_movie_app/responsive/responsive.dart';
 
+import 'app/core/constants/constants.dart';
+
 void main() async {
   await dotenv.load(fileName: ".env");
+
   final features = <InitializationAdapter>[
     DependencyInjection.shared,
     // Add other features if needed
@@ -23,11 +27,16 @@ void main() async {
     MLogger.log.debug('${feature.runtimeType} initialized');
   }
 
+  NetworkService networkService =
+      NetworkService(baseUrl: dotenv.get(EnvConstants.baseUrl))
+        ..addBasicAuth(dotenv.get(EnvConstants.accessToken));
+
   runApp(MultiBlocProvider(providers: [
     BlocProvider(create: (_) => LocalizationsBloc()),
     BlocProvider(
         create: (_) => ThemeBloc()
-          ..add(const ChangeThemeEvent(themeType: ThemeEnum.light)),lazy:false)
+          ..add(const ChangeThemeEvent(themeType: ThemeEnum.light)),
+        lazy: false)
   ], child: const MyApp()));
 }
 
