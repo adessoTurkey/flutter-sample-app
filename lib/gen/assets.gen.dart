@@ -9,11 +9,23 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/poster_1.jpg
+  AssetGenImage get poster1 =>
+      const AssetGenImage('assets/images/poster_1.jpg');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [poster1];
+}
+
 class MovieAssets {
   MovieAssets._();
 
   static const String package = 'flutter_movie_app';
 
+  static const $AssetsImagesGen images = $AssetsImagesGen();
   static const AssetGenImage teams01 = AssetGenImage('assets/teams.01.jpg');
 
   /// List of all assets

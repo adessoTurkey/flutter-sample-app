@@ -6,5 +6,10 @@
   "bad_request_error": "Error {errorCode}",
   "not_found_error": "Error {errorCode}",
   "conflict_error": "Error {errorCode}",
-  "no_data_error": "Error {errorCode}" 
+  "no_data_error": "Error {errorCode}",
+  "hello": "Hello",
+  "moviesPageTite": "Movies",
+  "moviesPagePopularTitle": "Popular",
+  "moviesPageAppBarTitle": "Popular Movies"
+  
 }
