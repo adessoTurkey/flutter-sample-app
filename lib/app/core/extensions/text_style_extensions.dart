@@ -12,6 +12,60 @@ extension TextStyleExtensions on TextStyle {
         color: color,
       );
 
+  TextStyle movieCellMovieGenresTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _light,
+        color: color,
+      );
+
+  TextStyle moviesViewHeaderTextStyle(double fontSize, Color color) => copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
+  TextStyle carouselCardTitleTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
+  TextStyle carouselCardSubTitleTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _light,
+        color: color,
+      );
+
+  TextStyle ratingViewRateTextStyle(double fontSize, Color color) => copyWith(
+        fontSize: fontSize,
+        fontWeight: _light,
+        color: color,
+      );
+
+  TextStyle releaseDateViewDateTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _light,
+        color: color,
+      );
+
+  TextStyle moviesPageListViewTitleTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
+  TextStyle moviesPageAppBarTitleTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
   TextStyle durationViewTextStyle(double fontSize, Color color) => copyWith(
         fontSize: fontSize,
         fontWeight: _light4,
