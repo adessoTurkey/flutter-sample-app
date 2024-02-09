@@ -15,7 +15,7 @@ extension TextStyleExtensions on TextStyle {
   TextStyle movieCellMovieGenresTextStyle(double fontSize, Color color) =>
       copyWith(
         fontSize: fontSize,
-        fontWeight: _light,
+        fontWeight: _light5,
         color: color,
       );
 
@@ -35,20 +35,20 @@ extension TextStyleExtensions on TextStyle {
   TextStyle carouselCardSubTitleTextStyle(double fontSize, Color color) =>
       copyWith(
         fontSize: fontSize,
-        fontWeight: _light,
+        fontWeight: _light5,
         color: color,
       );
 
   TextStyle ratingViewRateTextStyle(double fontSize, Color color) => copyWith(
         fontSize: fontSize,
-        fontWeight: _light,
+        fontWeight: _light5,
         color: color,
       );
 
   TextStyle releaseDateViewDateTextStyle(double fontSize, Color color) =>
       copyWith(
         fontSize: fontSize,
-        fontWeight: _light,
+        fontWeight: _light5,
         color: color,
       );
 

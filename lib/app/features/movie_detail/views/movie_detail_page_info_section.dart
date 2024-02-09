@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
+import 'package:flutter_movie_app/app/features/movies/movies.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class MovieDetailPageInfoSection extends StatelessWidget {
-  const MovieDetailPageInfoSection({super.key});
+  final MovieModel movieModel;
+  const MovieDetailPageInfoSection({super.key, required this.movieModel});
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +34,11 @@ class MovieDetailPageInfoSection extends StatelessWidget {
       direction: Axis.vertical,
       children: [
         Text(
-          "Joker",
+          movieModel.movieName,
           style: titleTextStyle,
         ),
         Text(
-          "Crime, Drama",
+          movieModel.genres,
           style: genresTextStyle,
         ),
       ],
@@ -50,7 +52,14 @@ class MovieDetailPageInfoSection extends StatelessWidget {
         SizedBox(
           height: 10,
         ),
-        DurationView(durationTime: 144),
+        Row(
+          children: [
+            DurationView(durationTime: 144),
+            VerticalDividerWidget(dividerHeight: 20),
+            ReleaseDateView(releaseDate: "20.20.2024"),
+            VerticalDividerWidget(dividerHeight: 20),
+          ],
+        ),
         SizedBox(
           height: 20,
         ),

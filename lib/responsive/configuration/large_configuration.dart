@@ -27,10 +27,10 @@ final class LargeConfiguration extends ResponsiveConfiguration {
 
   //Release Date View
   @override
-  double get releaseDateViewDateTextSize => 14;
+  double get releaseDateViewDateTextSize => 16;
 
   @override
-  double get releaseDateViewDateIconSize => 20;
+  double get releaseDateViewDateIconSize => 22;
 
   //Movie Carousel View
   @override

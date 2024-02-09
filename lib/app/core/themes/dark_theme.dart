@@ -12,11 +12,6 @@ final class DarkTheme extends ATheme {
   AppBarTheme get appbarTheme => const AppBarTheme();
 
   @override
-  TextStyle movieCellMovieNameTextStyle(double fontSize) {
-    return const TextStyle().movieCellMovieNameTextStyle(fontSize, MColors.white);
-  }
-
-  @override
   Color get primaryColor => MColors.electricBlue;
 
   @override
@@ -54,7 +49,7 @@ final class DarkTheme extends ATheme {
   @override
   TextStyle releaseDateViewDateTextStyle(double fontSize) {
     return const TextStyle()
-        .releaseDateViewDateTextStyle(fontSize, MColors.black25);
+        .releaseDateViewDateTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override
@@ -68,7 +63,9 @@ final class DarkTheme extends ATheme {
     return const TextStyle()
         .moviesPageAppBarTitleTextStyle(fontSize, MColors.white);
   }
-}
+
+  @override
+  TextStyle movieCellMovieNameTextStyle(double fontSize) {
     return const TextStyle()
         .movieCellMovieNameTextStyle(fontSize, MColors.white);
   }

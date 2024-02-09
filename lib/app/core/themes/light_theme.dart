@@ -58,7 +58,7 @@ final class LightTheme extends ATheme {
   @override
   TextStyle releaseDateViewDateTextStyle(double fontSize) {
     return const TextStyle()
-        .releaseDateViewDateTextStyle(fontSize, MColors.black25);
+        .releaseDateViewDateTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override
@@ -71,10 +71,6 @@ final class LightTheme extends ATheme {
   TextStyle moviesPageAppBarTitleTextStyle(double fontSize) {
     return const TextStyle()
         .moviesPageAppBarTitleTextStyle(fontSize, MColors.white);
-  }
-}
-    return const TextStyle()
-        .movieCellMovieNameTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override

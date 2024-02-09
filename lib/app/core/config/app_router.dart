@@ -1,9 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/features/home/home_page.dart';
-import 'package:flutter_movie_app/app/features/movie_detail/model/movie_detail_model.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/movie_detail.dart';
-import 'package:flutter_movie_app/app/features/movies/movies_page.dart';
+import 'package:flutter_movie_app/app/features/movies/movies.dart';
 import 'package:flutter_movie_app/app/features/profile/profile_page.dart';
 import 'package:flutter_movie_app/app/features/search/search_page.dart';
 import 'package:flutter_movie_app/app/features/tv_series/tv_series_page.dart';

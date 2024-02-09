@@ -1,13 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/features/movie_detail/model/movie_detail_model.dart';
+import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
+import 'package:flutter_movie_app/app/features/movies/movies.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'movie_detail.dart';
 
 @RoutePage()
 class MovieDetailPage extends StatelessWidget {
-  final MovieDetailModel movieDetail;
-  const MovieDetailPage({required this.movieDetail, super.key});
+  final MovieModel movieModel;
+  const MovieDetailPage({required this.movieModel, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,13 @@ class MovieDetailPage extends StatelessWidget {
           return SingleChildScrollView(
             child: Column(
               children: [
-                const MovieDetailPageImageSection(),
+                MovieDetailPageImageSection(
+                  movieModel: movieModel,
+                ),
+                const Positioned(
+                  bottom: -40,
+                  child: RatingView(rating: 3.3, type: RatingViewType.carousel),
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: configuration.movieDetailPagePaddingHorizontal,
@@ -26,7 +33,9 @@ class MovieDetailPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const MovieDetailPageInfoSection(),
+                      MovieDetailPageInfoSection(
+                        movieModel: movieModel,
+                      ),
                       const SizedBox(
                         height: 20,
                       ),

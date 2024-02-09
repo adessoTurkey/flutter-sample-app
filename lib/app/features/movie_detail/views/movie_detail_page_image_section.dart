@@ -1,11 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
+import 'package:flutter_movie_app/app/features/movies/models/movie_model.dart';
+import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MovieDetailPageImageSection extends StatefulWidget {
-  const MovieDetailPageImageSection({super.key});
+  final MovieModel movieModel;
+  const MovieDetailPageImageSection({super.key, required this.movieModel});
 
   @override
   State<MovieDetailPageImageSection> createState() =>
@@ -22,12 +26,15 @@ class _MovieDetailPageImageSectionState
       onConfigurationReady: (configuration, theme) {
         return Stack(
           children: [
-            //Movie Image
-            Container(
-              height: configuration.movieDetailImageHeight,
-              color: Colors.amber,
+            SizedBox(
+              height: configuration.movieDetailImageHeight + 100,
+              width: context.screenSize.width,
+              child: ImageContainerView(
+                imageURL: widget.movieModel.imageURL,
+                placeholderImage: MovieAssets.images.poster1.path,
+              ),
             ),
-            topRow(context, configuration.movieDetailTopRowPaddingAll)
+            topRow(context, configuration.movieDetailTopRowPaddingAll),
           ],
         );
       },
