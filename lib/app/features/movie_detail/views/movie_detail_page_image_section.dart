@@ -24,18 +24,33 @@ class _MovieDetailPageImageSectionState
   Widget build(BuildContext context) {
     return ConfigurationWidget(
       onConfigurationReady: (configuration, theme) {
-        return Stack(
-          children: [
-            SizedBox(
-              height: configuration.movieDetailImageHeight + 100,
-              width: context.screenSize.width,
-              child: ImageContainerView(
-                imageURL: widget.movieModel.imageURL,
-                placeholderImage: MovieAssets.images.poster1.path,
+        return SizedBox(
+          height: configuration.movieDetailImageContainerHeight,
+          child: Stack(
+            children: [
+              Stack(
+                children: [
+                  SizedBox(
+                    height: configuration.movieDetailImageViewHeight,
+                    width: context.screenSize.width,
+                    child: ImageContainerView(
+                      imageURL: widget.movieModel.imageURL,
+                      placeholderImage: MovieAssets.images.poster1.path,
+                    ),
+                  ),
+                  topRow(context, configuration.movieDetailTopRowPaddingAll),
+                ],
               ),
-            ),
-            topRow(context, configuration.movieDetailTopRowPaddingAll),
-          ],
+              Positioned(
+                bottom: configuration.movieDetailRatingViewPositionedBottom,
+                left: 30,
+                child: RatingView(
+                  rating: widget.movieModel.rating,
+                  type: RatingViewType.carousel,
+                ),
+              )
+            ],
+          ),
         );
       },
     );

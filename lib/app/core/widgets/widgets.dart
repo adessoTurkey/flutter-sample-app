@@ -9,3 +9,4 @@ export 'rate_view.dart';
 export 'duration_view.dart';
 export 'star_rating.dart';
 export 'vertical_divider_widget.dart';
+export 'cast_label_widget.dart';

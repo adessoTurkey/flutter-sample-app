@@ -3,7 +3,6 @@ import 'package:flutter_movie_app/responsive/configuration/configuration.dart';
 import '../../app/core/enums/enums.dart';
 
 class SmallConfiguration extends ResponsiveConfiguration {
-
   @override
   Size get movieCarouselContainerSize => const Size(0, 250);
 
@@ -138,7 +137,10 @@ class SmallConfiguration extends ResponsiveConfiguration {
   double get movieDetailCastLabelTextSize => 18;
 
   @override
-  double get movieDetailImageHeight => 350;
+  double get movieDetailImageViewHeight => 400;
+
+  @override
+  double get movieDetailImageContainerHeight => 420;
 
   @override
   double get movieDetailTopRowPaddingAll => 8;
@@ -160,4 +162,7 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   @override
   double get movieDetailShareButtonPaddingLeft => 18;
+
+  @override
+  double get movieDetailRatingViewPositionedBottom => 0;
 }

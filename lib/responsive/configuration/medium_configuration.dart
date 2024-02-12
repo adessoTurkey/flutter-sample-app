@@ -137,7 +137,10 @@ class MediumConfiguration extends ResponsiveConfiguration {
   double get movieDetailCastLabelTextSize => 18;
 
   @override
-  double get movieDetailImageHeight => 350;
+  double get movieDetailImageViewHeight => 400;
+
+  @override
+  double get movieDetailImageContainerHeight => 420;
 
   @override
   double get movieDetailTopRowPaddingAll => 10;
@@ -159,4 +162,7 @@ class MediumConfiguration extends ResponsiveConfiguration {
 
   @override
   double get movieDetailShareButtonPaddingLeft => 20;
+
+  @override
+  double get movieDetailRatingViewPositionedBottom => 0;
 }

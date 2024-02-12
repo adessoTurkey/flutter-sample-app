@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class MovieDetailPageDescriptionSection extends StatelessWidget {
@@ -31,30 +32,6 @@ class MovieDetailPageDescriptionSection extends StatelessWidget {
     );
   }
 
-  Widget movieDetailCastLabel(
-    String title,
-    TextStyle titleTextStyle,
-    String info,
-    TextStyle infoTextStyle,
-  ) {
-    return Row(
-      children: [
-        Text(
-          "$title: ",
-          softWrap: false,
-          style: titleTextStyle,
-        ),
-        Text(
-          info,
-          style: infoTextStyle,
-          softWrap: false,
-          overflow: TextOverflow.ellipsis,
-          maxLines: 1,
-        ),
-      ],
-    );
-  }
-
   Widget movieDetailCastSection(
     TextStyle titleTextStyle,
     TextStyle infoTextStyle,
@@ -70,6 +47,29 @@ class MovieDetailPageDescriptionSection extends StatelessWidget {
             titleTextStyle,
             "Todd Philips, Scott Silver, Todd Philips, Scott Silver",
             infoTextStyle),
+      ],
+    );
+  }
+
+  Widget movieDetailCastLabel(
+    String title,
+    TextStyle titleTextStyle,
+    String info,
+    TextStyle infoTextStyle,
+  ) {
+    return Row(
+      children: [
+        CastLabelWidget(
+          textStyle: titleTextStyle,
+          title: title,
+          isTitle: true,
+        ),
+        Flexible(
+            child: CastLabelWidget(
+          textStyle: infoTextStyle,
+          title: info,
+          isTitle: false,
+        )),
       ],
     );
   }
