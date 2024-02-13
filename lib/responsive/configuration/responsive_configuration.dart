@@ -1,7 +1,49 @@
 import 'package:flutter/material.dart';
+import '../../app/core/enums/enums.dart';
 
 abstract class ResponsiveConfiguration {
-  Size get ratingViewSize;
+
+  //Rating View
+  RatingViewSizeEnum get ratingViewCarousel;
+  RatingViewSizeEnum get ratingViewMovieCell;
+
+  //Movie Carousel View
+  double get movieCarouselBlueContainerHeight;
+  Size get movieCarouselContainerSize;
+  double get movieCarouselContainerHeight;
+  double get movieCarouselHeaderTopPadding;
+  double get movieCarouselHeaderLeftPadding;
+
+  //Movie Page
+  double get moviePageListViewPaddingTop;
+  double get moviePageListViewPaddingLeft;
+  double get moviePageListViewPaddingRight;
+  double get moviePageListViewTitleTextSize;
+  double get moviePageAppBarTitleTextSize;
+
+  //Carousel
+  double get carouselCardRightPadding;
+
+  //Rating View
+  double get ratingViewPaddingHorizontal;
+  double get ratingViewPaddingVertical;
+  double get ratingViewCornerRadius;
+
+  //Movie Cell
+  double get movieCellHeight;
+  double get movieCellSpacing;
+  double get movieCellInfoContainerWidth;
+  double get movieCellBodyPaddingLeft;
+  double get movieCellDividerHeight;
+  double get movieCellDividerWidth;
+  double get movieCellDividerPaddingHorizontal;
+  double get movieCellDividerPaddingVertical;
+  double get movieCellCardElevation;
+
+  //Release Date View
+  double get releaseDateViewDateTextSize;
+  double get releaseDateViewDateIconSize;
+
   double get movieCellMovieNameTextSize;
   double get splashTextSize;
   Size get splashLogoSize;
@@ -13,4 +55,9 @@ abstract class ResponsiveConfiguration {
   double get loginTextSize;
   double get dontHaveAccountTextSize;
   double get registerNowTextSize;
+  double get movieCellMovieGenresTextSize;
+  double get movieCellImageWidth;
+  double get headerTextSize;
+  double get carouselCardTitleTextSize;
+  double get carouselCardSubTitleTextSize;
 }

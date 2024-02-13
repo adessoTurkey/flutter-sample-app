@@ -10,4 +10,15 @@
   "login" : "Login",
   "dontHaveAccount" : "Don't have an account?",
   "registerNow" : "Register Now"
+  "invalid_parameters_error": "Error {errorCode}",
+  "no_auth_error": "Error {errorCode}",
+  "no_access_error": "Error {errorCode}",
+  "bad_request_error": "Error {errorCode}",
+  "not_found_error": "Error {errorCode}",
+  "conflict_error": "Error {errorCode}",
+  "no_data_error": "Error {errorCode}",
+  "moviesPageTite": "Movies",
+  "moviesPagePopularTitle": "Popular",
+  "moviesPageAppBarTitle": "Popular Movies"
+
 }

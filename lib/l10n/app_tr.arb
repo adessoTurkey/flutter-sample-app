@@ -1,5 +1,15 @@
 {
   "hello": "Merhaba",
+  "invalid_parameters_error": "Hata {errorCode}",
+  "no_auth_error": "Hata {errorCode}",
+  "no_access_error": "Hata {errorCode}",
+  "bad_request_error": "Hata {errorCode}",
+  "not_found_error": "Hata {errorCode}",
+  "conflict_error": "Hata {errorCode}",
+  "no_data_error": "Hata {errorCode}",
+  "moviesPageTite": "Filmler",
+  "moviesPagePopularTitle": "Popular",
+  "moviesPageAppBarTitle": "Popular Movies"
   "we" : "Biz",
   "movie" : "movie",
   "enterEmail" : "Email giriniz",

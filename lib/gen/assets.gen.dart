@@ -33,6 +33,19 @@ class $AssetsImagesGen {
   List<dynamic> get values => [eye, heart, loginBg, logo, splashBg];
 }
 
+import 'package:flutter/widgets.dart';
+
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/poster_1.jpg
+  AssetGenImage get poster1 =>
+      const AssetGenImage('assets/images/poster_1.jpg');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [poster1];
+}
+
 class MovieAssets {
   MovieAssets._();
 
