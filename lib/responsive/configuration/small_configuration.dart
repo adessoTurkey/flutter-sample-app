@@ -143,7 +143,7 @@ class SmallConfiguration extends ResponsiveConfiguration {
   double get movieDetailImageContainerHeight => 420;
 
   @override
-  double get movieDetailTopRowPaddingAll => 8;
+  double get movieDetailPageRateAndShareIconSize => 22;
 
   @override
   double get movieDetailPagePaddingHorizontal => 20;

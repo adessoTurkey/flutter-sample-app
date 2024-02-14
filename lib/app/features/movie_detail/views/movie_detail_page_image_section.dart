@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
+import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movies/models/movie_model.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
@@ -38,7 +39,8 @@ class _MovieDetailPageImageSectionState
                       placeholderImage: MovieAssets.images.poster1.path,
                     ),
                   ),
-                  topRow(context, configuration.movieDetailTopRowPaddingAll),
+                  topRow(context,
+                      configuration.movieDetailPageRateAndShareIconSize),
                 ],
               ),
               Positioned(
@@ -56,14 +58,15 @@ class _MovieDetailPageImageSectionState
     );
   }
 
-  Widget topRow(BuildContext context, double padding) {
+  Widget topRow(BuildContext context, double iconSize) {
     return SafeArea(
       child: Padding(
-        padding: EdgeInsets.all(padding),
+        padding: 12.all,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             CircularButtonWidget(
+              radiusSize: iconSize,
               onTap: () {
                 context.popRoute();
               },
@@ -72,6 +75,7 @@ class _MovieDetailPageImageSectionState
               iconColor: Colors.white,
             ),
             CircularButtonWidget(
+              radiusSize: iconSize,
               onTap: () {
                 setState(() {
                   _isFavorite = !_isFavorite;

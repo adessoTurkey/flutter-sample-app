@@ -143,7 +143,7 @@ class MediumConfiguration extends ResponsiveConfiguration {
   double get movieDetailImageContainerHeight => 420;
 
   @override
-  double get movieDetailTopRowPaddingAll => 10;
+  double get movieDetailPageRateAndShareIconSize => 26;
 
   @override
   double get movieDetailPagePaddingHorizontal => 20;

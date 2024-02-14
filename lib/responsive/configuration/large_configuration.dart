@@ -144,7 +144,7 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   double get movieDetailImageContainerHeight => 470;
 
   @override
-  double get movieDetailTopRowPaddingAll => 12;
+  double get movieDetailPageRateAndShareIconSize => 30;
 
   @override
   double get movieDetailPagePaddingHorizontal => 24;

@@ -60,7 +60,7 @@ class _RateViewState extends State<RateView> {
           iconColor: MColors.white,
         ),
         Text(
-          "${context.localization.rateViewRateButtonText} ($rating)",
+          "${context.localization.rate_view_rate_button_text} ($rating)",
           style: textStyle,
         )
       ],
@@ -81,7 +81,7 @@ class _RateViewState extends State<RateView> {
             iconColor: MColors.white,
           ),
           Text(
-            context.localization.rateViewShareButtonText,
+            context.localization.rate_view_share_button_text,
             style: textStyle,
           )
         ],
@@ -94,7 +94,9 @@ class _RateViewState extends State<RateView> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         VerticalDividerWidget(
+          paddingAll: 6,
           dividerHeight: iconSize * 2,
+          dividerWidth: 2,
         ),
         StarRating(
           value: rating,

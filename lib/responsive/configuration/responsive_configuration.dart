@@ -63,9 +63,9 @@ abstract class ResponsiveConfiguration {
   double get movieDetailImageViewHeight;
   double get movieDetailImageContainerHeight;
   double get movieDetailRatingViewPositionedBottom;
-  double get movieDetailTopRowPaddingAll;
   double get movieDetailPagePaddingHorizontal;
   double get movieDetailPagePaddingVerical;
+  double get movieDetailPageRateAndShareIconSize;
   double get starRatingIconSize;
   double get starRatingIconSpacingPaddingHorizontal;
   double get circularButtonWidgetDefaultRadiusSize;

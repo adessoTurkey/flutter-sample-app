@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/constants/m_colors.dart';
+import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -21,7 +22,7 @@ class DurationView extends StatelessWidget {
               size: configuration.durationViewIconSize,
             ),
             Text(
-              "${durationTime.toString()} min",
+              "${durationTime.toString()} ${context.localization.movie_detail_duration_text}",
               style: theme
                   .durationViewTextStyle(configuration.durationViewTextSize),
             ),

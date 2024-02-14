@@ -5,15 +5,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class StarRating extends StatelessWidget {
   final void Function(int index) onChanged;
-  final int? ratingValue;
-  final int? value;
+  final int ratingValue;
+  final int value;
 
   const StarRating({
     super.key,
     required this.onChanged,
-    this.ratingValue,
+    this.ratingValue = 5,
     this.value = 0,
-  }) : assert(value != null);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class StarRating extends StatelessWidget {
         return Row(
           mainAxisSize: MainAxisSize.min,
           children: List.generate(
-            ratingValue ?? 5,
+            ratingValue,
             (index) {
               return Padding(
                 padding: EdgeInsets.symmetric(
@@ -35,12 +35,12 @@ class StarRating extends StatelessWidget {
                   color: MColors.electricBlue,
                   iconSize: configuration.starRatingIconSize,
                   icon: FaIcon(
-                    index < (value ?? 0)
+                    index < (value)
                         ? FontAwesomeIcons.solidStar
                         : FontAwesomeIcons.star,
                   ),
                   padding: EdgeInsets.zero,
-                  tooltip: "${index + 1} of ${ratingValue ?? 5}",
+                  tooltip: "${index + 1} of $ratingValue",
                 ),
               );
             },

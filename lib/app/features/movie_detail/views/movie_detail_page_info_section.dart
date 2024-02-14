@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movies/movies.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
@@ -46,28 +47,30 @@ class MovieDetailPageInfoSection extends StatelessWidget {
   }
 
   Widget _movieRatingAndSharingSection() {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          height: 10,
-        ),
+        10.verticalSizedBox,
         Row(
           children: [
-            DurationView(durationTime: 144),
-            VerticalDividerWidget(dividerHeight: 20),
-            ReleaseDateView(releaseDate: "20.20.2024"),
-            VerticalDividerWidget(dividerHeight: 20),
+            DurationView(durationTime: movieModel.duration),
+            const VerticalDividerWidget(
+              paddingAll: 10,
+              dividerHeight: 20,
+              dividerWidth: 2,
+            ),
+            ReleaseDateView(releaseDate: movieModel.releaseDate),
+            const VerticalDividerWidget(
+              paddingAll: 10,
+              dividerHeight: 20,
+              dividerWidth: 2,
+            ),
           ],
         ),
-        SizedBox(
-          height: 20,
-        ),
-        RateView(),
-        SizedBox(
-          height: 20,
-        ),
-        Divider(),
+        20.verticalSizedBox,
+        const RateView(),
+        20.verticalSizedBox,
+        const Divider(),
       ],
     );
   }

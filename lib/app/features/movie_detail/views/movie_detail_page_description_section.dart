@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
+import 'package:flutter_movie_app/app/features/movies/models/movie_model.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class MovieDetailPageDescriptionSection extends StatelessWidget {
-  const MovieDetailPageDescriptionSection({super.key});
+  final MovieModel movieModel;
+  const MovieDetailPageDescriptionSection(
+      {required this.movieModel, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +17,11 @@ class MovieDetailPageDescriptionSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+              movieModel.description,
               style: theme.movieDetailDescriptionTextStyle(
                   configuration.movieDetailDescriptionTextSize),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            20.verticalSizedBox,
             movieDetailCastSection(
               theme.movieDetailCastLeftLabelTextStyle(
                   configuration.movieDetailCastLabelTextSize),
@@ -61,14 +63,12 @@ class MovieDetailPageDescriptionSection extends StatelessWidget {
       children: [
         CastLabelWidget(
           textStyle: titleTextStyle,
-          title: title,
-          isTitle: true,
+          title: "$title: ",
         ),
         Flexible(
             child: CastLabelWidget(
           textStyle: infoTextStyle,
           title: info,
-          isTitle: false,
         )),
       ],
     );

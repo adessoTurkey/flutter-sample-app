@@ -7,11 +7,12 @@
   "not_found_error": "Error {errorCode}",
   "conflict_error": "Error {errorCode}",
   "no_data_error": "Error {errorCode}",
-  "moviesPageTite": "Movies",
-  "moviesPagePopularTitle": "Popular",
-  "moviesPageAppBarTitle": "Popular Movies",
-  "rateViewRateButtonText": "Rate",
-  "rateViewShareButtonText": "Share",
-  "movieDetailTrailerText": "Trailer"
+  "movies_page_title": "Movies",
+  "movies_page_popular_title": "Popular",
+  "movies_page_app_bar_title": "Popular Movies",
+  "rate_view_rate_button_text": "Rate",
+  "rate_view_share_button_text": "Share",
+  "movie_detail_trailer_text": "Trailer",
+  "movie_detail_duration_text": "min"
   
 }
