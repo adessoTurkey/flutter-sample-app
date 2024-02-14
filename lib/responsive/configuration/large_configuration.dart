@@ -3,7 +3,6 @@ import 'package:flutter_movie_app/responsive/configuration/configuration.dart';
 import '../../app/core/enums/enums.dart';
 
 final class LargeConfiguration extends ResponsiveConfiguration {
-
   @override
   Size get movieCarouselContainerSize => const Size(0, 350);
 
@@ -27,10 +26,10 @@ final class LargeConfiguration extends ResponsiveConfiguration {
 
   //Release Date View
   @override
-  double get releaseDateViewDateTextSize => 14;
+  double get releaseDateViewDateTextSize => 16;
 
   @override
-  double get releaseDateViewDateIconSize => 20;
+  double get releaseDateViewDateIconSize => 22;
 
   //Movie Carousel View
   @override
@@ -110,4 +109,61 @@ final class LargeConfiguration extends ResponsiveConfiguration {
 
   @override
   RatingViewSizeEnum get ratingViewMovieCell => RatingViewSizeEnum.medium;
+
+  @override
+  double get durationViewIconSize => 22;
+
+  @override
+  double get durationViewTextSize => 20;
+
+  @override
+  double get rateViewIconSize => 26;
+
+  @override
+  double get rateViewTextSize => 18;
+
+  @override
+  double get movieDetailDescriptionTextSize => 18;
+
+  @override
+  double get movieDetailTrailerTextSize => 20;
+
+  @override
+  double get movieDetailMovieGenresTextSize => 24;
+
+  @override
+  double get movieDetailMovieTitleTextSize => 36;
+
+  @override
+  double get movieDetailCastLabelTextSize => 18;
+
+  @override
+  double get movieDetailImageViewHeight => 450;
+
+  @override
+  double get movieDetailImageContainerHeight => 470;
+
+  @override
+  double get movieDetailPageRateAndShareIconSize => 30;
+
+  @override
+  double get movieDetailPagePaddingHorizontal => 24;
+
+  @override
+  double get movieDetailPagePaddingVerical => 24;
+
+  @override
+  double get starRatingIconSize => 36;
+
+  @override
+  double get starRatingIconSpacingPaddingHorizontal => 2;
+
+  @override
+  double get circularButtonWidgetDefaultRadiusSize => 30;
+
+  @override
+  double get movieDetailShareButtonPaddingLeft => 24;
+
+  @override
+  double get movieDetailRatingViewPositionedBottom => 0;
 }

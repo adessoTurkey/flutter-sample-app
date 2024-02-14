@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
+import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
 import 'package:flutter_movie_app/app/features/movies/movies.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
@@ -46,10 +47,9 @@ class _MoviesPageState extends State<MoviesPage> {
         return Scaffold(
           appBar: _showAppbar
               ? AppBar(
-                  title: Text(
-                    context.localization.moviesPageAppBarTitle,
-                    style: theme.moviesPageAppBarTitleTextStyle(configuration.moviePageAppBarTitleTextSize)
-                  ),
+                  title: Text(context.localization.movies_page_app_bar_title,
+                      style: theme.moviesPageAppBarTitleTextStyle(
+                          configuration.moviePageAppBarTitleTextSize)),
                 )
               : null,
           body: Stack(
@@ -80,11 +80,9 @@ class _MoviesPageState extends State<MoviesPage> {
                                 movie: mockMovies[currentPage],
                               ),
                               const Divider(),
-                              const SizedBox(
-                                height: 16,
-                              ),
+                              16.verticalSizedBox,
                               Text(
-                                context.localization.moviesPagePopularTitle,
+                                context.localization.movies_page_popular_title,
                                 style: theme.moviesPageListViewTitleTextStyle(
                                     configuration
                                         .moviePageListViewTitleTextSize),

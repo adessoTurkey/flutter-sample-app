@@ -108,4 +108,61 @@ class MediumConfiguration extends ResponsiveConfiguration {
 
   @override
   RatingViewSizeEnum get ratingViewMovieCell => RatingViewSizeEnum.small;
+
+  @override
+  double get durationViewIconSize => 20;
+
+  @override
+  double get durationViewTextSize => 18;
+
+  @override
+  double get rateViewIconSize => 30;
+
+  @override
+  double get rateViewTextSize => 20;
+
+  @override
+  double get movieDetailDescriptionTextSize => 16;
+
+  @override
+  double get movieDetailTrailerTextSize => 18;
+
+  @override
+  double get movieDetailMovieGenresTextSize => 22;
+
+  @override
+  double get movieDetailMovieTitleTextSize => 36;
+
+  @override
+  double get movieDetailCastLabelTextSize => 18;
+
+  @override
+  double get movieDetailImageViewHeight => 400;
+
+  @override
+  double get movieDetailImageContainerHeight => 420;
+
+  @override
+  double get movieDetailPageRateAndShareIconSize => 26;
+
+  @override
+  double get movieDetailPagePaddingHorizontal => 20;
+
+  @override
+  double get movieDetailPagePaddingVerical => 20;
+
+  @override
+  double get starRatingIconSize => 32;
+
+  @override
+  double get starRatingIconSpacingPaddingHorizontal => 4;
+
+  @override
+  double get circularButtonWidgetDefaultRadiusSize => 26;
+
+  @override
+  double get movieDetailShareButtonPaddingLeft => 20;
+
+  @override
+  double get movieDetailRatingViewPositionedBottom => 0;
 }
