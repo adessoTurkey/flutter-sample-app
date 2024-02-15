@@ -3,4 +3,6 @@ abstract final class EnvConstants{
   static String accessToken="ACCESS_TOKEN";
   static String baseUrl="BASE_URL";
   static String requestTokenPath="REQUEST_TOKEN_PATH";
+  static String imageUrl="IMAGE_URL";
+  static String moviePath="MOVIE_PATH";
 }

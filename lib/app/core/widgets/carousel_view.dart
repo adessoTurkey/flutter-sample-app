@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
+import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class CarouselView extends StatefulWidget {
-  final List list;
+  final List<MovieData> list;
   final double height;
   final Function(int currentIndex) onPageChanged;
 
