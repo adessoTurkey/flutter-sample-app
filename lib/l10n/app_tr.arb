@@ -20,4 +20,11 @@
   "login" : "Giriş",
   "dontHaveAccount" : "Hesabım yok",
   "registerNow" : "Kayıt ol"
+  "movies_page_title": "Filmler",
+  "movies_page_popular_title": "Popular",
+  "movies_page_app_bar_title": "Popular Movies",
+  "rate_view_rate_button_text": "Rate",
+  "rate_view_share_button_text": "Paylaş",
+  "movie_detail_trailer_text": "Fragman",
+  "movie_detail_duration_text": "dk"
 }

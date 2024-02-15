@@ -31,6 +31,15 @@ abstract class ATheme {
 
   TextStyle moviesPageAppBarTitleTextStyle(double fontSize);
 
+  TextStyle durationViewTextStyle(double fontSize);
+  TextStyle rateViewTextStyle(double fontSize);
+  TextStyle movieDetailDescriptionTextStyle(double fontSize);
+  TextStyle movieDetailTrailerTextStyle(double fontSize);
+  TextStyle movieDetailMovieTitleTextStyle(double fontSize);
+  TextStyle movieDetailMovieGenresTextStyle(double fontSize);
+  TextStyle movieDetailCastLeftLabelTextStyle(double fontSize);
+  TextStyle movieDetailCastRightLabelTextStyle(double fontSize);
+
   TextStyle splashTextStyle(double fontSize);
 
   TextStyle whiteTextStyle();

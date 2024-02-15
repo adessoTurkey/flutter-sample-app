@@ -60,4 +60,24 @@ abstract class ResponsiveConfiguration {
   double get headerTextSize;
   double get carouselCardTitleTextSize;
   double get carouselCardSubTitleTextSize;
+
+  double get durationViewIconSize;
+  double get durationViewTextSize;
+  double get rateViewIconSize;
+  double get rateViewTextSize;
+  double get movieDetailDescriptionTextSize;
+  double get movieDetailTrailerTextSize;
+  double get movieDetailMovieTitleTextSize;
+  double get movieDetailMovieGenresTextSize;
+  double get movieDetailCastLabelTextSize;
+  double get movieDetailImageViewHeight;
+  double get movieDetailImageContainerHeight;
+  double get movieDetailRatingViewPositionedBottom;
+  double get movieDetailPagePaddingHorizontal;
+  double get movieDetailPagePaddingVerical;
+  double get movieDetailPageRateAndShareIconSize;
+  double get starRatingIconSize;
+  double get starRatingIconSpacingPaddingHorizontal;
+  double get circularButtonWidgetDefaultRadiusSize;
+  double get movieDetailShareButtonPaddingLeft;
 }

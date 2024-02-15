@@ -61,7 +61,7 @@ final class LightTheme extends ATheme {
   @override
   TextStyle releaseDateViewDateTextStyle(double fontSize) {
     return const TextStyle()
-        .releaseDateViewDateTextStyle(fontSize, MColors.black25);
+        .releaseDateViewDateTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override
@@ -96,5 +96,52 @@ final class LightTheme extends ATheme {
   TextStyle moviesPageAppBarTitleTextStyle(double fontSize) {
     return const TextStyle()
         .moviesPageAppBarTitleTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle durationViewTextStyle(double fontSize) {
+    return const TextStyle()
+        .durationViewTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle rateViewTextStyle(double fontSize) {
+    return const TextStyle().rateViewTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle movieDetailDescriptionTextStyle(double fontSize) {
+    return const TextStyle()
+        .movieDetailDescriptionTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle movieDetailTrailerTextStyle(double fontSize) {
+    return const TextStyle()
+        .movieDetailTrailerTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle movieDetailMovieGenresTextStyle(double fontSize) {
+    return const TextStyle()
+        .movieDetailMovieGenresTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle movieDetailMovieTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .movieDetailMovieTitleTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle movieDetailCastLeftLabelTextStyle(double fontSize) {
+    return const TextStyle()
+        .movieDetailCastLeftLabelTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle movieDetailCastRightLabelTextStyle(double fontSize) {
+    return const TextStyle()
+        .movieDetailCastRightLabelTextStyle(fontSize, MColors.electricBlue);
   }
 }

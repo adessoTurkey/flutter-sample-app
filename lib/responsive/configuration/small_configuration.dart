@@ -4,7 +4,6 @@ import 'package:flutter_movie_app/responsive/configuration/configuration.dart';
 import '../../app/core/enums/enums.dart';
 
 class SmallConfiguration extends ResponsiveConfiguration {
-
   @override
   Size get movieCarouselContainerSize => const Size(0, 250);
 
@@ -139,4 +138,61 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   @override
   RatingViewSizeEnum get ratingViewMovieCell => RatingViewSizeEnum.small;
+
+  @override
+  double get durationViewIconSize => 18;
+
+  @override
+  double get durationViewTextSize => 16;
+
+  @override
+  double get rateViewIconSize => 30;
+
+  @override
+  double get rateViewTextSize => 20;
+
+  @override
+  double get movieDetailDescriptionTextSize => 14;
+
+  @override
+  double get movieDetailTrailerTextSize => 16;
+
+  @override
+  double get movieDetailMovieGenresTextSize => 20;
+
+  @override
+  double get movieDetailMovieTitleTextSize => 36;
+
+  @override
+  double get movieDetailCastLabelTextSize => 18;
+
+  @override
+  double get movieDetailImageViewHeight => 400;
+
+  @override
+  double get movieDetailImageContainerHeight => 420;
+
+  @override
+  double get movieDetailPageRateAndShareIconSize => 22;
+
+  @override
+  double get movieDetailPagePaddingHorizontal => 20;
+
+  @override
+  double get movieDetailPagePaddingVerical => 20;
+
+  @override
+  double get starRatingIconSize => 28;
+
+  @override
+  double get starRatingIconSpacingPaddingHorizontal => 6;
+
+  @override
+  double get circularButtonWidgetDefaultRadiusSize => 22;
+
+  @override
+  double get movieDetailShareButtonPaddingLeft => 18;
+
+  @override
+  double get movieDetailRatingViewPositionedBottom => 0;
 }

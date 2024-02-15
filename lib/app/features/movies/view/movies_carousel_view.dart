@@ -33,7 +33,7 @@ class MoviesCarouselView extends StatelessWidget {
                   left: configuration.movieCarouselHeaderLeftPadding,
                 ),
                 child: Text(
-                  context.localization.moviesPageTite,
+                  context.localization.movies_page_title,
                   style: theme.moviesViewHeaderTextStyle(
                     configuration.headerTextSize,
                   ),
