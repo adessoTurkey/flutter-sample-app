@@ -9,7 +9,7 @@
   "forgatPassword" : "Forgat Password?",
   "login" : "Login",
   "dontHaveAccount" : "Don't have an account?",
-  "registerNow" : "Register Now"
+  "registerNow" : "Register Now",
   "invalid_parameters_error": "Error {errorCode}",
   "no_auth_error": "Error {errorCode}",
   "no_access_error": "Error {errorCode}",

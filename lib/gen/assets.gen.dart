@@ -25,25 +25,16 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.svg
   String get logo => 'assets/images/logo.svg';
 
+  /// File path: assets/images/poster_1.jpg
+  AssetGenImage get poster1 =>
+      const AssetGenImage('assets/images/poster_1.jpg');
+
   /// File path: assets/images/splash_bg.png
   AssetGenImage get splashBg =>
       const AssetGenImage('assets/images/splash_bg.png');
 
   /// List of all assets
-  List<dynamic> get values => [eye, heart, loginBg, logo, splashBg];
-}
-
-import 'package:flutter/widgets.dart';
-
-class $AssetsImagesGen {
-  const $AssetsImagesGen();
-
-  /// File path: assets/images/poster_1.jpg
-  AssetGenImage get poster1 =>
-      const AssetGenImage('assets/images/poster_1.jpg');
-
-  /// List of all assets
-  List<AssetGenImage> get values => [poster1];
+  List<dynamic> get values => [eye, heart, loginBg, logo, poster1, splashBg];
 }
 
 class MovieAssets {
@@ -52,6 +43,10 @@ class MovieAssets {
   static const String package = 'flutter_movie_app';
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const AssetGenImage teams01 = AssetGenImage('assets/teams.01.jpg');
+
+  /// List of all assets
+  static List<AssetGenImage> get values => [teams01];
 }
 
 class AssetGenImage {

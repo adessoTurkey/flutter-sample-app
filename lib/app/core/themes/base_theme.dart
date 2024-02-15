@@ -6,6 +6,13 @@ abstract class ATheme {
   Color get primaryColor;
   Color get scaffoldBackgroundColor;
 
+  ThemeData get themeData => ThemeData(
+      useMaterial3: true,
+      appBarTheme: appbarTheme,
+      bottomNavigationBarTheme: bottomNavigationTheme,
+      primaryColor: primaryColor,
+      scaffoldBackgroundColor: scaffoldBackgroundColor);
+
   TextStyle movieCellMovieNameTextStyle(double fontSize);
 
   TextStyle movieCellMovieGenresTextStyle(double fontSize);
@@ -24,14 +31,6 @@ abstract class ATheme {
 
   TextStyle moviesPageAppBarTitleTextStyle(double fontSize);
 
-  ThemeData get themeData => ThemeData(
-        useMaterial3: true,
-                appBarTheme: appbarTheme,
-        bottomNavigationBarTheme: bottomNavigationTheme,
-      );
-
-  TextStyle movieCellMovieNameTextStyle(double fontSize);
-
   TextStyle splashTextStyle(double fontSize);
 
   TextStyle whiteTextStyle();
@@ -43,9 +42,4 @@ abstract class ATheme {
   TextStyle dontHaveAccount(double fontSize);
 
   TextStyle registerNow(double fontSize);
-      useMaterial3: true,
-      appBarTheme: appbarTheme,
-      bottomNavigationBarTheme: bottomNavigationTheme,
-      primaryColor: primaryColor,
-      scaffoldBackgroundColor: scaffoldBackgroundColor);
 }
