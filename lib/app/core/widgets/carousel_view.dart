@@ -47,7 +47,7 @@ class _CarouselViewState extends State<CarouselView> {
         itemCount: widget.list.length,
         onPageChanged: widget.onPageChanged,
         itemBuilder: (context, index) {
-          var image = widget.list[index].imageURL;
+          var image = widget.list[index].getImageURL;
           return carouselCardWidget(image);
         },
       ),

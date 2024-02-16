@@ -30,6 +30,8 @@ mixin _$MovieData {
   List<int>? get genres => throw _privateConstructorUsedError;
   @JsonKey(name: "release_date")
   String? get releaseDate => throw _privateConstructorUsedError;
+  @JsonKey(name: "vote_average")
+  double? get voteAvarage => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +49,8 @@ abstract class $MovieDataCopyWith<$Res> {
       @JsonKey(name: "title") String? movieTitle,
       @JsonKey(name: "poster_path") String? moviePosterPath,
       @JsonKey(name: "genre_ids") List<int>? genres,
-      @JsonKey(name: "release_date") String? releaseDate});
+      @JsonKey(name: "release_date") String? releaseDate,
+      @JsonKey(name: "vote_average") double? voteAvarage});
 }
 
 /// @nodoc
@@ -68,6 +71,7 @@ class _$MovieDataCopyWithImpl<$Res, $Val extends MovieData>
     Object? moviePosterPath = freezed,
     Object? genres = freezed,
     Object? releaseDate = freezed,
+    Object? voteAvarage = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -90,6 +94,10 @@ class _$MovieDataCopyWithImpl<$Res, $Val extends MovieData>
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
               as String?,
+      voteAvarage: freezed == voteAvarage
+          ? _value.voteAvarage
+          : voteAvarage // ignore: cast_nullable_to_non_nullable
+              as double?,
     ) as $Val);
   }
 }
@@ -107,7 +115,8 @@ abstract class _$$MovieDataImplCopyWith<$Res>
       @JsonKey(name: "title") String? movieTitle,
       @JsonKey(name: "poster_path") String? moviePosterPath,
       @JsonKey(name: "genre_ids") List<int>? genres,
-      @JsonKey(name: "release_date") String? releaseDate});
+      @JsonKey(name: "release_date") String? releaseDate,
+      @JsonKey(name: "vote_average") double? voteAvarage});
 }
 
 /// @nodoc
@@ -126,6 +135,7 @@ class __$$MovieDataImplCopyWithImpl<$Res>
     Object? moviePosterPath = freezed,
     Object? genres = freezed,
     Object? releaseDate = freezed,
+    Object? voteAvarage = freezed,
   }) {
     return _then(_$MovieDataImpl(
       id: freezed == id
@@ -148,6 +158,10 @@ class __$$MovieDataImplCopyWithImpl<$Res>
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
               as String?,
+      voteAvarage: freezed == voteAvarage
+          ? _value.voteAvarage
+          : voteAvarage // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -160,7 +174,8 @@ class _$MovieDataImpl implements _MovieData {
       @JsonKey(name: "title") this.movieTitle,
       @JsonKey(name: "poster_path") this.moviePosterPath,
       @JsonKey(name: "genre_ids") final List<int>? genres,
-      @JsonKey(name: "release_date") this.releaseDate})
+      @JsonKey(name: "release_date") this.releaseDate,
+      @JsonKey(name: "vote_average") this.voteAvarage})
       : _genres = genres;
 
   factory _$MovieDataImpl.fromJson(Map<String, dynamic> json) =>
@@ -189,10 +204,13 @@ class _$MovieDataImpl implements _MovieData {
   @override
   @JsonKey(name: "release_date")
   final String? releaseDate;
+  @override
+  @JsonKey(name: "vote_average")
+  final double? voteAvarage;
 
   @override
   String toString() {
-    return 'MovieData(id: $id, movieTitle: $movieTitle, moviePosterPath: $moviePosterPath, genres: $genres, releaseDate: $releaseDate)';
+    return 'MovieData(id: $id, movieTitle: $movieTitle, moviePosterPath: $moviePosterPath, genres: $genres, releaseDate: $releaseDate, voteAvarage: $voteAvarage)';
   }
 
   @override
@@ -207,13 +225,15 @@ class _$MovieDataImpl implements _MovieData {
                 other.moviePosterPath == moviePosterPath) &&
             const DeepCollectionEquality().equals(other._genres, _genres) &&
             (identical(other.releaseDate, releaseDate) ||
-                other.releaseDate == releaseDate));
+                other.releaseDate == releaseDate) &&
+            (identical(other.voteAvarage, voteAvarage) ||
+                other.voteAvarage == voteAvarage));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, movieTitle, moviePosterPath,
-      const DeepCollectionEquality().hash(_genres), releaseDate);
+      const DeepCollectionEquality().hash(_genres), releaseDate, voteAvarage);
 
   @JsonKey(ignore: true)
   @override
@@ -235,7 +255,8 @@ abstract class _MovieData implements MovieData {
           @JsonKey(name: "title") final String? movieTitle,
           @JsonKey(name: "poster_path") final String? moviePosterPath,
           @JsonKey(name: "genre_ids") final List<int>? genres,
-          @JsonKey(name: "release_date") final String? releaseDate}) =
+          @JsonKey(name: "release_date") final String? releaseDate,
+          @JsonKey(name: "vote_average") final double? voteAvarage}) =
       _$MovieDataImpl;
 
   factory _MovieData.fromJson(Map<String, dynamic> json) =
@@ -256,6 +277,9 @@ abstract class _MovieData implements MovieData {
   @override
   @JsonKey(name: "release_date")
   String? get releaseDate;
+  @override
+  @JsonKey(name: "vote_average")
+  double? get voteAvarage;
   @override
   @JsonKey(ignore: true)
   _$$MovieDataImplCopyWith<_$MovieDataImpl> get copyWith =>

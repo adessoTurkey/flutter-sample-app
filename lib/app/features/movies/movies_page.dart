@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
+import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
+import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movies/bloc/movies_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/movies.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
@@ -13,37 +15,8 @@ import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 @RoutePage()
-class MoviesPage extends StatefulWidget {
+class MoviesPage extends StatelessWidget {
   const MoviesPage({super.key});
-
-  @override
-  State<MoviesPage> createState() => _MoviesPageState();
-}
-
-class _MoviesPageState extends State<MoviesPage> {
-  var currentPage = 0;
-  bool _showAppbar = false;
-  final ScrollController _scrollController = ScrollController();
-
-  @override
-  void initState() {
-    super.initState();
-    checkScroll();
-  }
-
-  void checkScroll() {
-    _scrollController.addListener(() {
-      if (_scrollController.offset > 60) {
-        setState(() {
-          _showAppbar = true;
-        });
-      } else {
-        setState(() {
-          _showAppbar = false;
-        });
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,13 +26,6 @@ class _MoviesPageState extends State<MoviesPage> {
       child: ConfigurationWidget(
         onConfigurationReady: (configuration, theme) {
           return Scaffold(
-            appBar: _showAppbar
-                ? AppBar(
-                    title: Text(context.localization.movies_page_app_bar_title,
-                        style: theme.moviesPageAppBarTitleTextStyle(
-                            configuration.moviePageAppBarTitleTextSize)),
-                  )
-                : null,
             body: Stack(
               children: [
                 Container(
@@ -68,61 +34,56 @@ class _MoviesPageState extends State<MoviesPage> {
                   width: context.screenSize.width,
                 ),
                 SafeArea(
-                  child: SingleChildScrollView(
-                    controller: _scrollController,
-                    child: Column(
-                      children: [
-                        _carouselView(),
-                        Container(
-                          color: theme.themeData.scaffoldBackgroundColor,
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                              top: configuration.moviePageListViewPaddingTop,
-                              left: configuration.moviePageListViewPaddingLeft,
-                              right:
-                                  configuration.moviePageListViewPaddingRight,
+                  child: CustomScrollView(
+                    slivers: [
+                      CustomScrollViewAppBar(
+                        largeTitle: context.localization.movies_page_title,
+                        largeTitleStyle: theme.moviesViewHeaderTextStyle(
+                          configuration.headerTextSize,
+                        ),
+                        appBarTitle:
+                            context.localization.movies_page_app_bar_title,
+                        appBarTitleStyle: const TextStyle(fontSize: 12),
+                        backgroundColor: MColors.electricBlue,
+                        expandedHeight: configuration
+                            .movieDetailSliverAppBarExpandableHeight,
+                      ),
+                      SliverList.list(
+                        children: [
+                          _carouselView(),
+                          Container(
+                            color: theme.themeData.scaffoldBackgroundColor,
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                top: configuration.moviePageListViewPaddingTop,
+                                left:
+                                    configuration.moviePageListViewPaddingLeft,
+                                right:
+                                    configuration.moviePageListViewPaddingRight,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  _carouselCardInfoView(),
+                                  const Divider(),
+                                  16.verticalSizedBox,
+                                  Text(
+                                    context
+                                        .localization.movies_page_popular_title,
+                                    style:
+                                        theme.moviesPageListViewTitleTextStyle(
+                                            configuration
+                                                .moviePageListViewTitleTextSize),
+                                  ),
+                                  _movieListView(configuration.movieCellHeight,
+                                      configuration.movieCellSpacing)
+                                ],
+                              ),
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                BlocBuilder<MoviesBloc, MoviesState>(
-                                  builder: (context, state) {
-                                    if (state is MoviesSuccess) {
-                                      return MoviesCarouselCardInfoView(
-                                        movie: state.movie,
-                                      );
-                                    }
-                                    if (state is CarouselSlideSuccess) {
-                                      return MoviesCarouselCardInfoView(
-                                        movie: state.movieModel,
-                                      );
-                                    }
-                                    return const Center(
-                                      child: CircularProgressIndicator(),
-                                    );
-                                  },
-                                ),
-                                const Divider(),
-                                16.verticalSizedBox,
-                                Text(
-                                  context
-                                      .localization.movies_page_popular_title,
-                                  style: theme.moviesPageListViewTitleTextStyle(
-                                      configuration
-                                          .moviePageListViewTitleTextSize),
-                                ),
-                                SizedBox(
-                                  height: (configuration.movieCellHeight +
-                                          configuration.movieCellSpacing) *
-                                      mockMovies.length,
-                                  child: MovieListView(movieList: mockMovies),
-                                )
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
+                          )
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -140,7 +101,7 @@ class _MoviesPageState extends State<MoviesPage> {
       },
       builder: (context, state) {
         if (state is MoviesLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const LoadingView();
         }
         if (state is MoviesSuccess) {
           return MoviesCarouselView(
@@ -157,9 +118,51 @@ class _MoviesPageState extends State<MoviesPage> {
             child: Text(state.errorMessage ?? "Fetching error"),
           );
         }
-        return const Center(
-          child: Text("Elsse"),
-        );
+        return const LoadingView();
+      },
+    );
+  }
+
+  Widget _carouselCardInfoView() {
+    return BlocBuilder<MoviesBloc, MoviesState>(
+      builder: (context, state) {
+        if (state is MoviesSuccess) {
+          return MoviesCarouselCardInfoView(
+            movie: state.movie,
+          );
+        }
+        if (state is CarouselSlideSuccess) {
+          return MoviesCarouselCardInfoView(
+            movie: state.movieModel,
+          );
+        }
+        return const LoadingView();
+      },
+    );
+  }
+
+  Widget _movieListView(double movieCellHeight, double movieCellSpacing) {
+    return BlocBuilder<MoviesBloc, MoviesState>(
+      buildWhen: (previous, current) {
+        return current is MoviesSuccess;
+      },
+      builder: (context, state) {
+        if (state is MoviesLoading) {
+          return const LoadingView();
+        }
+        if (state is MoviesSuccess) {
+          return SizedBox(
+            height:
+                (movieCellHeight + movieCellSpacing) * state.movieList.length,
+            child: MovieListView(movieList: state.movieList),
+          );
+        }
+        if (state is MoviesError) {
+          return Center(
+            child: Text(state.errorMessage ?? "Fetching error"),
+          );
+        }
+        return const LoadingView();
       },
     );
   }

@@ -16,7 +16,7 @@ class SmallConfiguration extends ResponsiveConfiguration {
   double get movieCellImageWidth => 80;
 
   @override
-  double get headerTextSize => 26;
+  double get headerTextSize => 24;
 
   @override
   double get carouselCardTitleTextSize => 28;
@@ -165,4 +165,7 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   @override
   double get movieDetailRatingViewPositionedBottom => 0;
+
+  @override
+  double get movieDetailSliverAppBarExpandableHeight => 100;
 }

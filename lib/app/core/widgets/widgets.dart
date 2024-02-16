@@ -10,3 +10,5 @@ export 'duration_view.dart';
 export 'star_rating.dart';
 export 'vertical_divider_widget.dart';
 export 'cast_label_widget.dart';
+export 'loading_view.dart';
+export 'custom_scroll_view_app_bar_widget.dart';

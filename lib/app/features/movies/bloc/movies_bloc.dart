@@ -16,14 +16,14 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
 
   late List<MovieData> list;
 
-  _moviesFetched(MoviesFetching event, Emitter<MoviesState> emit) async {
+  Future<void> _moviesFetched(MoviesFetching event, Emitter<MoviesState> emit) async {
     try {
       emit(MoviesLoading());
 
       List<MovieData> movieList =
           await remoteDataSource.getMovieList(event.categoryType);
       list = movieList;
-      emit(MoviesSuccess(movieList: movieList, movie: movieList[0]));
+      emit(MoviesSuccess(movieList: movieList, movie: movieList.first));
     } catch (e) {
       emit(MoviesError(errorMessage: e.toString()));
     }
@@ -31,7 +31,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
 
   //ayrı ayrı event tetikle
   // ... STATE den çekilebilir list
-  _carouselSliding(CarouselSliding event, Emitter<MoviesState> emit) {
+  void _carouselSliding(CarouselSliding event, Emitter<MoviesState> emit) {
     emit(CarouselSlideSuccess(movieModel: list[event.currentIndex]));
   }
 }

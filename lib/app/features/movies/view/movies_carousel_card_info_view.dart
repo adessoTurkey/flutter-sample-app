@@ -14,7 +14,8 @@ class MoviesCarouselCardInfoView extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const RatingView(rating: 4.4, type: RatingViewType.carousel),
+            RatingView(
+                rating: movie.getVoteAvarage, type: RatingViewType.carousel),
             Text(
               movie.movieTitle ?? "",
               style: theme.carouselCardTitleTextStyle(
@@ -22,7 +23,7 @@ class MoviesCarouselCardInfoView extends StatelessWidget {
               maxLines: 1,
             ),
             Text(
-              "Genre",
+              movie.getGenres(),
               style: theme.carouselCardSubTitleTextStyle(
                   configuration.carouselCardSubTitleTextSize),
               maxLines: 1,
