@@ -93,12 +93,6 @@ final class DarkTheme extends ATheme {
   }
 
   @override
-  TextStyle movieCellMovieNameTextStyle(double fontSize) {
-    return const TextStyle()
-        .movieCellMovieNameTextStyle(fontSize, MColors.white);
-  }
-
-  @override
   TextStyle durationViewTextStyle(double fontSize) {
     return const TextStyle()
         .durationViewTextStyle(fontSize, MColors.almostBlack);

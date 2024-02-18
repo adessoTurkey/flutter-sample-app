@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="df2c136c-efe9-44f6-9d9b-c850e885ec19" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/base_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/base_theme.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/gen/assets.gen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/gen/assets.gen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/dark_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/dark_theme.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/l10n/app_en.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/app_en.arb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/l10n/app_tr.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/app_tr.arb" afterDir="false" />
     </list>
@@ -32,7 +32,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
-    "dart.analysis.tool.window.visible": "false"
+    "dart.analysis.tool.window.visible": "false",
+    "io.flutter.reload.alreadyRun": "true"
   }
 }]]></component>
   <component name="RunManager">
