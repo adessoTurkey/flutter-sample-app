@@ -2,6 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
+import 'package:flutter_movie_app/app/features/login/views/login_button.dart';
+import 'package:flutter_movie_app/app/features/login/views/login_password_field.dart';
+import 'package:flutter_movie_app/app/features/login/views/login_text_field.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -10,18 +13,9 @@ import 'package:flutter_movie_app/gen/assets.gen.dart';
 import '../../core/config/app_router.dart';
 
 @RoutePage()
-class LoginPage extends StatefulWidget {
+class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
-  @override
-  State<StatefulWidget> createState() {
-    return _LoginPage();
-  }
-}
-
-class _LoginPage extends State<LoginPage> {
-  var passwordVisible = false;
-  var loginBg = MovieAssets.images.loginBg.path;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +24,8 @@ class _LoginPage extends State<LoginPage> {
           return Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(loginBg), fit: BoxFit.cover),
+                  image: AssetImage(MovieAssets.images.loginBg.path),
+                  fit: BoxFit.cover),
             ),
             child: Padding(
               padding: config.loginPagePadding,
@@ -43,17 +38,22 @@ class _LoginPage extends State<LoginPage> {
                     height: config.loginLogoSize.height,
                   ),
                   64.verticalSizedBox,
-                  TextField(
-                    style: theme.whiteTextStyle(),
-                    decoration: InputDecoration(
-                      hintStyle: theme.whiteTextStyle(),
-                      hintText: context.localization.enterEmail,
-                      labelText: context.localization.email,
-                      labelStyle: theme.whiteTextStyle(),
-                    ),
+                  CustomLoginTextField(
+                    textStyle: theme.whiteTextStyle(),
+                    hintText: context.localization.enterEmail,
+                    hintTextStyle: theme.whiteTextStyle(),
+                    labelText: context.localization.email,
+                    labelTextStyle: theme.whiteTextStyle(),
                   ),
                   10.verticalSizedBox,
-                  TextField(
+                  CustomLoginPasswordField(
+                    textStyle: theme.whiteTextStyle(),
+                    hintText: context.localization.enterPassword,
+                    hintTextStyle: theme.whiteTextStyle(),
+                    labelText: context.localization.password,
+                    labelTextStyle: theme.whiteTextStyle(),
+                  ),
+                  /*TextField(
                     obscureText: !passwordVisible,
                     style: theme.whiteTextStyle(),
                     decoration: InputDecoration(
@@ -67,14 +67,14 @@ class _LoginPage extends State<LoginPage> {
                         ),
                         onPressed: () {
                           setState(
-                            () {
+                                () {
                               passwordVisible = !passwordVisible;
                             },
                           );
                         },
                       ),
                     ),
-                  ),
+                  ),*/
                   10.verticalSizedBox,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -90,23 +90,13 @@ class _LoginPage extends State<LoginPage> {
                     ],
                   ),
                   16.verticalSizedBox,
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: MColors.white,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
-                      elevation: 0,
-                      minimumSize: const Size.fromHeight(40),
-                    ),
+                  CustomLoginButton(
                     onPressed: () {
-                      context.pushRoute(
-                        const HomeRoute(),
-                      );
+                      context.pushRoute(const HomeRoute());
                     },
-                    child: Text(
-                      context.localization.login,
-                      style: theme.login(config.loginTextSize),
-                    ),
+                    text: context.localization.login,
+                    textStyle: theme.login(config.loginTextSize),
+                    backgroundColor: MColors.white,
                   ),
                   10.verticalSizedBox,
                   Row(
@@ -122,7 +112,7 @@ class _LoginPage extends State<LoginPage> {
                           child: Text(
                             context.localization.registerNow,
                             style:
-                                theme.registerNow(config.registerNowTextSize),
+                            theme.registerNow(config.registerNowTextSize),
                           )),
                     ],
                   ),
