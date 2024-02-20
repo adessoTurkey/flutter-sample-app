@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df2c136c-efe9-44f6-9d9b-c850e885ec19" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/app/features/login/views/login_button.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/login/views/login_password_field.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/login/views/login_text_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/login/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/login_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

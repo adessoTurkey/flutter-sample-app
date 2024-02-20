@@ -23,8 +23,11 @@ class LoginPage extends StatelessWidget {
         onConfigurationReady: (config, theme) {
           return Container(
             decoration: BoxDecoration(
+              
               image: DecorationImage(
-                  image: AssetImage(MovieAssets.images.loginBg.path),
+                colorFilter: ColorFilter.mode(MColors.electricBlue.withOpacity(0.8), BlendMode.color),
+                  image: AssetImage(MovieAssets.images.splashBg.path),
+
                   fit: BoxFit.cover),
             ),
             child: Padding(
