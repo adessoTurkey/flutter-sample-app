@@ -58,7 +58,7 @@ class MediumConfiguration extends ResponsiveConfiguration {
   double get moviePageListViewTitleTextSize => 26;
 
   @override
-  double get moviePageAppBarTitleTextSize => 16;
+  double get moviePageAppBarTitleTextSize => 14;
 
   //Carousel
   @override

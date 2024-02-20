@@ -2,15 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
-import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movies/bloc/movies_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/movies.dart';
-import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
@@ -20,77 +17,72 @@ class MoviesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => MoviesBloc(getIt<RemoteDataSource>())
-        ..add(const MoviesFetching(categoryType: MovieCategoriesEnum.popular)),
-      child: ConfigurationWidget(
-        onConfigurationReady: (configuration, theme) {
-          return Scaffold(
-            body: Stack(
-              children: [
-                Container(
-                  color: theme.themeData.primaryColor,
-                  height: context.screenSize.width,
-                  width: context.screenSize.width,
-                ),
-                SafeArea(
-                  child: CustomScrollView(
-                    slivers: [
-                      CustomScrollViewAppBar(
-                        largeTitle: context.localization.movies_page_title,
-                        largeTitleStyle: theme.moviesViewHeaderTextStyle(
-                          configuration.headerTextSize,
-                        ),
-                        appBarTitle:
-                            context.localization.movies_page_app_bar_title,
-                        appBarTitleStyle: const TextStyle(fontSize: 12),
-                        backgroundColor: MColors.electricBlue,
-                        expandedHeight: configuration
-                            .movieDetailSliverAppBarExpandableHeight,
+    return ConfigurationWidget(
+      onConfigurationReady: (configuration, theme) {
+        return Scaffold(
+          body: Stack(
+            children: [
+              Container(
+                color: theme.themeData.primaryColor,
+                height: context.screenSize.width,
+                width: context.screenSize.width,
+              ),
+              SafeArea(
+                child: CustomScrollView(
+                  slivers: [
+                    CustomScrollViewAppBar(
+                      largeTitle: context.localization.movies_page_title,
+                      largeTitleStyle: theme.moviesViewHeaderTextStyle(
+                        configuration.headerTextSize,
                       ),
-                      SliverList.list(
-                        children: [
-                          _carouselView(),
-                          Container(
-                            color: theme.themeData.scaffoldBackgroundColor,
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                top: configuration.moviePageListViewPaddingTop,
-                                left:
-                                    configuration.moviePageListViewPaddingLeft,
-                                right:
-                                    configuration.moviePageListViewPaddingRight,
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  _carouselCardInfoView(),
-                                  const Divider(),
-                                  16.verticalSizedBox,
-                                  Text(
-                                    context
-                                        .localization.movies_page_popular_title,
-                                    style:
-                                        theme.moviesPageListViewTitleTextStyle(
-                                            configuration
-                                                .moviePageListViewTitleTextSize),
-                                  ),
-                                  _movieListView(configuration.movieCellHeight,
-                                      configuration.movieCellSpacing)
-                                ],
-                              ),
+                      appBarTitle:
+                          context.localization.movies_page_app_bar_title,
+                      appBarTitleStyle: theme.moviesPageAppBarTitleTextStyle(
+                          configuration.moviePageAppBarTitleTextSize),
+                      backgroundColor: MColors.electricBlue,
+                      expandedHeight:
+                          configuration.movieDetailSliverAppBarExpandableHeight,
+                    ),
+                    SliverList.list(
+                      children: [
+                        _carouselView(),
+                        Container(
+                          color: theme.themeData.scaffoldBackgroundColor,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              top: configuration.moviePageListViewPaddingTop,
+                              left: configuration.moviePageListViewPaddingLeft,
+                              right:
+                                  configuration.moviePageListViewPaddingRight,
                             ),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                _carouselCardInfoView(),
+                                const Divider(),
+                                16.verticalSizedBox,
+                                Text(
+                                  context
+                                      .localization.movies_page_popular_title,
+                                  style: theme.moviesPageListViewTitleTextStyle(
+                                      configuration
+                                          .moviePageListViewTitleTextSize),
+                                ),
+                                _movieListView(configuration.movieCellHeight,
+                                    configuration.movieCellSpacing)
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          );
-        },
-      ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 

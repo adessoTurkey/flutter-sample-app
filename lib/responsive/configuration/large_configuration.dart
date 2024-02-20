@@ -58,7 +58,7 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   double get moviePageListViewTitleTextSize => 28;
 
   @override
-  double get moviePageAppBarTitleTextSize => 18;
+  double get moviePageAppBarTitleTextSize => 16;
 
   //Carousel
   @override

@@ -1,22 +1,11 @@
 
 enum MovieCategoriesEnum {
-  nowPlaying,
-  popular,
-  topRated,
-  upcoming;
-}
+  nowPlaying(value: "now_playing"),
+  popular(value: "popular"),
+  topRated(value: "top_rated"),
+  upcoming(value: "upcoming");
 
-extension MovieCategoriesExtension on MovieCategoriesEnum {
-  String get value {
-    switch (this) {
-      case MovieCategoriesEnum.nowPlaying:
-        return "now_playing";
-      case MovieCategoriesEnum.popular:
-        return "popular";
-      case MovieCategoriesEnum.topRated:
-        return "top_rated";
-      case MovieCategoriesEnum.upcoming:
-        return "upcoming";
-    }
-  }
+  final String value;
+
+  const MovieCategoriesEnum({required this.value});
 }

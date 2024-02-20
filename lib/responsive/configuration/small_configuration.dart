@@ -58,7 +58,7 @@ class SmallConfiguration extends ResponsiveConfiguration {
   double get moviePageListViewTitleTextSize => 24;
 
   @override
-  double get moviePageAppBarTitleTextSize => 14;
+  double get moviePageAppBarTitleTextSize => 12;
 
   //Carousel
   @override

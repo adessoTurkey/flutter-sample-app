@@ -4,6 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
 import 'package:flutter_movie_app/api_call/network/network.dart';
 import 'package:flutter_movie_app/app/core/config/app_router.dart';
+import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/initialization/initialization_adapter.dart';
 import 'package:flutter_movie_app/app/core/logger/m_logger.dart';
 import 'package:flutter_movie_app/app/core/themes/bloc/theme_bloc.dart';
@@ -42,7 +43,10 @@ void main() async {
         create: (_) => ThemeBloc()
           ..add(const ChangeThemeEvent(themeType: ThemeEnum.light)),
         lazy: false),
-    BlocProvider(create: (_) => MoviesBloc(getIt<RemoteDataSource>()))
+    BlocProvider(
+        create: (_) => MoviesBloc(getIt<RemoteDataSource>())
+          ..add(
+              const MoviesFetching(categoryType: MovieCategoriesEnum.popular)))
   ], child: const MyApp()));
 }
 

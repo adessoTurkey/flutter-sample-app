@@ -1,8 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
-
-import '../../../responsive/configuration_widget.dart';
+import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
 
 ///CustomScrollViewAppBar only can be usable inside CustomScrollView
 class CustomScrollViewAppBar extends StatelessWidget {
@@ -26,29 +24,24 @@ class CustomScrollViewAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double top;
-    return ConfigurationWidget(
-      onConfigurationReady: (configuration, theme) {
-        return SliverAppBar.large(
-          flexibleSpace: LayoutBuilder(builder: (context, constraints) {
-            top = constraints.biggest.height;
-            return FlexibleSpaceBar(
-              titlePadding:
-                  const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              centerTitle: top < expandedHeight ? true : false,
-              title: Text(
-                top < expandedHeight ? appBarTitle : largeTitle,
-                style: top < expandedHeight ? null : largeTitleStyle,
-              ),
-            );
-          }),
-          backgroundColor: backgroundColor,
-          expandedHeight: expandedHeight,
-          primary: true,
-          pinned: true,
-          snap: false,
-          floating: false,
+    return SliverAppBar.large(
+      flexibleSpace: LayoutBuilder(builder: (context, constraints) {
+        top = constraints.biggest.height;
+        return FlexibleSpaceBar(
+          titlePadding: 10.symmetric(horizontal: 20),
+          centerTitle: top < expandedHeight ? true : false,
+          title: Text(
+            top < expandedHeight ? appBarTitle : largeTitle,
+            style: top < expandedHeight ? null : largeTitleStyle,
+          ),
         );
-      },
+      }),
+      backgroundColor: backgroundColor,
+      expandedHeight: expandedHeight,
+      primary: true,
+      pinned: true,
+      snap: false,
+      floating: false,
     );
   }
 }

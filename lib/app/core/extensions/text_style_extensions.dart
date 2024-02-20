@@ -62,7 +62,7 @@ extension TextStyleExtensions on TextStyle {
   TextStyle moviesPageAppBarTitleTextStyle(double fontSize, Color color) =>
       copyWith(
         fontSize: fontSize,
-        fontWeight: _bold,
+        fontWeight: _light4,
         color: color,
       );
 

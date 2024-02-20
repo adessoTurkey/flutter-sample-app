@@ -41,9 +41,6 @@ class RemoteDataSourceImpl extends RemoteDataSource {
                 "${dotenv.get(EnvConstants.moviePath)}/${categoryEndpoint.value}",
             data: const NetworkRequestBody.empty()),
         (response) {
-          // BaseResponse baseResponse = BaseResponse.fromJson(response, (json) {
-          //   return (json as List).map((e) => MovieData.fromJson(e)).toList();
-          // });
           List<MovieData> movieList = (response['results'] as List)
               .map((e) => MovieData.fromJson(e))
               .toList();
