@@ -16,7 +16,7 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   double get movieCellImageWidth => 100;
 
   @override
-  double get headerTextSize => 34;
+  double get headerTextSize => 28;
 
   @override
   double get carouselCardTitleTextSize => 36;
@@ -36,7 +36,7 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   double get movieCarouselBlueContainerHeight => 200;
 
   @override
-  double get movieCarouselContainerHeight => 450;
+  double get movieCarouselContainerHeight => 400;
 
   @override
   double get movieCarouselHeaderLeftPadding => 32;
@@ -58,7 +58,7 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   double get moviePageListViewTitleTextSize => 28;
 
   @override
-  double get moviePageAppBarTitleTextSize => 18;
+  double get moviePageAppBarTitleTextSize => 16;
 
   //Carousel
   @override
@@ -166,4 +166,7 @@ final class LargeConfiguration extends ResponsiveConfiguration {
 
   @override
   double get movieDetailRatingViewPositionedBottom => 0;
+  
+  @override
+  double get movieDetailSliverAppBarExpandableHeight => 100;
 }

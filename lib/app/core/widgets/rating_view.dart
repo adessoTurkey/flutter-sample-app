@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 enum RatingViewType { carousel, movieCell }
 
 class RatingView extends StatelessWidget {
-  final double rating;
+  final String rating;
   final RatingViewType type;
 
   const RatingView({

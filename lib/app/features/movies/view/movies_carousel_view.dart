@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/movies/models/movie_model.dart';
-import 'package:flutter_movie_app/localization/localization.dart';
+import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class MoviesCarouselView extends StatelessWidget {
-  final List<MovieModel> movieList;
+  final List<MovieData> movieList;
   final Function(int currentIndex) onPageChanged;
 
   const MoviesCarouselView({
@@ -26,18 +25,6 @@ class MoviesCarouselView extends StatelessWidget {
               Container(
                 color: theme.themeData.primaryColor,
                 height: configuration.movieCarouselBlueContainerHeight,
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: configuration.movieCarouselHeaderTopPadding,
-                  left: configuration.movieCarouselHeaderLeftPadding,
-                ),
-                child: Text(
-                  context.localization.movies_page_title,
-                  style: theme.moviesViewHeaderTextStyle(
-                    configuration.headerTextSize,
-                  ),
-                ),
               ),
               Align(
                 alignment: Alignment.bottomCenter,
