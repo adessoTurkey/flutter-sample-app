@@ -29,6 +29,7 @@ class MoviesPage extends StatelessWidget {
               ),
               SafeArea(
                 child: CustomScrollView(
+                  scrollBehavior: const ScrollBehavior(),
                   slivers: [
                     CustomScrollViewAppBar(
                       largeTitle: context.localization.movies_page_title,
@@ -43,38 +44,43 @@ class MoviesPage extends StatelessWidget {
                       expandedHeight:
                           configuration.movieDetailSliverAppBarExpandableHeight,
                     ),
-                    SliverList.list(
-                      children: [
-                        _carouselView(),
-                        Container(
-                          color: theme.themeData.scaffoldBackgroundColor,
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                              top: configuration.moviePageListViewPaddingTop,
-                              left: configuration.moviePageListViewPaddingLeft,
-                              right:
-                                  configuration.moviePageListViewPaddingRight,
+                    SliverToBoxAdapter(
+                      child: Column(
+                        children: [
+                          _CarouselView(),
+                          Container(
+                            color: theme.themeData.scaffoldBackgroundColor,
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                top: configuration.moviePageListViewPaddingTop,
+                                left: configuration.moviePageListViewPaddingLeft,
+                                right:
+                                    configuration.moviePageListViewPaddingRight,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  _CarouselCardInfoView(),
+                                  const Divider(),
+                                  16.verticalSizedBox,
+                                  Text(
+                                    context
+                                        .localization.movies_page_popular_title,
+                                    style: theme.moviesPageListViewTitleTextStyle(
+                                        configuration
+                                            .moviePageListViewTitleTextSize),
+                                  ),
+                                  _MovieListView(
+                                      movieCellHeight:
+                                          configuration.movieCellHeight,
+                                      movieCellSpacing:
+                                          configuration.movieCellSpacing)
+                                ],
+                              ),
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                _carouselCardInfoView(),
-                                const Divider(),
-                                16.verticalSizedBox,
-                                Text(
-                                  context
-                                      .localization.movies_page_popular_title,
-                                  style: theme.moviesPageListViewTitleTextStyle(
-                                      configuration
-                                          .moviePageListViewTitleTextSize),
-                                ),
-                                _movieListView(configuration.movieCellHeight,
-                                    configuration.movieCellSpacing)
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -85,8 +91,19 @@ class MoviesPage extends StatelessWidget {
       },
     );
   }
+}
 
-  Widget _carouselView() {
+class _MovieListView extends StatelessWidget {
+  const _MovieListView({
+    required this.movieCellHeight,
+    required this.movieCellSpacing,
+  });
+
+  final double movieCellHeight;
+  final double movieCellSpacing;
+
+  @override
+  Widget build(BuildContext context) {
     return BlocBuilder<MoviesBloc, MoviesState>(
       buildWhen: (previous, current) {
         return current is MoviesSuccess;
@@ -96,13 +113,10 @@ class MoviesPage extends StatelessWidget {
           return const LoadingView();
         }
         if (state is MoviesSuccess) {
-          return MoviesCarouselView(
-            movieList: state.movieList,
-            onPageChanged: (currentIndex) {
-              context
-                  .read<MoviesBloc>()
-                  .add(CarouselSliding(currentIndex: currentIndex));
-            },
+          return SizedBox(
+            height:
+                (movieCellHeight + movieCellSpacing) * state.movieList.length,
+            child: MovieListView(movieList: state.movieList),
           );
         }
         if (state is MoviesError) {
@@ -114,8 +128,11 @@ class MoviesPage extends StatelessWidget {
       },
     );
   }
+}
 
-  Widget _carouselCardInfoView() {
+class _CarouselCardInfoView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return BlocBuilder<MoviesBloc, MoviesState>(
       builder: (context, state) {
         if (state is MoviesSuccess) {
@@ -132,21 +149,27 @@ class MoviesPage extends StatelessWidget {
       },
     );
   }
+}
 
-  Widget _movieListView(double movieCellHeight, double movieCellSpacing) {
+class _CarouselView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return BlocBuilder<MoviesBloc, MoviesState>(
       buildWhen: (previous, current) {
-        return current is MoviesSuccess;
+        return current is MoviesSuccess && previous is! CarouselSlideSuccess;
       },
       builder: (context, state) {
         if (state is MoviesLoading) {
           return const LoadingView();
         }
         if (state is MoviesSuccess) {
-          return SizedBox(
-            height:
-                (movieCellHeight + movieCellSpacing) * state.movieList.length,
-            child: MovieListView(movieList: state.movieList),
+          return MoviesCarouselView(
+            movieList: state.movieList,
+            onPageChanged: (currentIndex) {
+              context
+                  .read<MoviesBloc>()
+                  .add(CarouselSliding(currentIndex: currentIndex));
+            },
           );
         }
         if (state is MoviesError) {
