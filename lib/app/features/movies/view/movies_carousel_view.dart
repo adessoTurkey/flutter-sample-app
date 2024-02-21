@@ -29,9 +29,14 @@ class MoviesCarouselView extends StatelessWidget {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: CarouselView(
-                  list: movieList,
+                  listLength: movieList.length,
                   height: configuration.movieCarouselContainerSize.height,
                   onPageChanged: onPageChanged,
+                  itemBuilder: (context, index) {
+                    return CarouselImageCardWidget(
+                      imageUrl: movieList[index].getImageURL,
+                    );
+                  },
                 ),
               ),
             ],
