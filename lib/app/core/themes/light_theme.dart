@@ -16,7 +16,10 @@ final class LightTheme extends ATheme {
   AppBarTheme get appbarTheme => const AppBarTheme(color: MColors.vibrantBlue);
 
   @override
-  Color get primaryColor => MColors.electricBlue;
+  Color get primaryColorLight => MColors.electricBlue;
+
+  @override
+  Color get primaryColorDark => MColors.electricBlue;
 
   @override
   Color get scaffoldBackgroundColor => MColors.white;

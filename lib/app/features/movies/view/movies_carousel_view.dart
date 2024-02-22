@@ -23,7 +23,7 @@ class MoviesCarouselView extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                color: theme.themeData.primaryColor,
+                color: theme.themeData.primaryColorDark,
                 height: configuration.movieCarouselBlueContainerHeight,
               ),
               Align(

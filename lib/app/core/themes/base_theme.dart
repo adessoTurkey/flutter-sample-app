@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 abstract class ATheme {
   BottomNavigationBarThemeData get bottomNavigationTheme;
   AppBarTheme get appbarTheme;
-  Color get primaryColor;
+  Color get primaryColorLight;
+  Color get primaryColorDark;
   Color get scaffoldBackgroundColor;
 
   TextStyle movieCellMovieNameTextStyle(double fontSize);
@@ -37,6 +38,7 @@ abstract class ATheme {
       useMaterial3: true,
       appBarTheme: appbarTheme,
       bottomNavigationBarTheme: bottomNavigationTheme,
-      primaryColor: primaryColor,
+      primaryColorDark: primaryColorDark,
+      primaryColorLight: primaryColorLight,
       scaffoldBackgroundColor: scaffoldBackgroundColor);
 }

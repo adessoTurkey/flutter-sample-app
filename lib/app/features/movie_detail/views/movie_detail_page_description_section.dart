@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
+import 'package:flutter_movie_app/app/core/extensions/credit_response_extension.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/movies/models/movie_model.dart';
+import 'package:flutter_movie_app/app/features/movie_detail/models/credits/credit_response.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
-class MovieDetailPageDescriptionSection extends StatelessWidget {
-  final MovieModel movieModel;
-  const MovieDetailPageDescriptionSection(
-      {required this.movieModel, super.key});
+class MovieDetailPageCastSection extends StatelessWidget {
+  final CreditResponse creditResponse;
+  const MovieDetailPageCastSection({required this.creditResponse, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +15,6 @@ class MovieDetailPageDescriptionSection extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              movieModel.description,
-              style: theme.movieDetailDescriptionTextStyle(
-                  configuration.movieDetailDescriptionTextSize),
-            ),
-            20.verticalSizedBox,
             movieDetailCastSection(
               theme.movieDetailCastLeftLabelTextStyle(
                   configuration.movieDetailCastLabelTextSize),
@@ -43,12 +36,9 @@ class MovieDetailPageDescriptionSection extends StatelessWidget {
         movieDetailCastLabel(
             "Director", titleTextStyle, "Todd Philips", infoTextStyle),
         movieDetailCastLabel("Writers", titleTextStyle,
-            "Todd Philips, Scott Silver", infoTextStyle),
+            creditResponse.getWriters(), infoTextStyle),
         movieDetailCastLabel(
-            "Stars",
-            titleTextStyle,
-            "Todd Philips, Scott Silver, Todd Philips, Scott Silver",
-            infoTextStyle),
+            "Stars", titleTextStyle, creditResponse.getActors(), infoTextStyle),
       ],
     );
   }

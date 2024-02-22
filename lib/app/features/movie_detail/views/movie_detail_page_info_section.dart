@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/extensions/movie_detail_extension.dart';
 import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
+import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail/movie_detail_model.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class MovieDetailPageInfoSection extends StatelessWidget {
-  final MovieModel movieModel;
-  const MovieDetailPageInfoSection({super.key, required this.movieModel});
+  final MovieDetailModel movieDetailModel;
+  const MovieDetailPageInfoSection({super.key, required this.movieDetailModel});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,13 @@ class MovieDetailPageInfoSection extends StatelessWidget {
               theme.movieDetailMovieGenresTextStyle(
                   configuration.movieDetailMovieGenresTextSize),
             ),
-            _movieRatingAndSharingSection()
+            _movieRatingAndSharingSection(),
+            20.verticalSizedBox,
+            Text(
+              movieDetailModel.overivew ?? "",
+              style: theme.movieDetailDescriptionTextStyle(
+                  configuration.movieDetailDescriptionTextSize),
+            ),
           ],
         );
       },
@@ -35,11 +42,11 @@ class MovieDetailPageInfoSection extends StatelessWidget {
       direction: Axis.vertical,
       children: [
         Text(
-          movieModel.movieName,
+          movieDetailModel.title ?? "",
           style: titleTextStyle,
         ),
         Text(
-          movieModel.genres,
+          movieDetailModel.getGenres(),
           style: genresTextStyle,
         ),
       ],
@@ -53,13 +60,13 @@ class MovieDetailPageInfoSection extends StatelessWidget {
         10.verticalSizedBox,
         Row(
           children: [
-            DurationView(durationTime: movieModel.duration),
+            DurationView(durationTime: movieDetailModel.runtime ?? 0),
             const VerticalDividerWidget(
               paddingAll: 10,
               dividerHeight: 20,
               dividerWidth: 2,
             ),
-            ReleaseDateView(releaseDate: movieModel.releaseDate),
+            ReleaseDateView(releaseDate: movieDetailModel.releaseDate ?? ""),
             const VerticalDividerWidget(
               paddingAll: 10,
               dividerHeight: 20,
