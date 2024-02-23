@@ -12,7 +12,10 @@ final class DarkTheme extends ATheme {
   AppBarTheme get appbarTheme => const AppBarTheme();
 
   @override
-  Color get primaryColor => MColors.electricBlue;
+  Color get primaryColorLight => MColors.electricBlue;
+
+  @override
+  Color get primaryColorDark => MColors.electricBlue;
 
   @override
   Color get scaffoldBackgroundColor => MColors.white;

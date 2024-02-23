@@ -1,16 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
+import 'package:flutter_movie_app/app/core/extensions/movie_detail_extension.dart';
 import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/movies/models/movie_model.dart';
+import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail/movie_detail_model.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MovieDetailPageImageSection extends StatefulWidget {
-  final MovieModel movieModel;
-  const MovieDetailPageImageSection({super.key, required this.movieModel});
+  final MovieDetailModel movieDetailModel;
+  const MovieDetailPageImageSection({super.key, required this.movieDetailModel});
 
   @override
   State<MovieDetailPageImageSection> createState() =>
@@ -35,7 +36,7 @@ class _MovieDetailPageImageSectionState
                     height: configuration.movieDetailImageViewHeight,
                     width: context.screenSize.width,
                     child: ImageContainerView(
-                      imageURL: widget.movieModel.imageURL,
+                      imageURL: widget.movieDetailModel.getImageURL,
                       placeholderImage: MovieAssets.images.poster1.path,
                     ),
                   ),
@@ -47,7 +48,7 @@ class _MovieDetailPageImageSectionState
                 bottom: configuration.movieDetailRatingViewPositionedBottom,
                 left: 30,
                 child: RatingView(
-                  rating: widget.movieModel.rating.toString(),
+                  rating: widget.movieDetailModel.getVoteAvarage,
                   type: RatingViewType.carousel,
                 ),
               )

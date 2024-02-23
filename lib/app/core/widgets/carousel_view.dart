@@ -55,21 +55,29 @@ class _CarouselViewState extends State<CarouselView> {
 
 class CarouselImageCardWidget extends StatelessWidget {
   final String imageUrl;
-  const CarouselImageCardWidget({super.key, required this.imageUrl});
+  final Function() onTapped;
+  const CarouselImageCardWidget({
+    super.key,
+    required this.imageUrl,
+    required this.onTapped,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ConfigurationWidget(
       onConfigurationReady: (configuration, theme) {
-        return Container(
-          margin: EdgeInsets.only(
-            right: configuration.carouselCardRightPadding,
-          ),
-          child: Card(
-            clipBehavior: Clip.hardEdge,
-            child: ImageContainerView(
-              imageURL: imageUrl,
-              placeholderImage: MovieAssets.images.poster1.path,
+        return InkWell(
+          onTap: onTapped,
+          child: Container(
+            margin: EdgeInsets.only(
+              right: configuration.carouselCardRightPadding,
+            ),
+            child: Card(
+              clipBehavior: Clip.hardEdge,
+              child: ImageContainerView(
+                imageURL: imageUrl,
+                placeholderImage: MovieAssets.images.poster1.path,
+              ),
             ),
           ),
         );
