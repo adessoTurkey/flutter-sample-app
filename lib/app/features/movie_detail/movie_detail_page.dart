@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
 import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
+import 'package:flutter_movie_app/app/core/extensions/video_result_extension.dart';
+import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/bloc/movie_detail_bloc.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
@@ -78,15 +80,13 @@ class _MovieDetailPageTrailerSectionState
       builder: (context, state) {
         if (state is MovieDetailSuccess) {
           youtubePlayerController = YoutubePlayerController(
-              initialVideoId: state.videoModelResponse.results?.last.key ?? "",
+              initialVideoId: state.videoModelResponse.getTrailerURL(),
               flags: const YoutubePlayerFlags(autoPlay: false));
           return MovieDetailPageTrailerSection(
             controller: youtubePlayerController,
           );
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return const LoadingView();
         }
       },
     );
@@ -105,9 +105,7 @@ class _MovieDetailPageImageSection extends StatelessWidget {
             movieDetailModel: state.movieDetailModel,
           );
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return const LoadingView();
         }
       },
     );
@@ -126,9 +124,7 @@ class _MovieDetailPageInfoSection extends StatelessWidget {
             movieDetailModel: state.movieDetailModel,
           );
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return const LoadingView();
         }
       },
     );
@@ -147,9 +143,7 @@ class _MovieDetailPageCastSection extends StatelessWidget {
             creditResponse: state.creditResponse,
           );
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return const LoadingView();
         }
       },
     );

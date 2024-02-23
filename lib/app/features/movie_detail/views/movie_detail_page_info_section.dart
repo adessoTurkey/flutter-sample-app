@@ -37,17 +37,21 @@ class MovieDetailPageInfoSection extends StatelessWidget {
 
   Widget _movieInfoLabelSection(
       TextStyle titleTextStyle, TextStyle genresTextStyle) {
-    return Wrap(
-      spacing: 8,
-      direction: Axis.vertical,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           movieDetailModel.title ?? "",
           style: titleTextStyle,
+          overflow: TextOverflow.ellipsis,
+          maxLines: 1,
         ),
+        10.verticalSizedBox,
         Text(
           movieDetailModel.getGenres(),
           style: genresTextStyle,
+          overflow: TextOverflow.ellipsis,
+          maxLines: 1,
         ),
       ],
     );

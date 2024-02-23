@@ -17,13 +17,22 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
   Future<void> _movieDetailInitialEvent(
       MovieDetailInitialEvent event, Emitter<MovieDetailState> emit) async {
     emit(const MovieDetailLoading());
+    late MovieDetailModel movieDetailModel;
+    late CreditResponse creditResponse;
+    late VideoModelResponse videoModelResponse;
     try {
-      MovieDetailModel movieDetailModel =
-          await remoteDataSource.getMovieDetail(event.movieId);
-      CreditResponse creditResponse =
-          await remoteDataSource.getMovieCredits(event.movieId);
-      VideoModelResponse videoModelResponse =
-          await remoteDataSource.getMovieVideos(event.movieId);
+      await Future.wait([
+        remoteDataSource
+            .getMovieDetail(event.movieId)
+            .then((value) => movieDetailModel = value),
+        remoteDataSource
+            .getMovieCredits(event.movieId)
+            .then((value) => creditResponse = value),
+        remoteDataSource
+            .getMovieVideos(event.movieId)
+            .then((value) => videoModelResponse = value)
+      ]);
+
       emit(
         MovieDetailSuccess(
             movieDetailModel: movieDetailModel,

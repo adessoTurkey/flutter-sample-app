@@ -22,6 +22,11 @@ VideoResults _$VideoResultsFromJson(Map<String, dynamic> json) {
 mixin _$VideoResults {
   String? get key => throw _privateConstructorUsedError;
   bool? get offical => throw _privateConstructorUsedError;
+  @JsonKey(
+      disallowNullValue: true,
+      required: true,
+      unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  VideoTypeEnum? get type => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +41,15 @@ abstract class $VideoResultsCopyWith<$Res> {
           VideoResults value, $Res Function(VideoResults) then) =
       _$VideoResultsCopyWithImpl<$Res, VideoResults>;
   @useResult
-  $Res call({String? key, bool? offical, String? id});
+  $Res call(
+      {String? key,
+      bool? offical,
+      @JsonKey(
+          disallowNullValue: true,
+          required: true,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      VideoTypeEnum? type,
+      String? id});
 }
 
 /// @nodoc
@@ -54,6 +67,7 @@ class _$VideoResultsCopyWithImpl<$Res, $Val extends VideoResults>
   $Res call({
     Object? key = freezed,
     Object? offical = freezed,
+    Object? type = freezed,
     Object? id = freezed,
   }) {
     return _then(_value.copyWith(
@@ -65,6 +79,10 @@ class _$VideoResultsCopyWithImpl<$Res, $Val extends VideoResults>
           ? _value.offical
           : offical // ignore: cast_nullable_to_non_nullable
               as bool?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as VideoTypeEnum?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -81,7 +99,15 @@ abstract class _$$VideoResultsImplCopyWith<$Res>
       __$$VideoResultsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? key, bool? offical, String? id});
+  $Res call(
+      {String? key,
+      bool? offical,
+      @JsonKey(
+          disallowNullValue: true,
+          required: true,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      VideoTypeEnum? type,
+      String? id});
 }
 
 /// @nodoc
@@ -97,6 +123,7 @@ class __$$VideoResultsImplCopyWithImpl<$Res>
   $Res call({
     Object? key = freezed,
     Object? offical = freezed,
+    Object? type = freezed,
     Object? id = freezed,
   }) {
     return _then(_$VideoResultsImpl(
@@ -108,6 +135,10 @@ class __$$VideoResultsImplCopyWithImpl<$Res>
           ? _value.offical
           : offical // ignore: cast_nullable_to_non_nullable
               as bool?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as VideoTypeEnum?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -119,7 +150,15 @@ class __$$VideoResultsImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$VideoResultsImpl implements _VideoResults {
-  const _$VideoResultsImpl({this.key, this.offical, this.id});
+  const _$VideoResultsImpl(
+      {this.key,
+      this.offical,
+      @JsonKey(
+          disallowNullValue: true,
+          required: true,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      this.type,
+      this.id});
 
   factory _$VideoResultsImpl.fromJson(Map<String, dynamic> json) =>
       _$$VideoResultsImplFromJson(json);
@@ -129,11 +168,17 @@ class _$VideoResultsImpl implements _VideoResults {
   @override
   final bool? offical;
   @override
+  @JsonKey(
+      disallowNullValue: true,
+      required: true,
+      unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  final VideoTypeEnum? type;
+  @override
   final String? id;
 
   @override
   String toString() {
-    return 'VideoResults(key: $key, offical: $offical, id: $id)';
+    return 'VideoResults(key: $key, offical: $offical, type: $type, id: $id)';
   }
 
   @override
@@ -143,12 +188,13 @@ class _$VideoResultsImpl implements _VideoResults {
             other is _$VideoResultsImpl &&
             (identical(other.key, key) || other.key == key) &&
             (identical(other.offical, offical) || other.offical == offical) &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, key, offical, id);
+  int get hashCode => Object.hash(runtimeType, key, offical, type, id);
 
   @JsonKey(ignore: true)
   @override
@@ -168,6 +214,11 @@ abstract class _VideoResults implements VideoResults {
   const factory _VideoResults(
       {final String? key,
       final bool? offical,
+      @JsonKey(
+          disallowNullValue: true,
+          required: true,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      final VideoTypeEnum? type,
       final String? id}) = _$VideoResultsImpl;
 
   factory _VideoResults.fromJson(Map<String, dynamic> json) =
@@ -177,6 +228,12 @@ abstract class _VideoResults implements VideoResults {
   String? get key;
   @override
   bool? get offical;
+  @override
+  @JsonKey(
+      disallowNullValue: true,
+      required: true,
+      unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  VideoTypeEnum? get type;
   @override
   String? get id;
   @override

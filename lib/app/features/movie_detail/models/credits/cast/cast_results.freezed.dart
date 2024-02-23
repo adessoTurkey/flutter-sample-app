@@ -25,8 +25,13 @@ mixin _$CastResults {
   String? get profilePath => throw _privateConstructorUsedError;
   @JsonKey(name: "original_name")
   String? get originalName => throw _privateConstructorUsedError;
-  @JsonKey(name: "known_for_department")
-  String? get knownForDepartment => throw _privateConstructorUsedError;
+  @JsonKey(
+      name: "known_for_department",
+      disallowNullValue: true,
+      required: true,
+      unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  KnownForDepartmentEnum? get knownForDepartment =>
+      throw _privateConstructorUsedError;
   @JsonKey(name: "cast_id")
   int? get castId => throw _privateConstructorUsedError;
   @JsonKey(name: "department")
@@ -53,7 +58,12 @@ abstract class $CastResultsCopyWith<$Res> {
       {int? id,
       @JsonKey(name: "profile_path") String? profilePath,
       @JsonKey(name: "original_name") String? originalName,
-      @JsonKey(name: "known_for_department") String? knownForDepartment,
+      @JsonKey(
+          name: "known_for_department",
+          disallowNullValue: true,
+          required: true,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      KnownForDepartmentEnum? knownForDepartment,
       @JsonKey(name: "cast_id") int? castId,
       @JsonKey(name: "department") String? department,
       @JsonKey(name: "character") String? character,
@@ -100,7 +110,7 @@ class _$CastResultsCopyWithImpl<$Res, $Val extends CastResults>
       knownForDepartment: freezed == knownForDepartment
           ? _value.knownForDepartment
           : knownForDepartment // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as KnownForDepartmentEnum?,
       castId: freezed == castId
           ? _value.castId
           : castId // ignore: cast_nullable_to_non_nullable
@@ -137,7 +147,12 @@ abstract class _$$CastResultsImplCopyWith<$Res>
       {int? id,
       @JsonKey(name: "profile_path") String? profilePath,
       @JsonKey(name: "original_name") String? originalName,
-      @JsonKey(name: "known_for_department") String? knownForDepartment,
+      @JsonKey(
+          name: "known_for_department",
+          disallowNullValue: true,
+          required: true,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      KnownForDepartmentEnum? knownForDepartment,
       @JsonKey(name: "cast_id") int? castId,
       @JsonKey(name: "department") String? department,
       @JsonKey(name: "character") String? character,
@@ -182,7 +197,7 @@ class __$$CastResultsImplCopyWithImpl<$Res>
       knownForDepartment: freezed == knownForDepartment
           ? _value.knownForDepartment
           : knownForDepartment // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as KnownForDepartmentEnum?,
       castId: freezed == castId
           ? _value.castId
           : castId // ignore: cast_nullable_to_non_nullable
@@ -214,7 +229,12 @@ class _$CastResultsImpl implements _CastResults {
       {this.id,
       @JsonKey(name: "profile_path") this.profilePath,
       @JsonKey(name: "original_name") this.originalName,
-      @JsonKey(name: "known_for_department") this.knownForDepartment,
+      @JsonKey(
+          name: "known_for_department",
+          disallowNullValue: true,
+          required: true,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      this.knownForDepartment,
       @JsonKey(name: "cast_id") this.castId,
       @JsonKey(name: "department") this.department,
       @JsonKey(name: "character") this.character,
@@ -233,8 +253,12 @@ class _$CastResultsImpl implements _CastResults {
   @JsonKey(name: "original_name")
   final String? originalName;
   @override
-  @JsonKey(name: "known_for_department")
-  final String? knownForDepartment;
+  @JsonKey(
+      name: "known_for_department",
+      disallowNullValue: true,
+      required: true,
+      unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  final KnownForDepartmentEnum? knownForDepartment;
   @override
   @JsonKey(name: "cast_id")
   final int? castId;
@@ -300,7 +324,12 @@ abstract class _CastResults implements CastResults {
       {final int? id,
       @JsonKey(name: "profile_path") final String? profilePath,
       @JsonKey(name: "original_name") final String? originalName,
-      @JsonKey(name: "known_for_department") final String? knownForDepartment,
+      @JsonKey(
+          name: "known_for_department",
+          disallowNullValue: true,
+          required: true,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      final KnownForDepartmentEnum? knownForDepartment,
       @JsonKey(name: "cast_id") final int? castId,
       @JsonKey(name: "department") final String? department,
       @JsonKey(name: "character") final String? character,
@@ -319,8 +348,12 @@ abstract class _CastResults implements CastResults {
   @JsonKey(name: "original_name")
   String? get originalName;
   @override
-  @JsonKey(name: "known_for_department")
-  String? get knownForDepartment;
+  @JsonKey(
+      name: "known_for_department",
+      disallowNullValue: true,
+      required: true,
+      unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  KnownForDepartmentEnum? get knownForDepartment;
   @override
   @JsonKey(name: "cast_id")
   int? get castId;
