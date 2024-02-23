@@ -47,7 +47,7 @@ class _MovieDetailPageImageSectionState
                 bottom: configuration.movieDetailRatingViewPositionedBottom,
                 left: 30,
                 child: RatingView(
-                  rating: widget.movieModel.rating,
+                  rating: widget.movieModel.rating.toString(),
                   type: RatingViewType.carousel,
                 ),
               )

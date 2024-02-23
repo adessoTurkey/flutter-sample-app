@@ -17,7 +17,7 @@ class MediumConfiguration extends ResponsiveConfiguration {
   double get movieCellImageWidth => 90;
 
   @override
-  double get headerTextSize => 30;
+  double get headerTextSize => 26;
 
   @override
   double get carouselCardTitleTextSize => 32;
@@ -88,7 +88,7 @@ class MediumConfiguration extends ResponsiveConfiguration {
   double get moviePageListViewTitleTextSize => 26;
 
   @override
-  double get moviePageAppBarTitleTextSize => 16;
+  double get moviePageAppBarTitleTextSize => 14;
 
   //Carousel
   @override
@@ -195,4 +195,7 @@ class MediumConfiguration extends ResponsiveConfiguration {
 
   @override
   double get movieDetailRatingViewPositionedBottom => 0;
+
+  @override
+  double get movieDetailSliverAppBarExpandableHeight => 100;
 }
