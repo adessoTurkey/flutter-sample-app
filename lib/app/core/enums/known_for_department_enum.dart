@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'value')
+@JsonEnum(valueField: 'knownForDepartment')
 enum KnownForDepartmentEnum {
   acting("Acting"),
   production("Production"),
@@ -14,6 +14,6 @@ enum KnownForDepartmentEnum {
   crew("Crew"),
   lighting("Lighting");
 
-  const KnownForDepartmentEnum(this.value);
-  final String value;
+  const KnownForDepartmentEnum(this.knownForDepartment);
+  final String knownForDepartment;
 }

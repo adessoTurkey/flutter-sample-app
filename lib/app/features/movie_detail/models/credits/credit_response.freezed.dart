@@ -22,6 +22,7 @@ CreditResponse _$CreditResponseFromJson(Map<String, dynamic> json) {
 mixin _$CreditResponse {
   int? get id => throw _privateConstructorUsedError;
   List<CastResults>? get cast => throw _privateConstructorUsedError;
+  List<CrewResults>? get crew => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,7 @@ abstract class $CreditResponseCopyWith<$Res> {
           CreditResponse value, $Res Function(CreditResponse) then) =
       _$CreditResponseCopyWithImpl<$Res, CreditResponse>;
   @useResult
-  $Res call({int? id, List<CastResults>? cast});
+  $Res call({int? id, List<CastResults>? cast, List<CrewResults>? crew});
 }
 
 /// @nodoc
@@ -53,6 +54,7 @@ class _$CreditResponseCopyWithImpl<$Res, $Val extends CreditResponse>
   $Res call({
     Object? id = freezed,
     Object? cast = freezed,
+    Object? crew = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -63,6 +65,10 @@ class _$CreditResponseCopyWithImpl<$Res, $Val extends CreditResponse>
           ? _value.cast
           : cast // ignore: cast_nullable_to_non_nullable
               as List<CastResults>?,
+      crew: freezed == crew
+          ? _value.crew
+          : crew // ignore: cast_nullable_to_non_nullable
+              as List<CrewResults>?,
     ) as $Val);
   }
 }
@@ -75,7 +81,7 @@ abstract class _$$CreditResponseImplCopyWith<$Res>
       __$$CreditResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, List<CastResults>? cast});
+  $Res call({int? id, List<CastResults>? cast, List<CrewResults>? crew});
 }
 
 /// @nodoc
@@ -91,6 +97,7 @@ class __$$CreditResponseImplCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? cast = freezed,
+    Object? crew = freezed,
   }) {
     return _then(_$CreditResponseImpl(
       id: freezed == id
@@ -101,6 +108,10 @@ class __$$CreditResponseImplCopyWithImpl<$Res>
           ? _value._cast
           : cast // ignore: cast_nullable_to_non_nullable
               as List<CastResults>?,
+      crew: freezed == crew
+          ? _value._crew
+          : crew // ignore: cast_nullable_to_non_nullable
+              as List<CrewResults>?,
     ));
   }
 }
@@ -108,8 +119,10 @@ class __$$CreditResponseImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CreditResponseImpl implements _CreditResponse {
-  const _$CreditResponseImpl({this.id, final List<CastResults>? cast})
-      : _cast = cast;
+  const _$CreditResponseImpl(
+      {this.id, final List<CastResults>? cast, final List<CrewResults>? crew})
+      : _cast = cast,
+        _crew = crew;
 
   factory _$CreditResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreditResponseImplFromJson(json);
@@ -126,9 +139,19 @@ class _$CreditResponseImpl implements _CreditResponse {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<CrewResults>? _crew;
+  @override
+  List<CrewResults>? get crew {
+    final value = _crew;
+    if (value == null) return null;
+    if (_crew is EqualUnmodifiableListView) return _crew;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   String toString() {
-    return 'CreditResponse(id: $id, cast: $cast)';
+    return 'CreditResponse(id: $id, cast: $cast, crew: $crew)';
   }
 
   @override
@@ -137,13 +160,17 @@ class _$CreditResponseImpl implements _CreditResponse {
         (other.runtimeType == runtimeType &&
             other is _$CreditResponseImpl &&
             (identical(other.id, id) || other.id == id) &&
-            const DeepCollectionEquality().equals(other._cast, _cast));
+            const DeepCollectionEquality().equals(other._cast, _cast) &&
+            const DeepCollectionEquality().equals(other._crew, _crew));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, const DeepCollectionEquality().hash(_cast));
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      const DeepCollectionEquality().hash(_cast),
+      const DeepCollectionEquality().hash(_crew));
 
   @JsonKey(ignore: true)
   @override
@@ -162,7 +189,9 @@ class _$CreditResponseImpl implements _CreditResponse {
 
 abstract class _CreditResponse implements CreditResponse {
   const factory _CreditResponse(
-      {final int? id, final List<CastResults>? cast}) = _$CreditResponseImpl;
+      {final int? id,
+      final List<CastResults>? cast,
+      final List<CrewResults>? crew}) = _$CreditResponseImpl;
 
   factory _CreditResponse.fromJson(Map<String, dynamic> json) =
       _$CreditResponseImpl.fromJson;
@@ -171,6 +200,8 @@ abstract class _CreditResponse implements CreditResponse {
   int? get id;
   @override
   List<CastResults>? get cast;
+  @override
+  List<CrewResults>? get crew;
   @override
   @JsonKey(ignore: true)
   _$$CreditResponseImplCopyWith<_$CreditResponseImpl> get copyWith =>

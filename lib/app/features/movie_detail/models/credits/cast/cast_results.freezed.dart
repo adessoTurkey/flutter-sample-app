@@ -38,8 +38,6 @@ mixin _$CastResults {
   String? get department => throw _privateConstructorUsedError;
   @JsonKey(name: "character")
   String? get character => throw _privateConstructorUsedError;
-  @JsonKey(name: "job")
-  String? get job => throw _privateConstructorUsedError;
   int? get order => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -67,7 +65,6 @@ abstract class $CastResultsCopyWith<$Res> {
       @JsonKey(name: "cast_id") int? castId,
       @JsonKey(name: "department") String? department,
       @JsonKey(name: "character") String? character,
-      @JsonKey(name: "job") String? job,
       int? order});
 }
 
@@ -91,7 +88,6 @@ class _$CastResultsCopyWithImpl<$Res, $Val extends CastResults>
     Object? castId = freezed,
     Object? department = freezed,
     Object? character = freezed,
-    Object? job = freezed,
     Object? order = freezed,
   }) {
     return _then(_value.copyWith(
@@ -123,10 +119,6 @@ class _$CastResultsCopyWithImpl<$Res, $Val extends CastResults>
           ? _value.character
           : character // ignore: cast_nullable_to_non_nullable
               as String?,
-      job: freezed == job
-          ? _value.job
-          : job // ignore: cast_nullable_to_non_nullable
-              as String?,
       order: freezed == order
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
@@ -156,7 +148,6 @@ abstract class _$$CastResultsImplCopyWith<$Res>
       @JsonKey(name: "cast_id") int? castId,
       @JsonKey(name: "department") String? department,
       @JsonKey(name: "character") String? character,
-      @JsonKey(name: "job") String? job,
       int? order});
 }
 
@@ -178,7 +169,6 @@ class __$$CastResultsImplCopyWithImpl<$Res>
     Object? castId = freezed,
     Object? department = freezed,
     Object? character = freezed,
-    Object? job = freezed,
     Object? order = freezed,
   }) {
     return _then(_$CastResultsImpl(
@@ -210,10 +200,6 @@ class __$$CastResultsImplCopyWithImpl<$Res>
           ? _value.character
           : character // ignore: cast_nullable_to_non_nullable
               as String?,
-      job: freezed == job
-          ? _value.job
-          : job // ignore: cast_nullable_to_non_nullable
-              as String?,
       order: freezed == order
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
@@ -238,7 +224,6 @@ class _$CastResultsImpl implements _CastResults {
       @JsonKey(name: "cast_id") this.castId,
       @JsonKey(name: "department") this.department,
       @JsonKey(name: "character") this.character,
-      @JsonKey(name: "job") this.job,
       this.order});
 
   factory _$CastResultsImpl.fromJson(Map<String, dynamic> json) =>
@@ -269,14 +254,11 @@ class _$CastResultsImpl implements _CastResults {
   @JsonKey(name: "character")
   final String? character;
   @override
-  @JsonKey(name: "job")
-  final String? job;
-  @override
   final int? order;
 
   @override
   String toString() {
-    return 'CastResults(id: $id, profilePath: $profilePath, originalName: $originalName, knownForDepartment: $knownForDepartment, castId: $castId, department: $department, character: $character, job: $job, order: $order)';
+    return 'CastResults(id: $id, profilePath: $profilePath, originalName: $originalName, knownForDepartment: $knownForDepartment, castId: $castId, department: $department, character: $character, order: $order)';
   }
 
   @override
@@ -296,14 +278,13 @@ class _$CastResultsImpl implements _CastResults {
                 other.department == department) &&
             (identical(other.character, character) ||
                 other.character == character) &&
-            (identical(other.job, job) || other.job == job) &&
             (identical(other.order, order) || other.order == order));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, profilePath, originalName,
-      knownForDepartment, castId, department, character, job, order);
+      knownForDepartment, castId, department, character, order);
 
   @JsonKey(ignore: true)
   @override
@@ -333,7 +314,6 @@ abstract class _CastResults implements CastResults {
       @JsonKey(name: "cast_id") final int? castId,
       @JsonKey(name: "department") final String? department,
       @JsonKey(name: "character") final String? character,
-      @JsonKey(name: "job") final String? job,
       final int? order}) = _$CastResultsImpl;
 
   factory _CastResults.fromJson(Map<String, dynamic> json) =
@@ -363,9 +343,6 @@ abstract class _CastResults implements CastResults {
   @override
   @JsonKey(name: "character")
   String? get character;
-  @override
-  @JsonKey(name: "job")
-  String? get job;
   @override
   int? get order;
   @override

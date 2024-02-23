@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/extensions/credit_response_extension.dart';
+import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/credits/credit_response.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
@@ -33,12 +33,15 @@ class MovieDetailPageCastSection extends StatelessWidget {
   ) {
     return Column(
       children: [
-        movieDetailCastLabel(
-            "Director", titleTextStyle, "Todd Philips", infoTextStyle),
-        movieDetailCastLabel("Writers", titleTextStyle,
-            creditResponse.getWriters(), infoTextStyle),
-        movieDetailCastLabel(
-            "Stars", titleTextStyle, creditResponse.getActors(), infoTextStyle),
+        if (creditResponse.getDirector()!.isValid)
+          movieDetailCastLabel("Director", titleTextStyle,
+              creditResponse.getDirector()!, infoTextStyle),
+        if (creditResponse.getWriters()!.isValid)
+          movieDetailCastLabel("Writers", titleTextStyle,
+              creditResponse.getWriters()!, infoTextStyle),
+        if (creditResponse.getActors()!.isValid)
+          movieDetailCastLabel("Stars", titleTextStyle,
+              creditResponse.getActors()!, infoTextStyle),
       ],
     );
   }

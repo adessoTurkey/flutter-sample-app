@@ -21,7 +21,7 @@ class CastResults with _$CastResults {
     @JsonKey(name: "cast_id") int? castId,
     @JsonKey(name: "department") String? department,
     @JsonKey(name: "character") String? character,
-    @JsonKey(name: "job") String? job,
+
     int? order,
   }) = _CastResults;
   factory CastResults.fromJson(Map<String, Object?> json) =>

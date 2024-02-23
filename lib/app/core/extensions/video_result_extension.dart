@@ -4,10 +4,9 @@ import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_
 extension VideoModelResponseExtension on VideoModelResponse {
   String getTrailerURL() {
     return results!
-            .lastWhere((element) => element.type == VideoTypeEnum.trailer)
-            .key ??
-        results!
-            .lastWhere((element) => element.type == VideoTypeEnum.teaser)
+            .lastWhere((element) =>
+                element.type == VideoTypeEnum.trailer ||
+                element.type == VideoTypeEnum.teaser)
             .key ??
         "";
   }
