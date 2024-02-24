@@ -9,4 +9,9 @@ class RequestTokenModel with _$RequestTokenModel {
       required String requestToken}) = _RequestTokenModel;
   factory RequestTokenModel.fromJson(Map<String, Object?> json) =>
       _$RequestTokenModelFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'request_token': requestToken,
+  };
 }
