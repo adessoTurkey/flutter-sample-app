@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class CustomLoginTextField extends StatelessWidget {
-  final TextStyle textStyle;
-  final String labelText;
-  final TextStyle labelTextStyle;
-  final String hintText;
-  final TextStyle hintTextStyle;
+  final TextStyle? textStyle;
+  final String? labelText;
+  final TextStyle? labelTextStyle;
+  final String? hintText;
+  final TextStyle? hintTextStyle;
 
-  const CustomLoginTextField({
-    required this.textStyle,
-    required this.labelText,
-    required this.labelTextStyle,
-    required this.hintText,
-    required this.hintTextStyle,
-    super.key,
+   const CustomLoginTextField({
+     this.textStyle,
+     this.labelText,
+     this.labelTextStyle,
+     this.hintText,
+     this.hintTextStyle,
+     super.key,
   });
 
   @override
@@ -22,12 +23,12 @@ class CustomLoginTextField extends StatelessWidget {
     return ConfigurationWidget(
     onConfigurationReady: (config, theme) {
       return TextField(
-        style: textStyle,
+        style: textStyle ?? theme.usernameTextFieldText(),
         decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: hintTextStyle,
-          labelText: labelText,
-          labelStyle: labelTextStyle,
+          hintText: hintText ?? context.localization.enterEmail,
+          hintStyle: hintTextStyle ?? theme.usernameTextFieldHint(),
+          labelText: labelText ?? context.localization.email,
+          labelStyle: labelTextStyle ?? theme.usernameTextFieldLabel(),
         ),
       );
     });

@@ -26,8 +26,6 @@ final class LightTheme extends ATheme {
   TextStyle movieCellMovieNameTextStyle(double fontSize) {
     return const TextStyle()
         .movieCellMovieNameTextStyle(fontSize, MColors.almostBlack);
-    return const TextStyle()
-        .movieCellMovieNameTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override
@@ -73,12 +71,8 @@ final class LightTheme extends ATheme {
   @override
   TextStyle splashTextStyle(double fontSize) =>
       const TextStyle().textStyleW300(fontSize, MColors.white);
-
   @override
-  TextStyle whiteTextStyle() => const TextStyle(color: MColors.white);
-
-  @override
-  TextStyle forgatPassword(double fontSize) =>
+  TextStyle forgetPassword(double fontSize) =>
       const TextStyle().textStyleW400(fontSize, MColors.white);
 
   @override
@@ -144,4 +138,22 @@ final class LightTheme extends ATheme {
     return const TextStyle()
         .movieDetailCastRightLabelTextStyle(fontSize, MColors.electricBlue);
   }
+
+  @override
+  TextStyle passwordTextFieldHint() => const TextStyle(color: MColors.white);
+
+  @override
+  TextStyle passwordTextFieldLabel() => const TextStyle(color: MColors.white);
+
+  @override
+  TextStyle passwordTextFieldText() => const TextStyle(color: MColors.white);
+
+  @override
+  TextStyle usernameTextFieldHint() => const TextStyle(color: MColors.white);
+
+  @override
+  TextStyle usernameTextFieldLabel() => const TextStyle(color: MColors.white);
+
+  @override
+  TextStyle usernameTextFieldText() => const TextStyle(color: MColors.white);
 }

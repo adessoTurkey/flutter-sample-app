@@ -23,11 +23,10 @@ class LoginPage extends StatelessWidget {
         onConfigurationReady: (config, theme) {
           return Container(
             decoration: BoxDecoration(
-              
+              color: MColors.vibrantBlue,
               image: DecorationImage(
-                colorFilter: ColorFilter.mode(MColors.electricBlue.withOpacity(0.8), BlendMode.color),
+                  colorFilter: ColorFilter.mode(MColors.vibrantBlue.withOpacity(0.2), BlendMode.dstATop),
                   image: AssetImage(MovieAssets.images.splashBg.path),
-
                   fit: BoxFit.cover),
             ),
             child: Padding(
@@ -41,56 +40,20 @@ class LoginPage extends StatelessWidget {
                     height: config.loginLogoSize.height,
                   ),
                   64.verticalSizedBox,
-                  CustomLoginTextField(
-                    textStyle: theme.whiteTextStyle(),
-                    hintText: context.localization.enterEmail,
-                    hintTextStyle: theme.whiteTextStyle(),
-                    labelText: context.localization.email,
-                    labelTextStyle: theme.whiteTextStyle(),
-                  ),
+                  const CustomLoginTextField(),
                   10.verticalSizedBox,
-                  CustomLoginPasswordField(
-                    textStyle: theme.whiteTextStyle(),
-                    hintText: context.localization.enterPassword,
-                    hintTextStyle: theme.whiteTextStyle(),
-                    labelText: context.localization.password,
-                    labelTextStyle: theme.whiteTextStyle(),
-                  ),
-                  /*TextField(
-                    obscureText: !passwordVisible,
-                    style: theme.whiteTextStyle(),
-                    decoration: InputDecoration(
-                      hintText: context.localization.enterPassword,
-                      hintStyle: theme.whiteTextStyle(),
-                      labelText: context.localization.password,
-                      labelStyle: theme.whiteTextStyle(),
-                      suffixIcon: IconButton(
-                        icon: SvgPicture.asset(
-                          MovieAssets.images.eye,
-                        ),
-                        onPressed: () {
-                          setState(
-                                () {
-                              passwordVisible = !passwordVisible;
-                            },
-                          );
-                        },
+                  const CustomLoginPasswordField(),
+                  10.verticalSizedBox,
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        context.localization.forgatPassword,
+                        style: theme
+                            .forgetPassword(config.forgatPasswordTextSize),
                       ),
                     ),
-                  ),*/
-                  10.verticalSizedBox,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          context.localization.forgatPassword,
-                          style: theme
-                              .forgatPassword(config.forgatPasswordTextSize),
-                        ),
-                      )
-                    ],
                   ),
                   16.verticalSizedBox,
                   CustomLoginButton(
