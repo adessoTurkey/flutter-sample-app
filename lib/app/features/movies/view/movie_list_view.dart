@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/config/app_router.dart';
 import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/movies/models/movie_model.dart';
+import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
 
 class MovieListView extends StatelessWidget {
-  final List<MovieModel> movieList;
+  final List<MovieData> movieList;
   const MovieListView({required this.movieList, super.key});
 
   @override
@@ -19,7 +19,8 @@ class MovieListView extends StatelessWidget {
           padding: 8.onlyVertical,
           child: GestureDetector(
             onTap: () {
-              context.pushRoute(MovieDetailRoute(movieModel: movieList[index]));
+              //movie-detail-logic branchinde düzenlenicek
+              //context.pushRoute(MovieDetailRoute(movieModel: movieList[index]));
             },
             child: MovieCellView(
               movie: movieList[index],

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/movies/models/movie_model.dart';
+import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class MovieCellView extends StatelessWidget {
-  final MovieModel movie;
+  final MovieData movie;
   const MovieCellView({required this.movie, super.key});
 
   @override
@@ -20,7 +21,7 @@ class MovieCellView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               ImageContainerView(
-                imageURL: movie.imageURL,
+                imageURL: movie.getImageURL,
                 containerSize: Size(
                   configuration.movieCellImageWidth,
                   configuration.movieCellImageWidth,
@@ -36,7 +37,7 @@ class MovieCellView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      movie.movieName,
+                      movie.movieTitle ?? "",
                       style: theme.movieCellMovieNameTextStyle(
                         configuration.movieCellMovieNameTextSize,
                       ),
@@ -46,19 +47,18 @@ class MovieCellView extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      movie.genres,
+                      movie.getGenres(),
                       style: theme.movieCellMovieGenresTextStyle(
                         configuration.movieCellMovieGenresTextSize,
                       ),
                       maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+                    10.verticalSizedBox,
                     Row(
                       children: [
                         ReleaseDateView(
-                          releaseDate: movie.releaseDate,
+                          releaseDate: movie.releaseDate ?? "",
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(
@@ -76,7 +76,7 @@ class MovieCellView extends StatelessWidget {
                           ),
                         ),
                         RatingView(
-                          rating: movie.rating,
+                          rating: movie.getVoteAvarage,
                           type: RatingViewType.movieCell
                         ),
                       ],

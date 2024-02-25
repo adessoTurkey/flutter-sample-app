@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/movies/movies.dart';
+import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class MovieDetailPageInfoSection extends StatelessWidget {

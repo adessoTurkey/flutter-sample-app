@@ -1,4 +1,4 @@
-import 'package:flutter_movie_app/app/features/movies/movies.dart';
+import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
 
 List<MovieModel> mockMovies = [
   MovieModel(
