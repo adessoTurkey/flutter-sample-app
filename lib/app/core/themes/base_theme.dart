@@ -6,6 +6,8 @@ abstract class ATheme {
   Color get primaryColorLight;
   Color get primaryColorDark;
   Color get scaffoldBackgroundColor;
+  Color get dividerColor;
+  Color get shadowColor;
 
   TextStyle movieCellMovieNameTextStyle(double fontSize);
 
@@ -53,5 +55,6 @@ abstract class ATheme {
       bottomNavigationBarTheme: bottomNavigationTheme,
       primaryColorDark: primaryColorDark,
       primaryColorLight: primaryColorLight,
+      dividerColor: dividerColor,
       scaffoldBackgroundColor: scaffoldBackgroundColor);
 }

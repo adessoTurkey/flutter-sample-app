@@ -1,4 +1,6 @@
 
+import '../profile.dart';
+
 List<FavoriteModel> favoritesMock = [
   FavoriteModel(
       title: "Game Of Thrones",
