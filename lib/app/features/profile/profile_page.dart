@@ -22,7 +22,7 @@ class ProfilePage extends StatelessWidget {
                 children: [
                   Container(
                     color: theme.themeData.primaryColorDark,
-                    height: context.heightFactor(heightFactor: .35),
+                    height: context.heightFactor(.35),
                     width: context.screenSize.width,
                   ),
                   const _ProfileHeaderView()
