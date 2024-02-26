@@ -1,7 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_movie_app/api_call/models/login_credentials_request_model.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
+import 'package:flutter_movie_app/app/features/login/bloc/login_event.dart';
 import 'package:flutter_movie_app/app/features/login/views/login_button.dart';
 import 'package:flutter_movie_app/app/features/login/views/login_password_field.dart';
 import 'package:flutter_movie_app/app/features/login/views/login_text_field.dart';
@@ -11,6 +14,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
 
 import '../../core/config/app_router.dart';
+import 'bloc/login_bloc.dart';
+import 'bloc/login_state.dart';
 
 @RoutePage()
 class LoginPage extends StatelessWidget {
@@ -18,6 +23,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController usernameController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
     return Scaffold(
       body: ConfigurationWidget(
         onConfigurationReady: (config, theme) {
@@ -39,6 +46,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   64.verticalSizedBox,
                   CustomLoginTextField(
+                    controller: usernameController,
                     textStyle: theme.whiteTextStyle(),
                     hintText: context.localization.enterEmail,
                     hintTextStyle: theme.whiteTextStyle(),
@@ -47,34 +55,13 @@ class LoginPage extends StatelessWidget {
                   ),
                   10.verticalSizedBox,
                   CustomLoginPasswordField(
+                    controller: passwordController,
                     textStyle: theme.whiteTextStyle(),
                     hintText: context.localization.enterPassword,
                     hintTextStyle: theme.whiteTextStyle(),
                     labelText: context.localization.password,
                     labelTextStyle: theme.whiteTextStyle(),
                   ),
-                  /*TextField(
-                    obscureText: !passwordVisible,
-                    style: theme.whiteTextStyle(),
-                    decoration: InputDecoration(
-                      hintText: context.localization.enterPassword,
-                      hintStyle: theme.whiteTextStyle(),
-                      labelText: context.localization.password,
-                      labelStyle: theme.whiteTextStyle(),
-                      suffixIcon: IconButton(
-                        icon: SvgPicture.asset(
-                          MovieAssets.images.eye,
-                        ),
-                        onPressed: () {
-                          setState(
-                                () {
-                              passwordVisible = !passwordVisible;
-                            },
-                          );
-                        },
-                      ),
-                    ),
-                  ),*/
                   10.verticalSizedBox,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -90,9 +77,36 @@ class LoginPage extends StatelessWidget {
                     ],
                   ),
                   16.verticalSizedBox,
+                  BlocConsumer<LoginBloc, LoginState>(
+                    buildWhen: (previous, current) => current is LoginError,
+                    builder: (context, state) {
+                      if (state is LoginError) {
+                        return Text(
+                          state.errorMessage.toString(),
+                        );
+                      }
+                      return const SizedBox.shrink();
+                    },
+                    listenWhen: (previous, current) => current is LoginSuccess,
+                    listener: (context, state) {
+                      context.pushRoute(const HomeRoute());
+                    },
+                  ),
                   CustomLoginButton(
                     onPressed: () {
-                      context.pushRoute(const HomeRoute());
+                      var username = usernameController.text;
+                      var password = passwordController.text;
+                      if(username.isNotEmpty && password.isNotEmpty){
+                        BlocProvider.of<LoginBloc>(context).add(
+                          SigningIn(
+                              loginCredentialsRequest: LoginCredentialsRequestModel(
+                                  username: username,
+                                  password: password,
+                                  requestToken: ""
+                              )
+                          ),
+                        );
+                      }
                     },
                     text: context.localization.login,
                     textStyle: theme.login(config.loginTextSize),

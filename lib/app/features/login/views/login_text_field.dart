@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class CustomLoginTextField extends StatelessWidget {
+  final TextEditingController controller;
   final TextStyle textStyle;
   final String labelText;
   final TextStyle labelTextStyle;
@@ -9,6 +10,7 @@ class CustomLoginTextField extends StatelessWidget {
   final TextStyle hintTextStyle;
 
   const CustomLoginTextField({
+    required this.controller,
     required this.textStyle,
     required this.labelText,
     required this.labelTextStyle,
@@ -22,6 +24,7 @@ class CustomLoginTextField extends StatelessWidget {
     return ConfigurationWidget(
     onConfigurationReady: (config, theme) {
       return TextField(
+        controller: controller,
         style: textStyle,
         decoration: InputDecoration(
           hintText: hintText,

@@ -51,6 +51,7 @@ void _configureInjection() {
     )
     ..registerSingleton<RemoteDataSource>(
         RemoteDataSourceImpl(networkService: networkService))
+    ..registerSingleton<LocalDataSource>(LocalDataSourceImpl())
     ..registerSingleton<AppRouter>(AppRouter())
     ..registerSingleton<LightTheme>(LightTheme())
     ..registerSingleton<DarkTheme>(DarkTheme())

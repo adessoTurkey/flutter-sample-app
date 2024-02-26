@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_movie_app/api_call/api_repositories/api_repositories.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
 import 'package:flutter_movie_app/api_call/network/network.dart';
 import 'package:flutter_movie_app/app/core/config/app_router.dart';
@@ -9,18 +10,24 @@ import 'package:flutter_movie_app/app/core/initialization/initialization_adapter
 import 'package:flutter_movie_app/app/core/logger/m_logger.dart';
 import 'package:flutter_movie_app/app/core/themes/bloc/theme_bloc.dart';
 import 'package:flutter_movie_app/app/core/themes/theme_enum.dart';
+import 'package:flutter_movie_app/app/features/login/bloc/login_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/bloc/movies_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/models/genre_data/genre_mock.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/localization/bloc/localization_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_movie_app/responsive/responsive.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart';
 
 import 'app/core/constants/constants.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
+
+  WidgetsFlutterBinding.ensureInitialized();
+  final dir = await getApplicationDocumentsDirectory();
+  Hive.init(dir.path);
 
   final features = <InitializationAdapter>[
     DependencyInjection.shared,
@@ -47,7 +54,9 @@ void main() async {
     BlocProvider(
         create: (_) => MoviesBloc(getIt<RemoteDataSource>())
           ..add(
-              const MoviesFetching(categoryType: MovieCategoriesEnum.popular)))
+              const MoviesFetching(categoryType: MovieCategoriesEnum.popular))),
+    BlocProvider(
+        create: (_) => LoginBloc(getIt<RemoteDataSource>(),getIt<LocalDataSource>()))
   ], child: const MyApp()));
 }
 

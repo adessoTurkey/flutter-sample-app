@@ -8,8 +8,14 @@ part of 'session_response_model.dart';
 
 _$SessionResponseModelImpl _$$SessionResponseModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$SessionResponseModelImpl();
+    _$SessionResponseModelImpl(
+      success: json['success'] as bool,
+      sessionId: json['sessionId'] as String,
+    );
 
 Map<String, dynamic> _$$SessionResponseModelImplToJson(
         _$SessionResponseModelImpl instance) =>
-    <String, dynamic>{};
+    <String, dynamic>{
+      'success': instance.success,
+      'sessionId': instance.sessionId,
+    };
