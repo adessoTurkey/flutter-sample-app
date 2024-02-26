@@ -1,7 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/widgets/custom_scroll_view_app_bar_widget.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
@@ -23,7 +22,7 @@ class ProfilePage extends StatelessWidget {
                 children: [
                   Container(
                     color: theme.themeData.primaryColorDark,
-                    height: context.screenSize.width - 100,
+                    height: context.heightFactor(heightFactor: .35),
                     width: context.screenSize.width,
                   ),
                   const _ProfileHeaderView()
@@ -117,61 +116,6 @@ class _FavoriteListView extends StatelessWidget {
                 )
               ],
             ),
-          ),
-        );
-      },
-    );
-  }
-}
-
-class BaseView extends StatelessWidget {
-  final String largeTitle;
-  final String appBarTitle;
-  final Widget child;
-  const BaseView({
-    super.key,
-    required this.child,
-    required this.largeTitle,
-    required this.appBarTitle,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ConfigurationWidget(
-      onConfigurationReady: (configuration, theme) {
-        return Scaffold(
-          body: Stack(
-            children: [
-              Container(
-                color: theme.themeData.primaryColorDark,
-                height: context.screenSize.width,
-                width: context.screenSize.width,
-              ),
-              SafeArea(
-                child: CustomScrollView(
-                  slivers: [
-                    CustomScrollViewAppBar(
-                      largeTitle: largeTitle,
-                      largeTitleStyle: theme.moviesViewHeaderTextStyle(
-                        configuration.headerTextSize,
-                      ),
-                      appBarTitle: appBarTitle,
-                      appBarTitleStyle: theme.moviesPageAppBarTitleTextStyle(
-                          configuration.moviePageAppBarTitleTextSize),
-                      backgroundColor: theme.themeData.primaryColorDark,
-                      expandedHeight:
-                          configuration.movieDetailSliverAppBarExpandableHeight,
-                    ),
-                    SliverToBoxAdapter(
-                      child: Padding(
-                        padding: 10.symmetric(horizontal: 20),
-                        child: child,
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
           ),
         );
       },

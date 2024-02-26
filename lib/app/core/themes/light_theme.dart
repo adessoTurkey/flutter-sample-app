@@ -25,6 +25,12 @@ final class LightTheme extends ATheme {
   Color get scaffoldBackgroundColor => MColors.white;
 
   @override
+  Color get dividerColor => MColors.borderColor;
+
+  @override
+  Color get shadowColor => MColors.almostBlack.withOpacity(.05);
+
+  @override
   TextStyle movieCellMovieNameTextStyle(double fontSize) {
     return const TextStyle()
         .movieCellMovieNameTextStyle(fontSize, MColors.almostBlack);

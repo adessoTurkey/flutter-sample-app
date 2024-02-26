@@ -15,10 +15,10 @@ class FavoritesCell extends StatelessWidget {
       onConfigurationReady: (configuration, theme) {
         return CustomCard(
           elevation: configuration.movieCellCardElevation,
-          shadowColor: Colors.black26,
+          shadowColor: theme.shadowColor,
           shapeBorder: RoundedRectangleBorder(
             side: BorderSide(
-              color: Colors.grey.withOpacity(.3),
+              color: theme.themeData.dividerColor,
             ),
             borderRadius: BorderRadius.circular(10.0),
           ),
