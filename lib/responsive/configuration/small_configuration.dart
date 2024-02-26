@@ -168,4 +168,25 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   @override
   double get movieDetailSliverAppBarExpandableHeight => 100;
+
+  @override
+  double get profileHeaderLabelTextSize => 26;
+
+  @override
+  double get profileSubHeaderLabelTextSize => 20;
+
+  @override
+  double get profileUsernameLabelTextSize => 26;
+
+  @override
+  double get profileFavoriteCellSubTitleTextSize => 18;
+
+  @override
+  double get profileFavoriteCellTitleTextSize => 23;
+
+  @override
+  double get profileFavoriteCellIconSize => 35;
+
+  @override
+  double get profileFavoriteListTitleTextSize => 28;
 }

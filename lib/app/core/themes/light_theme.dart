@@ -122,4 +122,41 @@ final class LightTheme extends ATheme {
     return const TextStyle()
         .movieDetailCastRightLabelTextStyle(fontSize, MColors.electricBlue);
   }
+
+  //PROFILE
+  @override
+  TextStyle profileHeaderLabelTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileHeaderLabelTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle profileSubHeaderLabelTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileSubHeaderLabelTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle profileUsernameLabelTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileUsernameLabelTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle profileFavoriteCellSubTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileFavoriteCellSubTitleTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle profileFavoriteCellTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileFavoriteCellTitleTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle profileFavoriteListTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileFavoriteListTitleTextStyle(fontSize, MColors.almostBlack);
+  }
 }
