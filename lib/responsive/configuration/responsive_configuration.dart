@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../../app/core/enums/enums.dart';
 
 abstract class ResponsiveConfiguration {
-
   //Rating View
   RatingViewSizeEnum get ratingViewCarousel;
   RatingViewSizeEnum get ratingViewMovieCell;
@@ -50,7 +49,7 @@ abstract class ResponsiveConfiguration {
   double get headerTextSize;
   double get carouselCardTitleTextSize;
   double get carouselCardSubTitleTextSize;
-  
+
   double get durationViewIconSize;
   double get durationViewTextSize;
   double get rateViewIconSize;
@@ -71,6 +70,15 @@ abstract class ResponsiveConfiguration {
   double get circularButtonWidgetDefaultRadiusSize;
   double get movieDetailShareButtonPaddingLeft;
   double get movieDetailSliverAppBarExpandableHeight;
+
+  //Profile
+  double get profileHeaderLabelTextSize;
+  double get profileSubHeaderLabelTextSize;
+  double get profileUsernameLabelTextSize;
+  double get profileFavoriteCellTitleTextSize;
+  double get profileFavoriteCellSubTitleTextSize;
+  double get profileFavoriteCellIconSize;
+  double get profileFavoriteListTitleTextSize;
   double get searchListCellViewTitleTextSize;
   double get searchViewTitleTextSize;
   double get searchTextFieldButtonTextSize;

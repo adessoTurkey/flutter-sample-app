@@ -14,6 +14,10 @@
   "rate_view_share_button_text": "Paylaş",
   "movie_detail_trailer_text": "Fragman",
   "movie_detail_duration_text": "dk",
+  "profile_header_text": "Profil",
+  "profile_sub_header_text": "Merhaba",
+  "profile_favorite_title_text": "Favori"
+  "movie_detail_duration_text": "dk",
   "search_page_title": "Arama",
   "search_page_text_field_title": "Arama",
   "search_page_text_field_button": "İptal",
