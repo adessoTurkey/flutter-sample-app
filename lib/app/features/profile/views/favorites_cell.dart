@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import '../profile.dart';
+import 'package:flutter_movie_app/app/features/profile/models/favorites/favorite_data.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class FavoritesCell extends StatelessWidget {
-  final FavoriteModel favoriteModel;
+  final FavoriteData favoriteModel;
   const FavoritesCell({super.key, required this.favoriteModel});
 
   @override
@@ -30,7 +30,7 @@ class FavoritesCell extends StatelessWidget {
               Expanded(
                 flex: 3,
                 child: ImageContainerView(
-                  imageURL: favoriteModel.image,
+                  imageURL: favoriteModel.posterPath ?? "",
                   placeholderImage: MovieAssets.images.poster1.path,
                 ),
               ),
@@ -40,25 +40,19 @@ class FavoritesCell extends StatelessWidget {
                 child: Padding(
                   padding: 10.topToBottom(bottom: 20),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        favoriteModel.title,
+                        favoriteModel.title ?? "",
                         style: theme.profileFavoriteCellTitleTextStyle(
                           configuration.profileFavoriteCellTitleTextSize,
                         ),
+                        maxLines: 1,
                       ),
-                      5.verticalSizedBox,
-                      Text(
-                        favoriteModel.actor,
-                        style: theme.profileFavoriteCellSubTitleTextStyle(
-                          configuration.profileFavoriteCellSubTitleTextSize,
-                        ),
-                      ),
-                      10.verticalSizedBox,
+                      20.verticalSizedBox,
                       ReleaseDateView(
-                        releaseDate: favoriteModel.releaseDate,
+                        releaseDate: favoriteModel.releaseDate ?? "",
                       ),
                     ],
                   ),

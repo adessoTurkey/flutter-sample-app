@@ -14,3 +14,11 @@ final class MovieDetailInitialEvent extends MovieDetailEvent {
   @override
   List<Object> get props => [movieId];
 }
+
+final class MovieDetailAddFavoriteEvent extends MovieDetailEvent {
+  final int movieId;
+  const MovieDetailAddFavoriteEvent({required this.movieId});
+
+  @override
+  List<Object> get props => [movieId];
+}
