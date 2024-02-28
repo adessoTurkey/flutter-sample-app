@@ -33,6 +33,11 @@ abstract class ATheme {
   TextStyle movieDetailMovieGenresTextStyle(double fontSize);
   TextStyle movieDetailCastLeftLabelTextStyle(double fontSize);
   TextStyle movieDetailCastRightLabelTextStyle(double fontSize);
+  TextStyle searchListCellViewTitleTextStyle(double fontSize);
+  TextStyle searchViewTitleTextStyle(double fontSize);
+  TextStyle searchTextFieldButtonTextStyle(double fontSize);
+  TextStyle searchListCellViewInfoTextStyle(double fontSize);
+  TextStyle searchListCellViewTypeTextStyle(double fontSize);
 
   ThemeData get themeData => ThemeData(
       useMaterial3: true,

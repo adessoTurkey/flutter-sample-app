@@ -7,4 +7,7 @@ extension PaddingExtensions on num {
 
   EdgeInsets symmetric({double horizontal = 0}) =>
       EdgeInsets.symmetric(vertical: toDouble(), horizontal: horizontal);
+
+  EdgeInsets topToBottom({double bottom = 0}) =>
+      EdgeInsets.only(top: toDouble(), bottom: bottom);
 }

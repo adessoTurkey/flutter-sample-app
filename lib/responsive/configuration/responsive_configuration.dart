@@ -71,4 +71,10 @@ abstract class ResponsiveConfiguration {
   double get circularButtonWidgetDefaultRadiusSize;
   double get movieDetailShareButtonPaddingLeft;
   double get movieDetailSliverAppBarExpandableHeight;
+  double get searchListCellViewTitleTextSize;
+  double get searchViewTitleTextSize;
+  double get searchTextFieldButtonTextSize;
+  double get searchListCellViewTypeTextSize;
+  double get searchListCellViewTypeIconSize;
+  double get searchListCellViewInfoTextSize;
 }

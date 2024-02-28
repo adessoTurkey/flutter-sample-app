@@ -122,4 +122,33 @@ final class LightTheme extends ATheme {
     return const TextStyle()
         .movieDetailCastRightLabelTextStyle(fontSize, MColors.electricBlue);
   }
+
+  @override
+  TextStyle searchListCellViewTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .searchListCellViewTitleTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle searchViewTitleTextStyle(double fontSize) {
+    return const TextStyle().searchViewTitleTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle searchTextFieldButtonTextStyle(double fontSize) {
+    return const TextStyle()
+        .searchTextFieldButtonTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle searchListCellViewInfoTextStyle(double fontSize) {
+    return const TextStyle()
+        .searchListCellViewInfoTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle searchListCellViewTypeTextStyle(double fontSize) {
+    return const TextStyle()
+        .searchListCellViewTypeTextStyle(fontSize, MColors.black25);
+  }
 }
