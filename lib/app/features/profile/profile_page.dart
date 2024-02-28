@@ -1,6 +1,10 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
+import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
+import 'package:flutter_movie_app/app/features/profile/bloc/profile_bloc.dart';
+import 'package:flutter_movie_app/app/features/profile/models/favorites/favorite_data.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
@@ -15,21 +19,35 @@ class ProfilePage extends StatelessWidget {
     return ConfigurationWidget(
       onConfigurationReady: (configuration, theme) {
         return Scaffold(
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Stack(
-                children: [
-                  Container(
-                    color: theme.themeData.primaryColorDark,
-                    height: context.heightFactor(.35),
-                    width: context.screenSize.width,
-                  ),
-                  const _ProfileHeaderView()
-                ],
-              ),
-              const _FavoriteListView(),
-            ],
+          body: BlocBuilder<ProfileBloc, ProfileState>(
+            builder: (context, state) {
+              if (state is ProfileLoading) {
+                return const LoadingView();
+              }
+              if (state is ProfileSuccess) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Stack(
+                      children: [
+                        Container(
+                          color: theme.themeData.primaryColorDark,
+                          height: context.heightFactor(.35),
+                          width: context.screenSize.width,
+                        ),
+                        _ProfileHeaderView(
+                          username: state.accountDetail.username ?? "",
+                        )
+                      ],
+                    ),
+                    _FavoriteListView(
+                      favorites: state.favorites,
+                    ),
+                  ],
+                );
+              }
+              return const LoadingView();
+            },
           ),
         );
       },
@@ -38,7 +56,8 @@ class ProfilePage extends StatelessWidget {
 }
 
 class _ProfileHeaderView extends StatelessWidget {
-  const _ProfileHeaderView();
+  final String username;
+  const _ProfileHeaderView({required this.username});
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +83,7 @@ class _ProfileHeaderView extends StatelessWidget {
                 ),
               ),
               Text(
-                "Jessie Doe",
+                username,
                 style: theme.profileUsernameLabelTextStyle(
                   configuration.profileUsernameLabelTextSize,
                 ),
@@ -78,7 +97,8 @@ class _ProfileHeaderView extends StatelessWidget {
 }
 
 class _FavoriteListView extends StatelessWidget {
-  const _FavoriteListView();
+  final List<FavoriteData> favorites;
+  const _FavoriteListView({required this.favorites});
 
   @override
   Widget build(BuildContext context) {
@@ -103,17 +123,17 @@ class _FavoriteListView extends StatelessWidget {
                   child: ListView.builder(
                     padding: EdgeInsets.zero,
                     shrinkWrap: true,
-                    itemCount: favoritesMock.length,
+                    itemCount: favorites.length,
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: 10.onlyVertical,
                         child: FavoritesCell(
-                          favoriteModel: favoritesMock[index],
+                          favoriteModel: favorites[index],
                         ),
                       );
                     },
                   ),
-                )
+                ),
               ],
             ),
           ),
