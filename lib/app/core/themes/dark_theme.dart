@@ -137,20 +137,20 @@ final class DarkTheme extends ATheme {
   }
 
   @override
-  TextStyle passwordTextFieldHint() => const TextStyle(color: MColors.white);
+  TextStyle passwordTextFieldHint(double fontSize) => const TextStyle().loginPasswordHintTextStyle(fontSize , MColors.white);
 
   @override
-  TextStyle passwordTextFieldLabel() => const TextStyle(color: MColors.white);
+  TextStyle passwordTextFieldLabel(double fontSize) => const TextStyle().loginPasswordLabelTextStyle(fontSize , MColors.white);
 
   @override
-  TextStyle passwordTextFieldText() => const TextStyle(color: MColors.white);
+  TextStyle passwordTextFieldText(double fontSize) => const TextStyle().loginPasswordTextTextStyle(fontSize , MColors.white);
 
   @override
-  TextStyle usernameTextFieldHint() => const TextStyle(color: MColors.white);
+  TextStyle usernameTextFieldHint(double fontSize) => const TextStyle().loginUsernameHintTextStyle(fontSize , MColors.white);
 
   @override
-  TextStyle usernameTextFieldLabel() => const TextStyle(color: MColors.white);
+  TextStyle usernameTextFieldLabel(double fontSize) => const TextStyle().loginUsernameLabelTextStyle(fontSize , MColors.white);
 
   @override
-  TextStyle usernameTextFieldText() => const TextStyle(color: MColors.white);
+  TextStyle usernameTextFieldText(double fontSize) => const TextStyle().loginUsernameTextTextStyle(fontSize , MColors.white);
 }

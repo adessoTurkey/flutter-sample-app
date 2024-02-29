@@ -1,5 +1,23 @@
-abstract class PasswordState {}
+import 'package:equatable/equatable.dart';
 
-class PasswordVisible extends PasswordState {}
+abstract class PasswordState extends Equatable {
+const PasswordState();
 
-class PasswordHidden extends PasswordState {}
+@override
+List<Object?> get props => [];
+}
+
+class PasswordVisibility extends PasswordState {
+  const PasswordVisibility({required this.isHidden});
+
+  PasswordVisibility copyWith({
+    bool? isHidden
+}){
+    return PasswordVisibility(isHidden: isHidden ?? this.isHidden);
+  }
+
+  final bool isHidden;
+
+  @override
+  List<Object?> get props => [isHidden];
+}

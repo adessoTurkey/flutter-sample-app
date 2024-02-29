@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df2c136c-efe9-44f6-9d9b-c850e885ec19" name="Changes" comment="bugfix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/text_style_extensions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/text_style_extensions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/base_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/base_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/dark_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/dark_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/light_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/light_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/login/bloc/login_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/bloc/login_bloc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/login/bloc/login_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/bloc/login_event.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/login/bloc/login_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/bloc/login_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/login/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/login/views/login_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/views/login_button.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/login/views/login_password_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/views/login_password_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/login/views/login_text_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/views/login_text_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/responsive/configuration/large_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/configuration/large_configuration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/responsive/configuration/medium_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/configuration/medium_configuration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/responsive/configuration/responsive_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/configuration/responsive_configuration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/responsive/configuration/small_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/configuration/small_configuration.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,18 +52,18 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "io.flutter.reload.alreadyRun": "true",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />

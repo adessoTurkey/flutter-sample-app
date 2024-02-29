@@ -198,4 +198,28 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   @override
   double get movieDetailSliverAppBarExpandableHeight => 100;
+
+  @override
+  double get loginPasswordHintTextSize => 13;
+
+  @override
+  double get loginPasswordLabelTextSize => 13;
+
+  @override
+  double get loginPasswordTextTextSize => 13;
+
+  @override
+  double get loginUsernameHintTextSize => 13;
+
+  @override
+  double get loginUsernameLabelTextSize => 13;
+
+  @override
+  double get loginUsernameTextTextSize => 13;
+
+  @override
+  double get loginButtonRadius => 5;
+
+  @override
+  double get loginButtonHeight => 50;
 }

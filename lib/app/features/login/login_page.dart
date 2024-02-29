@@ -64,9 +64,6 @@ class LoginPage extends StatelessWidget {
                       onPressed: () {
                         context.pushRoute(const HomeRoute());
                       },
-                      text: context.localization.login,
-                      textStyle: theme.login(config.loginTextSize),
-                      backgroundColor: MColors.white,
                     ),
                     10.verticalSizedBox,
                     Row(

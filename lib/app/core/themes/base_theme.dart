@@ -42,12 +42,12 @@ abstract class ATheme {
 
   TextStyle splashTextStyle(double fontSize);
 
-  TextStyle usernameTextFieldText();
-  TextStyle usernameTextFieldLabel();
-  TextStyle usernameTextFieldHint();
-  TextStyle passwordTextFieldText();
-  TextStyle passwordTextFieldLabel();
-  TextStyle passwordTextFieldHint();
+  TextStyle usernameTextFieldText(double fontSize);
+  TextStyle usernameTextFieldLabel(double fontSize);
+  TextStyle usernameTextFieldHint(double fontSize);
+  TextStyle passwordTextFieldText(double fontSize);
+  TextStyle passwordTextFieldLabel(double fontSize);
+  TextStyle passwordTextFieldHint(double fontSize);
 
   TextStyle forgetPassword(double fontSize);
 

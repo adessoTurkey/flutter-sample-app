@@ -139,4 +139,42 @@ extension TextStyleExtensions on TextStyle {
         fontWeight: _bold,
         color: color,
       );
+
+  TextStyle loginUsernameTextTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        color: color,
+      );
+
+  TextStyle loginUsernameLabelTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        color: color,
+      );
+
+  TextStyle loginUsernameHintTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
+  TextStyle loginPasswordTextTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        color: color,
+      );
+
+  TextStyle loginPasswordLabelTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        color: color,
+      );
+
+
+  TextStyle loginPasswordHintTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        color: color,
+      );
 }

@@ -9,41 +9,30 @@ import '../bloc/login_event.dart';
 import '../bloc/login_state.dart';
 
 class CustomLoginPasswordField extends StatelessWidget {
-  final TextStyle? textStyle;
-  final String? labelText;
-  final TextStyle? labelTextStyle;
-  final String? hintText;
-  final TextStyle? hintTextStyle;
-  final String obscureChar;
+  const CustomLoginPasswordField({super.key});
 
-  const CustomLoginPasswordField({
-     this.textStyle,
-     this.labelText,
-     this.labelTextStyle,
-     this.hintText,
-     this.hintTextStyle,
-    this.obscureChar = '*',
-    super.key,
-  });
+
   @override
   Widget build(BuildContext context) {
     final passwordBloc = BlocProvider.of<PasswordBloc>(context);
     return BlocBuilder<PasswordBloc, PasswordState>(
         builder: (context, state)
         {
+          bool isHidden = true;
+          if(state is PasswordVisibility){
+            isHidden = state.isHidden;
+          }
           return ConfigurationWidget(
               onConfigurationReady: (config, theme) {
                 return TextField(
-                  style: textStyle ?? theme.passwordTextFieldText(),
-                  obscureText: state is PasswordHidden,
-                  obscuringCharacter: obscureChar,
+                  style: theme.passwordTextFieldText(config.loginPasswordTextTextSize),
+                  obscureText: isHidden,
+                  obscuringCharacter: '*',
                   decoration: InputDecoration(
-                    hintText: hintText ?? context.localization.enterPassword,
-                    hintStyle: hintTextStyle ??
-                        theme.passwordTextFieldHint(),
-                    labelText: labelText ?? context.localization.password,
-                    labelStyle: labelTextStyle ??
-                        theme.passwordTextFieldLabel(),
+                    hintText: context.localization.enterPassword,
+                    hintStyle: theme.passwordTextFieldHint(config.loginPasswordHintTextSize),
+                    labelText: context.localization.password,
+                    labelStyle: theme.passwordTextFieldLabel(config.loginPasswordLabelTextSize),
                     suffixIcon: IconButton(
                       icon: SvgPicture.asset(
                         MovieAssets.images.eye,
