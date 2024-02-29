@@ -20,12 +20,13 @@ FavoriteTvData _$FavoriteTvDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FavoriteTvData {
+  int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: "original_name")
   String? get originalName => throw _privateConstructorUsedError;
   @JsonKey(name: "poster_path")
   String? get posterPath => throw _privateConstructorUsedError;
   @JsonKey(name: "first_air_date")
-  String? get first_air_date => throw _privateConstructorUsedError;
+  String? get firstAirDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,9 +41,10 @@ abstract class $FavoriteTvDataCopyWith<$Res> {
       _$FavoriteTvDataCopyWithImpl<$Res, FavoriteTvData>;
   @useResult
   $Res call(
-      {@JsonKey(name: "original_name") String? originalName,
+      {int? id,
+      @JsonKey(name: "original_name") String? originalName,
       @JsonKey(name: "poster_path") String? posterPath,
-      @JsonKey(name: "first_air_date") String? first_air_date});
+      @JsonKey(name: "first_air_date") String? firstAirDate});
 }
 
 /// @nodoc
@@ -58,11 +60,16 @@ class _$FavoriteTvDataCopyWithImpl<$Res, $Val extends FavoriteTvData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? originalName = freezed,
     Object? posterPath = freezed,
-    Object? first_air_date = freezed,
+    Object? firstAirDate = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       originalName: freezed == originalName
           ? _value.originalName
           : originalName // ignore: cast_nullable_to_non_nullable
@@ -71,9 +78,9 @@ class _$FavoriteTvDataCopyWithImpl<$Res, $Val extends FavoriteTvData>
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
               as String?,
-      first_air_date: freezed == first_air_date
-          ? _value.first_air_date
-          : first_air_date // ignore: cast_nullable_to_non_nullable
+      firstAirDate: freezed == firstAirDate
+          ? _value.firstAirDate
+          : firstAirDate // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -88,9 +95,10 @@ abstract class _$$FavoriteTvDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "original_name") String? originalName,
+      {int? id,
+      @JsonKey(name: "original_name") String? originalName,
       @JsonKey(name: "poster_path") String? posterPath,
-      @JsonKey(name: "first_air_date") String? first_air_date});
+      @JsonKey(name: "first_air_date") String? firstAirDate});
 }
 
 /// @nodoc
@@ -104,11 +112,16 @@ class __$$FavoriteTvDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? originalName = freezed,
     Object? posterPath = freezed,
-    Object? first_air_date = freezed,
+    Object? firstAirDate = freezed,
   }) {
     return _then(_$FavoriteTvDataImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       originalName: freezed == originalName
           ? _value.originalName
           : originalName // ignore: cast_nullable_to_non_nullable
@@ -117,9 +130,9 @@ class __$$FavoriteTvDataImplCopyWithImpl<$Res>
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
               as String?,
-      first_air_date: freezed == first_air_date
-          ? _value.first_air_date
-          : first_air_date // ignore: cast_nullable_to_non_nullable
+      firstAirDate: freezed == firstAirDate
+          ? _value.firstAirDate
+          : firstAirDate // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -129,13 +142,16 @@ class __$$FavoriteTvDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$FavoriteTvDataImpl implements _FavoriteTvData {
   const _$FavoriteTvDataImpl(
-      {@JsonKey(name: "original_name") this.originalName,
+      {this.id,
+      @JsonKey(name: "original_name") this.originalName,
       @JsonKey(name: "poster_path") this.posterPath,
-      @JsonKey(name: "first_air_date") this.first_air_date});
+      @JsonKey(name: "first_air_date") this.firstAirDate});
 
   factory _$FavoriteTvDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$FavoriteTvDataImplFromJson(json);
 
+  @override
+  final int? id;
   @override
   @JsonKey(name: "original_name")
   final String? originalName;
@@ -144,11 +160,11 @@ class _$FavoriteTvDataImpl implements _FavoriteTvData {
   final String? posterPath;
   @override
   @JsonKey(name: "first_air_date")
-  final String? first_air_date;
+  final String? firstAirDate;
 
   @override
   String toString() {
-    return 'FavoriteTvData(originalName: $originalName, posterPath: $posterPath, first_air_date: $first_air_date)';
+    return 'FavoriteTvData(id: $id, originalName: $originalName, posterPath: $posterPath, firstAirDate: $firstAirDate)';
   }
 
   @override
@@ -156,18 +172,19 @@ class _$FavoriteTvDataImpl implements _FavoriteTvData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FavoriteTvDataImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.originalName, originalName) ||
                 other.originalName == originalName) &&
             (identical(other.posterPath, posterPath) ||
                 other.posterPath == posterPath) &&
-            (identical(other.first_air_date, first_air_date) ||
-                other.first_air_date == first_air_date));
+            (identical(other.firstAirDate, firstAirDate) ||
+                other.firstAirDate == firstAirDate));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, originalName, posterPath, first_air_date);
+      Object.hash(runtimeType, id, originalName, posterPath, firstAirDate);
 
   @JsonKey(ignore: true)
   @override
@@ -186,14 +203,17 @@ class _$FavoriteTvDataImpl implements _FavoriteTvData {
 
 abstract class _FavoriteTvData implements FavoriteTvData {
   const factory _FavoriteTvData(
-          {@JsonKey(name: "original_name") final String? originalName,
+          {final int? id,
+          @JsonKey(name: "original_name") final String? originalName,
           @JsonKey(name: "poster_path") final String? posterPath,
-          @JsonKey(name: "first_air_date") final String? first_air_date}) =
+          @JsonKey(name: "first_air_date") final String? firstAirDate}) =
       _$FavoriteTvDataImpl;
 
   factory _FavoriteTvData.fromJson(Map<String, dynamic> json) =
       _$FavoriteTvDataImpl.fromJson;
 
+  @override
+  int? get id;
   @override
   @JsonKey(name: "original_name")
   String? get originalName;
@@ -202,7 +222,7 @@ abstract class _FavoriteTvData implements FavoriteTvData {
   String? get posterPath;
   @override
   @JsonKey(name: "first_air_date")
-  String? get first_air_date;
+  String? get firstAirDate;
   @override
   @JsonKey(ignore: true)
   _$$FavoriteTvDataImplCopyWith<_$FavoriteTvDataImpl> get copyWith =>

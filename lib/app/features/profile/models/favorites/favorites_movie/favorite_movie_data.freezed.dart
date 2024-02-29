@@ -20,6 +20,7 @@ FavoriteMovieData _$FavoriteMovieDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FavoriteMovieData {
+  int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: "poster_path")
   String? get posterPath => throw _privateConstructorUsedError;
   @JsonKey(name: "title")
@@ -40,7 +41,8 @@ abstract class $FavoriteMovieDataCopyWith<$Res> {
       _$FavoriteMovieDataCopyWithImpl<$Res, FavoriteMovieData>;
   @useResult
   $Res call(
-      {@JsonKey(name: "poster_path") String? posterPath,
+      {int? id,
+      @JsonKey(name: "poster_path") String? posterPath,
       @JsonKey(name: "title") String? title,
       @JsonKey(name: "release_date") String? releaseDate});
 }
@@ -58,11 +60,16 @@ class _$FavoriteMovieDataCopyWithImpl<$Res, $Val extends FavoriteMovieData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? posterPath = freezed,
     Object? title = freezed,
     Object? releaseDate = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       posterPath: freezed == posterPath
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
@@ -88,7 +95,8 @@ abstract class _$$FavoriteMovieDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "poster_path") String? posterPath,
+      {int? id,
+      @JsonKey(name: "poster_path") String? posterPath,
       @JsonKey(name: "title") String? title,
       @JsonKey(name: "release_date") String? releaseDate});
 }
@@ -104,11 +112,16 @@ class __$$FavoriteMovieDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? posterPath = freezed,
     Object? title = freezed,
     Object? releaseDate = freezed,
   }) {
     return _then(_$FavoriteMovieDataImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       posterPath: freezed == posterPath
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
@@ -129,13 +142,16 @@ class __$$FavoriteMovieDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$FavoriteMovieDataImpl implements _FavoriteMovieData {
   const _$FavoriteMovieDataImpl(
-      {@JsonKey(name: "poster_path") this.posterPath,
+      {this.id,
+      @JsonKey(name: "poster_path") this.posterPath,
       @JsonKey(name: "title") this.title,
       @JsonKey(name: "release_date") this.releaseDate});
 
   factory _$FavoriteMovieDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$FavoriteMovieDataImplFromJson(json);
 
+  @override
+  final int? id;
   @override
   @JsonKey(name: "poster_path")
   final String? posterPath;
@@ -148,7 +164,7 @@ class _$FavoriteMovieDataImpl implements _FavoriteMovieData {
 
   @override
   String toString() {
-    return 'FavoriteMovieData(posterPath: $posterPath, title: $title, releaseDate: $releaseDate)';
+    return 'FavoriteMovieData(id: $id, posterPath: $posterPath, title: $title, releaseDate: $releaseDate)';
   }
 
   @override
@@ -156,6 +172,7 @@ class _$FavoriteMovieDataImpl implements _FavoriteMovieData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FavoriteMovieDataImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.posterPath, posterPath) ||
                 other.posterPath == posterPath) &&
             (identical(other.title, title) || other.title == title) &&
@@ -165,7 +182,8 @@ class _$FavoriteMovieDataImpl implements _FavoriteMovieData {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, posterPath, title, releaseDate);
+  int get hashCode =>
+      Object.hash(runtimeType, id, posterPath, title, releaseDate);
 
   @JsonKey(ignore: true)
   @override
@@ -184,7 +202,8 @@ class _$FavoriteMovieDataImpl implements _FavoriteMovieData {
 
 abstract class _FavoriteMovieData implements FavoriteMovieData {
   const factory _FavoriteMovieData(
-          {@JsonKey(name: "poster_path") final String? posterPath,
+          {final int? id,
+          @JsonKey(name: "poster_path") final String? posterPath,
           @JsonKey(name: "title") final String? title,
           @JsonKey(name: "release_date") final String? releaseDate}) =
       _$FavoriteMovieDataImpl;
@@ -192,6 +211,8 @@ abstract class _FavoriteMovieData implements FavoriteMovieData {
   factory _FavoriteMovieData.fromJson(Map<String, dynamic> json) =
       _$FavoriteMovieDataImpl.fromJson;
 
+  @override
+  int? get id;
   @override
   @JsonKey(name: "poster_path")
   String? get posterPath;
