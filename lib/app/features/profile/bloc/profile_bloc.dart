@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/api_repositories.dart';
 import 'package:flutter_movie_app/app/core/extensions/favorites_data_extension.dart';
+import 'package:flutter_movie_app/app/core/utils/data_mapper.dart';
 import 'package:flutter_movie_app/app/features/profile/models/account_detail/account_detail.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorite_data.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_movie/favorite_movie_data.dart';
@@ -37,22 +38,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         remoteDataSource.getFavoriteTVs().then((value) => favoritesTVs = value),
       ]);
 
-      List<FavoriteData> movieFavs = favoritesMovies.map((e) {
-        return FavoriteData(
-            title: e.title,
-            releaseDate: e.releaseDate,
-            posterPath: e.getImageURL);
-      }).toList();
-
-      List<FavoriteData> tvFavs = favoritesTVs.map((e) {
-        return FavoriteData(
-            title: e.originalName,
-            releaseDate: e.first_air_date,
-            posterPath: e.getImageURL);
-      }).toList();
-
-      favorites.addAll(movieFavs);
-      favorites.addAll(tvFavs);
+      favorites.addAll(DataMapper.favoriteMovieMapper(favoritesMovies));
+      favorites.addAll(DataMapper.favoriteTvMapper(favoritesTVs));
 
       emit(ProfileSuccess(accountDetail: accountDetail, favorites: favorites));
     } catch (e) {

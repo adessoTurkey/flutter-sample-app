@@ -6,6 +6,7 @@ part 'favorite_movie_data.g.dart';
 @freezed
 class FavoriteMovieData with _$FavoriteMovieData {
   const factory FavoriteMovieData({
+    int? id,
     @JsonKey(name: "poster_path") String? posterPath,
     @JsonKey(name: "title") String? title,
     @JsonKey(name: "release_date") String? releaseDate,
