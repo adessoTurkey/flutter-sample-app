@@ -5,6 +5,7 @@ import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_models.dart';
 import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
+import 'package:flutter_movie_app/app/features/search/models/search_multi/search_multi_data.dart';
 
 abstract class RemoteDataSource {
   Future<RequestTokenModel> getRequestToken();
@@ -12,6 +13,7 @@ abstract class RemoteDataSource {
   Future<MovieDetailModel> getMovieDetail(int movieId);
   Future<VideoModelResponse> getMovieVideos(int movieId);
   Future<CreditResponse> getMovieCredits(int movieId);
+  Future<List<SearchMultiData>> searchMulti(String query);
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -103,6 +105,33 @@ class RemoteDataSourceImpl extends RemoteDataSource {
           (json) => CreditResponse.fromJson(json));
 
       return (movieDetailCreditResponse as Ok<CreditResponse>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<List<SearchMultiData>> searchMulti(String query) async {
+    try {
+      var movieDataList = await networkService.execute(
+        NetworkRequest(
+            type: NetworkRequestType.get,
+            path: dotenv.get(EnvConstants.searchMultiPath),
+            queryParams: {
+              "query": query,
+              "include_adult": false,
+              "language": "en-US"
+            },
+            data: const NetworkRequestBody.empty()),
+        (response) {
+          List<SearchMultiData> movieList = (response['results'] as List)
+              .map((e) => SearchMultiData.fromJson(e))
+              .toList();
+          return movieList;
+        },
+      );
+
+      return (movieDataList as Ok<List<SearchMultiData>>).data;
     } catch (_) {
       rethrow;
     }

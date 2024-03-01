@@ -148,4 +148,10 @@ final class DarkTheme extends ATheme {
     return const TextStyle()
         .searchListCellViewTypeTextStyle(fontSize, MColors.black25);
   }
+
+  @override
+  TextStyle searchViewNoResultTextStyle(double fontSize) {
+    return const TextStyle()
+        .searchViewNoResultTextStyle(fontSize, MColors.electricBlue);
+  }
 }

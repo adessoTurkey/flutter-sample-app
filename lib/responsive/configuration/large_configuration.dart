@@ -187,4 +187,7 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   
   @override
   double get searchListCellViewTypeTextSize => 18;
+  
+  @override
+  double get searchViewNoResultTextSize => 26;
 }

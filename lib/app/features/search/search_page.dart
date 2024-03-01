@@ -1,8 +1,12 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/features/search/models/search_entity.dart';
-import 'package:flutter_movie_app/app/features/search/views/search_list_cell_view.dart';
+import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
+import 'package:flutter_movie_app/app/features/search/search.dart';
+import 'package:flutter_movie_app/di/dependency_injection.dart';
+import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
@@ -14,21 +18,41 @@ class SearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConfigurationWidget(
       onConfigurationReady: (configuration, theme) {
-        return Scaffold(
-          body: Column(
-            children: [
-              Stack(
-                children: [
-                  Container(
-                    color: theme.themeData.primaryColorDark,
-                    height: context.heightFactor(.35),
-                    width: context.screenSize.width,
-                  ),
-                  _SearchHeaderView()
-                ],
-              ),
-              const _SearchListView()
-            ],
+        return BlocProvider(
+          create: (context) => SearchBloc(getIt<RemoteDataSource>()),
+          child: Scaffold(
+            body: Column(
+              children: [
+                Stack(
+                  children: [
+                    Container(
+                      color: theme.themeData.primaryColorDark,
+                      height: context.heightFactor(.35),
+                      width: context.screenSize.width,
+                    ),
+                  ],
+                ),
+                BlocBuilder<SearchBloc, SearchState>(
+                  builder: (context, state) {
+                    if (state is SearchInitial) {
+                      return const _NoResultView();
+                    }
+                    if (state is SearchLoading) {
+                      return const LoadingView();
+                    }
+                    if (state is SearchSuccess) {
+                      return SearchListView(
+                        searchResults: state.searchResults,
+                      );
+                    }
+                    if (state is SearchEmpty) {
+                      return const _NoResultView();
+                    }
+                    return const LoadingView();
+                  },
+                )
+              ],
+            ),
           ),
         );
       },
@@ -36,79 +60,27 @@ class SearchPage extends StatelessWidget {
   }
 }
 
-class _SearchListView extends StatelessWidget {
-  const _SearchListView();
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        padding: 10.symmetric(horizontal: 30),
-        itemCount: searchs.length,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: 10.onlyVertical,
-            child: SearchListViewCell(searchEntity: searchs[index]),
-          );
-        },
-      ),
-    );
-  }
-}
-
-class _SearchHeaderView extends StatelessWidget {
-  final TextEditingController _searchTextController = TextEditingController();
-  _SearchHeaderView();
+class _NoResultView extends StatelessWidget {
+  const _NoResultView();
 
   @override
   Widget build(BuildContext context) {
     return ConfigurationWidget(
       onConfigurationReady: (configuration, theme) {
         return Padding(
-          padding: context.heightFactor(0.1).symmetric(horizontal: 30),
+          padding: 20.onlyVertical,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(context.localization.search_page_title,
-                  style: theme.searchViewTitleTextStyle(
-                      configuration.searchViewTitleTextSize)),
-              30.verticalSizedBox,
-              Row(
-                children: [
-                  Expanded(
-                    flex: 7,
-                    child: TextField(
-                      controller: _searchTextController,
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.zero,
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: BorderSide.none,
-                        ),
-                        hintText:
-                            context.localization.search_page_text_field_title,
-                        filled: true,
-                        prefixIcon: const Icon(Icons.search),
-                        suffixIcon: IconButton(
-                          onPressed: _searchTextController.clear,
-                          icon: const Icon(Icons.clear_outlined),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 3,
-                    child: TextButton(
-                      onPressed: _searchTextController.clear,
-                      child: Text(
-                        context.localization.search_page_text_field_button,
-                        style: theme.searchTextFieldButtonTextStyle(
-                            configuration.searchTextFieldButtonTextSize),
-                      ),
-                    ),
-                  )
-                ],
+              Image.asset(
+                MovieAssets.images.noResult.path,
+                width: context.widthFactor(0.8),
+              ),
+              Text(
+                context.localization.search_page_no_result,
+                textAlign: TextAlign.center,
+                style: theme.searchViewNoResultTextStyle(
+                    configuration.searchViewNoResultTextSize),
               )
             ],
           ),

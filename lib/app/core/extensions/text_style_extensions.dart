@@ -151,4 +151,11 @@ extension TextStyleExtensions on TextStyle {
         fontWeight: _light4,
         color: color,
       );
+
+  TextStyle searchViewNoResultTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
 }

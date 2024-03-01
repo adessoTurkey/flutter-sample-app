@@ -16,5 +16,7 @@
   "movie_detail_duration_text": "min",
   "search_page_title": "Search",
   "search_page_text_field_title": "Search",
-  "search_page_text_field_button": "Cancel"
+  "search_page_text_field_button": "Cancel",
+  "search_page_cell_type_movie": "Movie",
+  "search_page_no_result": "Your search didn't have any results"
 }

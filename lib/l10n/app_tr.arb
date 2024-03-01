@@ -16,5 +16,7 @@
   "movie_detail_duration_text": "dk",
   "search_page_title": "Arama",
   "search_page_text_field_title": "Arama",
-  "search_page_text_field_button": "İptal"
+  "search_page_text_field_button": "İptal",
+  "search_page_cell_type_movie": "Film",
+  "search_page_no_result": "Aramanız herhangi bir sonuç vermedi"
 }

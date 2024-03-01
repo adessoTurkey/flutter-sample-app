@@ -77,4 +77,5 @@ abstract class ResponsiveConfiguration {
   double get searchListCellViewTypeTextSize;
   double get searchListCellViewTypeIconSize;
   double get searchListCellViewInfoTextSize;
+  double get searchViewNoResultTextSize;
 }

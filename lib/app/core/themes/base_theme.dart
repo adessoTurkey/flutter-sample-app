@@ -38,6 +38,7 @@ abstract class ATheme {
   TextStyle searchTextFieldButtonTextStyle(double fontSize);
   TextStyle searchListCellViewInfoTextStyle(double fontSize);
   TextStyle searchListCellViewTypeTextStyle(double fontSize);
+  TextStyle searchViewNoResultTextStyle(double fontSize);
 
   ThemeData get themeData => ThemeData(
       useMaterial3: true,

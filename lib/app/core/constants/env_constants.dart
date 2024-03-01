@@ -7,4 +7,5 @@ abstract final class EnvConstants {
   static String moviePath = "MOVIE_PATH";
   static String videoPath = "VIDEO_PATH";
   static String creditPath = "CREDITS_PATH";
+  static String searchMultiPath = "SEARCH_PATH_MULTI";
 }
