@@ -30,6 +30,7 @@ class SearchPage extends StatelessWidget {
                       height: context.heightFactor(.35),
                       width: context.screenSize.width,
                     ),
+                    const SearchHeaderView()
                   ],
                 ),
                 BlocBuilder<SearchBloc, SearchState>(

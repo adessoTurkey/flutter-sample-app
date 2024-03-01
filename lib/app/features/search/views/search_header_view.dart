@@ -6,7 +6,7 @@ import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class SearchHeaderView extends StatelessWidget {
-  const SearchHeaderView();
+  const SearchHeaderView({super.key});
 
   @override
   Widget build(BuildContext context) {
