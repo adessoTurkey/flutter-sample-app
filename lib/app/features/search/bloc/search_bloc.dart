@@ -22,9 +22,6 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
           await remoteDataSource.searchMulti(event.searchQuery);
       List<SearchEntity> searchResults = DataMapper.searchMovieMapper(movies);
       emit(SearchSuccess(searchResults: searchResults));
-      if (movies.isEmpty) {
-        emit(SearchEmpty());
-      }
     } catch (e) {
       emit(SearchError(errorMessage: e.toString()));
     }

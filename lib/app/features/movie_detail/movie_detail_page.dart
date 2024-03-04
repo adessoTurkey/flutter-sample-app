@@ -24,14 +24,14 @@ class MovieDetailPage extends StatelessWidget {
           MovieDetailBloc(remoteDataSource: getIt<RemoteDataSource>())
             ..add(MovieDetailInitialEvent(movieId: movieId)),
       child: Scaffold(
-        body: BlocBuilder<MovieDetailBloc, MovieDetailState>(
-          builder: (context, state) {
-            if (state is MovieDetailLoading) {
-              return const LoadingView();
-            }
-            if (state is MovieDetailSuccess) {
-              return ConfigurationWidget(
-                onConfigurationReady: (configuration, theme) {
+        body: ConfigurationWidget(
+          onConfigurationReady: (configuration, theme) {
+            return BlocBuilder<MovieDetailBloc, MovieDetailState>(
+              builder: (context, state) {
+                if (state is MovieDetailLoading) {
+                  return const LoadingView();
+                }
+                if (state is MovieDetailSuccess) {
                   return SingleChildScrollView(
                     child: Column(
                       children: [
@@ -65,10 +65,10 @@ class MovieDetailPage extends StatelessWidget {
                       ],
                     ),
                   );
-                },
-              );
-            }
-            return const LoadingView();
+                }
+                return const LoadingView();
+              },
+            );
           },
         ),
       ),

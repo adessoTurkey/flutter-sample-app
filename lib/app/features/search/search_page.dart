@@ -42,14 +42,13 @@ class SearchPage extends StatelessWidget {
                       return const LoadingView();
                     }
                     if (state is SearchSuccess) {
-                      return SearchListView(
-                        searchResults: state.searchResults,
-                      );
+                      return state.searchResults.isNotEmpty
+                          ? SearchListView(
+                              searchResults: state.searchResults,
+                            )
+                          : const _NoResultView();
                     }
-                    if (state is SearchEmpty) {
-                      return const _NoResultView();
-                    }
-                    return const LoadingView();
+                    return const _NoResultView();
                   },
                 )
               ],

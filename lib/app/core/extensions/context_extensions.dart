@@ -17,9 +17,9 @@ extension MediaTypeEnumExtensionn on BuildContext {
       case MediaTypeEnum.movie:
         return localization.search_page_cell_type_movie;
       case MediaTypeEnum.tv:
-        return localization.search_page_cell_type_movie;
+        return localization.search_page_cell_type_tv;
       case MediaTypeEnum.person:
-        return localization.search_page_cell_type_movie;
+        return localization.search_page_cell_type_person;
     }
   }
 }

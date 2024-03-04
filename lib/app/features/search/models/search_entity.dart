@@ -8,10 +8,10 @@ class SearchEntity {
   final String? imageURL;
   final int id;
   SearchEntity({
-    required this.type,
-    required this.title,
-    required this.info,
-    required this.imageURL,
+    this.type,
+    this.title,
+    this.info,
+    this.imageURL,
     required this.id,
   });
 }

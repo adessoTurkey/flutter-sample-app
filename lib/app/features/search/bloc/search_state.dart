@@ -20,8 +20,6 @@ final class SearchSuccess extends SearchState {
   List<Object?> get props => [searchResults];
 }
 
-final class SearchEmpty extends SearchState {}
-
 final class SearchError extends SearchState {
   const SearchError({required this.errorMessage});
 
