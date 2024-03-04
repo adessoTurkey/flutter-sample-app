@@ -18,5 +18,7 @@
   "search_page_text_field_title": "Search",
   "search_page_text_field_button": "Cancel",
   "search_page_cell_type_movie": "Movie",
+  "search_page_cell_type_tv": "TV Series",
+  "search_page_cell_type_person": "Actor",
   "search_page_no_result": "Your search didn't have any results"
 }

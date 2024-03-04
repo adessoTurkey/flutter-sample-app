@@ -56,7 +56,7 @@ class SearchListViewCell extends StatelessWidget {
                         ),
                         10.verticalSizedBox,
                         Text(
-                          "Emilia Clarke, Peter Dinklag",
+                          searchEntity.info ?? "",
                           style: theme.searchListCellViewInfoTextStyle(
                               configuration.searchListCellViewInfoTextSize),
                           maxLines: 1,
@@ -72,7 +72,8 @@ class SearchListViewCell extends StatelessWidget {
                             ),
                             10.horizontalSizedBox,
                             Text(
-                              searchEntity.type?.title ?? "",
+                              context
+                                  .localizeMediaTypeTitle(searchEntity.type!),
                               style: theme.searchListCellViewTypeTextStyle(
                                   configuration.searchListCellViewTypeTextSize),
                             ),
