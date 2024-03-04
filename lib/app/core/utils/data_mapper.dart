@@ -1,32 +1,29 @@
-import 'package:flutter_movie_app/app/core/extensions/favorites_data_extension.dart';
-import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_movie/favorite_movie_data.dart';
-
-import '../../features/profile/models/favorites/favorite_data.dart';
-import '../../features/profile/models/favorites/favorites_tv/favorite_tv_data.dart';
+import '../../features/profile/profile.dart';
+import '../enums/enums.dart';
 
 final class DataMapper {
-  static List<FavoriteData> favoriteTvMapper(
+  static List<FavoriteEntity> favoriteTvMapper(
       List<FavoriteTvData> favoriteTvList) {
     return favoriteTvList.map((e) {
-      return FavoriteData(
-        favoriteDataType: FavoriteDataType.tv,
+      return FavoriteEntity(
+        favoriteEntityType: FavoriteEntityType.tv,
         id: e.id,
         title: e.originalName,
         releaseDate: e.firstAirDate,
-        posterPath: e.getImageURL,
+        posterPath: e.posterPath,
       );
     }).toList();
   }
 
-  static List<FavoriteData> favoriteMovieMapper(
+  static List<FavoriteEntity> favoriteMovieMapper(
       List<FavoriteMovieData> favoriteMovieList) {
     return favoriteMovieList.map((e) {
-      return FavoriteData(
-        favoriteDataType: FavoriteDataType.movie,
+      return FavoriteEntity(
+        favoriteEntityType: FavoriteEntityType.movie,
         id: e.id,
         title: e.title,
         releaseDate: e.releaseDate,
-        posterPath: e.getImageURL,
+        posterPath: e.posterPath,
       );
     }).toList();
   }

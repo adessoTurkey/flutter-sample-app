@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/profile/bloc/profile_bloc.dart';
-import 'package:flutter_movie_app/app/features/profile/models/favorites/favorite_data.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
@@ -97,7 +95,7 @@ class _ProfileHeaderView extends StatelessWidget {
 }
 
 class _FavoriteListView extends StatelessWidget {
-  final List<FavoriteData> favorites;
+  final List<FavoriteEntity> favorites;
   const _FavoriteListView({required this.favorites});
 
   @override

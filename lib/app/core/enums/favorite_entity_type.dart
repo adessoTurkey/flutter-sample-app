@@ -1,0 +1,1 @@
+enum FavoriteEntityType { tv, movie }

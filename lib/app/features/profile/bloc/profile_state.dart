@@ -15,7 +15,7 @@ final class ProfileSuccess extends ProfileState {
   const ProfileSuccess({required this.accountDetail, required this.favorites});
 
   final AccountDetail accountDetail;
-  final List<FavoriteData> favorites;
+  final List<FavoriteEntity> favorites;
 
   @override
   List<Object?> get props => [accountDetail, favorites];
