@@ -6,6 +6,7 @@ import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_models.dart';
 import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
 import 'package:flutter_movie_app/app/features/search/models/search_multi/search_multi_data.dart';
+import 'package:flutter_movie_app/localization/localization_helper.dart';
 
 abstract class RemoteDataSource {
   Future<RequestTokenModel> getRequestToken();
@@ -120,7 +121,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
             queryParams: {
               "query": query,
               "include_adult": false,
-              "language": "en-US"
+              "language": LocalizationHelper.queryLanguage
             },
             data: const NetworkRequestBody.empty()),
         (response) {
