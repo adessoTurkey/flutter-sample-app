@@ -11,6 +11,7 @@ import 'package:flutter_movie_app/app/core/themes/bloc/theme_bloc.dart';
 import 'package:flutter_movie_app/app/core/themes/theme_enum.dart';
 import 'package:flutter_movie_app/app/features/movies/bloc/movies_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/models/genre_data/genre_mock.dart';
+import 'package:flutter_movie_app/app/features/profile/bloc/profile_bloc.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/localization/bloc/localization_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -39,6 +40,7 @@ void main() async {
 
   runApp(MultiBlocProvider(providers: [
     BlocProvider(create: (_) => LocalizationsBloc()),
+    BlocProvider(create: (_) => ProfileBloc(getIt<RemoteDataSource>())..add(const ProfileFetchingEvent())),
     BlocProvider(
         create: (_) => ThemeBloc()
           ..add(const ChangeThemeEvent(themeType: ThemeEnum.light)),

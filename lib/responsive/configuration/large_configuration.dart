@@ -169,4 +169,25 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   
   @override
   double get movieDetailSliverAppBarExpandableHeight => 100;
+  
+  @override
+  double get profileHeaderLabelTextSize => 38;
+  
+  @override
+  double get profileSubHeaderLabelTextSize => 24;
+  
+  @override
+  double get profileUsernameLabelTextSize => 30;
+  
+  @override
+  double get profileFavoriteCellSubTitleTextSize => 18;
+  
+  @override
+  double get profileFavoriteCellTitleTextSize => 23;
+  
+  @override
+  double get profileFavoriteCellIconSize => 35;
+  
+  @override
+  double get profileFavoriteListTitleTextSize => 28;
 }

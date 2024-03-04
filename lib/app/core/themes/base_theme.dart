@@ -6,6 +6,8 @@ abstract class ATheme {
   Color get primaryColorLight;
   Color get primaryColorDark;
   Color get scaffoldBackgroundColor;
+  Color get dividerColor;
+  Color get shadowColor;
 
   TextStyle movieCellMovieNameTextStyle(double fontSize);
 
@@ -33,6 +35,13 @@ abstract class ATheme {
   TextStyle movieDetailMovieGenresTextStyle(double fontSize);
   TextStyle movieDetailCastLeftLabelTextStyle(double fontSize);
   TextStyle movieDetailCastRightLabelTextStyle(double fontSize);
+  //Profile
+  TextStyle profileHeaderLabelTextStyle(double fontSize);
+  TextStyle profileSubHeaderLabelTextStyle(double fontSize);
+  TextStyle profileUsernameLabelTextStyle(double fontSize);
+  TextStyle profileFavoriteCellTitleTextStyle(double fontSize);
+  TextStyle profileFavoriteCellSubTitleTextStyle(double fontSize);
+  TextStyle profileFavoriteListTitleTextStyle(double fontSize);
 
   ThemeData get themeData => ThemeData(
       useMaterial3: true,
@@ -40,5 +49,6 @@ abstract class ATheme {
       bottomNavigationBarTheme: bottomNavigationTheme,
       primaryColorDark: primaryColorDark,
       primaryColorLight: primaryColorLight,
+      dividerColor: dividerColor,
       scaffoldBackgroundColor: scaffoldBackgroundColor);
 }
