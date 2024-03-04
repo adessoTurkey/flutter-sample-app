@@ -2,14 +2,16 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/config/app_router.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
+import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/profile/models/favorites/favorite_data.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
+import '../profile.dart';
+
 
 class FavoritesCell extends StatelessWidget {
-  final FavoriteData favoriteModel;
+  final FavoriteEntity favoriteModel;
   const FavoritesCell({super.key, required this.favoriteModel});
 
   @override
@@ -18,7 +20,7 @@ class FavoritesCell extends StatelessWidget {
       onConfigurationReady: (configuration, theme) {
         return InkWell(
           onTap: () {
-            if (favoriteModel.favoriteDataType == FavoriteDataType.movie) {
+            if (favoriteModel.favoriteEntityType == FavoriteEntityType.movie) {
               context.pushRoute(MovieDetailRoute(movieId: favoriteModel.id ?? 0));
             }
           },
@@ -39,7 +41,7 @@ class FavoritesCell extends StatelessWidget {
                 Expanded(
                   flex: 3,
                   child: ImageContainerView(
-                    imageURL: favoriteModel.posterPath ?? "",
+                    imageURL: favoriteModel.posterURL,
                     placeholderImage: MovieAssets.images.poster1.path,
                   ),
                 ),
