@@ -16,11 +16,11 @@
   "movie_detail_duration_text": "dk",
   "profile_header_text": "Profil",
   "profile_sub_header_text": "Merhaba",
-  "profile_favorite_title_text": "Favori"
+  "profile_favorite_title_text": "Favori",
   "movie_detail_duration_text": "dk",
   "search_page_title": "Arama",
   "search_page_text_field_title": "Arama",
-  "search_page_text_field_button": "İptal",
+  "search_page_text_field_button": "Ara",
   "search_page_cell_type_movie": "Film",
   "search_page_cell_type_tv": "Dizi",
   "search_page_cell_type_person": "Aktör",

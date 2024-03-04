@@ -7,11 +7,15 @@ sealed class SearchEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class SearchFetchingEvent extends SearchEvent {
-  final String searchQuery;
+class SearchButtonClicked extends SearchEvent {
+  const SearchButtonClicked();
+}
 
-  const SearchFetchingEvent({required this.searchQuery});
+final class SearchTextChanged extends SearchEvent {
+  const SearchTextChanged(this.searchText);
+
+  final String searchText;
 
   @override
-  List<Object?> get props => [searchQuery];
+  List<Object> get props => [searchText];
 }

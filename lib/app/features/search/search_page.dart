@@ -35,20 +35,20 @@ class SearchPage extends StatelessWidget {
                 ),
                 BlocBuilder<SearchBloc, SearchState>(
                   builder: (context, state) {
-                    if (state is SearchInitial) {
-                      return const _NoResultView();
+                    switch (state.status) {
+                      case SearchStateX.initial:
+                        return const _NoResultView();
+                      case SearchStateX.loading:
+                        return const LoadingView();
+                      case SearchStateX.success:
+                        return state.searchList!.isNotEmpty
+                            ? SearchListView(
+                                searchResults: state.searchList!,
+                              )
+                            : const _NoResultView();
+                      case SearchStateX.error:
+                        return const _NoResultView();
                     }
-                    if (state is SearchLoading) {
-                      return const LoadingView();
-                    }
-                    if (state is SearchSuccess) {
-                      return state.searchResults.isNotEmpty
-                          ? SearchListView(
-                              searchResults: state.searchResults,
-                            )
-                          : const _NoResultView();
-                    }
-                    return const _NoResultView();
                   },
                 )
               ],

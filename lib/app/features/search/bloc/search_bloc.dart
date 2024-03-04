@@ -10,20 +10,41 @@ part 'search_state.dart';
 
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
   final RemoteDataSource remoteDataSource;
-  SearchBloc(this.remoteDataSource) : super(SearchInitial()) {
-    on<SearchFetchingEvent>(_searchFetchingHandler);
+  SearchBloc(this.remoteDataSource) : super(const SearchState()) {
+    on<SearchTextChanged>(_searchTextChanged);
+    on<SearchButtonClicked>(_searchButtonClicked);
   }
 
-  Future<void> _searchFetchingHandler(
-      SearchFetchingEvent event, Emitter<SearchState> emit) async {
-    emit(SearchLoading());
-    try {
-      List<SearchMultiData> movies =
-          await remoteDataSource.searchMulti(event.searchQuery);
-      List<SearchEntity> searchResults = DataMapper.searchMovieMapper(movies);
-      emit(SearchSuccess(searchResults: searchResults));
-    } catch (e) {
-      emit(SearchError(errorMessage: e.toString()));
+  Future<void> _searchButtonClicked(
+      SearchButtonClicked event, Emitter<SearchState> emit) async {
+    if (state.isValid == true) {
+      emit(state.copyWith(status: SearchStateX.loading));
+      try {
+        String searchText = state.searchText!;
+        List<SearchMultiData> movies =
+            await remoteDataSource.searchMulti(searchText);
+        List<SearchEntity> searchResults = DataMapper.searchMovieMapper(movies);
+        emit(state.copyWith(
+            status: SearchStateX.success, searchList: searchResults));
+      } catch (e) {
+        emit(state.copyWith(
+            status: SearchStateX.error, errorMessage: e.toString()));
+      }
+    } else {
+      emit(
+          state.copyWith(errorMessage: "Please search more than 3 characters"));
     }
+  }
+
+  Future<void> _searchTextChanged(
+      SearchTextChanged event, Emitter<SearchState> emit) async {
+    emit(
+      state.copyWith(
+        searchText: event.searchText,
+        isValid: (event.searchText.isNotEmpty && event.searchText.length >= 3)
+            ? true
+            : false,
+      ),
+    );
   }
 }

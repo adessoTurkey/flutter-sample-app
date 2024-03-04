@@ -4,13 +4,11 @@ import 'package:flutter_movie_app/app/core/enums/enums.dart';
 class SearchEntity {
   final MediaTypeEnum? type;
   final String? title;
-  final String? info;
   final String? imageURL;
   final int id;
   SearchEntity({
     this.type,
     this.title,
-    this.info,
     this.imageURL,
     required this.id,
   });

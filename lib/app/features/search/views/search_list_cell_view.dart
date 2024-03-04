@@ -42,11 +42,12 @@ class SearchListViewCell extends StatelessWidget {
                 Expanded(
                   flex: 8,
                   child: Padding(
-                    padding: 10.topToBottom(bottom: 20),
+                    padding: 10.topToBottom(bottom: 10),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        10.verticalSizedBox,
                         Text(
                           searchEntity.title ?? "",
                           style: theme.searchListCellViewTitleTextStyle(
@@ -54,14 +55,7 @@ class SearchListViewCell extends StatelessWidget {
                           ),
                           maxLines: 1,
                         ),
-                        10.verticalSizedBox,
-                        Text(
-                          searchEntity.info ?? "",
-                          style: theme.searchListCellViewInfoTextStyle(
-                              configuration.searchListCellViewInfoTextSize),
-                          maxLines: 1,
-                        ),
-                        10.verticalSizedBox,
+                        20.verticalSizedBox,
                         Row(
                           children: [
                             Icon(
@@ -79,6 +73,7 @@ class SearchListViewCell extends StatelessWidget {
                             ),
                           ],
                         ),
+                        10.verticalSizedBox,
                       ],
                     ),
                   ),

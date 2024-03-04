@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/features/search/search.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
@@ -32,21 +33,8 @@ class SearchHeaderView extends StatelessWidget {
   }
 }
 
-class _SearchTextFieldView extends StatefulWidget {
+class _SearchTextFieldView extends StatelessWidget {
   const _SearchTextFieldView();
-
-  @override
-  State<_SearchTextFieldView> createState() => _SearchTextFieldViewState();
-}
-
-class _SearchTextFieldViewState extends State<_SearchTextFieldView> {
-  final TextEditingController _searchTextController = TextEditingController();
-
-  @override
-  void initState() {
-    _searchTextController.addListener(onChange);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,10 +45,12 @@ class _SearchTextFieldViewState extends State<_SearchTextFieldView> {
             Expanded(
               flex: 7,
               child: TextField(
-                controller: _searchTextController,
+                onChanged: (value) {
+                  context.read<SearchBloc>().add(SearchTextChanged(value));
+                },
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.zero,
-                  fillColor: Colors.white,
+                  fillColor: MColors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.0),
                     borderSide: BorderSide.none,
@@ -68,10 +58,6 @@ class _SearchTextFieldViewState extends State<_SearchTextFieldView> {
                   hintText: context.localization.search_page_text_field_title,
                   filled: true,
                   prefixIcon: const Icon(Icons.search),
-                  suffixIcon: IconButton(
-                    onPressed: _searchTextController.clear,
-                    icon: const Icon(Icons.clear_outlined),
-                  ),
                 ),
               ),
             ),
@@ -79,7 +65,7 @@ class _SearchTextFieldViewState extends State<_SearchTextFieldView> {
               flex: 3,
               child: TextButton(
                 onPressed: () {
-                  _searchTextController.clear;
+                  context.read<SearchBloc>().add(const SearchButtonClicked());
                 },
                 child: Text(
                   context.localization.search_page_text_field_button,
@@ -92,13 +78,5 @@ class _SearchTextFieldViewState extends State<_SearchTextFieldView> {
         );
       },
     );
-  }
-
-  void onChange() {
-    Future.delayed(const Duration(milliseconds: 500), () {
-      context.read<SearchBloc>().add(
-            SearchFetchingEvent(searchQuery: _searchTextController.value.text),
-          );
-    });
   }
 }
