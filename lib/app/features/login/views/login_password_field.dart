@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_movie_app/app/core/constants/login_constants.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:flutter_svg/svg.dart';
@@ -27,7 +28,7 @@ class CustomLoginPasswordField extends StatelessWidget {
                 return TextField(
                   style: theme.passwordTextFieldText(config.loginPasswordTextTextSize),
                   obscureText: isHidden,
-                  obscuringCharacter: '*',
+                  obscuringCharacter: LoginConstants.passwordObscureCharacter,
                   decoration: InputDecoration(
                     hintText: context.localization.enterPassword,
                     hintStyle: theme.passwordTextFieldHint(config.loginPasswordHintTextSize),
