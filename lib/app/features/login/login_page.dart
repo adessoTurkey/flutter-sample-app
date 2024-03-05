@@ -78,7 +78,7 @@ class LoginPage extends StatelessWidget {
                           ScaffoldMessenger.of(context)
                           ..hideCurrentSnackBar()
                           ..showSnackBar(
-                          const SnackBar(content: Text('Authentication Failure'),),);
+                            SnackBar(content: Text(context.localization.authentication_failed),),);
                         }
                         if(state.status.isSuccess){
                           context.pushRoute(const HomeRoute());

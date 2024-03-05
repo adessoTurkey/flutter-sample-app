@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 import '../bloc/login_bloc.dart';
@@ -37,7 +38,7 @@ class CustomLoginTextField extends StatelessWidget {
       labelText: labelText,
       labelStyle: labelTextStyle,
         errorText:
-        state.username.displayError != null ? 'invalid username' : null,
+        state.username.displayError != null ? context.localization.invalid_username : null,
       ),
         onChanged: (username) =>
             context.read<LoginBloc>().add(LoginUsernameChanged(username)),

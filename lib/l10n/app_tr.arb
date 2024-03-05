@@ -26,5 +26,8 @@
   "rate_view_rate_button_text": "Rate",
   "rate_view_share_button_text": "Paylaş",
   "movie_detail_trailer_text": "Fragman",
-  "movie_detail_duration_text": "dk"
+  "movie_detail_duration_text": "dk",
+  "authentication_failed": "Giriş Hatası",
+  "invalid_username": "geçersiz kullanıcı adı",
+  "invalid_password": "geçersiz şifre"
 }

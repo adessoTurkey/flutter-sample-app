@@ -4,28 +4,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df2c136c-efe9-44f6-9d9b-c850e885ec19" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/app/features/login/models/models.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/login/models/password.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/login/models/username.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/login/views/authentication_failed_dialog.dart" afterDir="false" />
+    <list default="true" id="df2c136c-efe9-44f6-9d9b-c850e885ec19" name="Changes" comment="bugfix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api_call/api_repositories/local_data_source.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api_call/api_repositories/local_data_source.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api_call/models/request_token_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api_call/models/request_token_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api_call/models/request_token_model.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api_call/models/request_token_model.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api_call/models/request_token_model.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api_call/models/request_token_model.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api_call/models/session_response_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api_call/models/session_response_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api_call/models/session_response_model.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api_call/models/session_response_model.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api_call/models/session_response_model.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api_call/models/session_response_model.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/bloc/login_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/bloc/login_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/bloc/login_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/bloc/login_event.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/bloc/login_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/bloc/login_state.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/login/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/views/login_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/views/login_button.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/login/views/login_password_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/views/login_password_field.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/login/views/login_text_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/views/login_text_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/l10n/app_en.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/app_en.arb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/l10n/app_tr.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/app_tr.arb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
