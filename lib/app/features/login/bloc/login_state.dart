@@ -1,32 +1,38 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_movie_app/api_call/models/session_response_model.dart';
+import 'package:formz/formz.dart';
+import '../models/models.dart';
 
-sealed class LoginState extends Equatable {
-  const LoginState();
+final class LoginState extends Equatable {
+  const LoginState({
+    this.status = FormzSubmissionStatus.initial,
+    this.username = const Username.pure(),
+    this.password = const Password.pure(),
+    this.isValid = false,
+    this.passwordVisible = false,
+  });
+
+  final FormzSubmissionStatus status;
+  final Username username;
+  final Password password;
+  final bool isValid;
+  final bool passwordVisible;
+
+  LoginState copyWith({
+    FormzSubmissionStatus? status,
+    Username? username,
+    Password? password,
+    bool? isValid,
+    bool? passwordVisible,
+  }) {
+    return LoginState(
+      status: status ?? this.status,
+      username: username ?? this.username,
+      password: password ?? this.password,
+      isValid: isValid ?? this.isValid,
+      passwordVisible: passwordVisible ?? this.passwordVisible,
+    );
+  }
 
   @override
-  List<Object?> get props => [];
-}
-
-final class LoginInitial extends LoginState {}
-
-final class LoginLoading extends LoginState {}
-
-final class LoginSuccess extends LoginState {
-  const LoginSuccess({required this.sessionResponse});
-
-  final SessionResponseModel sessionResponse;
-
-  @override
-  List<Object?> get props => [sessionResponse];
-}
-
-
-final class LoginError extends LoginState {
-  const LoginError({required this.errorMessage});
-
-  final String? errorMessage;
-
-  @override
-  List<Object?> get props => [errorMessage];
+  List<Object> get props => [status, username, password, passwordVisible];
 }

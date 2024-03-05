@@ -20,9 +20,11 @@ RequestTokenModel _$RequestTokenModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RequestTokenModel {
-  bool get success => throw _privateConstructorUsedError;
-  String get expiresAt => throw _privateConstructorUsedError;
-  String get requestToken => throw _privateConstructorUsedError;
+  bool? get success => throw _privateConstructorUsedError;
+  @JsonKey(name: 'expires_at')
+  String? get expiresAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'request_token')
+  String? get requestToken => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +38,10 @@ abstract class $RequestTokenModelCopyWith<$Res> {
           RequestTokenModel value, $Res Function(RequestTokenModel) then) =
       _$RequestTokenModelCopyWithImpl<$Res, RequestTokenModel>;
   @useResult
-  $Res call({bool success, String expiresAt, String requestToken});
+  $Res call(
+      {bool? success,
+      @JsonKey(name: 'expires_at') String? expiresAt,
+      @JsonKey(name: 'request_token') String? requestToken});
 }
 
 /// @nodoc
@@ -52,23 +57,23 @@ class _$RequestTokenModelCopyWithImpl<$Res, $Val extends RequestTokenModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? success = null,
-    Object? expiresAt = null,
-    Object? requestToken = null,
+    Object? success = freezed,
+    Object? expiresAt = freezed,
+    Object? requestToken = freezed,
   }) {
     return _then(_value.copyWith(
-      success: null == success
+      success: freezed == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
-              as bool,
-      expiresAt: null == expiresAt
+              as bool?,
+      expiresAt: freezed == expiresAt
           ? _value.expiresAt
           : expiresAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      requestToken: null == requestToken
+              as String?,
+      requestToken: freezed == requestToken
           ? _value.requestToken
           : requestToken // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -81,7 +86,10 @@ abstract class _$$RequestTokenModelImplCopyWith<$Res>
       __$$RequestTokenModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool success, String expiresAt, String requestToken});
+  $Res call(
+      {bool? success,
+      @JsonKey(name: 'expires_at') String? expiresAt,
+      @JsonKey(name: 'request_token') String? requestToken});
 }
 
 /// @nodoc
@@ -95,23 +103,23 @@ class __$$RequestTokenModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? success = null,
-    Object? expiresAt = null,
-    Object? requestToken = null,
+    Object? success = freezed,
+    Object? expiresAt = freezed,
+    Object? requestToken = freezed,
   }) {
     return _then(_$RequestTokenModelImpl(
-      success: null == success
+      success: freezed == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
-              as bool,
-      expiresAt: null == expiresAt
+              as bool?,
+      expiresAt: freezed == expiresAt
           ? _value.expiresAt
           : expiresAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      requestToken: null == requestToken
+              as String?,
+      requestToken: freezed == requestToken
           ? _value.requestToken
           : requestToken // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -121,18 +129,20 @@ class __$$RequestTokenModelImplCopyWithImpl<$Res>
 class _$RequestTokenModelImpl implements _RequestTokenModel {
   const _$RequestTokenModelImpl(
       {required this.success,
-      required this.expiresAt,
-      required this.requestToken});
+      @JsonKey(name: 'expires_at') required this.expiresAt,
+      @JsonKey(name: 'request_token') required this.requestToken});
 
   factory _$RequestTokenModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$RequestTokenModelImplFromJson(json);
 
   @override
-  final bool success;
+  final bool? success;
   @override
-  final String expiresAt;
+  @JsonKey(name: 'expires_at')
+  final String? expiresAt;
   @override
-  final String requestToken;
+  @JsonKey(name: 'request_token')
+  final String? requestToken;
 
   @override
   String toString() {
@@ -173,19 +183,22 @@ class _$RequestTokenModelImpl implements _RequestTokenModel {
 
 abstract class _RequestTokenModel implements RequestTokenModel {
   const factory _RequestTokenModel(
-      {required final bool success,
-      required final String expiresAt,
-      required final String requestToken}) = _$RequestTokenModelImpl;
+      {required final bool? success,
+      @JsonKey(name: 'expires_at') required final String? expiresAt,
+      @JsonKey(name: 'request_token')
+      required final String? requestToken}) = _$RequestTokenModelImpl;
 
   factory _RequestTokenModel.fromJson(Map<String, dynamic> json) =
       _$RequestTokenModelImpl.fromJson;
 
   @override
-  bool get success;
+  bool? get success;
   @override
-  String get expiresAt;
+  @JsonKey(name: 'expires_at')
+  String? get expiresAt;
   @override
-  String get requestToken;
+  @JsonKey(name: 'request_token')
+  String? get requestToken;
   @override
   @JsonKey(ignore: true)
   _$$RequestTokenModelImplCopyWith<_$RequestTokenModelImpl> get copyWith =>

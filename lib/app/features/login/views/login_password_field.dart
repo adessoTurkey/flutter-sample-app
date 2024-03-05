@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../gen/assets.gen.dart';
+import '../bloc/login_bloc.dart';
+import '../bloc/login_event.dart';
+import '../bloc/login_state.dart';
 
 class CustomLoginPasswordField extends StatefulWidget {
-  final TextEditingController controller;
   final TextStyle textStyle;
   final String labelText;
   final TextStyle labelTextStyle;
@@ -13,7 +16,6 @@ class CustomLoginPasswordField extends StatefulWidget {
   final String obscureChar;
 
   const CustomLoginPasswordField({
-    required this.controller,
     required this.textStyle,
     required this.labelText,
     required this.labelTextStyle,
@@ -30,17 +32,21 @@ class CustomLoginPasswordField extends StatefulWidget {
 }
 
 class _CustomLoginPasswordField extends State<CustomLoginPasswordField> {
-  var passwordVisible = false;
   @override
   Widget build(BuildContext context) {
     return ConfigurationWidget(
         onConfigurationReady: (config, theme) {
-          return TextField(
-            controller: widget.controller,
+      return BlocBuilder<LoginBloc, LoginState>(
+          builder: (context, state) {
+            return TextField(
             style: widget.textStyle,
-            obscureText: passwordVisible,
+            obscureText: !state.passwordVisible,
             obscuringCharacter: widget.obscureChar,
+            onChanged: (password) =>
+                context.read<LoginBloc>().add(LoginPasswordChanged(password)),
             decoration: InputDecoration(
+              errorText:
+              state.password.displayError != null ? 'invalid password' : null,
               hintText: widget.hintText,
               hintStyle: widget.hintTextStyle,
               labelText: widget.labelText,
@@ -50,15 +56,13 @@ class _CustomLoginPasswordField extends State<CustomLoginPasswordField> {
                   MovieAssets.images.eye,
                 ),
                 onPressed: () {
-                  setState(
-                        () {
-                      passwordVisible = !passwordVisible;
-                    },
-                  );
+                  context.read<LoginBloc>().add(LoginPasswordToggleVisibility(state.passwordVisible));
                 },
               ),
             ),
           );
+          },
+      );
         });
   }
 }

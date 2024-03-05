@@ -24,6 +24,7 @@ dependencies:
   hive: ^2.2.3
   isar_flutter_libs: ^4.0.0-dev.13
   path_provider: ^2.1.0
+  formz: ^0.7.0
 description: A new Flutter project.
 dev_dependencies:
   auto_route_generator: ^7.3.2

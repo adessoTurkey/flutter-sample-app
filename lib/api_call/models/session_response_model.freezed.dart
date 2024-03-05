@@ -20,8 +20,9 @@ SessionResponseModel _$SessionResponseModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SessionResponseModel {
-  bool get success => throw _privateConstructorUsedError;
-  String get sessionId => throw _privateConstructorUsedError;
+  bool? get success => throw _privateConstructorUsedError;
+  @JsonKey(name: 'session_id')
+  String? get sessionId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,7 @@ abstract class $SessionResponseModelCopyWith<$Res> {
           $Res Function(SessionResponseModel) then) =
       _$SessionResponseModelCopyWithImpl<$Res, SessionResponseModel>;
   @useResult
-  $Res call({bool success, String sessionId});
+  $Res call({bool? success, @JsonKey(name: 'session_id') String? sessionId});
 }
 
 /// @nodoc
@@ -52,18 +53,18 @@ class _$SessionResponseModelCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? success = null,
-    Object? sessionId = null,
+    Object? success = freezed,
+    Object? sessionId = freezed,
   }) {
     return _then(_value.copyWith(
-      success: null == success
+      success: freezed == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
-              as bool,
-      sessionId: null == sessionId
+              as bool?,
+      sessionId: freezed == sessionId
           ? _value.sessionId
           : sessionId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -76,7 +77,7 @@ abstract class _$$SessionResponseModelImplCopyWith<$Res>
       __$$SessionResponseModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool success, String sessionId});
+  $Res call({bool? success, @JsonKey(name: 'session_id') String? sessionId});
 }
 
 /// @nodoc
@@ -90,18 +91,18 @@ class __$$SessionResponseModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? success = null,
-    Object? sessionId = null,
+    Object? success = freezed,
+    Object? sessionId = freezed,
   }) {
     return _then(_$SessionResponseModelImpl(
-      success: null == success
+      success: freezed == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
-              as bool,
-      sessionId: null == sessionId
+              as bool?,
+      sessionId: freezed == sessionId
           ? _value.sessionId
           : sessionId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -110,15 +111,16 @@ class __$$SessionResponseModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SessionResponseModelImpl implements _SessionResponseModel {
   const _$SessionResponseModelImpl(
-      {required this.success, required this.sessionId});
+      {required this.success, @JsonKey(name: 'session_id') this.sessionId});
 
   factory _$SessionResponseModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$SessionResponseModelImplFromJson(json);
 
   @override
-  final bool success;
+  final bool? success;
   @override
-  final String sessionId;
+  @JsonKey(name: 'session_id')
+  final String? sessionId;
 
   @override
   String toString() {
@@ -157,16 +159,18 @@ class _$SessionResponseModelImpl implements _SessionResponseModel {
 
 abstract class _SessionResponseModel implements SessionResponseModel {
   const factory _SessionResponseModel(
-      {required final bool success,
-      required final String sessionId}) = _$SessionResponseModelImpl;
+          {required final bool? success,
+          @JsonKey(name: 'session_id') final String? sessionId}) =
+      _$SessionResponseModelImpl;
 
   factory _SessionResponseModel.fromJson(Map<String, dynamic> json) =
       _$SessionResponseModelImpl.fromJson;
 
   @override
-  bool get success;
+  bool? get success;
   @override
-  String get sessionId;
+  @JsonKey(name: 'session_id')
+  String? get sessionId;
   @override
   @JsonKey(ignore: true)
   _$$SessionResponseModelImplCopyWith<_$SessionResponseModelImpl>

@@ -17,17 +17,10 @@ import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/localization/bloc/localization_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_movie_app/responsive/responsive.dart';
-import 'package:hive/hive.dart';
-import 'package:path_provider/path_provider.dart';
-
 import 'app/core/constants/constants.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
-
-  WidgetsFlutterBinding.ensureInitialized();
-  final dir = await getApplicationDocumentsDirectory();
-  Hive.init(dir.path);
 
   final features = <InitializationAdapter>[
     DependencyInjection.shared,
@@ -56,7 +49,7 @@ void main() async {
           ..add(
               const MoviesFetching(categoryType: MovieCategoriesEnum.popular))),
     BlocProvider(
-        create: (_) => LoginBloc(getIt<RemoteDataSource>(),getIt<LocalDataSource>()))
+        create: (_) => LoginBloc(getIt<RemoteDataSource>()))
   ], child: const MyApp()));
 }
 

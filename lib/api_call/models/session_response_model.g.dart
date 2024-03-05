@@ -9,13 +9,13 @@ part of 'session_response_model.dart';
 _$SessionResponseModelImpl _$$SessionResponseModelImplFromJson(
         Map<String, dynamic> json) =>
     _$SessionResponseModelImpl(
-      success: json['success'] as bool,
-      sessionId: json['sessionId'] as String,
+      success: json['success'] as bool?,
+      sessionId: json['session_id'] as String?,
     );
 
 Map<String, dynamic> _$$SessionResponseModelImplToJson(
         _$SessionResponseModelImpl instance) =>
     <String, dynamic>{
       'success': instance.success,
-      'sessionId': instance.sessionId,
+      'session_id': instance.sessionId,
     };

@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_movie_app/api_call/models/login_credentials_request_model.dart';
 
 sealed class LoginEvent extends Equatable {
   const LoginEvent();
@@ -8,10 +7,33 @@ sealed class LoginEvent extends Equatable {
   List<Object> get props => [];
 }
 
-final class SigningIn extends LoginEvent {
-  final LoginCredentialsRequestModel loginCredentialsRequest;
-  const SigningIn({required this.loginCredentialsRequest});
+final class LoginUsernameChanged extends LoginEvent {
+  const LoginUsernameChanged(this.username);
+
+  final String username;
 
   @override
-  List<Object> get props => [loginCredentialsRequest];
+  List<Object> get props => [username];
+}
+
+final class LoginPasswordChanged extends LoginEvent {
+  const LoginPasswordChanged(this.password);
+
+  final String password;
+
+  @override
+  List<Object> get props => [password];
+}
+
+final class LoginSubmitted extends LoginEvent {
+  const LoginSubmitted();
+}
+
+final class LoginPasswordToggleVisibility extends LoginEvent {
+  const LoginPasswordToggleVisibility(this.isVisible);
+
+  final bool isVisible;
+
+  @override
+  List<Object> get props => [isVisible];
 }
