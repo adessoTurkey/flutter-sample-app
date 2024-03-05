@@ -200,4 +200,5 @@ final class LightTheme extends ATheme {
     return const TextStyle()
         .searchViewNoResultTextStyle(fontSize, MColors.electricBlue);
   }
+
 }

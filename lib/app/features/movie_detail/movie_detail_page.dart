@@ -69,6 +69,10 @@ class MovieDetailPage extends StatelessWidget {
                 return const LoadingView();
               },
             );
+
+                },
+              );
+            }
           },
         ),
       ),

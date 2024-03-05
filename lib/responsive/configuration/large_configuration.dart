@@ -211,4 +211,5 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   
   @override
   double get searchViewNoResultTextSize => 26;
+
 }

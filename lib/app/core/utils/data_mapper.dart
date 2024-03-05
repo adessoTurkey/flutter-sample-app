@@ -47,4 +47,5 @@ abstract final class DataMapper {
       );
     }).toList();
   }
+
 }

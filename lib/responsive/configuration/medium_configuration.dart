@@ -210,4 +210,5 @@ class MediumConfiguration extends ResponsiveConfiguration {
 
   @override
   double get searchViewNoResultTextSize => 26;
+
 }

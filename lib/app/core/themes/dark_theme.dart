@@ -197,4 +197,5 @@ final class DarkTheme extends ATheme {
     return const TextStyle()
         .searchViewNoResultTextStyle(fontSize, MColors.electricBlue);
   }
+
 }

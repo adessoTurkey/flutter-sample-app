@@ -202,4 +202,5 @@ extension TextStyleExtensions on TextStyle {
         fontWeight: _bold,
         color: color,
       );
+
 }
