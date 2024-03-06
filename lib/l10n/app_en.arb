@@ -26,7 +26,7 @@
   "movie_detail_duration_text": "min",
   "authentication_failed": "Authentication Failure",
   "invalid_username": "invalid username",
-  "invalid_password": "invalid password"
+  "invalid_password": "invalid password",
   "profile_header_text": "Profile",
   "profile_sub_header_text": "Hello",
   "profile_favorite_title_text": "Favorite"

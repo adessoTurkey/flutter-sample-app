@@ -11,8 +11,6 @@ import 'package:flutter_movie_app/app/core/logger/m_logger.dart';
 import 'package:flutter_movie_app/app/core/themes/bloc/theme_bloc.dart';
 import 'package:flutter_movie_app/app/core/themes/theme_enum.dart';
 import 'package:flutter_movie_app/app/features/login/bloc/login_bloc.dart';
-import 'package:flutter_movie_app/app/features/login/bloc/login_event.dart';
-import 'package:flutter_movie_app/app/features/login/bloc/login_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/bloc/movies_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/models/genre_data/genre_mock.dart';
 import 'package:flutter_movie_app/app/features/profile/bloc/profile_bloc.dart';
@@ -55,10 +53,6 @@ void main() async {
               const MoviesFetching(categoryType: MovieCategoriesEnum.popular))),
     BlocProvider(
         create: (_) => LoginBloc(getIt<RemoteDataSource>()))
-              const MoviesFetching(categoryType: MovieCategoriesEnum.popular))),
-    BlocProvider(
-        create: (_) => PasswordBloc()
-          ..add(TogglePasswordVisibility())),
   ], child: const MyApp()));
 }
 

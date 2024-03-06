@@ -72,12 +72,12 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   Future<RequestTokenModel> loginWithCredentials(
       LoginCredentialsRequestModel requestBody) async {
     try {
+      var networkRequest = NetworkRequest(
+          type: NetworkRequestType.post,
+          path: dotenv.get(EnvConstants.loginWithCredentialsPath),
+          data: NetworkRequestBody.json(requestBody.toJson()));
       var requestTokenResponse = await networkService.execute(
-          NetworkRequest(
-              type: NetworkRequestType.post,
-              path: dotenv.get(EnvConstants.loginWithCredentialsPath),
-              data: NetworkRequestBody.json(requestBody.toJson())),
-          (json) => RequestTokenModel.fromJson(json));
+         networkRequest, (json) => RequestTokenModel.fromJson(json));
       return (requestTokenResponse as Ok<RequestTokenModel>).data;
     } catch (_) {
       rethrow;
@@ -88,12 +88,12 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   Future<SessionResponseModel> openSession(
       SessionRequestModel requestBody) async {
     try {
+      var networkRequest = NetworkRequest(
+          type: NetworkRequestType.post,
+          path: dotenv.get(EnvConstants.openSessionPath),
+          data: NetworkRequestBody.json(requestBody.toJson()));
       var sessionResponse = await networkService.execute(
-          NetworkRequest(
-              type: NetworkRequestType.post,
-              path: dotenv.get(EnvConstants.openSessionPath),
-              data: NetworkRequestBody.json(requestBody.toJson())),
-              (json) => SessionResponseModel.fromJson(json));
+          networkRequest, (json) => SessionResponseModel.fromJson(json));
       return (sessionResponse as Ok<SessionResponseModel>).data;
     } catch (_) {
       rethrow;

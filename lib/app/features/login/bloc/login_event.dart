@@ -29,11 +29,4 @@ final class LoginSubmitted extends LoginEvent {
   const LoginSubmitted();
 }
 
-final class LoginPasswordToggleVisibility extends LoginEvent {
-  const LoginPasswordToggleVisibility(this.isVisible);
-
-  final bool isVisible;
-
-  @override
-  List<Object> get props => [isVisible];
-}
+final class LoginPasswordToggleVisibility extends LoginEvent {}

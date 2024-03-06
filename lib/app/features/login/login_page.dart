@@ -23,88 +23,80 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocProvider(
-        create: (context) => PasswordBloc(),
-        child:  ConfigurationWidget(
-          onConfigurationReady: (config, theme) {
-            return Container(
-              decoration: BoxDecoration(
-                color: MColors.vibrantBlue,
-                image: DecorationImage(
-                    colorFilter: ColorFilter.mode(MColors.vibrantBlue.withOpacity(0.2), BlendMode.dstATop),
-                    image: AssetImage(MovieAssets.images.splashBg.path),
-                    fit: BoxFit.cover),
-              ),
-              child: Padding(
-                padding: config.loginPagePadding,
-                child: Column(
+      body: ConfigurationWidget(
+        onConfigurationReady: (config, theme) {
+          return Container(
+            decoration: BoxDecoration(
+              color: MColors.vibrantBlue,
+              image: DecorationImage(
+                  colorFilter: ColorFilter.mode(MColors.vibrantBlue.withOpacity(0.2), BlendMode.dstATop),
+                  image: AssetImage(MovieAssets.images.splashBg.path),
+                  fit: BoxFit.cover),
+            ),
+            child: Padding(
+              padding: config.loginPagePadding,
+              child: Column(
+                children: [
+                  64.verticalSizedBox,
+                  SvgPicture.asset(
+                    MovieAssets.images.logo,
+                    width: config.loginLogoSize.width,
+                    height: config.loginLogoSize.height,
+                  ),
+                  64.verticalSizedBox,
+                  const LoginTextField(),
+                  10.verticalSizedBox,
+                  const LoginPasswordField(),
+                  10.verticalSizedBox,
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        context.localization.forgatPassword,
+                        style: theme
+                            .forgetPassword(config.forgatPasswordTextSize),
+                      ),
+                    ),),
+                16.verticalSizedBox,
+                BlocListener<LoginBloc, LoginState>(
+                  listener: (context, state) {
+                      if (state.status.isFailure) {
+                        ScaffoldMessenger.of(context)
+                        ..hideCurrentSnackBar()
+                        ..showSnackBar(
+                          SnackBar(content: Text(context.localization.authentication_failed),),);
+                      }
+                      if(state.status.isSuccess){
+                        context.pushRoute(const HomeRoute());
+                      }
+                    },
+                    child:
+                  const LoginButton(),),
+                10.verticalSizedBox,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    64.verticalSizedBox,
-                    SvgPicture.asset(
-                      MovieAssets.images.logo,
-                      width: config.loginLogoSize.width,
-                      height: config.loginLogoSize.height,
+                    Text(
+                      context.localization.dontHaveAccount,
+                      style: theme
+                          .dontHaveAccount(config.dontHaveAccountTextSize),
                     ),
-                    64.verticalSizedBox,
-                    const CustomLoginTextField(),
-                    10.verticalSizedBox,
-                    const CustomLoginPasswordField(),
-                    10.verticalSizedBox,
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
+                    TextButton(
                         onPressed: () {},
                         child: Text(
-                          context.localization.forgatPassword,
-                          style: theme
-                              .forgetPassword(config.forgatPasswordTextSize),
-                        ),
-                      )
-                    ],
-                  ),
-                  16.verticalSizedBox,
-                  BlocListener<LoginBloc, LoginState>(
-                    listener: (context, state) {
-                        if (state.status.isFailure) {
-                          ScaffoldMessenger.of(context)
-                          ..hideCurrentSnackBar()
-                          ..showSnackBar(
-                            SnackBar(content: Text(context.localization.authentication_failed),),);
-                        }
-                        if(state.status.isSuccess){
-                          context.pushRoute(const HomeRoute());
-                        }
-                      },
-                      child:
-                    CustomLoginButton(
-                          text: context.localization.login,
-                          textStyle: theme.login(config.loginTextSize),
-                          backgroundColor: MColors.white,
-                        ),),
-                  10.verticalSizedBox,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        context.localization.dontHaveAccount,
-                        style: theme
-                            .dontHaveAccount(config.dontHaveAccountTextSize),
-                      ),
-                      TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            context.localization.registerNow,
-                            style:
-                            theme.registerNow(config.registerNowTextSize),
-                          )),
-                    ],
-                  ),
-                ],
-              ),
+                          context.localization.registerNow,
+                          style:
+                          theme.registerNow(config.registerNowTextSize),
+                        )),
+                  ],
+                ),
+              ],
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
+            ),
     );
   }
 }

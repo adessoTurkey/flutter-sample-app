@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/widgets/loading_view.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
@@ -8,7 +9,9 @@ import '../bloc/login_bloc.dart';
 import '../bloc/login_event.dart';
 import '../bloc/login_state.dart';
 
-class CustomLoginButton extends StatelessWidget {
+class LoginButton extends StatelessWidget {
+  const LoginButton({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,7 @@ class CustomLoginButton extends StatelessWidget {
       return BlocBuilder<LoginBloc, LoginState>(
           builder: (context, state) {
             return state.status.isInProgress
-                ? const CircularProgressIndicator()
+                ? const LoadingView()
                 : ElevatedButton(
               onPressed: state.isValid
                   ? () {

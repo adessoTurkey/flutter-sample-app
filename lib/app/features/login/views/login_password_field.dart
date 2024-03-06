@@ -9,8 +9,8 @@ import '../bloc/login_bloc.dart';
 import '../bloc/login_event.dart';
 import '../bloc/login_state.dart';
 
-class CustomLoginPasswordField extends StatelessWidget {
-  const CustomLoginPasswordField({super.key});
+class LoginPasswordField extends StatelessWidget {
+  const LoginPasswordField({super.key});
 
 
   @override
@@ -37,7 +37,7 @@ class CustomLoginPasswordField extends StatelessWidget {
                         MovieAssets.images.eye,
                       ),
                       onPressed: () {
-                        context.read<LoginBloc>().add(LoginPasswordToggleVisibility(state.passwordVisible));
+                        context.read<LoginBloc>().add(LoginPasswordToggleVisibility());
                       },
                     ),
                   ),

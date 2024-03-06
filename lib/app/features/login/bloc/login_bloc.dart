@@ -64,8 +64,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         SessionResponseModel sessionResponse = await remoteDataSource.openSession(
             SessionRequestModel(
                 requestToken: validatedTokenResponse.requestToken.toString()));
-
-        if(sessionResponse.success! && sessionResponse.sessionId!.isNotEmpty){}
         emit(state.copyWith(status: FormzSubmissionStatus.success));
       } catch (_) {
         emit(state.copyWith(status: FormzSubmissionStatus.failure));
@@ -77,7 +75,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       LoginPasswordToggleVisibility event,
       Emitter<LoginState> emit,
       ) {
-    emit(state.copyWith(passwordVisible: !event.isVisible),
+    emit(state.copyWith(passwordVisible: !state.passwordVisible),
     );
   }
 }

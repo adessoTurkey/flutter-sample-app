@@ -7,8 +7,8 @@ import '../bloc/login_bloc.dart';
 import '../bloc/login_event.dart';
 import '../bloc/login_state.dart';
 
-class CustomLoginTextField extends StatelessWidget {
-  const CustomLoginTextField({super.key});
+class LoginTextField extends StatelessWidget {
+  const LoginTextField({super.key});
 
 
   @override
