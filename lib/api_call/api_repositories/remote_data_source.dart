@@ -30,6 +30,7 @@ abstract class RemoteDataSource {
   Future<List<GenreData>> getGenres(GenreType genreType);
   Future<AddToFavoriteResponse> addToFavorite(
       AddToFavoriteDto addToFavoriteDto);
+  Future<List<GenreData>> getGenres(GenreType genreType);
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {

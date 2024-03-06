@@ -15,4 +15,5 @@ abstract final class EnvConstants {
   static String genrePath = "GENRE_PATH";
 }
   static String favoriteAddPath = "FAVORITE_PATH_ADD";
+}  static String genrePath = "GENRE_PATH";
 }
