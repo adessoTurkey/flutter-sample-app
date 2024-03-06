@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
@@ -23,7 +21,7 @@ class MoviesPage extends StatelessWidget {
           body: Stack(
             children: [
               Container(
-                color: theme.themeData.primaryColor,
+                color: theme.themeData.primaryColorDark,
                 height: context.screenSize.width,
                 width: context.screenSize.width,
               ),
@@ -40,7 +38,7 @@ class MoviesPage extends StatelessWidget {
                           context.localization.movies_page_app_bar_title,
                       appBarTitleStyle: theme.moviesPageAppBarTitleTextStyle(
                           configuration.moviePageAppBarTitleTextSize),
-                      backgroundColor: MColors.electricBlue,
+                      backgroundColor: theme.themeData.primaryColorDark,
                       expandedHeight:
                           configuration.movieDetailSliverAppBarExpandableHeight,
                     ),

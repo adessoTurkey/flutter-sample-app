@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/config/app_router.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
@@ -23,7 +25,7 @@ class MoviesCarouselView extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                color: theme.themeData.primaryColor,
+                color: theme.themeData.primaryColorDark,
                 height: configuration.movieCarouselBlueContainerHeight,
               ),
               Align(
@@ -35,6 +37,9 @@ class MoviesCarouselView extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return CarouselImageCardWidget(
                       imageUrl: movieList[index].getImageURL,
+                      onTapped: () {
+                        context.pushRoute(MovieDetailRoute(movieId: movieList[index].id!));
+                      },
                     );
                   },
                 ),

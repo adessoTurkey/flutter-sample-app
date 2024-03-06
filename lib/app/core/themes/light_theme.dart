@@ -16,11 +16,19 @@ final class LightTheme extends ATheme {
   AppBarTheme get appbarTheme => const AppBarTheme(color: MColors.vibrantBlue);
 
   @override
+  Color get primaryColorLight => MColors.electricBlue;
+
   @override
-  Color get primaryColor => MColors.electricBlue;
+  Color get primaryColorDark => MColors.electricBlue;
 
   @override
   Color get scaffoldBackgroundColor => MColors.white;
+
+  @override
+  Color get dividerColor => MColors.borderColor;
+
+  @override
+  Color get shadowColor => MColors.almostBlack.withOpacity(.05);
 
   @override
   TextStyle movieCellMovieNameTextStyle(double fontSize) {
@@ -156,4 +164,41 @@ final class LightTheme extends ATheme {
 
   @override
   TextStyle usernameTextFieldText(double fontSize) => const TextStyle().loginUsernameTextTextStyle(fontSize , MColors.white);
+
+  //PROFILE
+  @override
+  TextStyle profileHeaderLabelTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileHeaderLabelTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle profileSubHeaderLabelTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileSubHeaderLabelTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle profileUsernameLabelTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileUsernameLabelTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle profileFavoriteCellSubTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileFavoriteCellSubTitleTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle profileFavoriteCellTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileFavoriteCellTitleTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle profileFavoriteListTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileFavoriteListTitleTextStyle(fontSize, MColors.almostBlack);
+  }
 }

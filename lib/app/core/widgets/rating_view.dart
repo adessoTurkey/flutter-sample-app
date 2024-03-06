@@ -25,7 +25,7 @@ class RatingView extends StatelessWidget {
             vertical: configuration.ratingViewPaddingVertical,
           ),
           decoration: BoxDecoration(
-            color: theme.themeData.primaryColor,
+            color: theme.themeData.primaryColorDark,
             borderRadius: BorderRadius.all(
               Radius.circular(configuration.ratingViewCornerRadius),
             ),

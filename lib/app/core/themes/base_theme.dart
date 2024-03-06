@@ -3,15 +3,11 @@ import 'package:flutter/material.dart';
 abstract class ATheme {
   BottomNavigationBarThemeData get bottomNavigationTheme;
   AppBarTheme get appbarTheme;
-  Color get primaryColor;
+  Color get primaryColorLight;
+  Color get primaryColorDark;
   Color get scaffoldBackgroundColor;
-
-  ThemeData get themeData => ThemeData(
-      useMaterial3: true,
-      appBarTheme: appbarTheme,
-      bottomNavigationBarTheme: bottomNavigationTheme,
-      primaryColor: primaryColor,
-      scaffoldBackgroundColor: scaffoldBackgroundColor);
+  Color get dividerColor;
+  Color get shadowColor;
 
   TextStyle movieCellMovieNameTextStyle(double fontSize);
 
@@ -39,6 +35,13 @@ abstract class ATheme {
   TextStyle movieDetailMovieGenresTextStyle(double fontSize);
   TextStyle movieDetailCastLeftLabelTextStyle(double fontSize);
   TextStyle movieDetailCastRightLabelTextStyle(double fontSize);
+  //Profile
+  TextStyle profileHeaderLabelTextStyle(double fontSize);
+  TextStyle profileSubHeaderLabelTextStyle(double fontSize);
+  TextStyle profileUsernameLabelTextStyle(double fontSize);
+  TextStyle profileFavoriteCellTitleTextStyle(double fontSize);
+  TextStyle profileFavoriteCellSubTitleTextStyle(double fontSize);
+  TextStyle profileFavoriteListTitleTextStyle(double fontSize);
 
   TextStyle splashTextStyle(double fontSize);
 
@@ -56,4 +59,12 @@ abstract class ATheme {
   TextStyle dontHaveAccount(double fontSize);
 
   TextStyle registerNow(double fontSize);
+  ThemeData get themeData => ThemeData(
+      useMaterial3: true,
+      appBarTheme: appbarTheme,
+      bottomNavigationBarTheme: bottomNavigationTheme,
+      primaryColorDark: primaryColorDark,
+      primaryColorLight: primaryColorLight,
+      dividerColor: dividerColor,
+      scaffoldBackgroundColor: scaffoldBackgroundColor);
 }

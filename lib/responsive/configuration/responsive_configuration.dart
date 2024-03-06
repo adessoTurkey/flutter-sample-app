@@ -91,4 +91,13 @@ abstract class ResponsiveConfiguration {
 
   double get loginButtonRadius;
   double get loginButtonHeight;
+
+  //Profile
+  double get profileHeaderLabelTextSize;
+  double get profileSubHeaderLabelTextSize;
+  double get profileUsernameLabelTextSize;
+  double get profileFavoriteCellTitleTextSize;
+  double get profileFavoriteCellSubTitleTextSize;
+  double get profileFavoriteCellIconSize;
+  double get profileFavoriteListTitleTextSize;
 }
