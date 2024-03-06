@@ -16,5 +16,7 @@
   "movie_detail_duration_text": "min",
   "profile_header_text": "Profile",
   "profile_sub_header_text": "Hello",
-  "profile_favorite_title_text": "Favorite"
+  "profile_favorite_title_text": "Favorite",
+  "tv_series_page_title": "Tv Series",
+  "tv_series_top_rated": "Top Rated"
 }

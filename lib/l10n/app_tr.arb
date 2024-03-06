@@ -16,5 +16,7 @@
   "movie_detail_duration_text": "dk",
   "profile_header_text": "Profil",
   "profile_sub_header_text": "Merhaba",
-  "profile_favorite_title_text": "Favori"
+  "profile_favorite_title_text": "Favori",
+  "tv_series_page_title": "Diziler",
+  "tv_series_top_rated": "En Çok Oy Alan"
 }

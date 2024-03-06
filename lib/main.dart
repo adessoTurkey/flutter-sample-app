@@ -5,6 +5,7 @@ import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.d
 import 'package:flutter_movie_app/api_call/network/network.dart';
 import 'package:flutter_movie_app/app/core/config/app_router.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
+import 'package:flutter_movie_app/app/core/enums/tv_series_category_enum.dart';
 import 'package:flutter_movie_app/app/core/initialization/initialization_adapter.dart';
 import 'package:flutter_movie_app/app/core/logger/m_logger.dart';
 import 'package:flutter_movie_app/app/core/themes/bloc/theme_bloc.dart';
@@ -12,6 +13,7 @@ import 'package:flutter_movie_app/app/core/themes/theme_enum.dart';
 import 'package:flutter_movie_app/app/features/movies/bloc/movies_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/models/genre_data/genre_mock.dart';
 import 'package:flutter_movie_app/app/features/profile/bloc/profile_bloc.dart';
+import 'package:flutter_movie_app/app/features/tv_series/bloc/tv_series_bloc.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/localization/bloc/localization_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -48,7 +50,11 @@ void main() async {
     BlocProvider(
         create: (_) => MoviesBloc(getIt<RemoteDataSource>())
           ..add(
-              const MoviesFetching(categoryType: MovieCategoriesEnum.topRated)))
+              const MoviesFetching(categoryType: MovieCategoriesEnum.topRated))),
+    BlocProvider(
+        create: (_) => TvSeriesBloc(getIt<RemoteDataSource>())
+          ..add(
+              const TvSeriesFetching(categoryType: TvSeriesCategory.topRated)))
   ], child: const MyApp()));
 }
 

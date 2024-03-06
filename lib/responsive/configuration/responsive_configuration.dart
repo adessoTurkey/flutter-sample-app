@@ -79,4 +79,9 @@ abstract class ResponsiveConfiguration {
   double get profileFavoriteCellSubTitleTextSize;
   double get profileFavoriteCellIconSize;
   double get profileFavoriteListTitleTextSize;
+
+  //Tv Series
+  double get tvSeriesCellImageWidth;
+  double get tvSeriesCellImageHeight;
+  double get tvSeriesCellInfoContainerHeight;
 }

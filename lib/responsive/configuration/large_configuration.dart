@@ -190,4 +190,14 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   
   @override
   double get profileFavoriteListTitleTextSize => 28;
+
+  //Tv Series
+  @override
+  double get tvSeriesCellImageWidth => 150;
+
+  @override
+  double get tvSeriesCellImageHeight => 220;
+
+  @override
+  double get tvSeriesCellInfoContainerHeight => 90;
 }

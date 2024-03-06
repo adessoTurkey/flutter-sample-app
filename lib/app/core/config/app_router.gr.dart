@@ -49,6 +49,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SearchPage(),
       );
     },
+    TvSeriesDetailRoute.name: (routeData) {
+      final args = routeData.argsAs<TvSeriesDetailRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: TvSeriesDetailPage(
+          key: args.key,
+          tvSeriesId: args.tvSeriesId,
+        ),
+      );
+    },
     TvSeriesRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -150,6 +160,44 @@ class SearchRoute extends PageRouteInfo<void> {
   static const String name = 'SearchRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TvSeriesDetailPage]
+class TvSeriesDetailRoute extends PageRouteInfo<TvSeriesDetailRouteArgs> {
+  TvSeriesDetailRoute({
+    Key? key,
+    required int tvSeriesId,
+    List<PageRouteInfo>? children,
+  }) : super(
+          TvSeriesDetailRoute.name,
+          args: TvSeriesDetailRouteArgs(
+            key: key,
+            tvSeriesId: tvSeriesId,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'TvSeriesDetailRoute';
+
+  static const PageInfo<TvSeriesDetailRouteArgs> page =
+      PageInfo<TvSeriesDetailRouteArgs>(name);
+}
+
+class TvSeriesDetailRouteArgs {
+  const TvSeriesDetailRouteArgs({
+    this.key,
+    required this.tvSeriesId,
+  });
+
+  final Key? key;
+
+  final int tvSeriesId;
+
+  @override
+  String toString() {
+    return 'TvSeriesDetailRouteArgs{key: $key, tvSeriesId: $tvSeriesId}';
+  }
 }
 
 /// generated route for
