@@ -41,9 +41,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     emit(
       state.copyWith(
         searchText: event.searchText,
-        isValid: (event.searchText.isNotEmpty && event.searchText.length >= 3)
-            ? true
-            : false,
+        isValid: event.searchText.isNotEmpty && event.searchText.length >= 3,
       ),
     );
   }

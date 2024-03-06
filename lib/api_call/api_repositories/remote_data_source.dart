@@ -180,7 +180,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   @override
   Future<List<SearchMultiData>> searchMulti(String query) async {
     try {
-      var movieDataList = await networkService.execute(
+      var networkRequest = await networkService.execute(
         NetworkRequest(
             type: NetworkRequestType.get,
             path: dotenv.get(EnvConstants.searchMultiPath),
@@ -198,7 +198,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
         },
       );
 
-      return (movieDataList as Ok<List<SearchMultiData>>).data;
+      return (networkRequest as Ok<List<SearchMultiData>>).data;
     } catch (_) {
       rethrow;
     }
