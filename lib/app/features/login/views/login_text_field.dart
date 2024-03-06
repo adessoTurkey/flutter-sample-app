@@ -19,12 +19,12 @@ class LoginTextField extends StatelessWidget {
           buildWhen: (previous, current) => previous.username != current.username,
           builder: (context, state) {
       return TextField(
-        style: theme.usernameTextFieldText(config.loginFieldTextTextSize),
+        style: theme.loginTextFieldText(config.loginFieldTextTextSize),
         decoration: InputDecoration(
           hintText: context.localization.enterUsername,
-          hintStyle: theme.usernameTextFieldHint(config.loginFieldHintTextSize),
+          hintStyle: theme.loginTextFieldHint(config.loginFieldHintTextSize),
           labelText: context.localization.username,
-          labelStyle: theme.usernameTextFieldLabel(config.loginFieldLabelTextSize),
+          labelStyle: theme.loginTextFieldLabel(config.loginFieldLabelTextSize),
           errorText:
           state.username.displayError != null ? context.localization.invalid_username : null,
         ),
