@@ -8,7 +8,7 @@ extension MovieDataExtension on MovieData {
 
   String getGenres() {
     List<GenreData> filteredList =
-        GenreMock.instance.genres.where((e) => genres!.contains(e.id)).toList();
+        GenreMock.instance.movieGenres.where((e) => genres!.contains(e.id)).toList();
     List<String?> stringList = filteredList.map((e) => e.name).toList();
     return stringList.join(', ');
   }
