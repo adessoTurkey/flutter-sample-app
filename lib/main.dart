@@ -54,7 +54,6 @@ void main() async {
     BlocProvider(
         create: (_) => PasswordBloc()
           ..add(TogglePasswordVisibility())),
-              const MoviesFetching(categoryType: MovieCategoriesEnum.topRated)))
   ], child: const MyApp()));
 }
 
