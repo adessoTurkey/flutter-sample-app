@@ -1,3 +1,3 @@
-abstract final class LoginConstants{
+abstract final class AppConstants{
   static const String passwordObscureCharacter= '*';
 }
