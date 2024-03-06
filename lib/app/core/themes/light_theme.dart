@@ -77,6 +77,24 @@ final class LightTheme extends ATheme {
   }
 
   @override
+  TextStyle splashTextStyle(double fontSize) =>
+      const TextStyle().textStyleW300(fontSize, MColors.white);
+  @override
+  TextStyle forgetPassword(double fontSize) =>
+      const TextStyle().textStyleW400(fontSize, MColors.white);
+
+  @override
+  TextStyle login(double fontSize) =>
+      const TextStyle().textStyleW700(fontSize, MColors.vibrantBlue);
+
+  @override
+  TextStyle dontHaveAccount(double fontSize) =>
+      const TextStyle().textStyleW400(fontSize, MColors.lightGrey);
+
+  @override
+  TextStyle registerNow(double fontSize) =>
+      const TextStyle().textStyleW400(fontSize, MColors.white);
+  @override
   TextStyle moviesPageAppBarTitleTextStyle(double fontSize) {
     return const TextStyle()
         .moviesPageAppBarTitleTextStyle(fontSize, MColors.white);
@@ -128,6 +146,24 @@ final class LightTheme extends ATheme {
     return const TextStyle()
         .movieDetailCastRightLabelTextStyle(fontSize, MColors.electricBlue);
   }
+
+  @override
+  TextStyle passwordTextFieldHint(double fontSize) => const TextStyle().loginPasswordHintTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle passwordTextFieldLabel(double fontSize) => const TextStyle().loginPasswordLabelTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle passwordTextFieldText(double fontSize) => const TextStyle().loginPasswordTextTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle usernameTextFieldHint(double fontSize) => const TextStyle().loginUsernameHintTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle usernameTextFieldLabel(double fontSize) => const TextStyle().loginUsernameLabelTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle usernameTextFieldText(double fontSize) => const TextStyle().loginUsernameTextTextStyle(fontSize , MColors.white);
 
   //PROFILE
   @override
