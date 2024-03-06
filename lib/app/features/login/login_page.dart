@@ -13,6 +13,7 @@ import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:formz/formz.dart';
 
 import '../../core/config/app_router.dart';
+import '../../core/widgets/loading_view.dart';
 import 'bloc/login_bloc.dart';
 import 'bloc/login_state.dart';
 
@@ -55,11 +56,17 @@ class LoginPage extends StatelessWidget {
                       child: Text(
                         context.localization.forgatPassword,
                         style: theme
-                            .forgetPassword(config.forgatPasswordTextSize),
+                            .forgetPassword(config.forgetPasswordTextSize),
                       ),
                     ),),
                 16.verticalSizedBox,
-                BlocListener<LoginBloc, LoginState>(
+                BlocConsumer<LoginBloc, LoginState>(
+                  builder: (_, state){
+                     if(state.status.isInProgress){
+                       return const LoadingView();
+                     }
+                     return const LoginButton();
+                  },
                   listener: (context, state) {
                       if (state.status.isFailure) {
                         ScaffoldMessenger.of(context)
@@ -70,9 +77,7 @@ class LoginPage extends StatelessWidget {
                       if(state.status.isSuccess){
                         context.pushRoute(const HomeRoute());
                       }
-                    },
-                    child:
-                  const LoginButton(),),
+                    },),
                 10.verticalSizedBox,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

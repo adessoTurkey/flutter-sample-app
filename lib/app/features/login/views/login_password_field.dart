@@ -20,7 +20,7 @@ class LoginPasswordField extends StatelessWidget {
           return ConfigurationWidget(
               onConfigurationReady: (config, theme) {
                 return TextField(
-                  style: theme.passwordTextFieldText(config.loginPasswordTextTextSize),
+                  style: theme.passwordTextFieldText(config.loginFieldTextTextSize),
                   obscureText: !state.passwordVisible,
                   obscuringCharacter: AppConstants.passwordObscureCharacter,
                   onChanged: (password) =>
@@ -29,9 +29,9 @@ class LoginPasswordField extends StatelessWidget {
                     errorText:
                     state.password.displayError != null ? context.localization.invalid_password : null,
                     hintText: context.localization.enterPassword,
-                    hintStyle: theme.passwordTextFieldHint(config.loginPasswordHintTextSize),
+                    hintStyle: theme.passwordTextFieldHint(config.loginFieldHintTextSize),
                     labelText: context.localization.password,
-                    labelStyle: theme.passwordTextFieldLabel(config.loginPasswordLabelTextSize),
+                    labelStyle: theme.passwordTextFieldLabel(config.loginFieldLabelTextSize),
                     suffixIcon: IconButton(
                       icon: SvgPicture.asset(
                         MovieAssets.images.eye,

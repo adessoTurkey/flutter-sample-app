@@ -75,7 +75,7 @@ class SmallConfiguration extends ResponsiveConfiguration {
       const EdgeInsets.only(left: 24, right: 24, top: 134);
 
   @override
-  double get forgatPasswordTextSize => 12;
+  double get forgetPasswordTextSize => 12;
 
   @override
   double get loginTextSize => 17;
@@ -85,6 +85,8 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   @override
   double get registerNowTextSize => 12;
+
+  @override
   double get moviePageListViewTitleTextSize => 24;
 
   @override
@@ -200,22 +202,13 @@ class SmallConfiguration extends ResponsiveConfiguration {
   double get movieDetailSliverAppBarExpandableHeight => 100;
 
   @override
-  double get loginPasswordHintTextSize => 13;
+  double get loginFieldHintTextSize => 14;
 
   @override
-  double get loginPasswordLabelTextSize => 13;
+  double get loginFieldLabelTextSize => 12;
 
   @override
-  double get loginPasswordTextTextSize => 13;
-
-  @override
-  double get loginUsernameHintTextSize => 13;
-
-  @override
-  double get loginUsernameLabelTextSize => 13;
-
-  @override
-  double get loginUsernameTextTextSize => 13;
+  double get loginFieldTextTextSize => 17;
 
   @override
   double get loginButtonRadius => 5;
