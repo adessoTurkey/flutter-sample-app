@@ -4,7 +4,7 @@ import '../../app/core/enums/enums.dart';
 
 final class LargeConfiguration extends ResponsiveConfiguration {
   @override
-  Size get movieCarouselContainerSize => const Size(0, 350);
+  Size get carouselContainerSize => const Size(0, 350);
 
   @override
   double get movieCellMovieNameTextSize => 22;
@@ -33,10 +33,10 @@ final class LargeConfiguration extends ResponsiveConfiguration {
 
   //Movie Carousel View
   @override
-  double get movieCarouselBlueContainerHeight => 200;
+  double get carouselBlueContainerHeight => 200;
 
   @override
-  double get movieCarouselContainerHeight => 400;
+  double get carouselContainerHeight => 400;
 
   @override
   double get movieCarouselHeaderLeftPadding => 32;
@@ -200,4 +200,40 @@ final class LargeConfiguration extends ResponsiveConfiguration {
 
   @override
   double get tvSeriesCellInfoContainerHeight => 90;
+
+  @override
+  double get tvSeriesAppBarTitleTextSize => 16;
+
+  @override
+  double get tvSeriesCellBodyPaddingLeft => 18;
+
+  @override
+  double get tvSeriesCellCardElevation => 8;
+
+  @override
+  double get tvSeriesCellMovieNameTextSize => 22;
+
+  @override
+  double get tvSeriesDetailSliverAppBarExpandableHeight => 100;
+
+  @override
+  double get tvSeriesListViewPaddingLeft => 32;
+
+  @override
+  double get tvSeriesListViewPaddingRight => 32;
+
+  @override
+  double get tvSeriesListViewPaddingTop => 24;
+
+  @override
+  double get tvSeriesListViewTitleTextSize => 28;
+
+  @override
+  double get tvSeriesGridMainAxisSpacing => 8;
+
+  @override
+  double get tvSeriesGridCrossAxisSpacing => 8;
+
+  @override
+  double get tvSeriesGridMainAxisExtent => 380;
 }

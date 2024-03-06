@@ -181,12 +181,13 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   Future<List<TvSeriesData>> getTvSeries(
       TvSeriesCategory categoryEndpoint) async {
     try {
+      var networkRequest = NetworkRequest(
+          type: NetworkRequestType.get,
+          path:
+          "${dotenv.get(EnvConstants.tvSeriesPath)}/${categoryEndpoint.value}",
+          data: const NetworkRequestBody.empty());
       var tvSeriesDataList = await networkService.execute(
-        NetworkRequest(
-            type: NetworkRequestType.get,
-            path:
-            "${dotenv.get(EnvConstants.tvSeriesPath)}/${categoryEndpoint.value}",
-            data: const NetworkRequestBody.empty()),
+        networkRequest,
             (response) {
           List<TvSeriesData> tvSeriesList = (response['results'] as List)
               .map((e) => TvSeriesData.fromJson(e))

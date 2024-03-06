@@ -22,18 +22,18 @@ class TvSeriesCarouselView extends StatelessWidget {
       onConfigurationReady: (configuration, theme) {
         return Container(
           color: theme.themeData.scaffoldBackgroundColor,
-          height: configuration.movieCarouselContainerHeight,
+          height: configuration.carouselContainerHeight,
           child: Stack(
             children: [
               Container(
                 color: theme.themeData.primaryColorDark,
-                height: configuration.movieCarouselBlueContainerHeight,
+                height: configuration.carouselBlueContainerHeight,
               ),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: CarouselView(
                   listLength: tvSeriesList.length,
-                  height: configuration.movieCarouselContainerSize.height,
+                  height: configuration.carouselContainerSize.height,
                   onPageChanged: onPageChanged,
                   itemBuilder: (context, index) {
                     return CarouselImageCardWidget(

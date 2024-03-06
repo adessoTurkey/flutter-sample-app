@@ -37,11 +37,11 @@ class TvSeriesPage extends StatelessWidget {
                       ),
                       appBarTitle:
                       context.localization.movies_page_app_bar_title,
-                      appBarTitleStyle: theme.moviesPageAppBarTitleTextStyle(
-                          configuration.moviePageAppBarTitleTextSize),
+                      appBarTitleStyle: theme.tvSeriesAppBarTitleTextStyle(
+                          configuration.tvSeriesAppBarTitleTextSize),
                       backgroundColor: theme.themeData.primaryColorDark,
                       expandedHeight:
-                      configuration.movieDetailSliverAppBarExpandableHeight,
+                      configuration.tvSeriesDetailSliverAppBarExpandableHeight,
                     ),
                     SliverToBoxAdapter(
                       child: Column(
@@ -51,10 +51,10 @@ class TvSeriesPage extends StatelessWidget {
                             color: theme.themeData.scaffoldBackgroundColor,
                             child: Padding(
                               padding: EdgeInsets.only(
-                                top: configuration.moviePageListViewPaddingTop,
-                                left: configuration.moviePageListViewPaddingLeft,
+                                top: configuration.tvSeriesListViewPaddingTop,
+                                left: configuration.tvSeriesListViewPaddingLeft,
                                 right:
-                                configuration.moviePageListViewPaddingRight,
+                                configuration.tvSeriesListViewPaddingRight,
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,13 +67,9 @@ class TvSeriesPage extends StatelessWidget {
                                         .localization.tv_series_top_rated,
                                     style: theme.moviesPageListViewTitleTextStyle(
                                         configuration
-                                            .moviePageListViewTitleTextSize),
+                                            .tvSeriesListViewTitleTextSize),
                                   ),
-                                  _TvSeriesListView(
-                                      tvSeriesCellHeight:
-                                      configuration.movieCellHeight,
-                                      tvSeriesCellSpacing:
-                                      configuration.movieCellSpacing)
+                                  _TvSeriesListView()
                                 ],
                               ),
                             ),
@@ -93,13 +89,6 @@ class TvSeriesPage extends StatelessWidget {
 }
 
 class _TvSeriesListView extends StatelessWidget {
-  const _TvSeriesListView({
-    required this.tvSeriesCellHeight,
-    required this.tvSeriesCellSpacing,
-  });
-
-  final double tvSeriesCellHeight;
-  final double tvSeriesCellSpacing;
 
   @override
   Widget build(BuildContext context) {
@@ -113,14 +102,12 @@ class _TvSeriesListView extends StatelessWidget {
         }
         if (state is TvSeriesSuccess) {
           return SizedBox(
-            height:
-            (tvSeriesCellHeight + tvSeriesCellSpacing) * state.tvSeriesList.length,
             child: TvSeriesListView(tvSeriesList: state.tvSeriesList),
           );
         }
         if (state is TvSeriesError) {
           return Center(
-            child: Text(state.errorMessage ?? "Fetching error"),
+            child: Text(state.errorMessage ?? context.localization.fetching_error),
           );
         }
         return const LoadingView();
@@ -173,7 +160,7 @@ class _CarouselView extends StatelessWidget {
         }
         if (state is TvSeriesError) {
           return Center(
-            child: Text(state.errorMessage ?? "Fetching error"),
+            child: Text(state.errorMessage ?? context.localization.fetching_error),
           );
         }
         return const LoadingView();

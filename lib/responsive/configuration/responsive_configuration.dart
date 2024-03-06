@@ -7,9 +7,9 @@ abstract class ResponsiveConfiguration {
   RatingViewSizeEnum get ratingViewMovieCell;
 
   //Movie Carousel View
-  double get movieCarouselBlueContainerHeight;
-  Size get movieCarouselContainerSize;
-  double get movieCarouselContainerHeight;
+  double get carouselBlueContainerHeight;
+  Size get carouselContainerSize;
+  double get carouselContainerHeight;
   double get movieCarouselHeaderTopPadding;
   double get movieCarouselHeaderLeftPadding;
 
@@ -80,8 +80,22 @@ abstract class ResponsiveConfiguration {
   double get profileFavoriteCellIconSize;
   double get profileFavoriteListTitleTextSize;
 
-  //Tv Series
+  //Tv Series Cell
   double get tvSeriesCellImageWidth;
   double get tvSeriesCellImageHeight;
   double get tvSeriesCellInfoContainerHeight;
+  double get tvSeriesCellBodyPaddingLeft;
+  double get tvSeriesCellMovieNameTextSize;
+  double get tvSeriesCellCardElevation;
+  double get tvSeriesGridMainAxisSpacing;
+  double get tvSeriesGridCrossAxisSpacing;
+  double get tvSeriesGridMainAxisExtent;
+
+  //Tv Series
+  double get tvSeriesListViewTitleTextSize;
+  double get tvSeriesAppBarTitleTextSize;
+  double get tvSeriesDetailSliverAppBarExpandableHeight;
+  double get tvSeriesListViewPaddingTop;
+  double get tvSeriesListViewPaddingLeft;
+  double get tvSeriesListViewPaddingRight;
 }

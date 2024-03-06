@@ -162,4 +162,16 @@ final class DarkTheme extends ATheme {
     return const TextStyle()
         .profileFavoriteListTitleTextStyle(fontSize, MColors.almostBlack);
   }
+
+  @override
+  TextStyle tvSeriesListViewTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .moviesPageListViewTitleTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle tvSeriesAppBarTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .moviesPageAppBarTitleTextStyle(fontSize, MColors.white);
+  }
 }

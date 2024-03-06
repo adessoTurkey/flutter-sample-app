@@ -43,6 +43,11 @@ abstract class ATheme {
   TextStyle profileFavoriteCellSubTitleTextStyle(double fontSize);
   TextStyle profileFavoriteListTitleTextStyle(double fontSize);
 
+  //Tv Series
+  TextStyle tvSeriesListViewTitleTextStyle(double fontSize);
+
+  TextStyle tvSeriesAppBarTitleTextStyle(double fontSize);
+
   ThemeData get themeData => ThemeData(
       useMaterial3: true,
       appBarTheme: appbarTheme,

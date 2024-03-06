@@ -111,11 +111,7 @@ class _MovieListView extends StatelessWidget {
           return const LoadingView();
         }
         if (state is MoviesSuccess) {
-          return SizedBox(
-            height:
-                (movieCellHeight + movieCellSpacing) * state.movieList.length,
-            child: MovieListView(movieList: state.movieList),
-          );
+          return MovieListView(movieList: state.movieList);
         }
         if (state is MoviesError) {
           return Center(

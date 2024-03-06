@@ -15,7 +15,7 @@ class TvSeriesCellView extends StatelessWidget {
     return ConfigurationWidget(
       onConfigurationReady: (configuration, theme) {
         return CustomCard(
-          elevation: configuration.movieCellCardElevation,
+          elevation: configuration.tvSeriesCellCardElevation,
           shadowColor: Colors.black26,
           backgroundColor: theme.themeData.scaffoldBackgroundColor,
           child: Column(
@@ -32,7 +32,7 @@ class TvSeriesCellView extends StatelessWidget {
               Container(
                 height: configuration.tvSeriesCellInfoContainerHeight,
                 padding: EdgeInsets.only(
-                  left: configuration.movieCellBodyPaddingLeft,
+                  left: configuration.tvSeriesCellBodyPaddingLeft,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,14 +40,14 @@ class TvSeriesCellView extends StatelessWidget {
                     Text(
                       tvSeriesData.tvSeriesTitle ?? "",
                       style: theme.movieCellMovieNameTextStyle(
-                        configuration.movieCellMovieNameTextSize,
+                        configuration.tvSeriesCellMovieNameTextSize,
                       ),
                       maxLines: 1,
                     ),
                     10.verticalSizedBox,
                     RatingView(
                         rating: tvSeriesData.getVoteAverage,
-                        type: RatingViewType.movieCell
+                        type: RatingViewType.cell
                     ),
                   ],
                 ),

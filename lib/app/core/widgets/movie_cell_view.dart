@@ -77,7 +77,7 @@ class MovieCellView extends StatelessWidget {
                         ),
                         RatingView(
                           rating: movie.getVoteAvarage,
-                          type: RatingViewType.movieCell
+                          type: RatingViewType.cell
                         ),
                       ],
                     )
