@@ -29,5 +29,8 @@
   "movie_detail_duration_text": "dk",
   "authentication_failed": "Giriş Hatası",
   "invalid_username": "geçersiz kullanıcı adı",
-  "invalid_password": "geçersiz şifre"
+  "invalid_password": "geçersiz şifre",
+  "profile_header_text": "Profil",
+  "profile_sub_header_text": "Merhaba",
+  "profile_favorite_title_text": "Favori"
 }

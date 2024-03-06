@@ -32,7 +32,7 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: MovieDetailPage(
-          movieModel: args.movieModel,
+          movieId: args.movieId,
           key: args.key,
         ),
       );
@@ -102,13 +102,13 @@ class LoginRoute extends PageRouteInfo<void> {
 /// [MovieDetailPage]
 class MovieDetailRoute extends PageRouteInfo<MovieDetailRouteArgs> {
   MovieDetailRoute({
-    required MovieModel movieModel,
+    required int movieId,
     Key? key,
     List<PageRouteInfo>? children,
   }) : super(
           MovieDetailRoute.name,
           args: MovieDetailRouteArgs(
-            movieModel: movieModel,
+            movieId: movieId,
             key: key,
           ),
           initialChildren: children,
@@ -122,17 +122,17 @@ class MovieDetailRoute extends PageRouteInfo<MovieDetailRouteArgs> {
 
 class MovieDetailRouteArgs {
   const MovieDetailRouteArgs({
-    required this.movieModel,
+    required this.movieId,
     this.key,
   });
 
-  final MovieModel movieModel;
+  final int movieId;
 
   final Key? key;
 
   @override
   String toString() {
-    return 'MovieDetailRouteArgs{movieModel: $movieModel, key: $key}';
+    return 'MovieDetailRouteArgs{movieId: $movieId, key: $key}';
   }
 }
 

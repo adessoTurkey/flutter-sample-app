@@ -16,16 +16,22 @@ final class LightTheme extends ATheme {
   AppBarTheme get appbarTheme => const AppBarTheme(color: MColors.vibrantBlue);
 
   @override
+  Color get primaryColorLight => MColors.electricBlue;
+
   @override
-  Color get primaryColor => MColors.electricBlue;
+  Color get primaryColorDark => MColors.electricBlue;
 
   @override
   Color get scaffoldBackgroundColor => MColors.white;
 
   @override
+  Color get dividerColor => MColors.borderColor;
+
+  @override
+  Color get shadowColor => MColors.almostBlack.withOpacity(.05);
+
+  @override
   TextStyle movieCellMovieNameTextStyle(double fontSize) {
-    return const TextStyle()
-        .movieCellMovieNameTextStyle(fontSize, MColors.almostBlack);
     return const TextStyle()
         .movieCellMovieNameTextStyle(fontSize, MColors.almostBlack);
   }
@@ -73,12 +79,8 @@ final class LightTheme extends ATheme {
   @override
   TextStyle splashTextStyle(double fontSize) =>
       const TextStyle().textStyleW300(fontSize, MColors.white);
-
   @override
-  TextStyle whiteTextStyle() => const TextStyle(color: MColors.white);
-
-  @override
-  TextStyle forgatPassword(double fontSize) =>
+  TextStyle forgetPassword(double fontSize) =>
       const TextStyle().textStyleW400(fontSize, MColors.white);
 
   @override
@@ -143,5 +145,60 @@ final class LightTheme extends ATheme {
   TextStyle movieDetailCastRightLabelTextStyle(double fontSize) {
     return const TextStyle()
         .movieDetailCastRightLabelTextStyle(fontSize, MColors.electricBlue);
+  }
+
+  @override
+  TextStyle passwordTextFieldHint(double fontSize) => const TextStyle().loginPasswordHintTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle passwordTextFieldLabel(double fontSize) => const TextStyle().loginPasswordLabelTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle passwordTextFieldText(double fontSize) => const TextStyle().loginPasswordTextTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle usernameTextFieldHint(double fontSize) => const TextStyle().loginUsernameHintTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle usernameTextFieldLabel(double fontSize) => const TextStyle().loginUsernameLabelTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle usernameTextFieldText(double fontSize) => const TextStyle().loginUsernameTextTextStyle(fontSize , MColors.white);
+
+  //PROFILE
+  @override
+  TextStyle profileHeaderLabelTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileHeaderLabelTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle profileSubHeaderLabelTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileSubHeaderLabelTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle profileUsernameLabelTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileUsernameLabelTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle profileFavoriteCellSubTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileFavoriteCellSubTitleTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle profileFavoriteCellTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileFavoriteCellTitleTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle profileFavoriteListTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .profileFavoriteListTitleTextStyle(fontSize, MColors.almostBlack);
   }
 }

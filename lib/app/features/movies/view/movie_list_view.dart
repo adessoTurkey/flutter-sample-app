@@ -15,15 +15,15 @@ class MovieListView extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       itemCount: movieList.length,
       itemBuilder: (context, index) {
+        var movie = movieList[index];
         return Padding(
           padding: 8.onlyVertical,
           child: GestureDetector(
             onTap: () {
-              //movie-detail-logic branchinde düzenlenicek
-              //context.pushRoute(MovieDetailRoute(movieModel: movieList[index]));
+              context.pushRoute(MovieDetailRoute(movieId: movie.id!));
             },
             child: MovieCellView(
-              movie: movieList[index],
+              movie: movie,
             ),
           ),
         );

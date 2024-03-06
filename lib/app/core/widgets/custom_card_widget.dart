@@ -4,6 +4,7 @@ class CustomCard extends StatelessWidget {
   final double elevation;
   final Color shadowColor;
   final Clip? clip;
+  final ShapeBorder? shapeBorder;
   final Color backgroundColor;
   final Widget child;
 
@@ -14,6 +15,7 @@ class CustomCard extends StatelessWidget {
     this.clip,
     required this.backgroundColor,
     required this.child,
+    this.shapeBorder,
   });
 
   @override
@@ -21,6 +23,7 @@ class CustomCard extends StatelessWidget {
     return Card(
       elevation: elevation,
       clipBehavior: clip ?? Clip.hardEdge,
+      shape: shapeBorder,
       shadowColor: shadowColor,
       surfaceTintColor: backgroundColor,
       child: child,

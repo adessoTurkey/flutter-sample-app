@@ -17,7 +17,7 @@ class ReleaseDateView extends StatelessWidget {
           children: [
             FaIcon(
               FontAwesomeIcons.calendar,
-              color: theme.themeData.primaryColor,
+              color: theme.themeData.primaryColorDark,
               size: configuration.releaseDateViewDateIconSize,
             ),
             Text(

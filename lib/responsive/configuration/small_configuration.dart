@@ -198,4 +198,49 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   @override
   double get movieDetailSliverAppBarExpandableHeight => 100;
+
+  @override
+  double get loginPasswordHintTextSize => 13;
+
+  @override
+  double get loginPasswordLabelTextSize => 13;
+
+  @override
+  double get loginPasswordTextTextSize => 13;
+
+  @override
+  double get loginUsernameHintTextSize => 13;
+
+  @override
+  double get loginUsernameLabelTextSize => 13;
+
+  @override
+  double get loginUsernameTextTextSize => 13;
+
+  @override
+  double get loginButtonRadius => 5;
+
+  @override
+  double get loginButtonHeight => 50;
+
+  @override
+  double get profileHeaderLabelTextSize => 26;
+
+  @override
+  double get profileSubHeaderLabelTextSize => 20;
+
+  @override
+  double get profileUsernameLabelTextSize => 26;
+
+  @override
+  double get profileFavoriteCellSubTitleTextSize => 18;
+
+  @override
+  double get profileFavoriteCellTitleTextSize => 23;
+
+  @override
+  double get profileFavoriteCellIconSize => 35;
+
+  @override
+  double get profileFavoriteListTitleTextSize => 28;
 }

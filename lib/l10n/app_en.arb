@@ -17,9 +17,6 @@
   "not_found_error": "Error {errorCode}",
   "conflict_error": "Error {errorCode}",
   "no_data_error": "Error {errorCode}",
-  "moviesPageTite": "Movies",
-  "moviesPagePopularTitle": "Popular",
-  "moviesPageAppBarTitle": "Popular Movies",
   "movies_page_title": "Movies",
   "movies_page_popular_title": "Popular",
   "movies_page_app_bar_title": "Popular Movies",
@@ -30,4 +27,7 @@
   "authentication_failed": "Authentication Failure",
   "invalid_username": "invalid username",
   "invalid_password": "invalid password"
+  "profile_header_text": "Profile",
+  "profile_sub_header_text": "Hello",
+  "profile_favorite_title_text": "Favorite"
 }

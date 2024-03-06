@@ -23,50 +23,41 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ConfigurationWidget(
-        onConfigurationReady: (config, theme) {
-          return Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(MovieAssets.images.loginBg.path),
-                  fit: BoxFit.cover),
-            ),
-            child: Padding(
-              padding: config.loginPagePadding,
-              child: Column(
-                children: [
-                  64.verticalSizedBox,
-                  SvgPicture.asset(
-                    MovieAssets.images.logo,
-                    width: config.loginLogoSize.width,
-                    height: config.loginLogoSize.height,
-                  ),
-                  64.verticalSizedBox,
-                  CustomLoginTextField(
-                    textStyle: theme.whiteTextStyle(),
-                    hintText: context.localization.enterEmail,
-                    hintTextStyle: theme.whiteTextStyle(),
-                    labelText: context.localization.email,
-                    labelTextStyle: theme.whiteTextStyle(),
-                  ),
-                  10.verticalSizedBox,
-                  CustomLoginPasswordField(
-                    textStyle: theme.whiteTextStyle(),
-                    hintText: context.localization.enterPassword,
-                    hintTextStyle: theme.whiteTextStyle(),
-                    labelText: context.localization.password,
-                    labelTextStyle: theme.whiteTextStyle(),
-                  ),
-                  10.verticalSizedBox,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
+      body: BlocProvider(
+        create: (context) => PasswordBloc(),
+        child:  ConfigurationWidget(
+          onConfigurationReady: (config, theme) {
+            return Container(
+              decoration: BoxDecoration(
+                color: MColors.vibrantBlue,
+                image: DecorationImage(
+                    colorFilter: ColorFilter.mode(MColors.vibrantBlue.withOpacity(0.2), BlendMode.dstATop),
+                    image: AssetImage(MovieAssets.images.splashBg.path),
+                    fit: BoxFit.cover),
+              ),
+              child: Padding(
+                padding: config.loginPagePadding,
+                child: Column(
+                  children: [
+                    64.verticalSizedBox,
+                    SvgPicture.asset(
+                      MovieAssets.images.logo,
+                      width: config.loginLogoSize.width,
+                      height: config.loginLogoSize.height,
+                    ),
+                    64.verticalSizedBox,
+                    const CustomLoginTextField(),
+                    10.verticalSizedBox,
+                    const CustomLoginPasswordField(),
+                    10.verticalSizedBox,
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
                         onPressed: () {},
                         child: Text(
                           context.localization.forgatPassword,
                           style: theme
-                              .forgatPassword(config.forgatPasswordTextSize),
+                              .forgetPassword(config.forgatPasswordTextSize),
                         ),
                       )
                     ],
