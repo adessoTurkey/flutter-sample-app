@@ -49,6 +49,22 @@ abstract class ATheme {
   TextStyle searchListCellViewTypeTextStyle(double fontSize);
   TextStyle searchViewNoResultTextStyle(double fontSize);
 
+  TextStyle splashTextStyle(double fontSize);
+
+  TextStyle usernameTextFieldText(double fontSize);
+  TextStyle usernameTextFieldLabel(double fontSize);
+  TextStyle usernameTextFieldHint(double fontSize);
+  TextStyle passwordTextFieldText(double fontSize);
+  TextStyle passwordTextFieldLabel(double fontSize);
+  TextStyle passwordTextFieldHint(double fontSize);
+
+  TextStyle forgetPassword(double fontSize);
+
+  TextStyle login(double fontSize);
+
+  TextStyle dontHaveAccount(double fontSize);
+
+  TextStyle registerNow(double fontSize);
   ThemeData get themeData => ThemeData(
       useMaterial3: true,
       appBarTheme: appbarTheme,

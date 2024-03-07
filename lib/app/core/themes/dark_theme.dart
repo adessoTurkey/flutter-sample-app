@@ -12,6 +12,31 @@ final class DarkTheme extends ATheme {
   AppBarTheme get appbarTheme => const AppBarTheme();
 
   @override
+  TextStyle movieCellMovieNameTextStyle(double fontSize) {
+    return const TextStyle()
+        .movieCellMovieNameTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle splashTextStyle(double fontSize) =>
+      const TextStyle().textStyleW300(fontSize, MColors.black25);
+
+  @override
+  TextStyle forgetPassword(double fontSize) =>
+      const TextStyle().textStyleW400(fontSize, MColors.white);
+
+  @override
+  TextStyle login(double fontSize) =>
+      const TextStyle().textStyleW700(fontSize, MColors.vibrantBlue);
+
+  @override
+  TextStyle dontHaveAccount(double fontSize) =>
+      const TextStyle().textStyleW400(fontSize, MColors.lightGrey);
+
+  @override
+  TextStyle registerNow(double fontSize) =>
+      const TextStyle().textStyleW400(fontSize, MColors.white);
+  @override
   Color get primaryColorLight => MColors.electricBlue;
 
   @override
@@ -74,12 +99,6 @@ final class DarkTheme extends ATheme {
   }
 
   @override
-  TextStyle movieCellMovieNameTextStyle(double fontSize) {
-    return const TextStyle()
-        .movieCellMovieNameTextStyle(fontSize, MColors.white);
-  }
-
-  @override
   TextStyle durationViewTextStyle(double fontSize) {
     return const TextStyle()
         .durationViewTextStyle(fontSize, MColors.almostBlack);
@@ -125,6 +144,24 @@ final class DarkTheme extends ATheme {
     return const TextStyle()
         .movieDetailCastRightLabelTextStyle(fontSize, MColors.electricBlue);
   }
+
+  @override
+  TextStyle passwordTextFieldHint(double fontSize) => const TextStyle().loginPasswordHintTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle passwordTextFieldLabel(double fontSize) => const TextStyle().loginPasswordLabelTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle passwordTextFieldText(double fontSize) => const TextStyle().loginPasswordTextTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle usernameTextFieldHint(double fontSize) => const TextStyle().loginUsernameHintTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle usernameTextFieldLabel(double fontSize) => const TextStyle().loginUsernameLabelTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle usernameTextFieldText(double fontSize) => const TextStyle().loginUsernameTextTextStyle(fontSize , MColors.white);
 
   //PROFILE
   @override
