@@ -19,5 +19,6 @@
   "profile_favorite_title_text": "Favori",
   "tv_series_page_title": "Diziler",
   "tv_series_top_rated": "En Çok Oy Alan",
-  "fetching_error": "Veri Çekme Hatası"
+  "fetching_error": "Veri Çekme Hatası",
+  "tv_series_app_bar_title": "Diziler"
 }

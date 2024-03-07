@@ -19,5 +19,6 @@
   "profile_favorite_title_text": "Favorite",
   "tv_series_page_title": "Tv Series",
   "tv_series_top_rated": "Top Rated",
-  "fetching_error": "Fetching Error"
+  "fetching_error": "Fetching Error",
+  "tv_series_app_bar_title": "Tv Series"
 }

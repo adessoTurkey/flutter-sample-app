@@ -36,7 +36,7 @@ class TvSeriesPage extends StatelessWidget {
                         configuration.headerTextSize,
                       ),
                       appBarTitle:
-                      context.localization.movies_page_app_bar_title,
+                      context.localization.tv_series_app_bar_title,
                       appBarTitleStyle: theme.tvSeriesAppBarTitleTextStyle(
                           configuration.tvSeriesAppBarTitleTextSize),
                       backgroundColor: theme.themeData.primaryColorDark,
