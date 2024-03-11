@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/api_call/models/login_credentials_request_model.dart';
 import 'package:flutter_movie_app/api_call/models/models.dart';
@@ -12,6 +13,9 @@ import 'package:flutter_movie_app/app/features/profile/models/account_detail/acc
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_movie/favorite_movie_data.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_tv/favorite_tv_data.dart';
 
+import '../models/favorite/dto/add_to_favorite_dto.dart';
+import '../models/favorite/response/add_to_favorite_response.dart';
+
 abstract class RemoteDataSource {
   Future<RequestTokenModel> getRequestToken();
   Future<List<MovieData>> getMovieList(MovieCategoriesEnum categoryEndpoint);
@@ -24,6 +28,8 @@ abstract class RemoteDataSource {
   Future<List<FavoriteMovieData>> getFavoriteMovies();
   Future<List<FavoriteTvData>> getFavoriteTVs();
   Future<List<GenreData>> getGenres(GenreType genreType);
+  Future<AddToFavoriteResponse> addToFavorite(
+      AddToFavoriteDto addToFavoriteDto);
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -225,6 +231,30 @@ class RemoteDataSourceImpl extends RemoteDataSource {
             (json['genres'] as List).map((e) => GenreData.fromJson(e)).toList(),
       );
       return (genreResponse as Ok<List<GenreData>>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<AddToFavoriteResponse> addToFavorite(
+      AddToFavoriteDto addToFavoriteDto) async {
+    try {
+      var networkRequest = NetworkRequest(
+        type: NetworkRequestType.post,
+        path: dotenv.get(EnvConstants.favoriteAddPath),
+        data: NetworkRequestBody.json(
+          addToFavoriteDto.toJson(),
+        ),
+      );
+      var addToFavoriteResponse =
+          await networkService.execute(networkRequest, (json) {
+        AddToFavoriteResponse favoriteresponse =
+            AddToFavoriteResponse.fromJson(json);
+
+        return favoriteresponse;
+      });
+      return (addToFavoriteResponse as Ok<AddToFavoriteResponse>).data;
     } catch (_) {
       rethrow;
     }

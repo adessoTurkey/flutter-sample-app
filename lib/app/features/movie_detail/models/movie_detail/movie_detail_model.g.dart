@@ -9,6 +9,7 @@ part of 'movie_detail_model.dart';
 _$MovieDetailModelImpl _$$MovieDetailModelImplFromJson(
         Map<String, dynamic> json) =>
     _$MovieDetailModelImpl(
+      id: json['id'] as int?,
       backdropPath: json['backdrop_path'] as String?,
       posterPath: json['poster_path'] as String?,
       imdbId: json['imdb_id'] as String?,
@@ -25,6 +26,7 @@ _$MovieDetailModelImpl _$$MovieDetailModelImplFromJson(
 Map<String, dynamic> _$$MovieDetailModelImplToJson(
         _$MovieDetailModelImpl instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'backdrop_path': instance.backdropPath,
       'poster_path': instance.posterPath,
       'imdb_id': instance.imdbId,

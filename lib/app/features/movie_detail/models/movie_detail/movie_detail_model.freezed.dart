@@ -20,6 +20,8 @@ MovieDetailModel _$MovieDetailModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MovieDetailModel {
+  @JsonKey(name: "id")
+  int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: "backdrop_path")
   String? get backdropPath => throw _privateConstructorUsedError;
   @JsonKey(name: "poster_path")
@@ -52,7 +54,8 @@ abstract class $MovieDetailModelCopyWith<$Res> {
       _$MovieDetailModelCopyWithImpl<$Res, MovieDetailModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: "backdrop_path") String? backdropPath,
+      {@JsonKey(name: "id") int? id,
+      @JsonKey(name: "backdrop_path") String? backdropPath,
       @JsonKey(name: "poster_path") String? posterPath,
       @JsonKey(name: "imdb_id") String? imdbId,
       @JsonKey(name: "release_date") String? releaseDate,
@@ -76,6 +79,7 @@ class _$MovieDetailModelCopyWithImpl<$Res, $Val extends MovieDetailModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? backdropPath = freezed,
     Object? posterPath = freezed,
     Object? imdbId = freezed,
@@ -87,6 +91,10 @@ class _$MovieDetailModelCopyWithImpl<$Res, $Val extends MovieDetailModel>
     Object? genres = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       backdropPath: freezed == backdropPath
           ? _value.backdropPath
           : backdropPath // ignore: cast_nullable_to_non_nullable
@@ -136,7 +144,8 @@ abstract class _$$MovieDetailModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "backdrop_path") String? backdropPath,
+      {@JsonKey(name: "id") int? id,
+      @JsonKey(name: "backdrop_path") String? backdropPath,
       @JsonKey(name: "poster_path") String? posterPath,
       @JsonKey(name: "imdb_id") String? imdbId,
       @JsonKey(name: "release_date") String? releaseDate,
@@ -158,6 +167,7 @@ class __$$MovieDetailModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? backdropPath = freezed,
     Object? posterPath = freezed,
     Object? imdbId = freezed,
@@ -169,6 +179,10 @@ class __$$MovieDetailModelImplCopyWithImpl<$Res>
     Object? genres = freezed,
   }) {
     return _then(_$MovieDetailModelImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       backdropPath: freezed == backdropPath
           ? _value.backdropPath
           : backdropPath // ignore: cast_nullable_to_non_nullable
@@ -213,7 +227,8 @@ class __$$MovieDetailModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MovieDetailModelImpl implements _MovieDetailModel {
   const _$MovieDetailModelImpl(
-      {@JsonKey(name: "backdrop_path") this.backdropPath,
+      {@JsonKey(name: "id") this.id,
+      @JsonKey(name: "backdrop_path") this.backdropPath,
       @JsonKey(name: "poster_path") this.posterPath,
       @JsonKey(name: "imdb_id") this.imdbId,
       @JsonKey(name: "release_date") this.releaseDate,
@@ -227,6 +242,9 @@ class _$MovieDetailModelImpl implements _MovieDetailModel {
   factory _$MovieDetailModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$MovieDetailModelImplFromJson(json);
 
+  @override
+  @JsonKey(name: "id")
+  final int? id;
   @override
   @JsonKey(name: "backdrop_path")
   final String? backdropPath;
@@ -264,7 +282,7 @@ class _$MovieDetailModelImpl implements _MovieDetailModel {
 
   @override
   String toString() {
-    return 'MovieDetailModel(backdropPath: $backdropPath, posterPath: $posterPath, imdbId: $imdbId, releaseDate: $releaseDate, runtime: $runtime, title: $title, voteAverage: $voteAverage, overivew: $overivew, genres: $genres)';
+    return 'MovieDetailModel(id: $id, backdropPath: $backdropPath, posterPath: $posterPath, imdbId: $imdbId, releaseDate: $releaseDate, runtime: $runtime, title: $title, voteAverage: $voteAverage, overivew: $overivew, genres: $genres)';
   }
 
   @override
@@ -272,6 +290,7 @@ class _$MovieDetailModelImpl implements _MovieDetailModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MovieDetailModelImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.backdropPath, backdropPath) ||
                 other.backdropPath == backdropPath) &&
             (identical(other.posterPath, posterPath) ||
@@ -292,6 +311,7 @@ class _$MovieDetailModelImpl implements _MovieDetailModel {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
       backdropPath,
       posterPath,
       imdbId,
@@ -319,7 +339,8 @@ class _$MovieDetailModelImpl implements _MovieDetailModel {
 
 abstract class _MovieDetailModel implements MovieDetailModel {
   const factory _MovieDetailModel(
-          {@JsonKey(name: "backdrop_path") final String? backdropPath,
+          {@JsonKey(name: "id") final int? id,
+          @JsonKey(name: "backdrop_path") final String? backdropPath,
           @JsonKey(name: "poster_path") final String? posterPath,
           @JsonKey(name: "imdb_id") final String? imdbId,
           @JsonKey(name: "release_date") final String? releaseDate,
@@ -333,6 +354,9 @@ abstract class _MovieDetailModel implements MovieDetailModel {
   factory _MovieDetailModel.fromJson(Map<String, dynamic> json) =
       _$MovieDetailModelImpl.fromJson;
 
+  @override
+  @JsonKey(name: "id")
+  int? get id;
   @override
   @JsonKey(name: "backdrop_path")
   String? get backdropPath;

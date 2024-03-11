@@ -20,7 +20,6 @@ AccountDetail _$AccountDetailFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AccountDetail {
-  @JsonKey(name: "id")
   int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: "iso_639_1")
   String? get iso6391 => throw _privateConstructorUsedError;
@@ -44,7 +43,7 @@ abstract class $AccountDetailCopyWith<$Res> {
       _$AccountDetailCopyWithImpl<$Res, AccountDetail>;
   @useResult
   $Res call(
-      {@JsonKey(name: "id") int? id,
+      {int? id,
       @JsonKey(name: "iso_639_1") String? iso6391,
       @JsonKey(name: "iso_3166_1") String? iso31661,
       String? name,
@@ -110,7 +109,7 @@ abstract class _$$AccountDetailImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "id") int? id,
+      {int? id,
       @JsonKey(name: "iso_639_1") String? iso6391,
       @JsonKey(name: "iso_3166_1") String? iso31661,
       String? name,
@@ -169,7 +168,7 @@ class __$$AccountDetailImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AccountDetailImpl implements _AccountDetail {
   const _$AccountDetailImpl(
-      {@JsonKey(name: "id") this.id,
+      {this.id,
       @JsonKey(name: "iso_639_1") this.iso6391,
       @JsonKey(name: "iso_3166_1") this.iso31661,
       this.name,
@@ -180,7 +179,6 @@ class _$AccountDetailImpl implements _AccountDetail {
       _$$AccountDetailImplFromJson(json);
 
   @override
-  @JsonKey(name: "id")
   final int? id;
   @override
   @JsonKey(name: "iso_639_1")
@@ -238,7 +236,7 @@ class _$AccountDetailImpl implements _AccountDetail {
 
 abstract class _AccountDetail implements AccountDetail {
   const factory _AccountDetail(
-      {@JsonKey(name: "id") final int? id,
+      {final int? id,
       @JsonKey(name: "iso_639_1") final String? iso6391,
       @JsonKey(name: "iso_3166_1") final String? iso31661,
       final String? name,
@@ -249,7 +247,6 @@ abstract class _AccountDetail implements AccountDetail {
       _$AccountDetailImpl.fromJson;
 
   @override
-  @JsonKey(name: "id")
   int? get id;
   @override
   @JsonKey(name: "iso_639_1")

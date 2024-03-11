@@ -1,38 +1,54 @@
 part of 'movie_detail_bloc.dart';
 
-sealed class MovieDetailState extends Equatable {
-  const MovieDetailState();
-
-  @override
-  List<Object?> get props => [];
+enum MovieDetailStatusX {
+  initial,
+  loading,
+  success,
+  error,
 }
 
-final class MovieDetailInitial extends MovieDetailState {}
-
-final class MovieDetailLoading extends MovieDetailState {
-  const MovieDetailLoading();
-}
-
-final class MovieDetailSuccess extends MovieDetailState {
-  final MovieDetailModel movieDetailModel;
-  final CreditResponse creditResponse;
-  final VideoModelResponse videoModelResponse;
-
-  const MovieDetailSuccess(
-      {required this.movieDetailModel,
-      required this.creditResponse,
-      required this.videoModelResponse});
-
-  @override
-  List<Object> get props =>
-      [movieDetailModel, creditResponse, videoModelResponse];
-}
-
-final class MovieDetailError extends MovieDetailState {
-  const MovieDetailError({required this.errorMessage});
-
+final class MovieDetailState extends Equatable {
+  final MovieDetailStatusX status;
+  final MovieDetailModel? movieDetailModel;
+  final CreditResponse? creditResponse;
+  final VideoModelResponse? videoModelResponse;
+  final bool isFavorite;
   final String? errorMessage;
 
+  const MovieDetailState({
+    this.status = MovieDetailStatusX.initial,
+    this.movieDetailModel,
+    this.creditResponse,
+    this.videoModelResponse,
+    this.isFavorite = false,
+    this.errorMessage,
+  });
+
   @override
-  List<Object?> get props => [errorMessage];
+  List<Object?> get props => [
+        status,
+        movieDetailModel,
+        creditResponse,
+        videoModelResponse,
+        isFavorite,
+        errorMessage,
+      ];
+
+  MovieDetailState copyWith({
+    MovieDetailStatusX? status,
+    MovieDetailModel? movieDetailModel,
+    CreditResponse? creditResponse,
+    VideoModelResponse? videoModelResponse,
+    bool? isFavorite,
+    String? errorMessage,
+  }) {
+    return MovieDetailState(
+      status: status ?? this.status,
+      movieDetailModel: movieDetailModel ?? this.movieDetailModel,
+      creditResponse: creditResponse ?? this.creditResponse,
+      videoModelResponse: videoModelResponse ?? this.videoModelResponse,
+      isFavorite: isFavorite ?? this.isFavorite,
+      errorMessage: errorMessage ?? this.errorMessage,
+    );
+  }
 }
