@@ -10,14 +10,19 @@ import 'package:flutter_movie_app/app/features/search/search_page.dart';
 import 'package:flutter_movie_app/app/features/splash/splash_page.dart';
 import 'package:flutter_movie_app/app/features/tv_series/tv_series_page.dart';
 
+import '../../features/cinema_map/cinema_map.dart';
+
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()
 class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
+        //AutoRoute(page: CinemaMapRoute.page, initial: true),
         AutoRoute(page: SplashRoute.page, initial: true),
-        AutoRoute(page: LoginRoute.page,),
+        AutoRoute(
+          page: LoginRoute.page,
+        ),
         AutoRoute(page: HomeRoute.page, children: [
           AutoRoute(page: MoviesRoute.page),
           AutoRoute(page: TvSeriesRoute.page),

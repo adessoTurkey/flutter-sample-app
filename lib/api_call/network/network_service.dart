@@ -9,9 +9,9 @@ class NetworkService {
     required this.baseUrl,
     dioClient,
     httpHeaders,
-  })  : _dio = dioClient,
+  })  : dio = dioClient,
         _headers = httpHeaders ?? NetworkConstants.headers;
-  Dio? _dio;
+  Dio? dio;
   final String baseUrl;
   final Map<String, String> _headers;
 
@@ -36,11 +36,11 @@ class NetworkService {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    _dio ??= await _getDefaultDioClient();
+    dio ??= await _getDefaultDioClient();
     final req = PreparedNetworkRequest<T>(
       request,
       parser,
-      _dio!,
+      dio!,
       {..._headers, ...(request.headers ?? {})},
       onSendProgress,
       onReceiveProgress,

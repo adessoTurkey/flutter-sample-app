@@ -16,7 +16,8 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
 
   late List<MovieData> list;
 
-  Future<void> _moviesFetched(MoviesFetching event, Emitter<MoviesState> emit) async {
+  Future<void> _moviesFetched(
+      MoviesFetching event, Emitter<MoviesState> emit) async {
     try {
       emit(MoviesLoading());
 

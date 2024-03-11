@@ -1,0 +1,1 @@
+export 'cinema_map_page.dart';

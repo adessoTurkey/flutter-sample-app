@@ -1,3 +1,7 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/api_call/models/login_credentials_request_model.dart';
 import 'package:flutter_movie_app/api_call/models/models.dart';
@@ -6,16 +10,20 @@ import 'package:flutter_movie_app/api_call/models/session_response_model.dart';
 import 'package:flutter_movie_app/api_call/network/network.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
+import 'package:flutter_movie_app/app/features/cinema_map/models/map_request_dto/map_request_dto.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_models.dart';
 import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
 import 'package:flutter_movie_app/app/features/profile/models/account_detail/account_detail.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_movie/favorite_movie_data.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_tv/favorite_tv_data.dart';
 
+import '../../app/features/cinema_map/models/response/map_response_model.dart/map_response_model.dart';
+
 abstract class RemoteDataSource {
   Future<RequestTokenModel> getRequestToken();
   Future<List<MovieData>> getMovieList(MovieCategoriesEnum categoryEndpoint);
-  Future<RequestTokenModel> loginWithCredentials(LoginCredentialsRequestModel requestBody);
+  Future<RequestTokenModel> loginWithCredentials(
+      LoginCredentialsRequestModel requestBody);
   Future<SessionResponseModel> openSession(SessionRequestModel requestBody);
   Future<MovieDetailModel> getMovieDetail(int movieId);
   Future<VideoModelResponse> getMovieVideos(int movieId);
@@ -23,6 +31,7 @@ abstract class RemoteDataSource {
   Future<AccountDetail> getAccountDetail();
   Future<List<FavoriteMovieData>> getFavoriteMovies();
   Future<List<FavoriteTvData>> getFavoriteTVs();
+  Future<MapResponseModel> getCinemaBySearchText(MapRequestDto mapRequestDto);
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -77,7 +86,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
           path: dotenv.get(EnvConstants.loginWithCredentialsPath),
           data: NetworkRequestBody.json(requestBody.toJson()));
       var requestTokenResponse = await networkService.execute(
-         networkRequest, (json) => RequestTokenModel.fromJson(json));
+          networkRequest, (json) => RequestTokenModel.fromJson(json));
       return (requestTokenResponse as Ok<RequestTokenModel>).data;
     } catch (_) {
       rethrow;
@@ -205,6 +214,29 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       });
 
       return (favoriteTVsResponse as Ok<List<FavoriteTvData>>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<MapResponseModel> getCinemaBySearchText(
+      MapRequestDto mapRequestDto) async {
+    try {
+      var response = await Dio().post(
+        "https://places.googleapis.com/v1/places:searchText",
+        options: Options(
+          headers: {
+            "Content-Type": "application/json",
+            "X-Goog-FieldMask":
+                "places.displayName,places.formattedAddress,places.location",
+            "X-Goog-Api-Key": "AIzaSyCHusodLqoU23KGeB_ygESFnsxkEiwhEaU",
+          },
+        ),
+        data: mapRequestDto.toJson(),
+      );
+      MapResponseModel mapData = MapResponseModel.fromJson(response.data);
+      return mapData;
     } catch (_) {
       rethrow;
     }
