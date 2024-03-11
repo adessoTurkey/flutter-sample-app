@@ -12,4 +12,5 @@ abstract final class EnvConstants {
   static String favoriteTVPath = "FAVORITE_PATH_TV";
   static String loginWithCredentialsPath = "LOGIN_WITH_CREDENTIALS_PATH";
   static String openSessionPath = "OPEN_SESSION_PATH";
+  static String favoriteAddPath = "FAVORITE_PATH_ADD";
 }
