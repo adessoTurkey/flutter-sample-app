@@ -178,18 +178,16 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   @override
   Future<List<GenreData>> getGenres(GenreType genreType) async {
     try {
+      var genreRequest = NetworkRequest(
+        type: NetworkRequestType.get,
+        path: "${dotenv.get(EnvConstants.genrePath)}${genreType.endpoint}",
+        data: const NetworkRequestBody.empty(),
+      );
       var genreResponse = await networkService.execute(
-          NetworkRequest(
-              type: NetworkRequestType.get,
-              path:
-                  "${dotenv.get(EnvConstants.genrePath)}${genreType.endpoint}",
-              data: const NetworkRequestBody.empty()), (json) {
-        List<GenreData> genresList =
-            (json['genres'] as List).map((e) => GenreData.fromJson(e)).toList();
-
-        return genresList;
-      });
-
+        genreRequest,
+        (json) =>
+            (json['genres'] as List).map((e) => GenreData.fromJson(e)).toList(),
+      );
       return (genreResponse as Ok<List<GenreData>>).data;
     } catch (_) {
       rethrow;
