@@ -7,7 +7,7 @@ part 'map_request_dto.g.dart';
 @freezed
 class MapRequestDto with _$MapRequestDto {
   const factory MapRequestDto({
-    @JsonKey(name: "textQuery") String? textQuery,
+    @JsonKey(name: "textQuery") required String textQuery,
   }) = _MapRequestDto;
   factory MapRequestDto.fromJson(Map<String, Object?> json) =>
       _$MapRequestDtoFromJson(json);

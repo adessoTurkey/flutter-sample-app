@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/api_call/models/login_credentials_request_model.dart';
@@ -223,21 +220,24 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   Future<MapResponseModel> getCinemaBySearchText(
       MapRequestDto mapRequestDto) async {
     try {
-      var response = await Dio().post(
-        "https://places.googleapis.com/v1/places:searchText",
-        options: Options(
-          headers: {
-            "Content-Type": "application/json",
-            "X-Goog-FieldMask":
-                "places.displayName,places.formattedAddress,places.location",
-            "X-Goog-Api-Key": "AIzaSyCHusodLqoU23KGeB_ygESFnsxkEiwhEaU",
-          },
-        ),
-        data: mapRequestDto.toJson(),
+      var customNetworkService = NetworkService(
+        baseUrl: dotenv.get(EnvConstants.googlePlacesApiBaseUrl),
+        httpHeaders: NetworkConstants.googlePlacesHeader,
       );
-      MapResponseModel mapData = MapResponseModel.fromJson(response.data);
-      return mapData;
-    } catch (_) {
+      var getCinemaBySearchTextRequest = NetworkRequest(
+        type: NetworkRequestType.post,
+        path: dotenv.get(EnvConstants.googlePlacesApiSearchByTextPath),
+        data: NetworkRequestBody.json(
+          mapRequestDto.toJson(),
+        ),
+      );
+      var getCinemaBySearchTextResponse = await customNetworkService.execute(
+        getCinemaBySearchTextRequest,
+        (json) => MapResponseModel.fromJson(json),
+      );
+      return (getCinemaBySearchTextResponse as Ok<MapResponseModel>).data;
+    } catch (e) {
+      print(e);
       rethrow;
     }
   }

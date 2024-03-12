@@ -24,6 +24,7 @@ class CinemaMapBloc extends Bloc<CinemaMapEvent, CinemaMapState> {
           textQuery: "cinema",
         ),
       );
+      print(mapResponseModel);
       emit(
         state.copyWith(
           status: CinemaMapStatusX.success,
