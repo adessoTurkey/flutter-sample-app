@@ -19,8 +19,6 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
     on<MovieDetailAddFavoriteEvent>(_movieDetailAddToFavoriteEventTriggered);
   }
 
-  bool isFavorite = false;
-
   Future<void> _movieDetailInitialEvent(
       MovieDetailInitialEvent event, Emitter<MovieDetailState> emit) async {
     emit(state.copyWith(status: MovieDetailStatusX.loading));
@@ -44,14 +42,14 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
             .getFavoriteMovies()
             .then((value) => favoritesMovies = value),
       ]);
-      isFavorite =
-          favoritesMovies.any((element) => element.id == event.movieId);
+
       emit(state.copyWith(
         status: MovieDetailStatusX.success,
         movieDetailModel: movieDetailModel,
         creditResponse: creditResponse,
         videoModelResponse: videoModelResponse,
-        isFavorite: isFavorite,
+        isFavorite:
+            favoritesMovies.any((element) => element.id == event.movieId),
       ));
     } catch (e) {
       emit(state.copyWith(
@@ -68,10 +66,9 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
           await remoteDataSource.addToFavorite(AddToFavoriteDto(
         mediaType: "movie",
         favoriteId: event.movieId,
-        favorite: !isFavorite,
+        favorite: !state.isFavorite,
       ));
-      isFavorite = response.isFavorite;
-      emit(state.copyWith(isFavorite: isFavorite));
+      emit(state.copyWith(isFavorite: response.isFavorite));
     } catch (e) {
       emit(state.copyWith(
         status: MovieDetailStatusX.error,
