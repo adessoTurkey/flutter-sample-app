@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_movie_app/app/core/constants/m_colors.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/extensions/movie_detail_extension.dart';
 import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
@@ -37,7 +38,7 @@ class _MovieDetailPageImageSectionState
                     height: configuration.movieDetailImageViewHeight,
                     width: context.screenSize.width,
                     child: ImageContainerView(
-                      imageURL: widget.movieDetailModel?.getImageURL ?? "", 
+                      imageURL: widget.movieDetailModel?.getImageURL ?? "",
                       placeholderImage: MovieAssets.images.poster1.path,
                     ),
                   ),
@@ -73,8 +74,8 @@ class _MovieDetailPageImageSectionState
                 context.popRoute();
               },
               iconData: FontAwesomeIcons.arrowLeft,
-              backgroundColor: Colors.transparent,
-              iconColor: Colors.white,
+              backgroundColor: MColors.transparent,
+              iconColor: MColors.white,
             ),
             BlocBuilder<MovieDetailBloc, MovieDetailState>(
               builder: (context, state) {
@@ -88,8 +89,8 @@ class _MovieDetailPageImageSectionState
                   iconData: state.isFavorite
                       ? FontAwesomeIcons.solidHeart
                       : FontAwesomeIcons.heart,
-                  backgroundColor: Colors.white,
-                  iconColor: Colors.red,
+                  backgroundColor: MColors.white,
+                  iconColor: MColors.tomato,
                 );
               },
             ),

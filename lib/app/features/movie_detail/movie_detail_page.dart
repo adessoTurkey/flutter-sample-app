@@ -68,7 +68,9 @@ class MovieDetailPage extends StatelessWidget {
                   },
                 );
               case MovieDetailStatusX.error:
-                return const LoadingView();
+                return ErrorView(
+                  error: state.errorMessage,
+                );
               case MovieDetailStatusX.initial:
                 return const LoadingView();
             }
