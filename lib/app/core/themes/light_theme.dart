@@ -148,22 +148,13 @@ final class LightTheme extends ATheme {
   }
 
   @override
-  TextStyle passwordTextFieldHint(double fontSize) => const TextStyle().loginPasswordHintTextStyle(fontSize , MColors.white);
+  TextStyle loginTextFieldText(double fontSize) => const TextStyle().loginFieldTextTextStyle(fontSize , MColors.white);
 
   @override
-  TextStyle passwordTextFieldLabel(double fontSize) => const TextStyle().loginPasswordLabelTextStyle(fontSize , MColors.white);
+  TextStyle loginTextFieldLabel(double fontSize) => const TextStyle().loginFieldLabelTextStyle(fontSize , MColors.white);
 
   @override
-  TextStyle passwordTextFieldText(double fontSize) => const TextStyle().loginPasswordTextTextStyle(fontSize , MColors.white);
-
-  @override
-  TextStyle usernameTextFieldHint(double fontSize) => const TextStyle().loginUsernameHintTextStyle(fontSize , MColors.white);
-
-  @override
-  TextStyle usernameTextFieldLabel(double fontSize) => const TextStyle().loginUsernameLabelTextStyle(fontSize , MColors.white);
-
-  @override
-  TextStyle usernameTextFieldText(double fontSize) => const TextStyle().loginUsernameTextTextStyle(fontSize , MColors.white);
+  TextStyle loginTextFieldHint(double fontSize) => const TextStyle().loginFieldHintTextStyle(fontSize , MColors.white);
 
   //PROFILE
   @override

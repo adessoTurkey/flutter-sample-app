@@ -51,7 +51,7 @@ abstract class ResponsiveConfiguration {
   Size get loginLogoSize;
   EdgeInsets get splashBottomPadding;
   EdgeInsets get loginPagePadding;
-  double get forgatPasswordTextSize;
+  double get forgetPasswordTextSize;
   double get loginTextSize;
   double get dontHaveAccountTextSize;
   double get registerNowTextSize;
@@ -82,12 +82,9 @@ abstract class ResponsiveConfiguration {
   double get movieDetailShareButtonPaddingLeft;
   double get movieDetailSliverAppBarExpandableHeight;
 
-  double get loginUsernameHintTextSize;
-  double get loginUsernameLabelTextSize;
-  double get loginUsernameTextTextSize;
-  double get loginPasswordHintTextSize;
-  double get loginPasswordLabelTextSize;
-  double get loginPasswordTextTextSize;
+  double get loginFieldHintTextSize;
+  double get loginFieldLabelTextSize;
+  double get loginFieldTextTextSize;
 
   double get loginButtonRadius;
   double get loginButtonHeight;
