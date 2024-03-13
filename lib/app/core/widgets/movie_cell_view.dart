@@ -7,7 +7,8 @@ import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class MovieCellView extends StatelessWidget {
   final MovieData movie;
-  const MovieCellView({required this.movie, super.key});
+  final List<GenreData>? genres;
+  const MovieCellView({required this.movie, super.key, required this.genres});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +48,7 @@ class MovieCellView extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      movie.getGenres(),
+                      movie.getGenres(genres),
                       style: theme.movieCellMovieGenresTextStyle(
                         configuration.movieCellMovieGenresTextSize,
                       ),

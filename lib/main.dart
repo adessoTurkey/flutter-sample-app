@@ -12,7 +12,6 @@ import 'package:flutter_movie_app/app/core/themes/bloc/theme_bloc.dart';
 import 'package:flutter_movie_app/app/core/themes/theme_enum.dart';
 import 'package:flutter_movie_app/app/features/login/bloc/login_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/bloc/movies_bloc.dart';
-import 'package:flutter_movie_app/app/features/movies/models/genre_data/genre_mock.dart';
 import 'package:flutter_movie_app/app/features/profile/bloc/profile_bloc.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/localization/bloc/localization_bloc.dart';
@@ -33,8 +32,6 @@ void main() async {
     feature.initialize();
     MLogger.log.debug('${feature.runtimeType} initialized');
   }
-
-  await GenreMock.instance.init();
 
   NetworkService networkService =
       NetworkService(baseUrl: dotenv.get(EnvConstants.baseUrl))

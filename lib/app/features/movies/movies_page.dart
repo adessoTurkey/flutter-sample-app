@@ -1,11 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_movie_app/api_call/api_repositories/api_repositories.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movies/bloc/movies_bloc.dart';
+import 'package:flutter_movie_app/app/features/movies/models/genre_data/bloc/genre_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/movies.dart';
+import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
@@ -17,74 +20,90 @@ class MoviesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConfigurationWidget(
       onConfigurationReady: (configuration, theme) {
-        return Scaffold(
-          body: Stack(
-            children: [
-              Container(
-                color: theme.themeData.primaryColorDark,
-                height: context.screenSize.width,
-                width: context.screenSize.width,
-              ),
-              SafeArea(
-                child: CustomScrollView(
-                  scrollBehavior: const ScrollBehavior(),
-                  slivers: [
-                    CustomScrollViewAppBar(
-                      implyLeading: false,
-                      largeTitle: context.localization.movies_page_title,
-                      largeTitleStyle: theme.moviesViewHeaderTextStyle(
-                        configuration.headerTextSize,
-                      ),
-                      appBarTitle:
-                          context.localization.movies_page_app_bar_title,
-                      appBarTitleStyle: theme.moviesPageAppBarTitleTextStyle(
-                          configuration.moviePageAppBarTitleTextSize),
-                      backgroundColor: theme.themeData.primaryColorDark,
-                      expandedHeight:
-                          configuration.movieDetailSliverAppBarExpandableHeight,
+        return BlocProvider(
+          create: (context) =>
+              GenreBloc(getIt<RemoteDataSource>())..add(GenreFetching()),
+          child: BlocBuilder<GenreBloc, GenreState>(
+            builder: (context, state) {
+              print(state.movieGenres);
+              print(state.tvGenres);
+              return Scaffold(
+                body: Stack(
+                  children: [
+                    Container(
+                      color: theme.themeData.primaryColorDark,
+                      height: context.screenSize.width,
+                      width: context.screenSize.width,
                     ),
-                    SliverToBoxAdapter(
-                      child: Column(
-                        children: [
-                          _CarouselView(),
-                          Container(
-                            color: theme.themeData.scaffoldBackgroundColor,
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                top: configuration.moviePageListViewPaddingTop,
-                                left: configuration.moviePageListViewPaddingLeft,
-                                right:
-                                    configuration.moviePageListViewPaddingRight,
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  _CarouselCardInfoView(),
-                                  const Divider(),
-                                  16.verticalSizedBox,
-                                  Text(
-                                    context
-                                        .localization.movies_page_popular_title,
-                                    style: theme.moviesPageListViewTitleTextStyle(
-                                        configuration
-                                            .moviePageListViewTitleTextSize),
-                                  ),
-                                  _MovieListView(
-                                      movieCellHeight:
-                                          configuration.movieCellHeight,
-                                      movieCellSpacing:
-                                          configuration.movieCellSpacing)
-                                ],
-                              ),
+                    SafeArea(
+                      child: CustomScrollView(
+                        scrollBehavior: const ScrollBehavior(),
+                        slivers: [
+                          CustomScrollViewAppBar(
+                            implyLeading: false,
+                            largeTitle: context.localization.movies_page_title,
+                            largeTitleStyle: theme.moviesViewHeaderTextStyle(
+                              configuration.headerTextSize,
                             ),
-                          )
+                            appBarTitle:
+                                context.localization.movies_page_app_bar_title,
+                            appBarTitleStyle:
+                                theme.moviesPageAppBarTitleTextStyle(
+                                    configuration.moviePageAppBarTitleTextSize),
+                            backgroundColor: theme.themeData.primaryColorDark,
+                            expandedHeight: configuration
+                                .movieDetailSliverAppBarExpandableHeight,
+                          ),
+                          SliverToBoxAdapter(
+                            child: Column(
+                              children: [
+                                _CarouselView(),
+                                Container(
+                                  color:
+                                      theme.themeData.scaffoldBackgroundColor,
+                                  child: Padding(
+                                    padding: EdgeInsets.only(
+                                      top: configuration
+                                          .moviePageListViewPaddingTop,
+                                      left: configuration
+                                          .moviePageListViewPaddingLeft,
+                                      right: configuration
+                                          .moviePageListViewPaddingRight,
+                                    ),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        _CarouselCardInfoView(),
+                                        const Divider(),
+                                        16.verticalSizedBox,
+                                        Text(
+                                          context.localization
+                                              .movies_page_popular_title,
+                                          style: theme
+                                              .moviesPageListViewTitleTextStyle(
+                                                  configuration
+                                                      .moviePageListViewTitleTextSize),
+                                        ),
+                                        _MovieListView(
+                                            movieCellHeight:
+                                                configuration.movieCellHeight,
+                                            movieCellSpacing:
+                                                configuration.movieCellSpacing)
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),
                   ],
                 ),
-              ),
-            ],
+              );
+            },
           ),
         );
       },
