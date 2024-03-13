@@ -24,51 +24,56 @@ class MovieDetailPage extends StatelessWidget {
           MovieDetailBloc(remoteDataSource: getIt<RemoteDataSource>())
             ..add(MovieDetailInitialEvent(movieId: movieId)),
       child: Scaffold(
-        body: ConfigurationWidget(
-          onConfigurationReady: (configuration, theme) {
-            return BlocBuilder<MovieDetailBloc, MovieDetailState>(
-              builder: (context, state) {
-                if (state is MovieDetailLoading) {
-                  return const LoadingView();
-                }
-                if (state is MovieDetailSuccess) {
-                  return SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        MovieDetailPageImageSection(
-                          movieDetailModel: state.movieDetailModel,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal:
-                                configuration.movieDetailPagePaddingHorizontal,
-                            vertical:
-                                configuration.movieDetailPagePaddingVerical,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              MovieDetailPageInfoSection(
-                                movieDetailModel: state.movieDetailModel,
-                              ),
-                              20.verticalSizedBox,
-                              MovieDetailPageCastSection(
-                                creditResponse: state.creditResponse,
-                              ),
-                              20.verticalSizedBox,
-                              _MovieDetailPageTrailerSection(
-                                videoModelResponse: state.videoModelResponse,
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                }
+        body: BlocBuilder<MovieDetailBloc, MovieDetailState>(
+          builder: (context, state) {
+            switch (state.status) {
+              case MovieDetailStatusX.loading:
                 return const LoadingView();
-              },
-            );
+              case MovieDetailStatusX.success:
+                return ConfigurationWidget(
+                  onConfigurationReady: (configuration, theme) {
+                    return SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          MovieDetailPageImageSection(
+                            movieDetailModel: state.movieDetailModel,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: configuration
+                                  .movieDetailPagePaddingHorizontal,
+                              vertical:
+                                  configuration.movieDetailPagePaddingVerical,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                MovieDetailPageInfoSection(
+                                  movieDetailModel: state.movieDetailModel,
+                                ),
+                                20.verticalSizedBox,
+                                MovieDetailPageCastSection(
+                                  creditResponse: state.creditResponse!,
+                                ),
+                                20.verticalSizedBox,
+                                _MovieDetailPageTrailerSection(
+                                  videoModelResponse: state.videoModelResponse,
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                );
+              case MovieDetailStatusX.error:
+                return ErrorView(
+                  error: state.errorMessage,
+                );
+              case MovieDetailStatusX.initial:
+                return const LoadingView();
+            }
           },
         ),
       ),
@@ -77,7 +82,7 @@ class MovieDetailPage extends StatelessWidget {
 }
 
 class _MovieDetailPageTrailerSection extends StatefulWidget {
-  final VideoModelResponse videoModelResponse;
+  final VideoModelResponse? videoModelResponse;
 
   const _MovieDetailPageTrailerSection({required this.videoModelResponse});
 
@@ -99,7 +104,7 @@ class _MovieDetailPageTrailerSectionState
   @override
   Widget build(BuildContext context) {
     youtubePlayerController = YoutubePlayerController(
-        initialVideoId: widget.videoModelResponse.getTrailerURL(),
+        initialVideoId: widget.videoModelResponse?.getTrailerURL() ?? "",
         flags: const YoutubePlayerFlags(autoPlay: false));
 
     return MovieDetailPageTrailerSection(

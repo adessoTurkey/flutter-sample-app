@@ -6,7 +6,7 @@ import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail/
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class MovieDetailPageInfoSection extends StatelessWidget {
-  final MovieDetailModel movieDetailModel;
+  final MovieDetailModel? movieDetailModel;
   const MovieDetailPageInfoSection({super.key, required this.movieDetailModel});
 
   @override
@@ -25,7 +25,7 @@ class MovieDetailPageInfoSection extends StatelessWidget {
             _movieRatingAndSharingSection(),
             20.verticalSizedBox,
             Text(
-              movieDetailModel.overivew ?? "",
+              movieDetailModel?.overivew ?? "",
               style: theme.movieDetailDescriptionTextStyle(
                   configuration.movieDetailDescriptionTextSize),
             ),
@@ -41,14 +41,14 @@ class MovieDetailPageInfoSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          movieDetailModel.title ?? "",
+          movieDetailModel?.title ?? "",
           style: titleTextStyle,
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
         ),
         10.verticalSizedBox,
         Text(
-          movieDetailModel.getGenres(),
+          movieDetailModel?.getGenres() ?? "",
           style: genresTextStyle,
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
@@ -64,13 +64,13 @@ class MovieDetailPageInfoSection extends StatelessWidget {
         10.verticalSizedBox,
         Row(
           children: [
-            DurationView(durationTime: movieDetailModel.runtime ?? 0),
+            DurationView(durationTime: movieDetailModel?.runtime ?? 0),
             const VerticalDividerWidget(
               paddingAll: 10,
               dividerHeight: 20,
               dividerWidth: 2,
             ),
-            ReleaseDateView(releaseDate: movieDetailModel.releaseDate ?? ""),
+            ReleaseDateView(releaseDate: movieDetailModel?.releaseDate ?? ""),
             const VerticalDividerWidget(
               paddingAll: 10,
               dividerHeight: 20,

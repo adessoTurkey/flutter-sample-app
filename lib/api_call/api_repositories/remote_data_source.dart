@@ -14,6 +14,9 @@ import 'package:flutter_movie_app/app/features/profile/models/favorites/favorite
 import 'package:flutter_movie_app/app/features/search/models/search_multi/search_multi_data.dart';
 import 'package:flutter_movie_app/localization/localization_helper.dart';
 
+import '../models/favorite/dto/add_to_favorite_dto.dart';
+import '../models/favorite/response/add_to_favorite_response.dart';
+
 abstract class RemoteDataSource {
   Future<RequestTokenModel> getRequestToken();
   Future<List<MovieData>> getMovieList(MovieCategoriesEnum categoryEndpoint);
@@ -25,6 +28,8 @@ abstract class RemoteDataSource {
   Future<AccountDetail> getAccountDetail();
   Future<List<FavoriteMovieData>> getFavoriteMovies();
   Future<List<FavoriteTvData>> getFavoriteTVs();
+  Future<AddToFavoriteResponse> addToFavorite(
+      AddToFavoriteDto addToFavoriteDto);
   Future<List<SearchMultiData>> searchMulti(String query);
 }
 
@@ -208,6 +213,30 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       });
 
       return (favoriteTVsResponse as Ok<List<FavoriteTvData>>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<AddToFavoriteResponse> addToFavorite(
+      AddToFavoriteDto addToFavoriteDto) async {
+    try {
+      var networkRequest = NetworkRequest(
+        type: NetworkRequestType.post,
+        path: dotenv.get(EnvConstants.favoriteAddPath),
+        data: NetworkRequestBody.json(
+          addToFavoriteDto.toJson(),
+        ),
+      );
+      var addToFavoriteResponse =
+          await networkService.execute(networkRequest, (json) {
+        AddToFavoriteResponse favoriteresponse =
+            AddToFavoriteResponse.fromJson(json);
+
+        return favoriteresponse;
+      });
+      return (addToFavoriteResponse as Ok<AddToFavoriteResponse>).data;
     } catch (_) {
       rethrow;
     }
