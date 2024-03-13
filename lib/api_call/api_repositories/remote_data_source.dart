@@ -27,7 +27,6 @@ abstract class RemoteDataSource {
   Future<AccountDetail> getAccountDetail();
   Future<List<FavoriteMovieData>> getFavoriteMovies();
   Future<List<FavoriteTvData>> getFavoriteTVs();
-  Future<List<GenreData>> getGenres(GenreType genreType);
   Future<AddToFavoriteResponse> addToFavorite(
       AddToFavoriteDto addToFavoriteDto);
   Future<List<GenreData>> getGenres(GenreType genreType);
