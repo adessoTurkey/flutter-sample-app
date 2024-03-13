@@ -1,17 +1,21 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_movie_app/app/core/constants/m_colors.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/extensions/movie_detail_extension.dart';
 import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
+import 'package:flutter_movie_app/app/features/movie_detail/bloc/movie_detail_bloc.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail/movie_detail_model.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MovieDetailPageImageSection extends StatefulWidget {
-  final MovieDetailModel movieDetailModel;
-  const MovieDetailPageImageSection({super.key, required this.movieDetailModel});
+  final MovieDetailModel? movieDetailModel;
+  const MovieDetailPageImageSection(
+      {super.key, required this.movieDetailModel});
 
   @override
   State<MovieDetailPageImageSection> createState() =>
@@ -20,8 +24,6 @@ class MovieDetailPageImageSection extends StatefulWidget {
 
 class _MovieDetailPageImageSectionState
     extends State<MovieDetailPageImageSection> {
-  bool _isFavorite = false;
-
   @override
   Widget build(BuildContext context) {
     return ConfigurationWidget(
@@ -36,7 +38,7 @@ class _MovieDetailPageImageSectionState
                     height: configuration.movieDetailImageViewHeight,
                     width: context.screenSize.width,
                     child: ImageContainerView(
-                      imageURL: widget.movieDetailModel.getImageURL,
+                      imageURL: widget.movieDetailModel?.getImageURL ?? "",
                       placeholderImage: MovieAssets.images.poster1.path,
                     ),
                   ),
@@ -48,7 +50,7 @@ class _MovieDetailPageImageSectionState
                 bottom: configuration.movieDetailRatingViewPositionedBottom,
                 left: 30,
                 child: RatingView(
-                  rating: widget.movieDetailModel.getVoteAvarage,
+                  rating: widget.movieDetailModel?.getVoteAvarage ?? "",
                   type: RatingViewType.carousel,
                 ),
               )
@@ -72,21 +74,25 @@ class _MovieDetailPageImageSectionState
                 context.popRoute();
               },
               iconData: FontAwesomeIcons.arrowLeft,
-              backgroundColor: Colors.transparent,
-              iconColor: Colors.white,
+              backgroundColor: MColors.transparent,
+              iconColor: MColors.white,
             ),
-            CircularButtonWidget(
-              radiusSize: iconSize,
-              onTap: () {
-                setState(() {
-                  _isFavorite = !_isFavorite;
-                });
+            BlocBuilder<MovieDetailBloc, MovieDetailState>(
+              builder: (context, state) {
+                return CircularButtonWidget(
+                  radiusSize: iconSize,
+                  onTap: () {
+                    context.read<MovieDetailBloc>().add(
+                        MovieDetailAddFavoriteEvent(
+                            movieId: widget.movieDetailModel?.id ?? 0));
+                  },
+                  iconData: state.isFavorite
+                      ? FontAwesomeIcons.solidHeart
+                      : FontAwesomeIcons.heart,
+                  backgroundColor: MColors.white,
+                  iconColor: MColors.tomato,
+                );
               },
-              iconData: _isFavorite
-                  ? FontAwesomeIcons.solidHeart
-                  : FontAwesomeIcons.heart,
-              backgroundColor: Colors.white,
-              iconColor: Colors.red,
             ),
           ],
         ),
