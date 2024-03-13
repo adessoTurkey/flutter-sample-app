@@ -43,6 +43,19 @@ abstract class ATheme {
   TextStyle profileFavoriteCellSubTitleTextStyle(double fontSize);
   TextStyle profileFavoriteListTitleTextStyle(double fontSize);
 
+  TextStyle splashTextStyle(double fontSize);
+
+  TextStyle loginTextFieldText(double fontSize);
+  TextStyle loginTextFieldLabel(double fontSize);
+  TextStyle loginTextFieldHint(double fontSize);
+
+  TextStyle forgetPassword(double fontSize);
+
+  TextStyle login(double fontSize);
+
+  TextStyle dontHaveAccount(double fontSize);
+
+  TextStyle registerNow(double fontSize);
   ThemeData get themeData => ThemeData(
       useMaterial3: true,
       appBarTheme: appbarTheme,

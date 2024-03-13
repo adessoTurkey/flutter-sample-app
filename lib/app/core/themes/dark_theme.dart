@@ -12,6 +12,31 @@ final class DarkTheme extends ATheme {
   AppBarTheme get appbarTheme => const AppBarTheme();
 
   @override
+  TextStyle movieCellMovieNameTextStyle(double fontSize) {
+    return const TextStyle()
+        .movieCellMovieNameTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle splashTextStyle(double fontSize) =>
+      const TextStyle().textStyleW300(fontSize, MColors.black25);
+
+  @override
+  TextStyle forgetPassword(double fontSize) =>
+      const TextStyle().textStyleW400(fontSize, MColors.white);
+
+  @override
+  TextStyle login(double fontSize) =>
+      const TextStyle().textStyleW700(fontSize, MColors.vibrantBlue);
+
+  @override
+  TextStyle dontHaveAccount(double fontSize) =>
+      const TextStyle().textStyleW400(fontSize, MColors.lightGrey);
+
+  @override
+  TextStyle registerNow(double fontSize) =>
+      const TextStyle().textStyleW400(fontSize, MColors.white);
+  @override
   Color get primaryColorLight => MColors.electricBlue;
 
   @override
@@ -74,12 +99,6 @@ final class DarkTheme extends ATheme {
   }
 
   @override
-  TextStyle movieCellMovieNameTextStyle(double fontSize) {
-    return const TextStyle()
-        .movieCellMovieNameTextStyle(fontSize, MColors.white);
-  }
-
-  @override
   TextStyle durationViewTextStyle(double fontSize) {
     return const TextStyle()
         .durationViewTextStyle(fontSize, MColors.almostBlack);
@@ -125,6 +144,15 @@ final class DarkTheme extends ATheme {
     return const TextStyle()
         .movieDetailCastRightLabelTextStyle(fontSize, MColors.electricBlue);
   }
+
+  @override
+  TextStyle loginTextFieldText(double fontSize) => const TextStyle().loginFieldTextTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle loginTextFieldLabel(double fontSize) => const TextStyle().loginFieldLabelTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle loginTextFieldHint(double fontSize) => const TextStyle().loginFieldHintTextStyle(fontSize , MColors.white);
 
   //PROFILE
   @override

@@ -6,10 +6,32 @@ extension TextStyleExtensions on TextStyle {
   FontWeight get _light5 => FontWeight.w500;
   FontWeight get _light4 => FontWeight.w400;
 
+  FontWeight get _w300 => FontWeight.w300;
+
+  FontWeight get _w700 => FontWeight.w700;
+
   TextStyle movieCellMovieNameTextStyle(double fontSize, Color color) =>
       copyWith(
         fontSize: fontSize,
         fontWeight: _bold,
+        color: color,
+      );
+
+  TextStyle textStyleW300(double fontSize, Color color) => copyWith(
+        fontSize: fontSize,
+        fontWeight: _w300,
+        color: color,
+      );
+
+  TextStyle textStyleW400(double fontSize, Color color) => copyWith(
+        fontSize: fontSize,
+        fontWeight: _w300,
+        color: color,
+      );
+
+  TextStyle textStyleW700(double fontSize, Color color) => copyWith(
+        fontSize: fontSize,
+        fontWeight: _w700,
         color: color,
       );
 
@@ -113,6 +135,25 @@ extension TextStyleExtensions on TextStyle {
       );
 
   TextStyle movieDetailCastRightLabelTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
+  TextStyle loginFieldTextTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        color: color,
+      );
+
+  TextStyle loginFieldLabelTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        color: color,
+      );
+
+  TextStyle loginFieldHintTextStyle(double fontSize, Color color) =>
       copyWith(
         fontSize: fontSize,
         fontWeight: _bold,

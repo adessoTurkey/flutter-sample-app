@@ -6,6 +6,7 @@ abstract final class MColors {
   static const Color vibrantBlue = Color(0xff003dff);
   static const Color black25 = Color(0x40000000);
   static const Color white = Color(0xffffffff);
+  static const Color lightGrey = Color(0xffabb4bd);
   static const Color borderColor = Color(0xffe5e5ea);
   static const Color tomato = Color(0xffe74c3c);
 }
