@@ -1,5 +1,9 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_movie_app/api_call/models/login_credentials_request_model.dart';
 import 'package:flutter_movie_app/api_call/models/models.dart';
+import 'package:flutter_movie_app/api_call/models/session_request_model.dart';
+import 'package:flutter_movie_app/api_call/models/session_response_model.dart';
 import 'package:flutter_movie_app/api_call/network/network.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
@@ -11,9 +15,14 @@ import 'package:flutter_movie_app/app/features/profile/models/favorites/favorite
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_tv/favorite_tv_data.dart';
 import '../../app/features/tv_series/models/tv_series_data/tv_series_data.dart';
 
+import '../models/favorite/dto/add_to_favorite_dto.dart';
+import '../models/favorite/response/add_to_favorite_response.dart';
+
 abstract class RemoteDataSource {
   Future<RequestTokenModel> getRequestToken();
   Future<List<MovieData>> getMovieList(MovieCategoriesEnum categoryEndpoint);
+  Future<RequestTokenModel> loginWithCredentials(LoginCredentialsRequestModel requestBody);
+  Future<SessionResponseModel> openSession(SessionRequestModel requestBody);
   Future<MovieDetailModel> getMovieDetail(int movieId);
   Future<VideoModelResponse> getMovieVideos(int movieId);
   Future<CreditResponse> getMovieCredits(int movieId);
@@ -21,6 +30,8 @@ abstract class RemoteDataSource {
   Future<List<FavoriteMovieData>> getFavoriteMovies();
   Future<List<FavoriteTvData>> getFavoriteTVs();
   Future<List<TvSeriesData>> getTvSeries(TvSeriesCategory categoryEndpoint);
+  Future<AddToFavoriteResponse> addToFavorite(
+      AddToFavoriteDto addToFavoriteDto);
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -36,7 +47,6 @@ class RemoteDataSourceImpl extends RemoteDataSource {
               path: dotenv.get(EnvConstants.requestTokenPath),
               data: const NetworkRequestBody.empty()),
           (json) => RequestTokenModel.fromJson(json));
-
       return (requestTokenResponse as Ok<RequestTokenModel>).data;
     } catch (_) {
       rethrow;
@@ -62,6 +72,38 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       );
 
       return (movieDataList as Ok<List<MovieData>>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<RequestTokenModel> loginWithCredentials(
+      LoginCredentialsRequestModel requestBody) async {
+    try {
+      var networkRequest = NetworkRequest(
+          type: NetworkRequestType.post,
+          path: dotenv.get(EnvConstants.loginWithCredentialsPath),
+          data: NetworkRequestBody.json(requestBody.toJson()));
+      var requestTokenResponse = await networkService.execute(
+         networkRequest, (json) => RequestTokenModel.fromJson(json));
+      return (requestTokenResponse as Ok<RequestTokenModel>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<SessionResponseModel> openSession(
+      SessionRequestModel requestBody) async {
+    try {
+      var networkRequest = NetworkRequest(
+          type: NetworkRequestType.post,
+          path: dotenv.get(EnvConstants.openSessionPath),
+          data: NetworkRequestBody.json(requestBody.toJson()));
+      var sessionResponse = await networkService.execute(
+          networkRequest, (json) => SessionResponseModel.fromJson(json));
+      return (sessionResponse as Ok<SessionResponseModel>).data;
     } catch (_) {
       rethrow;
     }
@@ -197,6 +239,30 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       );
 
       return (tvSeriesDataList as Ok<List<TvSeriesData>>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<AddToFavoriteResponse> addToFavorite(
+      AddToFavoriteDto addToFavoriteDto) async {
+    try {
+      var networkRequest = NetworkRequest(
+        type: NetworkRequestType.post,
+        path: dotenv.get(EnvConstants.favoriteAddPath),
+        data: NetworkRequestBody.json(
+          addToFavoriteDto.toJson(),
+        ),
+      );
+      var addToFavoriteResponse =
+          await networkService.execute(networkRequest, (json) {
+        AddToFavoriteResponse favoriteresponse =
+            AddToFavoriteResponse.fromJson(json);
+
+        return favoriteresponse;
+      });
+      return (addToFavoriteResponse as Ok<AddToFavoriteResponse>).data;
     } catch (_) {
       rethrow;
     }

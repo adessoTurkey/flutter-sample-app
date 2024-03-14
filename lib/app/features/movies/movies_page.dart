@@ -30,6 +30,7 @@ class MoviesPage extends StatelessWidget {
                   scrollBehavior: const ScrollBehavior(),
                   slivers: [
                     CustomScrollViewAppBar(
+                      implyLeading: false,
                       largeTitle: context.localization.movies_page_title,
                       largeTitleStyle: theme.mainPageViewHeaderTextStyle(
                         configuration.headerTextSize,

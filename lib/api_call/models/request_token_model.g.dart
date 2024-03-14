@@ -9,15 +9,15 @@ part of 'request_token_model.dart';
 _$RequestTokenModelImpl _$$RequestTokenModelImplFromJson(
         Map<String, dynamic> json) =>
     _$RequestTokenModelImpl(
-      success: json['success'] as bool,
-      expiresAt: json['expiresAt'] as String,
-      requestToken: json['requestToken'] as String,
+      success: json['success'] as bool?,
+      expiresAt: json['expires_at'] as String?,
+      requestToken: json['request_token'] as String?,
     );
 
 Map<String, dynamic> _$$RequestTokenModelImplToJson(
         _$RequestTokenModelImpl instance) =>
     <String, dynamic>{
       'success': instance.success,
-      'expiresAt': instance.expiresAt,
-      'requestToken': instance.requestToken,
+      'expires_at': instance.expiresAt,
+      'request_token': instance.requestToken,
     };

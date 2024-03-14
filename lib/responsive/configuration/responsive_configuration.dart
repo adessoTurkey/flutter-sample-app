@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../app/core/enums/enums.dart';
 
 abstract class ResponsiveConfiguration {
+
   //Rating View
   RatingViewSizeEnum get ratingViewCarousel;
   RatingViewSizeEnum get ratingViewMovieCell;
@@ -44,6 +45,16 @@ abstract class ResponsiveConfiguration {
   double get releaseDateViewDateIconSize;
 
   double get movieCellMovieNameTextSize;
+  double get splashTextSize;
+  Size get splashLogoSize;
+  Size get splashHeartSize;
+  Size get loginLogoSize;
+  EdgeInsets get splashBottomPadding;
+  EdgeInsets get loginPagePadding;
+  double get forgetPasswordTextSize;
+  double get loginTextSize;
+  double get dontHaveAccountTextSize;
+  double get registerNowTextSize;
   double get movieCellMovieGenresTextSize;
   double get movieCellImageWidth;
   double get headerTextSize;
@@ -70,6 +81,13 @@ abstract class ResponsiveConfiguration {
   double get circularButtonWidgetDefaultRadiusSize;
   double get movieDetailShareButtonPaddingLeft;
   double get movieDetailSliverAppBarExpandableHeight;
+
+  double get loginFieldHintTextSize;
+  double get loginFieldLabelTextSize;
+  double get loginFieldTextTextSize;
+
+  double get loginButtonRadius;
+  double get loginButtonHeight;
 
   //Profile
   double get profileHeaderLabelTextSize;

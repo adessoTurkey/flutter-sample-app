@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/responsive/configuration/configuration.dart';
 import '../../app/core/enums/enums.dart';
 
@@ -53,6 +54,37 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   @override
   double get moviePageListViewPaddingTop => 24;
+
+  @override
+  Size get splashLogoSize => const Size(106, 149);
+
+  @override
+  EdgeInsets get splashBottomPadding => 48.onlyBottom;
+
+  @override
+  double get splashTextSize => 15;
+
+  @override
+  Size get splashHeartSize => const Size(19, 19);
+
+  @override
+  Size get loginLogoSize => const Size(106, 149);
+
+  @override
+  EdgeInsets get loginPagePadding =>
+      const EdgeInsets.only(left: 24, right: 24, top: 134);
+
+  @override
+  double get forgetPasswordTextSize => 12;
+
+  @override
+  double get loginTextSize => 17;
+
+  @override
+  double get dontHaveAccountTextSize => 12;
+
+  @override
+  double get registerNowTextSize => 12;
 
   @override
   double get mainPageListViewTitleTextSize => 24;
@@ -168,6 +200,21 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   @override
   double get movieDetailSliverAppBarExpandableHeight => 100;
+
+  @override
+  double get loginFieldHintTextSize => 14;
+
+  @override
+  double get loginFieldLabelTextSize => 12;
+
+  @override
+  double get loginFieldTextTextSize => 17;
+
+  @override
+  double get loginButtonRadius => 5;
+
+  @override
+  double get loginButtonHeight => 50;
 
   @override
   double get profileHeaderLabelTextSize => 26;

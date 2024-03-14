@@ -77,6 +77,24 @@ final class LightTheme extends ATheme {
   }
 
   @override
+  TextStyle splashTextStyle(double fontSize) =>
+      const TextStyle().textStyleW300(fontSize, MColors.white);
+  @override
+  TextStyle forgetPassword(double fontSize) =>
+      const TextStyle().textStyleW400(fontSize, MColors.white);
+
+  @override
+  TextStyle login(double fontSize) =>
+      const TextStyle().textStyleW700(fontSize, MColors.vibrantBlue);
+
+  @override
+  TextStyle dontHaveAccount(double fontSize) =>
+      const TextStyle().textStyleW400(fontSize, MColors.lightGrey);
+
+  @override
+  TextStyle registerNow(double fontSize) =>
+      const TextStyle().textStyleW400(fontSize, MColors.white);
+  @override
   TextStyle mainPageAppBarTitleTextStyle(double fontSize) {
     return const TextStyle()
         .mainPageAppBarTitleTextStyle(fontSize, MColors.white);
@@ -128,6 +146,15 @@ final class LightTheme extends ATheme {
     return const TextStyle()
         .movieDetailCastRightLabelTextStyle(fontSize, MColors.electricBlue);
   }
+
+  @override
+  TextStyle loginTextFieldText(double fontSize) => const TextStyle().loginFieldTextTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle loginTextFieldLabel(double fontSize) => const TextStyle().loginFieldLabelTextStyle(fontSize , MColors.white);
+
+  @override
+  TextStyle loginTextFieldHint(double fontSize) => const TextStyle().loginFieldHintTextStyle(fontSize , MColors.white);
 
   //PROFILE
   @override
