@@ -56,8 +56,7 @@ void main() async {
     BlocProvider(
         create: (_) => TvSeriesBloc(getIt<RemoteDataSource>())
           ..add(
-              const TvSeriesFetching(categoryType: TvSeriesCategory.topRated)))
-              const MoviesFetching(categoryType: MovieCategoriesEnum.popular))),
+              const TvSeriesFetching(categoryType: TvSeriesCategory.topRated))),
     BlocProvider(
         create: (_) => LoginBloc(getIt<RemoteDataSource>()))
   ], child: const MyApp()));
