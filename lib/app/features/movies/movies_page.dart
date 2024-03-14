@@ -31,13 +31,13 @@ class MoviesPage extends StatelessWidget {
                   slivers: [
                     CustomScrollViewAppBar(
                       largeTitle: context.localization.movies_page_title,
-                      largeTitleStyle: theme.moviesViewHeaderTextStyle(
+                      largeTitleStyle: theme.mainPageViewHeaderTextStyle(
                         configuration.headerTextSize,
                       ),
                       appBarTitle:
                           context.localization.movies_page_app_bar_title,
-                      appBarTitleStyle: theme.moviesPageAppBarTitleTextStyle(
-                          configuration.moviePageAppBarTitleTextSize),
+                      appBarTitleStyle: theme.mainPageAppBarTitleTextStyle(
+                          configuration.mainPageAppBarTitleTextSize),
                       backgroundColor: theme.themeData.primaryColorDark,
                       expandedHeight:
                           configuration.movieDetailSliverAppBarExpandableHeight,
@@ -64,9 +64,9 @@ class MoviesPage extends StatelessWidget {
                                   Text(
                                     context
                                         .localization.movies_page_popular_title,
-                                    style: theme.moviesPageListViewTitleTextStyle(
+                                    style: theme.mainPageListViewTitleTextStyle(
                                         configuration
-                                            .moviePageListViewTitleTextSize),
+                                            .mainPageListViewTitleTextSize),
                                   ),
                                   _MovieListView(
                                       movieCellHeight:

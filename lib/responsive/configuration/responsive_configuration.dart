@@ -17,8 +17,8 @@ abstract class ResponsiveConfiguration {
   double get moviePageListViewPaddingTop;
   double get moviePageListViewPaddingLeft;
   double get moviePageListViewPaddingRight;
-  double get moviePageListViewTitleTextSize;
-  double get moviePageAppBarTitleTextSize;
+  double get mainPageListViewTitleTextSize;
+  double get mainPageAppBarTitleTextSize;
 
   //Carousel
   double get carouselCardRightPadding;
@@ -92,8 +92,6 @@ abstract class ResponsiveConfiguration {
   double get tvSeriesGridMainAxisExtent;
 
   //Tv Series
-  double get tvSeriesListViewTitleTextSize;
-  double get tvSeriesAppBarTitleTextSize;
   double get tvSeriesDetailSliverAppBarExpandableHeight;
   double get tvSeriesListViewPaddingTop;
   double get tvSeriesListViewPaddingLeft;

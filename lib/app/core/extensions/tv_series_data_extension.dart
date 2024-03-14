@@ -14,5 +14,5 @@ extension TvSeriesDataExtension on TvSeriesData {
     return stringList.join(', ');
   }
 
-  String get getVoteAverage => voteAverage!.toStringAsPrecision(2);
+  String? get getVoteAverage => voteAverage?.toStringAsPrecision(2);
 }

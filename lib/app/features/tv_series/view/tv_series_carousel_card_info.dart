@@ -16,7 +16,7 @@ class TvSeriesCarouselCardInfo extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             RatingView(
-                rating: tvSeries.getVoteAverage, type: RatingViewType.carousel),
+                rating: tvSeries.getVoteAverage ?? "", type: RatingViewType.carousel),
             Text(
               tvSeries.tvSeriesTitle ?? "",
               style: theme.carouselCardTitleTextStyle(

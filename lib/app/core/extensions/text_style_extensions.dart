@@ -53,14 +53,14 @@ extension TextStyleExtensions on TextStyle {
         color: color,
       );
 
-  TextStyle moviesPageListViewTitleTextStyle(double fontSize, Color color) =>
+  TextStyle mainPageListViewTitleTextStyle(double fontSize, Color color) =>
       copyWith(
         fontSize: fontSize,
         fontWeight: _bold,
         color: color,
       );
 
-  TextStyle moviesPageAppBarTitleTextStyle(double fontSize, Color color) =>
+  TextStyle mainPageAppBarTitleTextStyle(double fontSize, Color color) =>
       copyWith(
         fontSize: fontSize,
         fontWeight: _light4,
@@ -156,6 +156,13 @@ extension TextStyleExtensions on TextStyle {
       );
 
   TextStyle profileFavoriteListTitleTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
+  TextStyle tvSeriesCellMovieNameTextStyle(double fontSize, Color color) =>
       copyWith(
         fontSize: fontSize,
         fontWeight: _bold,

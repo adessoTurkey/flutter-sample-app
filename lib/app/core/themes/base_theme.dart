@@ -13,7 +13,6 @@ abstract class ATheme {
 
   TextStyle movieCellMovieGenresTextStyle(double fontSize);
 
-  TextStyle moviesViewHeaderTextStyle(double fontSize);
 
   TextStyle carouselCardTitleTextStyle(double fontSize);
 
@@ -22,10 +21,6 @@ abstract class ATheme {
   TextStyle ratingViewRateTextStyle(double fontSize);
 
   TextStyle releaseDateViewDateTextStyle(double fontSize);
-
-  TextStyle moviesPageListViewTitleTextStyle(double fontSize);
-
-  TextStyle moviesPageAppBarTitleTextStyle(double fontSize);
 
   TextStyle durationViewTextStyle(double fontSize);
   TextStyle rateViewTextStyle(double fontSize);
@@ -44,9 +39,10 @@ abstract class ATheme {
   TextStyle profileFavoriteListTitleTextStyle(double fontSize);
 
   //Tv Series
-  TextStyle tvSeriesListViewTitleTextStyle(double fontSize);
-
-  TextStyle tvSeriesAppBarTitleTextStyle(double fontSize);
+  TextStyle mainPageListViewTitleTextStyle(double fontSize);
+  TextStyle mainPageAppBarTitleTextStyle(double fontSize);
+  TextStyle mainPageViewHeaderTextStyle(double fontSize);
+  TextStyle tvSeriesCellMovieNameTextStyle(double fontSize);
 
   ThemeData get themeData => ThemeData(
       useMaterial3: true,

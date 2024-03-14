@@ -32,13 +32,13 @@ class TvSeriesPage extends StatelessWidget {
                   slivers: [
                     CustomScrollViewAppBar(
                       largeTitle: context.localization.tv_series_page_title,
-                      largeTitleStyle: theme.moviesViewHeaderTextStyle(
+                      largeTitleStyle: theme.mainPageViewHeaderTextStyle(
                         configuration.headerTextSize,
                       ),
                       appBarTitle:
                       context.localization.tv_series_app_bar_title,
-                      appBarTitleStyle: theme.tvSeriesAppBarTitleTextStyle(
-                          configuration.tvSeriesAppBarTitleTextSize),
+                      appBarTitleStyle: theme.mainPageAppBarTitleTextStyle(
+                          configuration.mainPageAppBarTitleTextSize),
                       backgroundColor: theme.themeData.primaryColorDark,
                       expandedHeight:
                       configuration.tvSeriesDetailSliverAppBarExpandableHeight,
@@ -65,9 +65,9 @@ class TvSeriesPage extends StatelessWidget {
                                   Text(
                                     context
                                         .localization.tv_series_top_rated,
-                                    style: theme.moviesPageListViewTitleTextStyle(
+                                    style: theme.mainPageListViewTitleTextStyle(
                                         configuration
-                                            .tvSeriesListViewTitleTextSize),
+                                            .mainPageListViewTitleTextSize),
                                   ),
                                   _TvSeriesListView()
                                 ],

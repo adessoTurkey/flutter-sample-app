@@ -55,10 +55,10 @@ class SmallConfiguration extends ResponsiveConfiguration {
   double get moviePageListViewPaddingTop => 24;
 
   @override
-  double get moviePageListViewTitleTextSize => 24;
+  double get mainPageListViewTitleTextSize => 24;
 
   @override
-  double get moviePageAppBarTitleTextSize => 12;
+  double get mainPageAppBarTitleTextSize => 12;
 
   //Carousel
   @override
@@ -201,9 +201,6 @@ class SmallConfiguration extends ResponsiveConfiguration {
   double get tvSeriesCellInfoContainerHeight => 90;
 
   @override
-  double get tvSeriesAppBarTitleTextSize => 16;
-
-  @override
   double get tvSeriesCellBodyPaddingLeft => 18;
 
   @override
@@ -223,9 +220,6 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   @override
   double get tvSeriesListViewPaddingTop => 24;
-
-  @override
-  double get tvSeriesListViewTitleTextSize => 28;
 
   @override
   double get tvSeriesGridMainAxisSpacing => 8;

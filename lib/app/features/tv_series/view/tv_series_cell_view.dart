@@ -39,14 +39,14 @@ class TvSeriesCellView extends StatelessWidget {
                   children: [
                     Text(
                       tvSeriesData.tvSeriesTitle ?? "",
-                      style: theme.movieCellMovieNameTextStyle(
+                      style: theme.tvSeriesCellMovieNameTextStyle(
                         configuration.tvSeriesCellMovieNameTextSize,
                       ),
                       maxLines: 1,
                     ),
                     10.verticalSizedBox,
                     RatingView(
-                        rating: tvSeriesData.getVoteAverage,
+                        rating: tvSeriesData.getVoteAverage ?? "",
                         type: RatingViewType.cell
                     ),
                   ],
