@@ -39,10 +39,16 @@ class $AssetsImagesGen {
 
   /// List of all assets
 
-  List<AssetGenImage> get values => [noResult, poster1];
-
-  List<dynamic> get values => [eye, heart, loginBg, logo, poster1, splashBg];
-
+  List<dynamic> get values => [
+        eye,
+        heart,
+        loginBg,
+        logo,
+        poster1,
+        splashBg,
+        noResult,
+        poster1,
+      ];
 }
 
 class MovieAssets {
