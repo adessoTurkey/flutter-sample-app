@@ -18,11 +18,8 @@ part 'app_router.gr.dart';
 class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(page: CinemaMapRoute.page, initial: true),
-        AutoRoute(page: SplashRoute.page),
-        AutoRoute(
-          page: LoginRoute.page,
-        ),
+        AutoRoute(page: SplashRoute.page, initial: true, keepHistory: false),
+        AutoRoute(page: LoginRoute.page, keepHistory: false),
         AutoRoute(page: HomeRoute.page, children: [
           AutoRoute(page: MoviesRoute.page),
           AutoRoute(page: TvSeriesRoute.page),
@@ -30,5 +27,6 @@ class AppRouter extends _$AppRouter {
           AutoRoute(page: ProfileRoute.page),
         ]),
         AutoRoute(page: MovieDetailRoute.page),
+        AutoRoute(page: CinemaMapRoute.page),
       ];
 }

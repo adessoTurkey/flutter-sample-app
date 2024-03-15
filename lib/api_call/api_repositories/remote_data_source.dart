@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/api_call/models/login_credentials_request_model.dart';
 import 'package:flutter_movie_app/api_call/models/models.dart';
@@ -237,7 +236,6 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       );
       return (getCinemaBySearchTextResponse as Ok<MapResponseModel>).data;
     } catch (e) {
-      print(e);
       rethrow;
     }
   }

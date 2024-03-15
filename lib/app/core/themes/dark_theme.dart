@@ -146,13 +146,16 @@ final class DarkTheme extends ATheme {
   }
 
   @override
-  TextStyle loginTextFieldText(double fontSize) => const TextStyle().loginFieldTextTextStyle(fontSize , MColors.white);
+  TextStyle loginTextFieldText(double fontSize) =>
+      const TextStyle().loginFieldTextTextStyle(fontSize, MColors.white);
 
   @override
-  TextStyle loginTextFieldLabel(double fontSize) => const TextStyle().loginFieldLabelTextStyle(fontSize , MColors.white);
+  TextStyle loginTextFieldLabel(double fontSize) =>
+      const TextStyle().loginFieldLabelTextStyle(fontSize, MColors.white);
 
   @override
-  TextStyle loginTextFieldHint(double fontSize) => const TextStyle().loginFieldHintTextStyle(fontSize , MColors.white);
+  TextStyle loginTextFieldHint(double fontSize) =>
+      const TextStyle().loginFieldHintTextStyle(fontSize, MColors.white);
 
   //PROFILE
   @override
@@ -189,5 +192,11 @@ final class DarkTheme extends ATheme {
   TextStyle profileFavoriteListTitleTextStyle(double fontSize) {
     return const TextStyle()
         .profileFavoriteListTitleTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle cinemaMapViewTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .cinemaMapViewTitleTextStyle(fontSize, MColors.white);
   }
 }

@@ -29,5 +29,6 @@
   "invalid_password": "invalid password",
   "profile_header_text": "Profile",
   "profile_sub_header_text": "Hello",
-  "profile_favorite_title_text": "Favorite"
+  "profile_favorite_title_text": "Favorite",
+  "cinema_map_view_title": "Cinema"
 }

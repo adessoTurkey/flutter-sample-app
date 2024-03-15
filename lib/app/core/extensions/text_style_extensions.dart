@@ -141,20 +141,17 @@ extension TextStyleExtensions on TextStyle {
         color: color,
       );
 
-  TextStyle loginFieldTextTextStyle(double fontSize, Color color) =>
-      copyWith(
+  TextStyle loginFieldTextTextStyle(double fontSize, Color color) => copyWith(
         fontSize: fontSize,
         color: color,
       );
 
-  TextStyle loginFieldLabelTextStyle(double fontSize, Color color) =>
-      copyWith(
+  TextStyle loginFieldLabelTextStyle(double fontSize, Color color) => copyWith(
         fontSize: fontSize,
         color: color,
       );
 
-  TextStyle loginFieldHintTextStyle(double fontSize, Color color) =>
-      copyWith(
+  TextStyle loginFieldHintTextStyle(double fontSize, Color color) => copyWith(
         fontSize: fontSize,
         fontWeight: _bold,
         color: color,
@@ -197,6 +194,13 @@ extension TextStyleExtensions on TextStyle {
       );
 
   TextStyle profileFavoriteListTitleTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
+  TextStyle cinemaMapViewTitleTextStyle(double fontSize, Color color) =>
       copyWith(
         fontSize: fontSize,
         fontWeight: _bold,

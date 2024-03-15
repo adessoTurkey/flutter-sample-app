@@ -21,7 +21,9 @@ MapRequestDto _$MapRequestDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MapRequestDto {
   @JsonKey(name: "textQuery")
-  String? get textQuery => throw _privateConstructorUsedError;
+  String get textQuery => throw _privateConstructorUsedError;
+  @JsonKey(name: "locationBias", includeToJson: false)
+  LocationBiasDto? get location => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +37,12 @@ abstract class $MapRequestDtoCopyWith<$Res> {
           MapRequestDto value, $Res Function(MapRequestDto) then) =
       _$MapRequestDtoCopyWithImpl<$Res, MapRequestDto>;
   @useResult
-  $Res call({@JsonKey(name: "textQuery") String? textQuery});
+  $Res call(
+      {@JsonKey(name: "textQuery") String textQuery,
+      @JsonKey(name: "locationBias", includeToJson: false)
+      LocationBiasDto? location});
+
+  $LocationBiasDtoCopyWith<$Res>? get location;
 }
 
 /// @nodoc
@@ -51,14 +58,31 @@ class _$MapRequestDtoCopyWithImpl<$Res, $Val extends MapRequestDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? textQuery = freezed,
+    Object? textQuery = null,
+    Object? location = freezed,
   }) {
     return _then(_value.copyWith(
-      textQuery: freezed == textQuery
+      textQuery: null == textQuery
           ? _value.textQuery
           : textQuery // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as LocationBiasDto?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LocationBiasDtoCopyWith<$Res>? get location {
+    if (_value.location == null) {
+      return null;
+    }
+
+    return $LocationBiasDtoCopyWith<$Res>(_value.location!, (value) {
+      return _then(_value.copyWith(location: value) as $Val);
+    });
   }
 }
 
@@ -70,7 +94,13 @@ abstract class _$$MapRequestDtoImplCopyWith<$Res>
       __$$MapRequestDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: "textQuery") String? textQuery});
+  $Res call(
+      {@JsonKey(name: "textQuery") String textQuery,
+      @JsonKey(name: "locationBias", includeToJson: false)
+      LocationBiasDto? location});
+
+  @override
+  $LocationBiasDtoCopyWith<$Res>? get location;
 }
 
 /// @nodoc
@@ -84,13 +114,18 @@ class __$$MapRequestDtoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? textQuery = freezed,
+    Object? textQuery = null,
+    Object? location = freezed,
   }) {
     return _then(_$MapRequestDtoImpl(
-      textQuery: freezed == textQuery
+      textQuery: null == textQuery
           ? _value.textQuery
           : textQuery // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as LocationBiasDto?,
     ));
   }
 }
@@ -98,18 +133,23 @@ class __$$MapRequestDtoImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$MapRequestDtoImpl implements _MapRequestDto {
-  const _$MapRequestDtoImpl({@JsonKey(name: "textQuery") this.textQuery});
+  const _$MapRequestDtoImpl(
+      {@JsonKey(name: "textQuery") required this.textQuery,
+      @JsonKey(name: "locationBias", includeToJson: false) this.location});
 
   factory _$MapRequestDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$MapRequestDtoImplFromJson(json);
 
   @override
   @JsonKey(name: "textQuery")
-  final String? textQuery;
+  final String textQuery;
+  @override
+  @JsonKey(name: "locationBias", includeToJson: false)
+  final LocationBiasDto? location;
 
   @override
   String toString() {
-    return 'MapRequestDto(textQuery: $textQuery)';
+    return 'MapRequestDto(textQuery: $textQuery, location: $location)';
   }
 
   @override
@@ -118,12 +158,14 @@ class _$MapRequestDtoImpl implements _MapRequestDto {
         (other.runtimeType == runtimeType &&
             other is _$MapRequestDtoImpl &&
             (identical(other.textQuery, textQuery) ||
-                other.textQuery == textQuery));
+                other.textQuery == textQuery) &&
+            (identical(other.location, location) ||
+                other.location == location));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, textQuery);
+  int get hashCode => Object.hash(runtimeType, textQuery, location);
 
   @JsonKey(ignore: true)
   @override
@@ -141,15 +183,19 @@ class _$MapRequestDtoImpl implements _MapRequestDto {
 
 abstract class _MapRequestDto implements MapRequestDto {
   const factory _MapRequestDto(
-          {@JsonKey(name: "textQuery") final String? textQuery}) =
-      _$MapRequestDtoImpl;
+      {@JsonKey(name: "textQuery") required final String textQuery,
+      @JsonKey(name: "locationBias", includeToJson: false)
+      final LocationBiasDto? location}) = _$MapRequestDtoImpl;
 
   factory _MapRequestDto.fromJson(Map<String, dynamic> json) =
       _$MapRequestDtoImpl.fromJson;
 
   @override
   @JsonKey(name: "textQuery")
-  String? get textQuery;
+  String get textQuery;
+  @override
+  @JsonKey(name: "locationBias", includeToJson: false)
+  LocationBiasDto? get location;
   @override
   @JsonKey(ignore: true)
   _$$MapRequestDtoImplCopyWith<_$MapRequestDtoImpl> get copyWith =>

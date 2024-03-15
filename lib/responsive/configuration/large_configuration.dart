@@ -198,7 +198,7 @@ final class LargeConfiguration extends ResponsiveConfiguration {
 
   @override
   double get movieDetailRatingViewPositionedBottom => 0;
-  
+
   @override
   double get movieDetailSliverAppBarExpandableHeight => 100;
 
@@ -237,4 +237,7 @@ final class LargeConfiguration extends ResponsiveConfiguration {
 
   @override
   double get profileFavoriteListTitleTextSize => 28;
+
+  @override
+  double get cinemaMapViewTitleTextSize => 30;
 }

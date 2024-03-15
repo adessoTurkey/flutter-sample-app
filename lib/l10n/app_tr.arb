@@ -32,5 +32,6 @@
   "invalid_password": "geçersiz şifre",
   "profile_header_text": "Profil",
   "profile_sub_header_text": "Merhaba",
-  "profile_favorite_title_text": "Favori"
+  "profile_favorite_title_text": "Favori",
+  "cinema_map_view_title": "Sinema"
 }

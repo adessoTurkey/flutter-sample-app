@@ -1,3 +1,6 @@
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import '../../features/cinema_map/models/response/place_response_model/place_response_model.dart';
 import '../../features/profile/profile.dart';
 import '../enums/enums.dart';
 
@@ -26,5 +29,18 @@ final class DataMapper {
         posterPath: e.posterPath,
       );
     }).toList();
+  }
+
+  static Set<Marker>? toMarker(List<PlaceResponseModel>? places) {
+    return places?.map((e) {
+      return Marker(
+        markerId: MarkerId(e.displayName?.text ?? ""),
+        position: LatLng(
+          e.location?.latitude ?? 0,
+          e.location?.longitude ?? 0,
+        ),
+        infoWindow: InfoWindow(title: e.displayName?.text ?? ""),
+      );
+    }).toSet();
   }
 }

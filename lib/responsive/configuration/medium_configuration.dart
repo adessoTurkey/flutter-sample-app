@@ -236,4 +236,7 @@ class MediumConfiguration extends ResponsiveConfiguration {
 
   @override
   double get profileFavoriteListTitleTextSize => 28;
+
+  @override
+  double get cinemaMapViewTitleTextSize => 28;
 }

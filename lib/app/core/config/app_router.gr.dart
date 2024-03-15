@@ -16,11 +16,9 @@ abstract class _$AppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     CinemaMapRoute.name: (routeData) {
-      final args = routeData.argsAs<CinemaMapRouteArgs>(
-          orElse: () => const CinemaMapRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: CinemaMapPage(key: args.key),
+        child: const CinemaMapPage(),
       );
     },
     HomeRoute.name: (routeData) {
@@ -80,31 +78,16 @@ abstract class _$AppRouter extends RootStackRouter {
 
 /// generated route for
 /// [CinemaMapPage]
-class CinemaMapRoute extends PageRouteInfo<CinemaMapRouteArgs> {
-  CinemaMapRoute({
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
+class CinemaMapRoute extends PageRouteInfo<void> {
+  const CinemaMapRoute({List<PageRouteInfo>? children})
+      : super(
           CinemaMapRoute.name,
-          args: CinemaMapRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'CinemaMapRoute';
 
-  static const PageInfo<CinemaMapRouteArgs> page =
-      PageInfo<CinemaMapRouteArgs>(name);
-}
-
-class CinemaMapRouteArgs {
-  const CinemaMapRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'CinemaMapRouteArgs{key: $key}';
-  }
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

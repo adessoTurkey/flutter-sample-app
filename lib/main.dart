@@ -47,6 +47,7 @@ void main() async {
         create: (_) => ThemeBloc()
           ..add(const ChangeThemeEvent(themeType: ThemeEnum.light)),
         lazy: false),
+    //TODO: Should fetch the films after login?.
     BlocProvider(
         create: (_) => MoviesBloc(getIt<RemoteDataSource>())
           ..add(

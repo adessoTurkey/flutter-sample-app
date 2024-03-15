@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../../app/core/enums/enums.dart';
 
 abstract class ResponsiveConfiguration {
-
   //Rating View
   RatingViewSizeEnum get ratingViewCarousel;
   RatingViewSizeEnum get ratingViewMovieCell;
@@ -97,4 +96,7 @@ abstract class ResponsiveConfiguration {
   double get profileFavoriteCellSubTitleTextSize;
   double get profileFavoriteCellIconSize;
   double get profileFavoriteListTitleTextSize;
+
+  //Cinema
+  double get cinemaMapViewTitleTextSize;
 }
