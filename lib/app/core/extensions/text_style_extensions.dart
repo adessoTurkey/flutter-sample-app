@@ -206,4 +206,25 @@ extension TextStyleExtensions on TextStyle {
         fontWeight: _bold,
         color: color,
       );
+
+  TextStyle mapInfoViewDisplayNameTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
+  TextStyle mapInfoViewAddressTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _light4,
+        color: color,
+      );
+
+  TextStyle mapInfoViewWebSiteTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _light4,
+        color: color,
+      );
 }

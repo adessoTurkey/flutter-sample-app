@@ -19,3 +19,14 @@ final class MapInitialize extends CinemaMapEvent {
   @override
   List<Object?> get props => [controller];
 }
+
+final class MapMarkTapped extends CinemaMapEvent {
+  const MapMarkTapped({
+    this.placeModel,
+  });
+
+  final PlaceResponseModel? placeModel;
+
+  @override
+  List<Object?> get props => [placeModel];
+}

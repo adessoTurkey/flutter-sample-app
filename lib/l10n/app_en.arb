@@ -30,5 +30,6 @@
   "profile_header_text": "Profile",
   "profile_sub_header_text": "Hello",
   "profile_favorite_title_text": "Favorite",
-  "cinema_map_view_title": "Cinema"
+  "cinema_map_view_title": "Cinema",
+  "cinema_map_info_view_go_button_title": "Go!"
 }

@@ -58,6 +58,10 @@ abstract class ATheme {
   TextStyle registerNow(double fontSize);
 
   TextStyle cinemaMapViewTitleTextStyle(double fontSize);
+  TextStyle mapInfoViewDisplayNameTextStyle(double fontSize);
+  TextStyle mapInfoViewAddressTextStyle(double fontSize);
+  TextStyle mapInfoViewWebSiteTextStyle(double fontSize);
+
   ThemeData get themeData => ThemeData(
       useMaterial3: true,
       appBarTheme: appbarTheme,

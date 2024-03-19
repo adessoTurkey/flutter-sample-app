@@ -17,7 +17,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 3),
-        () => context.pushRoute(const LoginRoute()));
+        () => context.pushRoute(const HomeRoute()));
     var splashBg = MovieAssets.images.splashBg.path;
     return Scaffold(
       body: ConfigurationWidget(

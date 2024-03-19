@@ -33,5 +33,6 @@
   "profile_header_text": "Profil",
   "profile_sub_header_text": "Merhaba",
   "profile_favorite_title_text": "Favori",
-  "cinema_map_view_title": "Sinema"
+  "cinema_map_view_title": "Sinema",
+  "cinema_map_info_view_go_button_title": "Git!"
 }

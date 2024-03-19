@@ -10,6 +10,7 @@ class PlaceResponseModel with _$PlaceResponseModel {
     String? formattedAddress,
     PlaceDisplayNameModel? displayName,
     PlaceLocationModel? location,
+    String? websiteUri,
   }) = _PlaceResponseModel;
   factory PlaceResponseModel.fromJson(Map<String, Object?> json) =>
       _$PlaceResponseModelFromJson(json);

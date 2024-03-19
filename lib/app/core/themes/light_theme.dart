@@ -201,4 +201,22 @@ final class LightTheme extends ATheme {
     return const TextStyle()
         .cinemaMapViewTitleTextStyle(fontSize, MColors.white);
   }
+
+  @override
+  TextStyle mapInfoViewAddressTextStyle(double fontSize) {
+    return const TextStyle()
+        .mapInfoViewAddressTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle mapInfoViewDisplayNameTextStyle(double fontSize) {
+    return const TextStyle()
+        .mapInfoViewDisplayNameTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle mapInfoViewWebSiteTextStyle(double fontSize) {
+    return const TextStyle()
+        .mapInfoViewWebSiteTextStyle(fontSize, MColors.electricBlue);
+  }
 }

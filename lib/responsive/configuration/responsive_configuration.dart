@@ -99,4 +99,7 @@ abstract class ResponsiveConfiguration {
 
   //Cinema
   double get cinemaMapViewTitleTextSize;
+  double get mapInfoViewDisplayNameTextSize;
+  double get mapInfoViewAddressTextSize;
+  double get mapInfoViewWebSiteTextSize;
 }

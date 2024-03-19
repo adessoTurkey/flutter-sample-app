@@ -23,6 +23,7 @@ mixin _$PlaceResponseModel {
   String? get formattedAddress => throw _privateConstructorUsedError;
   PlaceDisplayNameModel? get displayName => throw _privateConstructorUsedError;
   PlaceLocationModel? get location => throw _privateConstructorUsedError;
+  String? get websiteUri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,7 +40,8 @@ abstract class $PlaceResponseModelCopyWith<$Res> {
   $Res call(
       {String? formattedAddress,
       PlaceDisplayNameModel? displayName,
-      PlaceLocationModel? location});
+      PlaceLocationModel? location,
+      String? websiteUri});
 
   $PlaceDisplayNameModelCopyWith<$Res>? get displayName;
   $PlaceLocationModelCopyWith<$Res>? get location;
@@ -61,6 +63,7 @@ class _$PlaceResponseModelCopyWithImpl<$Res, $Val extends PlaceResponseModel>
     Object? formattedAddress = freezed,
     Object? displayName = freezed,
     Object? location = freezed,
+    Object? websiteUri = freezed,
   }) {
     return _then(_value.copyWith(
       formattedAddress: freezed == formattedAddress
@@ -75,6 +78,10 @@ class _$PlaceResponseModelCopyWithImpl<$Res, $Val extends PlaceResponseModel>
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as PlaceLocationModel?,
+      websiteUri: freezed == websiteUri
+          ? _value.websiteUri
+          : websiteUri // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -114,7 +121,8 @@ abstract class _$$PlaceResponseModelImplCopyWith<$Res>
   $Res call(
       {String? formattedAddress,
       PlaceDisplayNameModel? displayName,
-      PlaceLocationModel? location});
+      PlaceLocationModel? location,
+      String? websiteUri});
 
   @override
   $PlaceDisplayNameModelCopyWith<$Res>? get displayName;
@@ -136,6 +144,7 @@ class __$$PlaceResponseModelImplCopyWithImpl<$Res>
     Object? formattedAddress = freezed,
     Object? displayName = freezed,
     Object? location = freezed,
+    Object? websiteUri = freezed,
   }) {
     return _then(_$PlaceResponseModelImpl(
       formattedAddress: freezed == formattedAddress
@@ -150,6 +159,10 @@ class __$$PlaceResponseModelImplCopyWithImpl<$Res>
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as PlaceLocationModel?,
+      websiteUri: freezed == websiteUri
+          ? _value.websiteUri
+          : websiteUri // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -158,7 +171,10 @@ class __$$PlaceResponseModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PlaceResponseModelImpl implements _PlaceResponseModel {
   const _$PlaceResponseModelImpl(
-      {this.formattedAddress, this.displayName, this.location});
+      {this.formattedAddress,
+      this.displayName,
+      this.location,
+      this.websiteUri});
 
   factory _$PlaceResponseModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlaceResponseModelImplFromJson(json);
@@ -169,10 +185,12 @@ class _$PlaceResponseModelImpl implements _PlaceResponseModel {
   final PlaceDisplayNameModel? displayName;
   @override
   final PlaceLocationModel? location;
+  @override
+  final String? websiteUri;
 
   @override
   String toString() {
-    return 'PlaceResponseModel(formattedAddress: $formattedAddress, displayName: $displayName, location: $location)';
+    return 'PlaceResponseModel(formattedAddress: $formattedAddress, displayName: $displayName, location: $location, websiteUri: $websiteUri)';
   }
 
   @override
@@ -185,13 +203,15 @@ class _$PlaceResponseModelImpl implements _PlaceResponseModel {
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
             (identical(other.location, location) ||
-                other.location == location));
+                other.location == location) &&
+            (identical(other.websiteUri, websiteUri) ||
+                other.websiteUri == websiteUri));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, formattedAddress, displayName, location);
+  int get hashCode => Object.hash(
+      runtimeType, formattedAddress, displayName, location, websiteUri);
 
   @JsonKey(ignore: true)
   @override
@@ -212,7 +232,8 @@ abstract class _PlaceResponseModel implements PlaceResponseModel {
   const factory _PlaceResponseModel(
       {final String? formattedAddress,
       final PlaceDisplayNameModel? displayName,
-      final PlaceLocationModel? location}) = _$PlaceResponseModelImpl;
+      final PlaceLocationModel? location,
+      final String? websiteUri}) = _$PlaceResponseModelImpl;
 
   factory _PlaceResponseModel.fromJson(Map<String, dynamic> json) =
       _$PlaceResponseModelImpl.fromJson;
@@ -223,6 +244,8 @@ abstract class _PlaceResponseModel implements PlaceResponseModel {
   PlaceDisplayNameModel? get displayName;
   @override
   PlaceLocationModel? get location;
+  @override
+  String? get websiteUri;
   @override
   @JsonKey(ignore: true)
   _$$PlaceResponseModelImplCopyWith<_$PlaceResponseModelImpl> get copyWith =>

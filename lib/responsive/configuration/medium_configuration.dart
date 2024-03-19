@@ -239,4 +239,13 @@ class MediumConfiguration extends ResponsiveConfiguration {
 
   @override
   double get cinemaMapViewTitleTextSize => 28;
+
+  @override
+  double get mapInfoViewAddressTextSize => 18;
+
+  @override
+  double get mapInfoViewDisplayNameTextSize => 24;
+
+  @override
+  double get mapInfoViewWebSiteTextSize => 16;
 }

@@ -240,4 +240,13 @@ final class LargeConfiguration extends ResponsiveConfiguration {
 
   @override
   double get cinemaMapViewTitleTextSize => 30;
+  
+  @override
+  double get mapInfoViewAddressTextSize => 18;
+  
+  @override
+  double get mapInfoViewDisplayNameTextSize => 24;
+  
+  @override
+  double get mapInfoViewWebSiteTextSize => 16;
 }

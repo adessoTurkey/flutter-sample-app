@@ -19,7 +19,7 @@ class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(page: SplashRoute.page, initial: true, keepHistory: false),
-        AutoRoute(page: LoginRoute.page, keepHistory: false),
+        //AutoRoute(page: LoginRoute.page, keepHistory: false),
         AutoRoute(page: HomeRoute.page, children: [
           AutoRoute(page: MoviesRoute.page),
           AutoRoute(page: TvSeriesRoute.page),

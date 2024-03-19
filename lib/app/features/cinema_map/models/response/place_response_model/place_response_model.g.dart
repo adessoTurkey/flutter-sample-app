@@ -18,6 +18,7 @@ _$PlaceResponseModelImpl _$$PlaceResponseModelImplFromJson(
           ? null
           : PlaceLocationModel.fromJson(
               json['location'] as Map<String, dynamic>),
+      websiteUri: json['websiteUri'] as String?,
     );
 
 Map<String, dynamic> _$$PlaceResponseModelImplToJson(
@@ -26,4 +27,5 @@ Map<String, dynamic> _$$PlaceResponseModelImplToJson(
       'formattedAddress': instance.formattedAddress,
       'displayName': instance.displayName,
       'location': instance.location,
+      'websiteUri': instance.websiteUri,
     };
