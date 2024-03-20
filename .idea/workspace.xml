@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="change LoginConstant to AppConstant">
+      <change afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/config/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/config/app_router.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/custom_scroll_view_app_bar_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/custom_scroll_view_app_bar_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/movies_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/movies_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

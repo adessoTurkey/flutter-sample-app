@@ -8,3 +8,4 @@ export 'video_result_extension.dart';
 export 'string_extension.dart';
 export 'sized_box_extensions.dart';
 export 'search_multi_data_extension.dart';
+export 'media_type_enum_extension.dart';
