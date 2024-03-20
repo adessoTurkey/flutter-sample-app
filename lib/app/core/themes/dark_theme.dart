@@ -203,9 +203,9 @@ final class DarkTheme extends ATheme {
   }
 
   @override
-  TextStyle searchTextFieldButtonTextStyle(double fontSize) {
-    return const TextStyle()
-        .searchTextFieldButtonTextStyle(fontSize, MColors.white);
+  TextStyle searchTextFieldButtonTextStyle(double fontSize, bool isEnabled) {
+    return const TextStyle().searchTextFieldButtonTextStyle(
+        fontSize, isEnabled ? MColors.white : MColors.lightGrey);
   }
 
   @override

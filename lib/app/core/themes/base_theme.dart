@@ -44,7 +44,7 @@ abstract class ATheme {
   TextStyle profileFavoriteListTitleTextStyle(double fontSize);
   TextStyle searchListCellViewTitleTextStyle(double fontSize);
   TextStyle searchViewTitleTextStyle(double fontSize);
-  TextStyle searchTextFieldButtonTextStyle(double fontSize);
+  TextStyle searchTextFieldButtonTextStyle(double fontSize, bool isEnabled);
   TextStyle searchListCellViewInfoTextStyle(double fontSize);
   TextStyle searchListCellViewTypeTextStyle(double fontSize);
   TextStyle searchViewNoResultTextStyle(double fontSize);

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
+import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
+import 'package:flutter_movie_app/app/core/extensions/search_failure_extension.dart';
 import 'package:flutter_movie_app/app/features/search/search.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
@@ -61,18 +63,41 @@ class _SearchTextFieldView extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
-              flex: 3,
-              child: TextButton(
-                onPressed: () {
-                  context.read<SearchBloc>().add(const SearchButtonClicked());
-                },
-                child: Text(
-                  context.localization.search_page_text_field_button,
-                  style: theme.searchTextFieldButtonTextStyle(
-                      configuration.searchTextFieldButtonTextSize),
-                ),
-              ),
+            BlocConsumer<SearchBloc, SearchState>(
+              listener: (context, state) {
+                if (state.isValid == false) {
+                  context.showSnackbarAfterHide(
+                    SnackBar(
+                      content: Text(
+                        context.localizeSearchFailure(
+                            SearchFailureEnum.shortSearchTextErrorMessage),
+                      ),
+                    ),
+                  );
+                } 
+              },
+              builder: (context, state) {
+                return Expanded(
+                  flex: 3,
+                  child: TextButton(
+                    onPressed: state.isValid == true
+                        ? () {
+                            context
+                                .read<SearchBloc>()
+                                .add(const SearchButtonClicked());
+                            context.removeKeyboard();
+                          }
+                        : null,
+                    child: Text(
+                      context.localization.search_page_text_field_button,
+                      style: theme.searchTextFieldButtonTextStyle(
+                        configuration.searchTextFieldButtonTextSize,
+                        state.isValid ?? false,
+                      ),
+                    ),
+                  ),
+                );
+              },
             )
           ],
         );

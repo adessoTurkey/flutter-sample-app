@@ -38,14 +38,11 @@ abstract final class DataMapper {
         id: e.id ?? 0,
         title: e.mediaType == MediaTypeEnum.movie
             ? e.originalTitle
-            : e.mediaType == MediaTypeEnum.tv
-                ? e.originalName
-                : e.originalName,
+            : e.originalName,
         imageURL: e.mediaType == MediaTypeEnum.person
             ? e.getProfilePath
             : e.getImageURL,
       );
     }).toList();
   }
-
 }

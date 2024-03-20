@@ -17,22 +17,17 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
   Future<void> _searchButtonClicked(
       SearchButtonClicked event, Emitter<SearchState> emit) async {
-    if (state.isValid == true) {
-      emit(state.copyWith(status: SearchStateX.loading));
-      try {
-        String searchText = state.searchText!;
-        List<SearchMultiData> movies =
-            await remoteDataSource.searchMulti(searchText);
-        List<SearchEntity> searchResults = DataMapper.searchMovieMapper(movies);
-        emit(state.copyWith(
-            status: SearchStateX.success, searchList: searchResults));
-      } catch (e) {
-        emit(state.copyWith(
-            status: SearchStateX.error, errorMessage: e.toString()));
-      }
-    } else {
-      emit(
-          state.copyWith(errorMessage: "Please search more than 3 characters"));
+    emit(state.copyWith(status: SearchStateX.loading));
+    try {
+      String searchText = state.searchText!;
+      List<SearchMultiData> movies =
+          await remoteDataSource.searchMulti(searchText);
+      List<SearchEntity> searchResults = DataMapper.searchMovieMapper(movies);
+      emit(state.copyWith(
+          status: SearchStateX.success, searchList: searchResults));
+    } catch (e) {
+      emit(state.copyWith(
+          status: SearchStateX.error, errorMessage: e.toString()));
     }
   }
 
