@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/constants/constants.dart';
+import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
 import 'package:flutter_movie_app/app/core/extensions/tv_series_data_extension.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
@@ -16,7 +18,7 @@ class TvSeriesCellView extends StatelessWidget {
       onConfigurationReady: (configuration, theme) {
         return CustomCard(
           elevation: configuration.tvSeriesCellCardElevation,
-          shadowColor: Colors.black26,
+          shadowColor: MColors.black26,
           backgroundColor: theme.themeData.scaffoldBackgroundColor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,7 +40,7 @@ class TvSeriesCellView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      tvSeriesData.tvSeriesTitle ?? "",
+                      tvSeriesData.tvSeriesTitle.emptyIfNull,
                       style: theme.tvSeriesCellMovieNameTextStyle(
                         configuration.tvSeriesCellMovieNameTextSize,
                       ),
@@ -46,7 +48,7 @@ class TvSeriesCellView extends StatelessWidget {
                     ),
                     10.verticalSizedBox,
                     RatingView(
-                        rating: tvSeriesData.getVoteAverage ?? "",
+                        rating: tvSeriesData.getVoteAverage.emptyIfNull,
                         type: RatingViewType.cell
                     ),
                   ],

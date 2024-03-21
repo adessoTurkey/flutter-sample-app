@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/extensions/tv_series_data_extension.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/tv_series/models/tv_series_data/tv_series_data.dart';
@@ -16,9 +17,9 @@ class TvSeriesCarouselCardInfo extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             RatingView(
-                rating: tvSeries.getVoteAverage ?? "", type: RatingViewType.carousel),
+                rating: tvSeries.getVoteAverage.emptyIfNull, type: RatingViewType.carousel),
             Text(
-              tvSeries.tvSeriesTitle ?? "",
+              tvSeries.tvSeriesTitle.emptyIfNull,
               style: theme.carouselCardTitleTextStyle(
                   configuration.carouselCardTitleTextSize),
               maxLines: 1,

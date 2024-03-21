@@ -101,9 +101,7 @@ class _TvSeriesListView extends StatelessWidget {
           return const LoadingView();
         }
         if (state is TvSeriesSuccess) {
-          return SizedBox(
-            child: TvSeriesListView(tvSeriesList: state.tvSeriesList),
-          );
+          return TvSeriesListView(tvSeriesList: state.tvSeriesList);
         }
         if (state is TvSeriesError) {
           return Center(
@@ -160,7 +158,7 @@ class _CarouselView extends StatelessWidget {
         }
         if (state is TvSeriesError) {
           return Center(
-            child: Text(state.errorMessage ?? context.localization.fetching_error),
+            child: Text(context.localization.fetching_error),
           );
         }
         return const LoadingView();
