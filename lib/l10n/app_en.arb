@@ -29,5 +29,14 @@
   "invalid_password": "invalid password",
   "profile_header_text": "Profile",
   "profile_sub_header_text": "Hello",
-  "profile_favorite_title_text": "Favorite"
+  "profile_favorite_title_text": "Favorite",
+  "movie_detail_duration_text": "min",
+  "search_page_title": "Search",
+  "search_page_text_field_title": "Search",
+  "search_page_text_field_button": "Search",
+  "search_page_cell_type_movie": "Movie",
+  "search_page_cell_type_tv": "TV Series",
+  "search_page_cell_type_person": "Actor",
+  "search_page_no_result": "Your search didn't have any results",
+  "search_page_short_search_text_error": "Please search more than 3 characters"
 }

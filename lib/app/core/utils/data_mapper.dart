@@ -1,7 +1,9 @@
 import '../../features/profile/profile.dart';
+import '../../features/search/search.dart';
 import '../enums/enums.dart';
+import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 
-final class DataMapper {
+abstract final class DataMapper {
   static List<FavoriteEntity> favoriteTvMapper(
       List<FavoriteTvData> favoriteTvList) {
     return favoriteTvList.map((e) {
@@ -24,6 +26,22 @@ final class DataMapper {
         title: e.title,
         releaseDate: e.releaseDate,
         posterPath: e.posterPath,
+      );
+    }).toList();
+  }
+
+  static List<SearchEntity> searchMovieMapper(
+      List<SearchMultiData> searchList) {
+    return searchList.map((e) {
+      return SearchEntity(
+        type: e.mediaType,
+        id: e.id ?? 0,
+        title: e.mediaType == MediaTypeEnum.movie
+            ? e.originalTitle
+            : e.originalName,
+        imageURL: e.mediaType == MediaTypeEnum.person
+            ? e.getProfilePath
+            : e.getImageURL,
       );
     }).toList();
   }
