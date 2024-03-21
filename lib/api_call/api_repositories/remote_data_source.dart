@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/api_call/models/login_credentials_request_model.dart';
 import 'package:flutter_movie_app/api_call/models/models.dart';
@@ -14,6 +13,8 @@ import 'package:flutter_movie_app/app/features/profile/models/account_detail/acc
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_movie/favorite_movie_data.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_tv/favorite_tv_data.dart';
 import '../../app/features/tv_series/models/tv_series_data/tv_series_data.dart';
+import 'package:flutter_movie_app/app/features/search/models/search_multi/search_multi_data.dart';
+import 'package:flutter_movie_app/localization/localization_helper.dart';
 
 import '../models/favorite/dto/add_to_favorite_dto.dart';
 import '../models/favorite/response/add_to_favorite_response.dart';
@@ -32,6 +33,7 @@ abstract class RemoteDataSource {
   Future<List<TvSeriesData>> getTvSeries(TvSeriesCategory categoryEndpoint);
   Future<AddToFavoriteResponse> addToFavorite(
       AddToFavoriteDto addToFavoriteDto);
+  Future<List<SearchMultiData>> searchMulti(String query);
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -267,4 +269,32 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       rethrow;
     }
   }
+
+  @override
+  Future<List<SearchMultiData>> searchMulti(String query) async {
+    try {
+      var networkRequest = await networkService.execute(
+        NetworkRequest(
+            type: NetworkRequestType.get,
+            path: dotenv.get(EnvConstants.searchMultiPath),
+            queryParams: {
+              "query": query,
+              "include_adult": false,
+              "language": LocalizationHelper.queryLanguage
+            },
+            data: const NetworkRequestBody.empty()),
+        (response) {
+          List<SearchMultiData> movieList = (response['results'] as List)
+              .map((e) => SearchMultiData.fromJson(e))
+              .toList();
+          return movieList;
+        },
+      );
+
+      return (networkRequest as Ok<List<SearchMultiData>>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
 }

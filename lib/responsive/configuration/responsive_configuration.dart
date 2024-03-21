@@ -114,4 +114,14 @@ abstract class ResponsiveConfiguration {
   double get tvSeriesListViewPaddingTop;
   double get tvSeriesListViewPaddingLeft;
   double get tvSeriesListViewPaddingRight;
+
+  double get searchListCellViewTitleTextSize;
+  double get searchViewTitleTextSize;
+  double get searchTextFieldButtonTextSize;
+  double get searchListCellViewTypeTextSize;
+  double get searchListCellViewTypeIconSize;
+  double get searchListCellViewInfoTextSize;
+  double get searchViewNoResultTextSize;
+
 }
+
