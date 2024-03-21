@@ -12,7 +12,8 @@ abstract final class EnvConstants {
   static String favoriteTVPath = "FAVORITE_PATH_TV";
   static String loginWithCredentialsPath = "LOGIN_WITH_CREDENTIALS_PATH";
   static String openSessionPath = "OPEN_SESSION_PATH";
-  static String googlePlacesApiBaseUrl = "GOOGLE_PLACES_API_BASE_URL";
+  static String favoriteAddPath = "FAVORITE_PATH_ADD";
+}  static String googlePlacesApiBaseUrl = "GOOGLE_PLACES_API_BASE_URL";
   static String googlePlacesApiSearchByTextPath =
       "GOOGLE_PLACES_API_SEARCH_BY_TEXT_PATH";
   static String googlePlacesApiKey = "GOOGLE_PALCES_API_KEY";

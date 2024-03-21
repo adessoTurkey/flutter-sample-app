@@ -13,6 +13,7 @@ class CustomScrollViewAppBar extends StatelessWidget {
   final TextStyle appBarTitleStyle;
   final Color backgroundColor;
   final double expandedHeight;
+  final bool implyLeading;
 
   const CustomScrollViewAppBar({
     required this.largeTitle,
@@ -21,6 +22,7 @@ class CustomScrollViewAppBar extends StatelessWidget {
     required this.appBarTitleStyle,
     this.backgroundColor = MColors.electricBlue,
     required this.expandedHeight,
+    this.implyLeading = true,
     super.key,
   });
 
@@ -28,6 +30,7 @@ class CustomScrollViewAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     double top;
     return SliverAppBar.large(
+      automaticallyImplyLeading: implyLeading,
       flexibleSpace: LayoutBuilder(builder: (context, constraints) {
         top = constraints.biggest.height;
         return FlexibleSpaceBar(
