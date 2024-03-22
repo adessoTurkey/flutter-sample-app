@@ -21,12 +21,14 @@ class MoviesCarouselCardInfoView extends StatelessWidget {
                 RatingView(
                     rating: movie.getVoteAvarage,
                     type: RatingViewType.carousel),
-                Text(
-                  movie.movieTitle ?? "",
-                  style: theme.carouselCardTitleTextStyle(
-                      configuration.carouselCardTitleTextSize),
-                  maxLines: 1,
-                ),
+                movie.movieTitle != null
+                    ? Text(
+                        movie.movieTitle!,
+                        style: theme.carouselCardTitleTextStyle(
+                            configuration.carouselCardTitleTextSize),
+                        maxLines: 1,
+                      )
+                    : Container(),
                 Text(
                   movie.getGenres(state.movieGenres),
                   style: theme.carouselCardSubTitleTextStyle(
