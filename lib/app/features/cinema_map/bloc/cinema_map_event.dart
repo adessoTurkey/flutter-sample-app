@@ -7,7 +7,16 @@ sealed class CinemaMapEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-final class CinemaFetching extends CinemaMapEvent {}
+final class CinemaFetching extends CinemaMapEvent {
+  const CinemaFetching({
+    this.controller,
+  });
+
+  final GoogleMapController? controller;
+
+  @override
+  List<Object?> get props => [controller];
+}
 
 final class MapInitialize extends CinemaMapEvent {
   const MapInitialize({

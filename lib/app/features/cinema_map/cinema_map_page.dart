@@ -7,10 +7,7 @@ import 'package:flutter_movie_app/app/features/cinema_map/bloc/cinema_map_bloc.d
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 import 'cinema_map.dart';
-import 'models/response/place_response_model/place_response_model.dart';
-import 'views/map_info_view.dart';
 
 @RoutePage()
 class CinemaMapPage extends StatefulWidget {
@@ -71,9 +68,8 @@ class _CinemaMapSuccessView extends StatelessWidget {
     required this.state,
   });
 
-  Set<Marker>? getMarkers(
-      List<PlaceResponseModel>? places, BuildContext context) {
-    return places?.map((e) {
+  Set<Marker>? getMarkers(BuildContext context) {
+    return state.places?.map((e) {
       return Marker(
         markerId: MarkerId(e.displayName?.text ?? ""),
         position: LatLng(
@@ -84,6 +80,7 @@ class _CinemaMapSuccessView extends StatelessWidget {
         onTap: () {
           context.read<CinemaMapBloc>().add(MapMarkTapped(placeModel: e));
         },
+        icon: state.customIcon ?? BitmapDescriptor.defaultMarker,
       );
     }).toSet();
   }
@@ -96,16 +93,13 @@ class _CinemaMapSuccessView extends StatelessWidget {
           Expanded(
             child: GoogleMap(
               mapType: MapType.normal,
-              onMapCreated: (controller) => context.read<CinemaMapBloc>().add(
-                    MapInitialize(controller: controller),
-                  ),
               myLocationEnabled: true,
               initialCameraPosition: CameraPosition(
                 target:
                     state.initialCameraPosition, // San Francisco coordinates
                 zoom: 12,
               ),
-              markers: getMarkers(state.places, context) ?? {},
+              markers: getMarkers(context) ?? {},
             ),
           ),
           MapInfoView()

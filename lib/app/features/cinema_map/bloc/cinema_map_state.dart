@@ -8,6 +8,8 @@ final class CinemaMapState extends Equatable {
   final LatLng initialCameraPosition;
   final List<PlaceResponseModel>? places;
   final PlaceResponseModel? selectedPlace;
+  final GoogleMapController? controller;
+  final BitmapDescriptor? customIcon;
 
   const CinemaMapState({
     this.status = CinemaMapStatusX.initial,
@@ -16,6 +18,8 @@ final class CinemaMapState extends Equatable {
         const LatLng(41.04497678214395, 29.00287763464729),
     this.places,
     this.selectedPlace,
+    this.controller,
+    this.customIcon,
   });
 
   @override
@@ -25,6 +29,8 @@ final class CinemaMapState extends Equatable {
         initialCameraPosition,
         places,
         selectedPlace,
+        controller,
+        customIcon,
       ];
 
   CinemaMapState copyWith({
@@ -33,6 +39,8 @@ final class CinemaMapState extends Equatable {
     LatLng? initialCameraPosition,
     List<PlaceResponseModel>? places,
     PlaceResponseModel? selectedPlace,
+    GoogleMapController? controller,
+    BitmapDescriptor? customIcon,
   }) {
     return CinemaMapState(
       status: status ?? this.status,
@@ -41,6 +49,8 @@ final class CinemaMapState extends Equatable {
           initialCameraPosition ?? this.initialCameraPosition,
       places: places ?? this.places,
       selectedPlace: selectedPlace ?? this.selectedPlace,
+      controller: controller ?? this.controller,
+      customIcon: customIcon ?? this.customIcon,
     );
   }
 }

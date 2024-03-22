@@ -1,11 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_movie_app/app/core/utils/data_mapper.dart';
 import 'package:flutter_movie_app/app/features/cinema_map/models/center_dto.dart';
 import 'package:flutter_movie_app/app/features/cinema_map/models/circle_dto.dart';
 import 'package:flutter_movie_app/app/features/cinema_map/models/location_bias_dto.dart';
 import 'package:flutter_movie_app/app/features/cinema_map/models/map_request_dto/map_request_dto.dart';
 import 'package:flutter_movie_app/app/features/cinema_map/models/response/map_response_model.dart/map_response_model.dart';
 import 'package:flutter_movie_app/app/features/cinema_map/models/response/place_response_model/place_response_model.dart';
+import 'package:flutter_movie_app/app/features/cinema_map/widgets/custom_marker.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
@@ -18,16 +20,12 @@ class CinemaMapBloc extends Bloc<CinemaMapEvent, CinemaMapState> {
   final RemoteDataSource remoteDataSource;
   CinemaMapBloc(this.remoteDataSource) : super(const CinemaMapState()) {
     on<CinemaFetching>(_cinemaFetchingHandler);
-    on<MapInitialize>(_mapInitializeHandler);
     on<MapMarkTapped>(_mapMarkerTapped);
   }
 
-  final Set<Marker> mapMarkers = Set();
-  GoogleMapController? controller;
   Location location = Location();
   LocationData? currentPosition;
   LatLng? initialCameraPosition;
-  PlaceResponseModel? selectedPlace;
 
   _getLoc() async {
     bool _serviceEnabled;
@@ -89,22 +87,17 @@ class CinemaMapBloc extends Bloc<CinemaMapEvent, CinemaMapState> {
 
       MapResponseModel mapResponseModel =
           await remoteDataSource.getCinemaBySearchText(requestData);
-
+      var customIcon = await widgetToBitMap(const CustomMarker());
       emit(
         state.copyWith(
-          status: CinemaMapStatusX.success,
-          initialCameraPosition: initialCameraPosition,
-          places: mapResponseModel.places,
-        ),
+            status: CinemaMapStatusX.success,
+            initialCameraPosition: initialCameraPosition,
+            places: mapResponseModel.places,
+            customIcon: customIcon),
       );
     } catch (e) {
       emit(state.copyWith(status: CinemaMapStatusX.error));
     }
-  }
-
-  Future<void> _mapInitializeHandler(
-      MapInitialize event, Emitter<CinemaMapState> emit) async {
-    controller = event.controller;
   }
 
   Future<void> _mapMarkerTapped(
