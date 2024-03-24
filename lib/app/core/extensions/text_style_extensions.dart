@@ -209,4 +209,24 @@ extension TextStyleExtensions on TextStyle {
         fontWeight: _bold,
         color: color,
       );
+
+  TextStyle tvSeriesDetailSeasonsTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
+  TextStyle tvSeriesDetailCastTitleTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
+  TextStyle tvSeriesDetailCastNameTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        color: color,
+      );
 }

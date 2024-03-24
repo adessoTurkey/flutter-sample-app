@@ -2,14 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
-import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
-import 'package:flutter_movie_app/app/core/extensions/video_result_extension.dart';
+import 'package:flutter_movie_app/app/core/enums/enums.dart';
+import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/bloc/movie_detail_bloc.dart';
-import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_models.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'movie_detail.dart';
 
 @RoutePage()
@@ -35,8 +33,11 @@ class MovieDetailPage extends StatelessWidget {
                     return SingleChildScrollView(
                       child: Column(
                         children: [
-                          MovieDetailPageImageSection(
-                            movieDetailModel: state.movieDetailModel,
+                          DetailPageImageSection(
+                            favoriteEntityType: FavoriteEntityType.movie,
+                            id: state.movieDetailModel?.id,
+                            voteAverage: state.movieDetailModel?.getVoteAvarage,
+                            imageUrl: state.movieDetailModel?.getImageURL,
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(
@@ -48,15 +49,19 @@ class MovieDetailPage extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                MovieDetailPageInfoSection(
-                                  movieDetailModel: state.movieDetailModel,
+                                DetailPageInfoSection(
+                                  overview: state.movieDetailModel?.overivew,
+                                  releaseDate: state.movieDetailModel?.releaseDate,
+                                  runTime: state.movieDetailModel?.runtime.toString(),
+                                  genres: state.movieDetailModel?.getGenres(),
+                                  title: state.movieDetailModel?.title,
                                 ),
                                 20.verticalSizedBox,
                                 MovieDetailPageCastSection(
                                   creditResponse: state.creditResponse!,
                                 ),
                                 20.verticalSizedBox,
-                                _MovieDetailPageTrailerSection(
+                                DetailPageTrailer(
                                   videoModelResponse: state.videoModelResponse,
                                 )
                               ],
@@ -77,38 +82,6 @@ class MovieDetailPage extends StatelessWidget {
           },
         ),
       ),
-    );
-  }
-}
-
-class _MovieDetailPageTrailerSection extends StatefulWidget {
-  final VideoModelResponse? videoModelResponse;
-
-  const _MovieDetailPageTrailerSection({required this.videoModelResponse});
-
-  @override
-  State<_MovieDetailPageTrailerSection> createState() =>
-      _MovieDetailPageTrailerSectionState();
-}
-
-class _MovieDetailPageTrailerSectionState
-    extends State<_MovieDetailPageTrailerSection> {
-  late YoutubePlayerController youtubePlayerController;
-
-  @override
-  void dispose() {
-    youtubePlayerController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    youtubePlayerController = YoutubePlayerController(
-        initialVideoId: widget.videoModelResponse?.getTrailerURL() ?? "",
-        flags: const YoutubePlayerFlags(autoPlay: false));
-
-    return MovieDetailPageTrailerSection(
-      controller: youtubePlayerController,
     );
   }
 }

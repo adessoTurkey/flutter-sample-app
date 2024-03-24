@@ -24,10 +24,6 @@ abstract class ATheme {
 
   TextStyle durationViewTextStyle(double fontSize);
   TextStyle rateViewTextStyle(double fontSize);
-  TextStyle movieDetailDescriptionTextStyle(double fontSize);
-  TextStyle movieDetailTrailerTextStyle(double fontSize);
-  TextStyle movieDetailMovieTitleTextStyle(double fontSize);
-  TextStyle movieDetailMovieGenresTextStyle(double fontSize);
   TextStyle movieDetailCastLeftLabelTextStyle(double fontSize);
   TextStyle movieDetailCastRightLabelTextStyle(double fontSize);
   //Profile
@@ -56,6 +52,15 @@ abstract class ATheme {
   TextStyle mainPageAppBarTitleTextStyle(double fontSize);
   TextStyle mainPageViewHeaderTextStyle(double fontSize);
   TextStyle tvSeriesCellMovieNameTextStyle(double fontSize);
+
+  //Tv Series Detail
+  TextStyle tvSeriesDetailSeasonsTextStyle(double fontSize);
+  TextStyle tvSeriesDetailCastTitleTextStyle(double fontSize);
+  TextStyle tvSeriesDetailCastNameTextStyle(double fontSize);
+  TextStyle detailDescriptionTextStyle(double fontSize);
+  TextStyle detailTrailerTextStyle(double fontSize);
+  TextStyle detailMovieTitleTextStyle(double fontSize);
+  TextStyle detailMovieGenresTextStyle(double fontSize);
 
   ThemeData get themeData => ThemeData(
       useMaterial3: true,

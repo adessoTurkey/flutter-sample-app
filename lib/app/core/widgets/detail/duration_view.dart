@@ -5,7 +5,7 @@ import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DurationView extends StatelessWidget {
-  final int durationTime;
+  final String durationTime;
   const DurationView({required this.durationTime, super.key});
 
   @override
@@ -22,7 +22,7 @@ class DurationView extends StatelessWidget {
               size: configuration.durationViewIconSize,
             ),
             Text(
-              "${durationTime.toString()} ${context.localization.movie_detail_duration_text}",
+              "$durationTime ${context.localization.detail_duration_text}",
               style: theme
                   .durationViewTextStyle(configuration.durationViewTextSize),
             ),

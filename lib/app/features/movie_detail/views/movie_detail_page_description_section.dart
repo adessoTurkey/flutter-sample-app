@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
+import 'package:flutter_movie_app/app/core/widgets/detail/detail_crew_label_section.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/credits/credit_response.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
@@ -17,9 +17,9 @@ class MovieDetailPageCastSection extends StatelessWidget {
           children: [
             movieDetailCastSection(
               theme.movieDetailCastLeftLabelTextStyle(
-                  configuration.movieDetailCastLabelTextSize),
+                  configuration.detailCastLabelTextSize),
               theme.movieDetailCastRightLabelTextStyle(
-                  configuration.movieDetailCastLabelTextSize),
+                  configuration.detailCastLabelTextSize),
             ),
           ],
         );
@@ -34,35 +34,14 @@ class MovieDetailPageCastSection extends StatelessWidget {
     return Column(
       children: [
         if (creditResponse.getDirector()!.isValid)
-          movieDetailCastLabel("Director", titleTextStyle,
-              creditResponse.getDirector()!, infoTextStyle),
+          DetailCrewLabelSection(title: "Director", titleTextStyle: titleTextStyle,
+              info: creditResponse.getDirector()!, infoTextStyle: infoTextStyle),
         if (creditResponse.getWriters()!.isValid)
-          movieDetailCastLabel("Writers", titleTextStyle,
-              creditResponse.getWriters()!, infoTextStyle),
+          DetailCrewLabelSection(title: "Writers", titleTextStyle: titleTextStyle,
+              info: creditResponse.getWriters()!, infoTextStyle: infoTextStyle),
         if (creditResponse.getActors()!.isValid)
-          movieDetailCastLabel("Stars", titleTextStyle,
-              creditResponse.getActors()!, infoTextStyle),
-      ],
-    );
-  }
-
-  Widget movieDetailCastLabel(
-    String title,
-    TextStyle titleTextStyle,
-    String info,
-    TextStyle infoTextStyle,
-  ) {
-    return Row(
-      children: [
-        CastLabelWidget(
-          textStyle: titleTextStyle,
-          title: "$title: ",
-        ),
-        Flexible(
-            child: CastLabelWidget(
-          textStyle: infoTextStyle,
-          title: info,
-        )),
+          DetailCrewLabelSection(title: "Stars", titleTextStyle: titleTextStyle,
+              info: creditResponse.getActors()!, infoTextStyle: infoTextStyle),
       ],
     );
   }

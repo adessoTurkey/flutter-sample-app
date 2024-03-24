@@ -25,8 +25,8 @@
   "movies_page_app_bar_title": "Popular Movies",
   "rate_view_rate_button_text": "Rate",
   "rate_view_share_button_text": "Paylaş",
-  "movie_detail_trailer_text": "Fragman",
-  "movie_detail_duration_text": "dk",
+  "detail_trailer_text": "Fragman",
+  "detail_duration_text": "dk",
   "authentication_failed": "Giriş Hatası",
   "invalid_username": "geçersiz kullanıcı adı",
   "invalid_password": "geçersiz şifre",
@@ -36,5 +36,9 @@
   "tv_series_page_title": "Diziler",
   "tv_series_top_rated": "En Çok Oy Alan",
   "fetching_error": "Veri Çekme Hatası",
-  "tv_series_app_bar_title": "Diziler"
+  "tv_series_app_bar_title": "Diziler",
+  "tv_series_detail_date_title": "Dizi",
+  "tv_series_detail_seasons": "Sezon",
+  "tv_series_detail_cast": "Oyuncular",
+  "tv_series_detail_creators": "Yaratıcılar"
 }

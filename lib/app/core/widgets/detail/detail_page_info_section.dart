@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/extensions/movie_detail_extension.dart';
-import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
+import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail/movie_detail_model.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
+import '../../../core/widgets/detail/duration_view.dart';
 
-class MovieDetailPageInfoSection extends StatelessWidget {
-  final MovieDetailModel? movieDetailModel;
-  const MovieDetailPageInfoSection({super.key, required this.movieDetailModel});
+class DetailPageInfoSection extends StatelessWidget {
+  final String? overview;
+  final String? title;
+  final String? genres;
+  final String? runTime;
+  final String? releaseDate;
+
+  const DetailPageInfoSection({super.key,
+    required this.overview,
+    required this.title,
+    required this.genres,
+    required this.runTime,
+    required this.releaseDate, });
 
   @override
   Widget build(BuildContext context) {
@@ -16,18 +25,18 @@ class MovieDetailPageInfoSection extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _movieInfoLabelSection(
-              theme.movieDetailMovieTitleTextStyle(
-                  configuration.movieDetailMovieTitleTextSize),
-              theme.movieDetailMovieGenresTextStyle(
-                  configuration.movieDetailMovieGenresTextSize),
+            _infoLabelSection(
+              theme.detailMovieTitleTextStyle(
+                  configuration.detailPageTitleTextSize),
+              theme.detailMovieGenresTextStyle(
+                  configuration.detailPageGenresTextSize),
             ),
-            _movieRatingAndSharingSection(),
+            _ratingAndSharingSection(),
             20.verticalSizedBox,
             Text(
-              movieDetailModel?.overivew ?? "",
-              style: theme.movieDetailDescriptionTextStyle(
-                  configuration.movieDetailDescriptionTextSize),
+              overview.emptyIfNull,
+              style: theme.detailDescriptionTextStyle(
+                  configuration.detailPageDescriptionTextSize),
             ),
           ],
         );
@@ -35,20 +44,20 @@ class MovieDetailPageInfoSection extends StatelessWidget {
     );
   }
 
-  Widget _movieInfoLabelSection(
+  Widget _infoLabelSection(
       TextStyle titleTextStyle, TextStyle genresTextStyle) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          movieDetailModel?.title ?? "",
+          title.emptyIfNull,
           style: titleTextStyle,
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
         ),
         10.verticalSizedBox,
         Text(
-          movieDetailModel?.getGenres() ?? "",
+          genres.emptyIfNull,
           style: genresTextStyle,
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
@@ -57,20 +66,20 @@ class MovieDetailPageInfoSection extends StatelessWidget {
     );
   }
 
-  Widget _movieRatingAndSharingSection() {
+  Widget _ratingAndSharingSection() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         10.verticalSizedBox,
         Row(
           children: [
-            DurationView(durationTime: movieDetailModel?.runtime ?? 0),
+             DurationView(durationTime: runTime.emptyIfNull),
             const VerticalDividerWidget(
               paddingAll: 10,
               dividerHeight: 20,
               dividerWidth: 2,
             ),
-            ReleaseDateView(releaseDate: movieDetailModel?.releaseDate ?? ""),
+            ReleaseDateView(releaseDate: releaseDate.emptyIfNull),
             const VerticalDividerWidget(
               paddingAll: 10,
               dividerHeight: 20,

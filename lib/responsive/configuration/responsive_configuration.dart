@@ -65,17 +65,17 @@ abstract class ResponsiveConfiguration {
   double get durationViewTextSize;
   double get rateViewIconSize;
   double get rateViewTextSize;
-  double get movieDetailDescriptionTextSize;
-  double get movieDetailTrailerTextSize;
-  double get movieDetailMovieTitleTextSize;
-  double get movieDetailMovieGenresTextSize;
-  double get movieDetailCastLabelTextSize;
-  double get movieDetailImageViewHeight;
-  double get movieDetailImageContainerHeight;
-  double get movieDetailRatingViewPositionedBottom;
+  double get detailPageDescriptionTextSize;
+  double get detailPageTrailerTextSize;
+  double get detailPageTitleTextSize;
+  double get detailPageGenresTextSize;
+  double get detailCastLabelTextSize;
+  double get detailPageImageViewHeight;
+  double get detailPageImageContainerHeight;
+  double get detailPageRatingViewPositionedBottom;
   double get movieDetailPagePaddingHorizontal;
   double get movieDetailPagePaddingVerical;
-  double get movieDetailPageRateAndShareIconSize;
+  double get detailPageRateAndShareIconSize;
   double get starRatingIconSize;
   double get starRatingIconSpacingPaddingHorizontal;
   double get circularButtonWidgetDefaultRadiusSize;
@@ -114,4 +114,16 @@ abstract class ResponsiveConfiguration {
   double get tvSeriesListViewPaddingTop;
   double get tvSeriesListViewPaddingLeft;
   double get tvSeriesListViewPaddingRight;
+
+  //Tv Series Detail
+  double get tvSeriesDetailSeasonsTextSize;
+  double get tvSeriesDetailSeasonsRadius;
+  double get tvSeriesDetailSeasonsHorizontalPadding;
+  double get tvSeriesDetailSeasonsVerticalPadding;
+  double get tvSeriesDetailCastTitleTextSize;
+  double get tvSeriesDetailCastListHeight;
+  double get tvSeriesDetailCastImageSize;
+  double get tvSeriesDetailCastImageRadius;
+  double get tvSeriesDetailCastNameTextSize;
+
 }

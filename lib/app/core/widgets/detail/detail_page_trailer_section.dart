@@ -4,9 +4,9 @@ import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class MovieDetailPageTrailerSection extends StatelessWidget {
+class DetailPageTrailerSection extends StatelessWidget {
   final YoutubePlayerController controller;
-  const MovieDetailPageTrailerSection({required this.controller, super.key});
+  const DetailPageTrailerSection({required this.controller, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +14,8 @@ class MovieDetailPageTrailerSection extends StatelessWidget {
       onConfigurationReady: (configuration, theme) {
         return _trailerSection(
           context,
-          theme.movieDetailTrailerTextStyle(
-              configuration.movieDetailTrailerTextSize),
+          theme.detailTrailerTextStyle(
+              configuration.detailPageTrailerTextSize),
         );
       },
     );
@@ -26,7 +26,7 @@ class MovieDetailPageTrailerSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.localization.movie_detail_trailer_text,
+          context.localization.detail_trailer_text,
           style: textStyle,
         ),
         10.verticalSizedBox,

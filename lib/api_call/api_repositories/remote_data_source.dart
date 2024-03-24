@@ -14,9 +14,9 @@ import 'package:flutter_movie_app/app/features/profile/models/account_detail/acc
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_movie/favorite_movie_data.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_tv/favorite_tv_data.dart';
 import '../../app/features/tv_series/models/tv_series_data/tv_series_data.dart';
-
 import '../models/favorite/dto/add_to_favorite_dto.dart';
 import '../models/favorite/response/add_to_favorite_response.dart';
+import 'package:flutter_movie_app/app/features/tv_series_detail/models/tv_series_detail_model.dart';
 
 abstract class RemoteDataSource {
   Future<RequestTokenModel> getRequestToken();
@@ -25,10 +25,13 @@ abstract class RemoteDataSource {
   Future<SessionResponseModel> openSession(SessionRequestModel requestBody);
   Future<MovieDetailModel> getMovieDetail(int movieId);
   Future<VideoModelResponse> getMovieVideos(int movieId);
+  Future<VideoModelResponse> getTvSeriesVideos(int tvSeriesId);
   Future<CreditResponse> getMovieCredits(int movieId);
   Future<AccountDetail> getAccountDetail();
   Future<List<FavoriteMovieData>> getFavoriteMovies();
   Future<List<FavoriteTvData>> getFavoriteTVs();
+  Future<TvSeriesDetailModel> getTvSeriesDetail(int tvSeriesId);
+  Future<CreditResponse> getTvSeriesCredits(int tvSeriesId);
   Future<List<TvSeriesData>> getTvSeries(TvSeriesCategory categoryEndpoint);
   Future<AddToFavoriteResponse> addToFavorite(
       AddToFavoriteDto addToFavoriteDto);
@@ -263,6 +266,56 @@ class RemoteDataSourceImpl extends RemoteDataSource {
         return favoriteresponse;
       });
       return (addToFavoriteResponse as Ok<AddToFavoriteResponse>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<TvSeriesDetailModel> getTvSeriesDetail(int tvSeriesId) async {
+    try {
+      var networkRequest = NetworkRequest(
+          type: NetworkRequestType.get,
+          path: "${dotenv.get(EnvConstants.tvSeriesPath)}/$tvSeriesId",
+          data: const NetworkRequestBody.empty());
+      var tvSeriesDetailResponse = await networkService.execute(networkRequest,
+              (json) => TvSeriesDetailModel.fromJson(json));
+      return (tvSeriesDetailResponse as Ok<TvSeriesDetailModel>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<CreditResponse> getTvSeriesCredits(int tvSeriesId) async {
+    try {
+      var networkRequest = NetworkRequest(
+          type: NetworkRequestType.get,
+          path:
+          "${dotenv.get(EnvConstants.tvSeriesPath)}/$tvSeriesId/${dotenv.get(EnvConstants.creditPath)}",
+          data: const NetworkRequestBody.empty());
+      var tvSeriesDetailCreditResponse = await networkService.execute(
+          networkRequest,
+              (json) => CreditResponse.fromJson(json));
+
+      return (tvSeriesDetailCreditResponse as Ok<CreditResponse>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<VideoModelResponse> getTvSeriesVideos(int tvSeriesId) async {
+    try {
+      var tvSeriesDetailVideoResponse = await networkService.execute(
+          NetworkRequest(
+              type: NetworkRequestType.get,
+              path:
+              "${dotenv.get(EnvConstants.tvSeriesPath)}/$tvSeriesId/${dotenv.get(EnvConstants.videoPath)}",
+              data: const NetworkRequestBody.empty()),
+              (json) => VideoModelResponse.fromJson(json));
+
+      return (tvSeriesDetailVideoResponse as Ok<VideoModelResponse>).data;
     } catch (_) {
       rethrow;
     }

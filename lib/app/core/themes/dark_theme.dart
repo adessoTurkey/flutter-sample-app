@@ -110,25 +110,25 @@ final class DarkTheme extends ATheme {
   }
 
   @override
-  TextStyle movieDetailDescriptionTextStyle(double fontSize) {
+  TextStyle detailDescriptionTextStyle(double fontSize) {
     return const TextStyle()
         .movieDetailDescriptionTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override
-  TextStyle movieDetailTrailerTextStyle(double fontSize) {
+  TextStyle detailTrailerTextStyle(double fontSize) {
     return const TextStyle()
         .movieDetailTrailerTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override
-  TextStyle movieDetailMovieGenresTextStyle(double fontSize) {
+  TextStyle detailMovieGenresTextStyle(double fontSize) {
     return const TextStyle()
         .movieDetailMovieGenresTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override
-  TextStyle movieDetailMovieTitleTextStyle(double fontSize) {
+  TextStyle detailMovieTitleTextStyle(double fontSize) {
     return const TextStyle()
         .movieDetailMovieTitleTextStyle(fontSize, MColors.almostBlack);
   }
@@ -195,5 +195,20 @@ final class DarkTheme extends ATheme {
   TextStyle tvSeriesCellMovieNameTextStyle(double fontSize) {
     return const TextStyle()
         .tvSeriesCellMovieNameTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle tvSeriesDetailSeasonsTextStyle(double fontSize) {
+    return const TextStyle().tvSeriesDetailSeasonsTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle tvSeriesDetailCastTitleTextStyle(double fontSize) {
+    return const TextStyle().tvSeriesDetailCastTitleTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle tvSeriesDetailCastNameTextStyle(double fontSize) {
+    return const TextStyle().tvSeriesDetailCastNameTextStyle(fontSize, MColors.almostBlack);
   }
 }
