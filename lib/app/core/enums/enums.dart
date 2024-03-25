@@ -6,3 +6,4 @@ export 'cast_job_enum.dart';
 export 'favorite_entity_type.dart';
 export 'media_type_enum.dart';
 export 'search_failure_enum.dart';
+export 'genre_type_enum.dart';

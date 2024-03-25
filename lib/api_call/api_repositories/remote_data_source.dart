@@ -34,6 +34,7 @@ abstract class RemoteDataSource {
   Future<AddToFavoriteResponse> addToFavorite(
       AddToFavoriteDto addToFavoriteDto);
   Future<List<SearchMultiData>> searchMulti(String query);
+  Future<List<GenreData>> getGenres(GenreType genreType);
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -241,6 +242,25 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       );
 
       return (tvSeriesDataList as Ok<List<TvSeriesData>>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<List<GenreData>> getGenres(GenreType genreType) async {
+    try {
+      var genreRequest = NetworkRequest(
+        type: NetworkRequestType.get,
+        path: "${dotenv.get(EnvConstants.genrePath)}${genreType.endpoint}",
+        data: const NetworkRequestBody.empty(),
+      );
+      var genreResponse = await networkService.execute(
+        genreRequest,
+        (json) =>
+            (json['genres'] as List).map((e) => GenreData.fromJson(e)).toList(),
+      );
+      return (genreResponse as Ok<List<GenreData>>).data;
     } catch (_) {
       rethrow;
     }

@@ -6,9 +6,12 @@ extension MovieDataExtension on MovieData {
   String get getImageURL =>
       "${dotenv.get(EnvConstants.imageUrl)}${moviePosterPath ?? ""}";
 
-  String getGenres() {
+  String getGenres(List<GenreData>? genre) {
+    if (genre == null) {
+      return "";
+    }
     List<GenreData> filteredList =
-        GenreMock.instance.genres.where((e) => genres!.contains(e.id)).toList();
+        genre.where((e) => genres!.contains(e.id)).toList();
     List<String?> stringList = filteredList.map((e) => e.name).toList();
     return stringList.join(', ');
   }
