@@ -20,7 +20,7 @@ class MovieListView extends StatelessWidget {
           padding: 8.onlyVertical,
           child: GestureDetector(
             onTap: () {
-              context.pushRoute(MovieDetailRoute(movieId: movie.id!));
+              context.pushRoute(ActorDetailRoute(actorId: 504));
             },
             child: MovieCellView(
               movie: movie,

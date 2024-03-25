@@ -6,6 +6,7 @@ import 'package:flutter_movie_app/api_call/models/session_response_model.dart';
 import 'package:flutter_movie_app/api_call/network/network.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
+import 'package:flutter_movie_app/app/features/actor/model/actor_detail_model.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_models.dart';
 import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
 import 'package:flutter_movie_app/app/features/profile/models/account_detail/account_detail.dart';
@@ -31,6 +32,7 @@ abstract class RemoteDataSource {
   Future<AddToFavoriteResponse> addToFavorite(
       AddToFavoriteDto addToFavoriteDto);
   Future<List<SearchMultiData>> searchMulti(String query);
+  Future<ActorDetailModel> getActorDetail(int actorId);
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -269,4 +271,21 @@ class RemoteDataSourceImpl extends RemoteDataSource {
     }
   }
 
+  @override
+  Future<ActorDetailModel> getActorDetail(int actorId) async {
+    try {
+      var networkRequest = NetworkRequest(
+          type: NetworkRequestType.get,
+          path:
+          "${dotenv.get(EnvConstants.personPath)}/$actorId",
+          data: const NetworkRequestBody.empty());
+      var actorDetailResponse = await networkService.execute(
+              networkRequest,
+              (json) => ActorDetailModel.fromJson(json));
+
+      return (actorDetailResponse as Ok<ActorDetailModel>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
 }

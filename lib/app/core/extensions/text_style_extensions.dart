@@ -9,6 +9,7 @@ extension TextStyleExtensions on TextStyle {
   FontWeight get _w300 => FontWeight.w300;
 
   FontWeight get _w700 => FontWeight.w700;
+  FontWeight get _semiBold => FontWeight.w600;
 
   TextStyle movieCellMovieNameTextStyle(double fontSize, Color color) =>
       copyWith(
@@ -244,4 +245,36 @@ extension TextStyleExtensions on TextStyle {
         color: color,
       );
 
+  TextStyle actorDetailNameTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
+  TextStyle actorDetailBiographyTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        color: color,
+      );
+
+  TextStyle actorDetailExpandTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _semiBold,
+        color: color,
+      );
+
+  TextStyle actorDetailInfoLabelTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
+  TextStyle actorDetailInfoTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        color: color,
+      );
 }

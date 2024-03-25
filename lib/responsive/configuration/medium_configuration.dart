@@ -258,4 +258,30 @@ class MediumConfiguration extends ResponsiveConfiguration {
   @override
   double get searchViewNoResultTextSize => 26;
 
+  @override
+  double get actorDetailBiographyTextSize => 17;
+
+  @override
+  double get actorDetailExpandTextSize => 17;
+
+  @override
+  double get actorDetailImageHeight => 400;
+
+  @override
+  double get actorDetailInfoLabelTextSize => 17;
+
+  @override
+  double get actorDetailInfoTextSize => 17;
+
+  @override
+  double get actorDetailNameTextSize => 28;
+
+  @override
+  double get actorDetailPagePaddingHorizontal => 24;
+
+  @override
+  double get actorDetailPagePaddingVertical => 24;
+
+  @override
+  double get actorDetailShrinkBioHeight => 100;
 }

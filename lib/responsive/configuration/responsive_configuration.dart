@@ -106,5 +106,16 @@ abstract class ResponsiveConfiguration {
   double get searchListCellViewInfoTextSize;
   double get searchViewNoResultTextSize;
 
+  //Actor Detail
+  double get actorDetailNameTextSize;
+  double get actorDetailBiographyTextSize;
+  double get actorDetailExpandTextSize;
+  double get actorDetailInfoLabelTextSize;
+  double get actorDetailInfoTextSize;
+  double get actorDetailShrinkBioHeight;
+  double get actorDetailImageHeight;
+  double get actorDetailPagePaddingHorizontal;
+  double get actorDetailPagePaddingVertical;
+
 }
 

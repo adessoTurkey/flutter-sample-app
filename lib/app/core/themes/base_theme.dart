@@ -61,6 +61,13 @@ abstract class ATheme {
 
   TextStyle dontHaveAccount(double fontSize);
 
+  //Actor Detail
+  TextStyle actorDetailName(double fontSize);
+  TextStyle actorDetailBiography(double fontSize);
+  TextStyle actorDetailExpandText(double fontSize);
+  TextStyle actorDetailInfoLabel(double fontSize);
+  TextStyle actorDetailInfo(double fontSize);
+
   TextStyle registerNow(double fontSize);
   ThemeData get themeData => ThemeData(
       useMaterial3: true,
