@@ -12,7 +12,6 @@ import 'package:flutter_movie_app/app/core/themes/bloc/theme_bloc.dart';
 import 'package:flutter_movie_app/app/core/themes/theme_enum.dart';
 import 'package:flutter_movie_app/app/features/login/bloc/login_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/bloc/movies_bloc.dart';
-import 'package:flutter_movie_app/app/features/movies/models/genre_data/genre_mock.dart';
 import 'package:flutter_movie_app/app/features/profile/bloc/profile_bloc.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/localization/bloc/localization_bloc.dart';
@@ -20,6 +19,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_movie_app/responsive/responsive.dart';
 
 import 'app/core/constants/constants.dart';
+import 'app/features/movies/models/genre_data/bloc/genre_bloc.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
@@ -34,15 +34,15 @@ void main() async {
     MLogger.log.debug('${feature.runtimeType} initialized');
   }
 
-  await GenreMock.instance.init();
-
   NetworkService networkService =
       NetworkService(baseUrl: dotenv.get(EnvConstants.baseUrl))
         ..addBasicAuth(dotenv.get(EnvConstants.accessToken));
 
   runApp(MultiBlocProvider(providers: [
     BlocProvider(create: (_) => LocalizationsBloc()),
-    BlocProvider(create: (_) => ProfileBloc(getIt<RemoteDataSource>())..add(const ProfileFetchingEvent())),
+    BlocProvider(
+        create: (_) => ProfileBloc(getIt<RemoteDataSource>())
+          ..add(const ProfileFetchingEvent())),
     BlocProvider(
         create: (_) => ThemeBloc()
           ..add(const ChangeThemeEvent(themeType: ThemeEnum.light)),
@@ -52,7 +52,9 @@ void main() async {
           ..add(
               const MoviesFetching(categoryType: MovieCategoriesEnum.popular))),
     BlocProvider(
-        create: (_) => LoginBloc(getIt<RemoteDataSource>()))
+        create: (_) =>
+            GenreBloc(getIt<RemoteDataSource>())..add(GenreFetching())),
+    BlocProvider(create: (_) => LoginBloc(getIt<RemoteDataSource>()))
   ], child: const MyApp()));
 }
 
