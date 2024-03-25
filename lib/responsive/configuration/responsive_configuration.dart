@@ -97,4 +97,14 @@ abstract class ResponsiveConfiguration {
   double get profileFavoriteCellSubTitleTextSize;
   double get profileFavoriteCellIconSize;
   double get profileFavoriteListTitleTextSize;
+
+  double get searchListCellViewTitleTextSize;
+  double get searchViewTitleTextSize;
+  double get searchTextFieldButtonTextSize;
+  double get searchListCellViewTypeTextSize;
+  double get searchListCellViewTypeIconSize;
+  double get searchListCellViewInfoTextSize;
+  double get searchViewNoResultTextSize;
+
 }
+
