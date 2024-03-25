@@ -9,12 +9,11 @@ extension MovieDataExtension on MovieData {
   String getGenres(List<GenreData>? genre) {
     if (genre == null) {
       return "";
-    } else {
-      List<GenreData> filteredList =
-          genre.where((e) => genres!.contains(e.id)).toList();
-      List<String?> stringList = filteredList.map((e) => e.name).toList();
-      return stringList.join(', ');
     }
+    List<GenreData> filteredList =
+        genre.where((e) => genres!.contains(e.id)).toList();
+    List<String?> stringList = filteredList.map((e) => e.name).toList();
+    return stringList.join(', ');
   }
 
   String get getVoteAvarage => voteAvarage!.toStringAsPrecision(2);

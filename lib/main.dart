@@ -19,6 +19,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_movie_app/responsive/responsive.dart';
 
 import 'app/core/constants/constants.dart';
+import 'app/features/movies/models/genre_data/bloc/genre_bloc.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
@@ -39,7 +40,9 @@ void main() async {
 
   runApp(MultiBlocProvider(providers: [
     BlocProvider(create: (_) => LocalizationsBloc()),
-    BlocProvider(create: (_) => ProfileBloc(getIt<RemoteDataSource>())..add(const ProfileFetchingEvent())),
+    BlocProvider(
+        create: (_) => ProfileBloc(getIt<RemoteDataSource>())
+          ..add(const ProfileFetchingEvent())),
     BlocProvider(
         create: (_) => ThemeBloc()
           ..add(const ChangeThemeEvent(themeType: ThemeEnum.light)),
@@ -49,7 +52,9 @@ void main() async {
           ..add(
               const MoviesFetching(categoryType: MovieCategoriesEnum.popular))),
     BlocProvider(
-        create: (_) => LoginBloc(getIt<RemoteDataSource>()))
+        create: (_) =>
+            GenreBloc(getIt<RemoteDataSource>())..add(GenreFetching())),
+    BlocProvider(create: (_) => LoginBloc(getIt<RemoteDataSource>()))
   ], child: const MyApp()));
 }
 
