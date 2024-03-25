@@ -4,8 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/config/app_router.dart';
 import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/movies/models/genre_data/bloc/genre_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
+
+import '../../genre_data/bloc/genre_bloc.dart';
 
 class MovieListView extends StatelessWidget {
   final List<MovieData> movieList;
