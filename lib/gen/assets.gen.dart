@@ -12,10 +12,6 @@ import 'package:flutter/widgets.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/no_result.png
-  AssetGenImage get noResult =>
-      const AssetGenImage('assets/images/no_result.png');
-
   /// File path: assets/images/eye.svg
   String get eye => 'packages/flutter_movie_app/assets/images/eye.svg';
 
@@ -29,6 +25,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.svg
   String get logo => 'packages/flutter_movie_app/assets/images/logo.svg';
 
+  /// File path: assets/images/no_result.png
+  AssetGenImage get noResult =>
+      const AssetGenImage('assets/images/no_result.png');
+
   /// File path: assets/images/poster_1.jpg
   AssetGenImage get poster1 =>
       const AssetGenImage('assets/images/poster_1.jpg');
@@ -38,17 +38,8 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/splash_bg.png');
 
   /// List of all assets
-
-  List<dynamic> get values => [
-        eye,
-        heart,
-        loginBg,
-        logo,
-        poster1,
-        splashBg,
-        noResult,
-        poster1,
-      ];
+  List<dynamic> get values =>
+      [eye, heart, loginBg, logo, noResult, poster1, splashBg];
 }
 
 class MovieAssets {

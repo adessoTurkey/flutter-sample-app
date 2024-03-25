@@ -7,3 +7,4 @@ export 'favorite_entity_type.dart';
 export 'media_type_enum.dart';
 export 'search_failure_enum.dart';
 export 'genre_type_enum.dart';
+export 'rating_endpoints_enum.dart';

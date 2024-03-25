@@ -14,6 +14,9 @@ final class MovieDetailState extends Equatable {
   final VideoModelResponse? videoModelResponse;
   final bool isFavorite;
   final String? errorMessage;
+  final int ratingValue;
+  final bool? isCollapsed;
+  final RatingResponseModel? ratingResponseModel;
 
   const MovieDetailState({
     this.status = MovieDetailStatusX.initial,
@@ -22,6 +25,9 @@ final class MovieDetailState extends Equatable {
     this.videoModelResponse,
     this.isFavorite = false,
     this.errorMessage,
+    this.ratingValue = 0,
+    this.isCollapsed = false,
+    this.ratingResponseModel,
   });
 
   @override
@@ -32,6 +38,9 @@ final class MovieDetailState extends Equatable {
         videoModelResponse,
         isFavorite,
         errorMessage,
+        ratingValue,
+        isCollapsed,
+        ratingResponseModel
       ];
 
   MovieDetailState copyWith({
@@ -41,6 +50,9 @@ final class MovieDetailState extends Equatable {
     VideoModelResponse? videoModelResponse,
     bool? isFavorite,
     String? errorMessage,
+    int? ratingValue,
+    bool? isCollapsed,
+    RatingResponseModel? ratingResponseModel
   }) {
     return MovieDetailState(
       status: status ?? this.status,
@@ -49,6 +61,9 @@ final class MovieDetailState extends Equatable {
       videoModelResponse: videoModelResponse ?? this.videoModelResponse,
       isFavorite: isFavorite ?? this.isFavorite,
       errorMessage: errorMessage ?? this.errorMessage,
+      ratingValue: ratingValue ?? this.ratingValue,
+      isCollapsed: isCollapsed ?? this.isCollapsed,
+      ratingResponseModel: ratingResponseModel ?? this.ratingResponseModel,
     );
   }
 }
