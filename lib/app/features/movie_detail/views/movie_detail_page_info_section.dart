@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_movie_app/app/core/constants/m_colors.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
+import 'package:flutter_movie_app/app/core/utils/show_snackbar.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail/movie_detail_model.dart';
+import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -92,16 +95,18 @@ class MovieDetailPageInfoSection extends StatelessWidget {
           listener: (context, state) {
             if (state.ratingResponseModel?.statusCode == 12) {
               context.showSnackbarAfterHide(
-                SnackBar(
-                  content:
-                      Text("${movieDetailModel?.title} Successfully updated"),
+                showSnackBar(
+                  title: context.localization.snackbar_successfully_updated(
+                      movieDetailModel?.title ?? ""),
+                  backgroundColor: MColors.electricBlue,
                 ),
               );
             } else if (state.ratingResponseModel?.statusCode == 1) {
               context.showSnackbarAfterHide(
-                SnackBar(
-                  content:
-                      Text("${movieDetailModel?.title} Successfully added"),
+                showSnackBar(
+                  title: context.localization.snackbar_successfully_added(
+                      movieDetailModel?.title ?? ""),
+                  backgroundColor: MColors.vibrantBlue,
                 ),
               );
             }
@@ -117,9 +122,9 @@ class MovieDetailPageInfoSection extends StatelessWidget {
                     subject: state.movieDetailModel?.title ?? "");
               },
               starIconButtonTapped: () => context.read<MovieDetailBloc>().add(
-                  MovieDetailRatingCollapsed(
-                      isCollapsed: !(state.isCollapsed ?? false))),
-              isCollapsed: state.isCollapsed ?? false,
+                    MovieDetailRatingCollapsed(isCollapsed: state.isCollapsed),
+                  ),
+              isCollapsed: state.isCollapsed,
             );
           },
         ),

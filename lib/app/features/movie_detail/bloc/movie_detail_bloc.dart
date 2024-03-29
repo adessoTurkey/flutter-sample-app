@@ -115,6 +115,6 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
 
   Future<void> _movieDetailRatingCollapsedTriggered(
       MovieDetailRatingCollapsed event, Emitter<MovieDetailState> emit) async {
-    emit(state.copyWith(isCollapsed: event.isCollapsed));
+    emit(state.copyWith(isCollapsed: !event.isCollapsed));
   }
 }

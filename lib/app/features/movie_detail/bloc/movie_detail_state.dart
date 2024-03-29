@@ -15,7 +15,7 @@ final class MovieDetailState extends Equatable {
   final bool isFavorite;
   final String? errorMessage;
   final int ratingValue;
-  final bool? isCollapsed;
+  final bool isCollapsed;
   final RatingResponseModel? ratingResponseModel;
 
   const MovieDetailState({

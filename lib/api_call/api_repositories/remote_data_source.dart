@@ -23,7 +23,8 @@ import '../models/favorite/response/add_to_favorite_response.dart';
 abstract class RemoteDataSource {
   Future<RequestTokenModel> getRequestToken();
   Future<List<MovieData>> getMovieList(MovieCategoriesEnum categoryEndpoint);
-  Future<RequestTokenModel> loginWithCredentials(LoginCredentialsRequestModel requestBody);
+  Future<RequestTokenModel> loginWithCredentials(
+      LoginCredentialsRequestModel requestBody);
   Future<SessionResponseModel> openSession(SessionRequestModel requestBody);
   Future<MovieDetailModel> getMovieDetail(int movieId);
   Future<VideoModelResponse> getMovieVideos(int movieId);
@@ -299,11 +300,12 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   Future<RatingResponseModel> postRating(
       RatingEnpoints ratingType, int id, int ratingValue) async {
     try {
+      NetworkRequestBody networkRequestBody = NetworkRequestBody.json(
+          RatingRequestModel(value: ratingValue).toJson());
       var networkRequest = NetworkRequest(
         type: NetworkRequestType.post,
         path: "${ratingType.endpoint}/$id/rating",
-        data: NetworkRequestBody.json(
-            RatingRequestModel(value: ratingValue).toJson()),
+        data: networkRequestBody,
         headers: {"Content-Type": NetworkConstants.contentType},
       );
       var ratingResponseModel =
@@ -319,12 +321,13 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   @override
   Future<List<RatedListResponse>> getRatedList(RatingEnpoints fetchType) async {
     try {
+      NetworkRequest ratedListNetworkRequest = NetworkRequest(
+        type: NetworkRequestType.get,
+        path: "${dotenv.get(EnvConstants.accountPath)}/${fetchType.endpoint}",
+        data: const NetworkRequestBody.empty(),
+      );
       var ratedListResponse = await networkService.execute(
-        NetworkRequest(
-          type: NetworkRequestType.get,
-          path: "${dotenv.get(EnvConstants.accountPath)}/${fetchType.endpoint}",
-          data: const NetworkRequestBody.empty(),
-        ),
+        ratedListNetworkRequest,
         (json) {
           return (json['results'] as List)
               .map((e) => RatedListResponse.fromJson(e))
