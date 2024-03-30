@@ -213,6 +213,27 @@ class SmallConfiguration extends ResponsiveConfiguration {
   @override
   double get profileFavoriteListTitleTextSize => 28;
 
+  @override
+  double get searchListCellViewTitleTextSize => 23;
+
+  @override
+  double get searchTextFieldButtonTextSize => 20;
+
+  @override
+  double get searchViewTitleTextSize => 40;
+
+  @override
+  double get searchListCellViewInfoTextSize => 20;
+
+  @override
+  double get searchListCellViewTypeIconSize => 20;
+
+  @override
+  double get searchListCellViewTypeTextSize => 20;
+
+  @override
+  double get searchViewNoResultTextSize => 22;
+
   //Tv Series
   @override
   double get tvSeriesCellImageWidth => 150;

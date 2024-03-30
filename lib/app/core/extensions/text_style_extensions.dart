@@ -203,6 +203,48 @@ extension TextStyleExtensions on TextStyle {
         color: color,
       );
 
+  TextStyle searchViewTitleTextStyle(double fontSize, Color color) => copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
+  TextStyle searchListCellViewTitleTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
+  TextStyle searchTextFieldButtonTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _light4,
+        color: color,
+      );
+
+  TextStyle searchListCellViewInfoTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _light4,
+        color: color,
+      );
+
+  TextStyle searchListCellViewTypeTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _light4,
+        color: color,
+      );
+
+  TextStyle searchViewNoResultTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
+
   TextStyle tvSeriesCellMovieNameTextStyle(double fontSize, Color color) =>
       copyWith(
         fontSize: fontSize,

@@ -304,4 +304,26 @@ class MediumConfiguration extends ResponsiveConfiguration {
 
   @override
   double get tvSeriesDetailCastNameTextSize => 16;
+
+  @override
+  double get searchListCellViewTitleTextSize => 23;
+
+  @override
+  double get searchTextFieldButtonTextSize => 20;
+
+  @override
+  double get searchViewTitleTextSize => 40;
+
+  @override
+  double get searchListCellViewInfoTextSize => 20;
+
+  @override
+  double get searchListCellViewTypeIconSize => 20;
+
+  @override
+  double get searchListCellViewTypeTextSize => 20;
+
+  @override
+  double get searchViewNoResultTextSize => 26;
+
 }

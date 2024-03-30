@@ -211,4 +211,40 @@ final class DarkTheme extends ATheme {
   TextStyle tvSeriesDetailCastNameTextStyle(double fontSize) {
     return const TextStyle().tvSeriesDetailCastNameTextStyle(fontSize, MColors.almostBlack);
   }
+
+  @override
+  TextStyle searchListCellViewTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .searchListCellViewTitleTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle searchViewTitleTextStyle(double fontSize) {
+    return const TextStyle().searchViewTitleTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle searchTextFieldButtonTextStyle(double fontSize, bool isEnabled) {
+    return const TextStyle().searchTextFieldButtonTextStyle(
+        fontSize, isEnabled ? MColors.white : MColors.lightGrey);
+  }
+
+  @override
+  TextStyle searchListCellViewInfoTextStyle(double fontSize) {
+    return const TextStyle()
+        .searchListCellViewInfoTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle searchListCellViewTypeTextStyle(double fontSize) {
+    return const TextStyle()
+        .searchListCellViewTypeTextStyle(fontSize, MColors.black25);
+  }
+
+  @override
+  TextStyle searchViewNoResultTextStyle(double fontSize) {
+    return const TextStyle()
+        .searchViewNoResultTextStyle(fontSize, MColors.electricBlue);
+  }
+
 }

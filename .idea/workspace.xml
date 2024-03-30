@@ -4,51 +4,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/app/core/extensions/cast_result_extension.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/core/extensions/tv_series_detail_model_extension.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_crew_label_section.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_image_section.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_trailer.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/episode_duration_view.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_event.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_state.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/models/creator/tv_series_creator_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/models/creator/tv_series_creator_model.freezed.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/models/creator/tv_series_creator_model.g.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/models/tv_series_detail_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/models/tv_series_detail_model.freezed.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/models/tv_series_detail_model.g.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_cast_item.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_cast_list.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_cast_section.dart" afterDir="false" />
+    <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="change LoginConstant to AppConstant">
+      <change afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api_call/api_repositories/remote_data_source.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api_call/api_repositories/remote_data_source.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/config/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/config/app_router.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/config/app_router.gr.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/config/app_router.gr.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/constants/m_colors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/constants/m_colors.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/padding_extension.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/padding_extension.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/string_extension.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/string_extension.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/text_style_extensions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/text_style_extensions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/base_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/base_theme.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/dark_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/dark_theme.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/light_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/light_theme.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/duration_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/duration_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/widgets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/widgets.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_description_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_description_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_image_section.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_info_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_info_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_trailer_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_trailer_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/tv_series_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/tv_series_detail_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/app_en.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/app_en.arb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/app_tr.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/app_tr.arb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/responsive/configuration/large_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/configuration/large_configuration.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/responsive/configuration/medium_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/configuration/medium_configuration.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/responsive/configuration/responsive_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/configuration/responsive_configuration.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/responsive/configuration/small_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/configuration/small_configuration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/tv-series-page-and-api" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -94,7 +57,6 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib/app/core/widgets/detail" />
       <recent name="$PROJECT_DIR$/lib/app/features/login/bloc" />
       <recent name="$PROJECT_DIR$/lib/app/features/login/bloc/password" />
       <recent name="$PROJECT_DIR$/lib/app/features/login/bloc/authentication" />
@@ -109,7 +71,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="bugfix" />
+      <changelist id="df2c136c-efe9-44f6-9d9b-c850e885ec19" name="Changes" comment="" />
       <created>1708935392917</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
