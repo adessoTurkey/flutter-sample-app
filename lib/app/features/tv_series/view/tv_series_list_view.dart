@@ -32,8 +32,10 @@ class TvSeriesListView extends StatelessWidget {
               padding: 8.onlyVertical,
               child: GestureDetector(
                 onTap: () {
-                  context.pushRoute(
+                  if(tvSeries.id != null) {
+                    context.pushRoute(
                       TvSeriesDetailRoute(tvSeriesId: tvSeries.id!));
+                  }
                 },
                 child: TvSeriesCellView(
                   tvSeriesData: tvSeries,

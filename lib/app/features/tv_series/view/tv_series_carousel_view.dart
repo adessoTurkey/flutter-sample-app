@@ -39,7 +39,9 @@ class TvSeriesCarouselView extends StatelessWidget {
                     return CarouselImageCardWidget(
                       imageUrl: tvSeriesList[index].getImageURL,
                       onTapped: () {
-                        context.pushRoute(TvSeriesDetailRoute(tvSeriesId: tvSeriesList[index].id!));
+                        if(tvSeriesList[index].id != null) {
+                          context.pushRoute(TvSeriesDetailRoute(tvSeriesId: tvSeriesList[index].id!));
+                        }
                       },
                     );
                   },
