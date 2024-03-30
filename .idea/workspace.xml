@@ -6,22 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api_call/api_repositories/remote_data_source.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api_call/api_repositories/remote_data_source.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/movie_data_extension.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/movie_data_extension.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/tv_series_data_extension.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/tv_series_data_extension.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/movie_cell_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/movie_cell_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/models/genre_data/bloc/genre_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/genre_data/bloc/genre_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/models/genre_data/bloc/genre_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/genre_data/bloc/genre_event.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/models/genre_data/bloc/genre_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/genre_data/bloc/genre_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/models/genre_data/genre_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/genre_data/genre_data.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/models/genre_data/genre_data.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/genre_data/genre_data.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/models/genre_data/genre_data.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/genre_data/genre_data.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/models/movie_models.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/models/movie_models.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/movies_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/movies_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/view/movie_list_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/view/movie_list_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/view/movies_carousel_card_info_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/view/movies_carousel_card_info_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/extensions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/extensions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/string_extension.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/string_extension.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/text_style_extensions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/text_style_extensions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/base_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/base_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/dark_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/dark_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/light_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/light_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/models/tv_series_models.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/models/tv_series_models.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/tv_series.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/tv_series.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/tv_series_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/tv_series_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_carousel_card_info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_carousel_card_info.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_cell_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_cell_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_list_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_list_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/responsive/configuration/large_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/configuration/large_configuration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/responsive/configuration/medium_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/configuration/medium_configuration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/responsive/configuration/responsive_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/configuration/responsive_configuration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/responsive/configuration/small_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/configuration/small_configuration.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +82,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="df2c136c-efe9-44f6-9d9b-c850e885ec19" name="Changes" comment="" />
+      <changelist id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="" />
       <created>1708935392917</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />

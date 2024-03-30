@@ -103,7 +103,7 @@ abstract class ResponsiveConfiguration {
   double get tvSeriesCellImageHeight;
   double get tvSeriesCellInfoContainerHeight;
   double get tvSeriesCellBodyPaddingLeft;
-  double get tvSeriesCellMovieNameTextSize;
+  double get tvSeriesCellNameTextSize;
   double get tvSeriesCellCardElevation;
   double get tvSeriesGridMainAxisSpacing;
   double get tvSeriesGridCrossAxisSpacing;

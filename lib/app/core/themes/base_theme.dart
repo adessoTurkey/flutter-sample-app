@@ -61,7 +61,7 @@ abstract class ATheme {
   TextStyle mainPageListViewTitleTextStyle(double fontSize);
   TextStyle mainPageAppBarTitleTextStyle(double fontSize);
   TextStyle mainPageViewHeaderTextStyle(double fontSize);
-  TextStyle tvSeriesCellMovieNameTextStyle(double fontSize);
+  TextStyle tvSeriesCellNameTextStyle(double fontSize);
 
   ThemeData get themeData => ThemeData(
       useMaterial3: true,

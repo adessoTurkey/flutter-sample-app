@@ -39,16 +39,18 @@ class TvSeriesCellView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    if(tvSeriesData.tvSeriesTitle != null)
                     Text(
-                      tvSeriesData.tvSeriesTitle.emptyIfNull,
-                      style: theme.tvSeriesCellMovieNameTextStyle(
-                        configuration.tvSeriesCellMovieNameTextSize,
+                      tvSeriesData.tvSeriesTitle!,
+                      style: theme.tvSeriesCellNameTextStyle(
+                        configuration.tvSeriesCellNameTextSize,
                       ),
                       maxLines: 1,
                     ),
                     10.verticalSizedBox,
+                    if(tvSeriesData.getVoteAverage != null)
                     RatingView(
-                        rating: tvSeriesData.getVoteAverage.emptyIfNull,
+                        rating: tvSeriesData.getVoteAverage!,
                         type: RatingViewType.cell
                     ),
                   ],

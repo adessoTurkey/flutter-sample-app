@@ -203,7 +203,7 @@ extension TextStyleExtensions on TextStyle {
         color: color,
       );
 
-  TextStyle tvSeriesCellMovieNameTextStyle(double fontSize, Color color) =>
+  TextStyle tvSeriesCellNameTextStyle(double fontSize, Color color) =>
       copyWith(
         fontSize: fontSize,
         fontWeight: _bold,

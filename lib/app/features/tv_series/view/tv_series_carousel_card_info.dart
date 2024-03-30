@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/extensions/tv_series_data_extension.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/tv_series/models/tv_series_data/tv_series_data.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
@@ -21,11 +20,13 @@ class TvSeriesCarouselCardInfo extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              if(tvSeries.getVoteAverage != null)
               RatingView(
-                  rating: tvSeries.getVoteAverage.emptyIfNull,
+                  rating: tvSeries.getVoteAverage!,
                   type: RatingViewType.carousel),
+              if(tvSeries.tvSeriesTitle != null)
               Text(
-                tvSeries.tvSeriesTitle.emptyIfNull,
+                tvSeries.tvSeriesTitle!,
                 style: theme.carouselCardTitleTextStyle(
                     configuration.carouselCardTitleTextSize),
                 maxLines: 1,

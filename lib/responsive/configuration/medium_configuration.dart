@@ -254,7 +254,7 @@ class MediumConfiguration extends ResponsiveConfiguration {
   double get tvSeriesCellCardElevation => 8;
 
   @override
-  double get tvSeriesCellMovieNameTextSize => 22;
+  double get tvSeriesCellNameTextSize => 22;
 
   @override
   double get tvSeriesDetailSliverAppBarExpandableHeight => 100;
