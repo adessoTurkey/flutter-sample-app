@@ -4,10 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movies/bloc/movies_bloc.dart';
-import 'package:flutter_movie_app/app/features/movies/models/genre_data/bloc/genre_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/movies.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
+
+import '../genre_data/bloc/genre_bloc.dart';
 
 @RoutePage()
 class MoviesPage extends StatelessWidget {

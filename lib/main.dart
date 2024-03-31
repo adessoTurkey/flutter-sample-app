@@ -21,7 +21,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_movie_app/responsive/responsive.dart';
 
 import 'app/core/constants/constants.dart';
-import 'app/features/movies/models/genre_data/bloc/genre_bloc.dart';
+import 'app/features/genre_data/bloc/genre_bloc.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");

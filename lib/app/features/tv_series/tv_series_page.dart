@@ -4,9 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/tv_series/bloc/tv_series_bloc.dart';
-import 'package:flutter_movie_app/app/features/tv_series/view/tv_series_carousel_card_info.dart';
-import 'package:flutter_movie_app/app/features/tv_series/view/tv_series_carousel_view.dart';
-import 'package:flutter_movie_app/app/features/tv_series/view/tv_series_list_view.dart';
+import 'package:flutter_movie_app/app/features/tv_series/tv_series.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
@@ -101,9 +99,7 @@ class _TvSeriesListView extends StatelessWidget {
           return const LoadingView();
         }
         if (state is TvSeriesSuccess) {
-          return SizedBox(
-            child: TvSeriesListView(tvSeriesList: state.tvSeriesList),
-          );
+          return TvSeriesListView(tvSeriesList: state.tvSeriesList);
         }
         if (state is TvSeriesError) {
           return Center(
@@ -160,7 +156,7 @@ class _CarouselView extends StatelessWidget {
         }
         if (state is TvSeriesError) {
           return Center(
-            child: Text(state.errorMessage ?? context.localization.fetching_error),
+            child: Text(context.localization.fetching_error),
           );
         }
         return const LoadingView();

@@ -192,9 +192,9 @@ final class DarkTheme extends ATheme {
   }
 
   @override
-  TextStyle tvSeriesCellMovieNameTextStyle(double fontSize) {
+  TextStyle tvSeriesCellNameTextStyle(double fontSize) {
     return const TextStyle()
-        .tvSeriesCellMovieNameTextStyle(fontSize, MColors.almostBlack);
+        .tvSeriesCellNameTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override

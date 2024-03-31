@@ -203,6 +203,13 @@ extension TextStyleExtensions on TextStyle {
         color: color,
       );
 
+  TextStyle tvSeriesCellNameTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
   TextStyle searchViewTitleTextStyle(double fontSize, Color color) => copyWith(
         fontSize: fontSize,
         fontWeight: _bold,
@@ -238,14 +245,6 @@ extension TextStyleExtensions on TextStyle {
       );
 
   TextStyle searchViewNoResultTextStyle(double fontSize, Color color) =>
-      copyWith(
-        fontSize: fontSize,
-        fontWeight: _bold,
-        color: color,
-      );
-
-
-  TextStyle tvSeriesCellMovieNameTextStyle(double fontSize, Color color) =>
       copyWith(
         fontSize: fontSize,
         fontWeight: _bold,

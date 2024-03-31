@@ -12,6 +12,7 @@ import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
 import 'package:flutter_movie_app/app/features/profile/models/account_detail/account_detail.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_movie/favorite_movie_data.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_tv/favorite_tv_data.dart';
+import '../../app/features/genre_data/genre_data.dart';
 import '../../app/features/tv_series/models/tv_series_data/tv_series_data.dart';
 import 'package:flutter_movie_app/app/features/search/models/search_multi/search_multi_data.dart';
 import 'package:flutter_movie_app/localization/localization_helper.dart';

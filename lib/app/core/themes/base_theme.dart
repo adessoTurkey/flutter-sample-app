@@ -57,7 +57,7 @@ abstract class ATheme {
   TextStyle mainPageListViewTitleTextStyle(double fontSize);
   TextStyle mainPageAppBarTitleTextStyle(double fontSize);
   TextStyle mainPageViewHeaderTextStyle(double fontSize);
-  TextStyle tvSeriesCellMovieNameTextStyle(double fontSize);
+  TextStyle tvSeriesCellNameTextStyle(double fontSize);
 
   //Tv Series Detail
   TextStyle tvSeriesDetailSeasonsTextStyle(double fontSize);
