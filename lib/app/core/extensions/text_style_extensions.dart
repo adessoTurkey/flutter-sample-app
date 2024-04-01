@@ -9,7 +9,7 @@ extension TextStyleExtensions on TextStyle {
   FontWeight get _w300 => FontWeight.w300;
 
   FontWeight get _w700 => FontWeight.w700;
-  FontWeight get _semiBold => FontWeight.w600;
+  FontWeight get _semiBold => FontWeight.w500;
 
   TextStyle movieCellMovieNameTextStyle(double fontSize, Color color) =>
       copyWith(
