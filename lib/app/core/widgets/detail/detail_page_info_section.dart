@@ -33,8 +33,9 @@ class DetailPageInfoSection extends StatelessWidget {
             ),
             _ratingAndSharingSection(),
             20.verticalSizedBox,
+            if(overview != null)
             Text(
-              overview.emptyIfNull,
+              overview!,
               style: theme.detailDescriptionTextStyle(
                   configuration.detailPageDescriptionTextSize),
             ),
@@ -49,15 +50,17 @@ class DetailPageInfoSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        if(title != null)
         Text(
-          title.emptyIfNull,
+          title!,
           style: titleTextStyle,
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
         ),
         10.verticalSizedBox,
+        if(genres != null)
         Text(
-          genres.emptyIfNull,
+          genres!,
           style: genresTextStyle,
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
@@ -73,13 +76,14 @@ class DetailPageInfoSection extends StatelessWidget {
         10.verticalSizedBox,
         Row(
           children: [
-             DurationView(durationTime: runTime.emptyIfNull),
+             DurationView(durationTime: runTime),
             const VerticalDividerWidget(
               paddingAll: 10,
               dividerHeight: 20,
               dividerWidth: 2,
             ),
-            ReleaseDateView(releaseDate: releaseDate.emptyIfNull),
+            if(releaseDate != null)
+            ReleaseDateView(releaseDate: releaseDate!),
             const VerticalDividerWidget(
               paddingAll: 10,
               dividerHeight: 20,

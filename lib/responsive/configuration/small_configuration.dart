@@ -325,4 +325,7 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   @override
   double get tvSeriesDetailCastNameTextSize => 16;
+
+  @override
+  double get detailPageRatingViewPositionedLeft => 30;
 }

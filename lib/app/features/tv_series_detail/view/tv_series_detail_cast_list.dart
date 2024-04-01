@@ -5,7 +5,7 @@ import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import '../../movie_detail/models/credits/cast/cast_results.dart';
 
 class DetailHorizontalCastList extends StatelessWidget {
-  final List<CastResults>? castList;
+  final List<CastResults> castList;
   const DetailHorizontalCastList({required this.castList, super.key});
 
   @override
@@ -17,17 +17,15 @@ class DetailHorizontalCastList extends StatelessWidget {
         height: configuration.tvSeriesDetailCastListHeight, // Height of the horizontal list
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: castList?.length, // Number of items in the list
+          itemCount: castList.length, // Number of items in the list
           itemBuilder: (BuildContext context, int index) {
-            var castItem = castList?[index];
+            var castItem = castList[index];
             return Padding(
               padding: 8.onlyHorizontal,
               child: GestureDetector(
-                onTap: () {
-                  //context.pushRoute(MovieDetailRoute(movieId: movie.id!));
-                },
+                onTap: () {},
                 child: DetailPageCastItem(
-                  cast: castItem!,
+                  cast: castItem,
                 ),
               ),
             );

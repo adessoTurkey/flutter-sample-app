@@ -11,7 +11,7 @@ import 'package:flutter_movie_app/app/features/splash/splash_page.dart';
 import 'package:flutter_movie_app/app/features/tv_series/tv_series_page.dart';
 import 'package:flutter_movie_app/app/features/tv_series_detail/tv_series_detail.dart';
 
-import '../../features/tv_series_detail/tv_series_detail_page.dart';
+import '../../features/tv_series_detail/view/tv_series_detail_page.dart';
 
 part 'app_router.gr.dart';
 

@@ -40,7 +40,7 @@
   "tv_series_detail_date_title": "Dizi",
   "tv_series_detail_seasons": "Sezon",
   "tv_series_detail_cast": "Oyuncular",
-  "tv_series_detail_creators": "Yaratıcılar"
+  "tv_series_detail_creators": "Yaratıcılar",
   "profile_favorite_title_text": "Favori",
   "movie_detail_duration_text": "dk",
   "search_page_title": "Arama",
@@ -50,5 +50,8 @@
   "search_page_cell_type_tv": "Dizi",
   "search_page_cell_type_person": "Aktör",
   "search_page_no_result": "Aramanız herhangi bir sonuç vermedi",
-  "search_page_short_search_text_error": "Lütfen arama yaparken 3 karakterden fazla kullanın."
+  "search_page_short_search_text_error": "Lütfen arama yaparken 3 karakterden fazla kullanın.",
+  "movie_detail_director_label": "Yönetmen",
+  "movie_detail_writers_label": "Yazarlar",
+  "movie_detail_stars_label": "Oyuncular"
 }

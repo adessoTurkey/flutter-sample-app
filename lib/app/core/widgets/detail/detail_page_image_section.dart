@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/constants/m_colors.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/bloc/movie_detail_bloc.dart';
 import 'package:flutter_movie_app/app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart';
@@ -41,11 +40,13 @@ class _DetailPageImageSectionState
             children: [
               Stack(
                 children: [
+                  if(widget.imageUrl != null)
                   SizedBox(
                     height: configuration.detailPageImageViewHeight,
                     width: context.screenSize.width,
-                    child: ImageContainerView(
-                      imageURL: widget.imageUrl.emptyIfNull,
+                    child:
+                    ImageContainerView(
+                      imageURL: widget.imageUrl!,
                       placeholderImage: MovieAssets.images.poster1.path,
                     ),
                   ),
@@ -53,11 +54,12 @@ class _DetailPageImageSectionState
                       configuration.detailPageRateAndShareIconSize),
                 ],
               ),
+              if(widget.voteAverage != null)
               Positioned(
                 bottom: configuration.detailPageRatingViewPositionedBottom,
-                left: 30,
+                left: configuration.detailPageRatingViewPositionedLeft,
                 child: RatingView(
-                  rating: widget.voteAverage ?? "",
+                  rating: widget.voteAverage!,
                   type: RatingViewType.carousel,
                 ),
               )

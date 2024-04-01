@@ -326,4 +326,7 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   @override
   double get searchViewNoResultTextSize => 26;
 
+  @override
+  double get detailPageRatingViewPositionedLeft => 30;
+
 }

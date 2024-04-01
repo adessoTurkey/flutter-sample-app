@@ -73,6 +73,7 @@ abstract class ResponsiveConfiguration {
   double get detailPageImageViewHeight;
   double get detailPageImageContainerHeight;
   double get detailPageRatingViewPositionedBottom;
+  double get detailPageRatingViewPositionedLeft;
   double get movieDetailPagePaddingHorizontal;
   double get movieDetailPagePaddingVerical;
   double get detailPageRateAndShareIconSize;

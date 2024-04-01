@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
 import 'package:flutter_movie_app/app/features/login/views/login_button.dart';
 import 'package:flutter_movie_app/app/features/login/views/login_password_field.dart';
 import 'package:flutter_movie_app/app/features/login/views/login_text_field.dart';

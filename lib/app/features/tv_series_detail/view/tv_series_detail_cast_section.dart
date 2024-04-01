@@ -8,7 +8,7 @@ import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class TvSeriesDetailCastSection extends StatelessWidget {
   final CreditResponse creditResponse;
-  final String creators;
+  final String? creators;
   const TvSeriesDetailCastSection({required this.creditResponse, required this.creators, super.key});
 
   @override
@@ -18,6 +18,7 @@ class TvSeriesDetailCastSection extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            if(creators != null && creators!.isNotEmpty)
             tvSeriesDetailCreatorSection(
               context.localization.tv_series_detail_creators,
               theme.movieDetailCastLeftLabelTextStyle(
@@ -31,7 +32,7 @@ class TvSeriesDetailCastSection extends StatelessWidget {
                configuration.tvSeriesDetailCastTitleTextSize
              ),),
             if(creditResponse.cast != null)
-              DetailHorizontalCastList(castList: creditResponse.cast),
+              DetailHorizontalCastList(castList: creditResponse.cast!),
           ],
         );
       },
@@ -44,6 +45,6 @@ class TvSeriesDetailCastSection extends StatelessWidget {
       TextStyle infoTextStyle,
       ) {
     return DetailCrewLabelSection(title: title, titleTextStyle: titleTextStyle,
-       info: creators, infoTextStyle: infoTextStyle);
+       info: creators!, infoTextStyle: infoTextStyle);
   }
 }

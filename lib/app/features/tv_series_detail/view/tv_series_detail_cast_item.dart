@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/extensions/cast_result_extension.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_models.dart';
 import '../../../../responsive/configuration_widget.dart';
@@ -17,17 +16,19 @@ class DetailPageCastItem extends StatelessWidget {
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              if(cast.profilePath != null)
               SizedBox(
                 width: configuration.tvSeriesDetailCastImageSize,
                 height: configuration.tvSeriesDetailCastImageSize,
                 child: CircleAvatar(
                   radius: configuration.tvSeriesDetailCastImageRadius,
-                  backgroundImage: NetworkImage(cast.getImageURL),
+                  backgroundImage: NetworkImage(cast.profilePath!.toImageUrl),
                 ),
               ),
               8.verticalSizedBox,
+              if(cast.originalName != null)
               Text(
-                cast.originalName.emptyIfNull,
+                cast.originalName!,
                 style: theme.tvSeriesDetailCastNameTextStyle(
                   configuration.tvSeriesDetailCastNameTextSize
                 ),
