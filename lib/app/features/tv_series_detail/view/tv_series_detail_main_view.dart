@@ -47,7 +47,7 @@ class TvSeriesDetailMainView extends StatelessWidget {
                     DetailPageInfoSection(
                       overview: tvSeriesDetailModel.overview,
                       releaseDate: "${context.localization.tv_series_detail_date_title} ${tvSeriesDetailModel.getDates()}",
-                      runTime: tvSeriesDetailModel.getDuration,
+                      runTime: tvSeriesDetailModel.getDuration(),
                       genres: tvSeriesDetailModel.getGenres(),
                       title: tvSeriesDetailModel.name,
                     ),

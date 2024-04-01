@@ -19,7 +19,12 @@ extension TvSeriesDetailModelExtension on TvSeriesDetailModel {
     return "($first - $last)";
   }
 
-  String get getDuration => (episodeRunTime?.first.toString()) ?? "-";
+  String? getDuration(){
+    if(episodeRunTime != null && episodeRunTime!.isNotEmpty){
+      return episodeRunTime!.first.toString();
+    }
+    return null;
+  }
 
   String get getNumberOfSeasons => numberOfSeasons.toString();
 

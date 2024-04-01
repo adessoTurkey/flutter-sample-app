@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
-import '../../../core/widgets/detail/duration_view.dart';
 
 class DetailPageInfoSection extends StatelessWidget {
   final String? overview;
