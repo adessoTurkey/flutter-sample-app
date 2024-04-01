@@ -38,7 +38,7 @@ class ExpandableTextState extends State<ExpandableText> {
                 : CrossFadeState.showFirst,
           ),
           10.verticalSizedBox,
-          GestureDetector(
+          InkWell(
             onTap: () {
               setState(() {
                 _isExpanded = !_isExpanded;

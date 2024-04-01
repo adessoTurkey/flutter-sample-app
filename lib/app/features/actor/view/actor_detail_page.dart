@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/features/actor/bloc/actor_detail_bloc.dart';
 import 'package:flutter_movie_app/app/features/actor/view/actor_detail_main_view.dart';
-import '../../../api_call/api_repositories/remote_data_source.dart';
-import '../../../di/dependency_injection.dart';
-import '../../core/widgets/error_view.dart';
-import '../../core/widgets/loading_view.dart';
+import '../../../../api_call/api_repositories/remote_data_source.dart';
+import '../../../../di/dependency_injection.dart';
+import '../../../core/widgets/error_view.dart';
+import '../../../core/widgets/loading_view.dart';
 
 @RoutePage()
 class ActorDetailPage extends StatelessWidget{
@@ -26,9 +26,7 @@ class ActorDetailPage extends StatelessWidget{
               case ActorDetailStatus.loading:
                 return const LoadingView();
               case ActorDetailStatus.success:
-                return state.actorDetailModel != null?
-                ActorDetailMainView(actorDetailModel: state.actorDetailModel!):
-                const LoadingView();
+                return ActorDetailMainView(actorDetailModel: state.actorDetailModel!);
               case ActorDetailStatus.error:
                 return ErrorView(
                   error: state.errorMessage,

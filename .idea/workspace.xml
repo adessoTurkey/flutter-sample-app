@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="add tv series detail page and ui">
-      <change afterPath="$PROJECT_DIR$/lib/app/features/actor/view/actor_detail_main_view.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/actor/view/expandable_text.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/constants/app_constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/constants/app_constants.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/actor_detail_model_extension.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/string_extension.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/string_extension.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/text_style_extensions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/text_style_extensions.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/actor/actor_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/actor/actor_detail_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/view/movie_list_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/view/movie_list_view.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

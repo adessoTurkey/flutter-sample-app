@@ -10,7 +10,7 @@ import 'package:flutter_movie_app/app/features/search/search_page.dart';
 import 'package:flutter_movie_app/app/features/splash/splash_page.dart';
 import 'package:flutter_movie_app/app/features/tv_series/tv_series_page.dart';
 
-import '../../features/actor/actor_detail_page.dart';
+import '../../features/actor/view/actor_detail_page.dart';
 
 part 'app_router.gr.dart';
 
