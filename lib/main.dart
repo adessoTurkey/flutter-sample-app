@@ -4,12 +4,15 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/api_repositories.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
 import 'package:flutter_movie_app/api_call/network/network.dart';
+import 'package:flutter_movie_app/app/core/cache/auth_cache_manager.dart';
 import 'package:flutter_movie_app/app/core/config/app_router.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/initialization/initialization_adapter.dart';
 import 'package:flutter_movie_app/app/core/logger/m_logger.dart';
 import 'package:flutter_movie_app/app/core/themes/bloc/theme_bloc.dart';
 import 'package:flutter_movie_app/app/core/themes/theme_enum.dart';
+import 'package:flutter_movie_app/app/features/auth/bloc/authentication_bloc.dart';
+import 'package:flutter_movie_app/app/features/auth/repository/auth_repository.dart';
 import 'package:flutter_movie_app/app/features/login/bloc/login_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/bloc/movies_bloc.dart';
 import 'package:flutter_movie_app/app/features/profile/bloc/profile_bloc.dart';
@@ -52,9 +55,17 @@ void main() async {
           ..add(
               const MoviesFetching(categoryType: MovieCategoriesEnum.popular))),
     BlocProvider(
+      create: (_) => AuthenticationBloc(
+        getIt<AuthCacheManager>(),
+        getIt<AuthenticationRepository>(),
+      )..add(AppStarted()),
+    ),
+    BlocProvider(
         create: (_) =>
             GenreBloc(getIt<RemoteDataSource>())..add(GenreFetching())),
-    BlocProvider(create: (_) => LoginBloc(getIt<RemoteDataSource>()))
+    BlocProvider(
+        create: (_) => LoginBloc(
+            getIt<RemoteDataSource>(), getIt<AuthenticationRepository>()))
   ], child: const MyApp()));
 }
 

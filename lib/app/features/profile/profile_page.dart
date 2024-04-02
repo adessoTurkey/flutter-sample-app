@@ -1,11 +1,16 @@
 import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_movie_app/app/core/config/app_router.dart';
+import 'package:flutter_movie_app/app/core/constants/m_colors.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
+import 'package:flutter_movie_app/app/features/auth/bloc/authentication_bloc.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'profile.dart';
 
@@ -64,29 +69,43 @@ class _ProfileHeaderView extends StatelessWidget {
       onConfigurationReady: (configuration, theme) {
         return Padding(
           padding: 10.symmetric(horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              85.verticalSizedBox,
-              Text(
-                context.localization.profile_header_text,
-                style: theme.profileHeaderLabelTextStyle(
-                  configuration.profileHeaderLabelTextSize,
-                ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  85.verticalSizedBox,
+                  Text(
+                    context.localization.profile_header_text,
+                    style: theme.profileHeaderLabelTextStyle(
+                      configuration.profileHeaderLabelTextSize,
+                    ),
+                  ),
+                  50.verticalSizedBox,
+                  Text(
+                    context.localization.profile_sub_header_text,
+                    style: theme.profileSubHeaderLabelTextStyle(
+                      configuration.profileSubHeaderLabelTextSize,
+                    ),
+                  ),
+                  Text(
+                    username,
+                    style: theme.profileUsernameLabelTextStyle(
+                      configuration.profileUsernameLabelTextSize,
+                    ),
+                  ),
+                ],
               ),
-              50.verticalSizedBox,
-              Text(
-                context.localization.profile_sub_header_text,
-                style: theme.profileSubHeaderLabelTextStyle(
-                  configuration.profileSubHeaderLabelTextSize,
-                ),
-              ),
-              Text(
-                username,
-                style: theme.profileUsernameLabelTextStyle(
-                  configuration.profileUsernameLabelTextSize,
-                ),
-              ),
+              IconButton(
+                  onPressed: () {
+                    context.read<AuthenticationBloc>().add(LogoutRequested());
+                    context.replaceRoute(const LoginRoute());
+                  },
+                  icon: const FaIcon(
+                    FontAwesomeIcons.doorOpen,
+                    color: MColors.tomato,
+                  ))
             ],
           ),
         );

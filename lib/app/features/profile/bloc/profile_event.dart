@@ -10,3 +10,4 @@ sealed class ProfileEvent extends Equatable {
 final class ProfileFetchingEvent extends ProfileEvent {
   const ProfileFetchingEvent();
 }
+

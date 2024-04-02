@@ -2,7 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/api_repositories.dart';
 import 'package:flutter_movie_app/api_call/network/network.dart';
+import 'package:flutter_movie_app/app/core/cache/auth_cache_manager.dart';
 import 'package:flutter_movie_app/app/core/themes/themes.dart';
+import 'package:flutter_movie_app/app/features/auth/repository/auth_repository.dart';
 import 'package:flutter_movie_app/localization/localization_helper.dart';
 import 'package:flutter_movie_app/responsive/configuration/configuration.dart';
 import 'package:get_it/get_it.dart';
@@ -61,5 +63,8 @@ void _configureInjection() {
     ..registerSingleton<SmallConfiguration>(SmallConfiguration())
     ..registerSingleton<ResponsiveConfigurationFactory>(
         ResponsiveConfigurationFactory())
+    ..registerSingleton<AuthCacheManager>(AuthCacheManager())
+    ..registerSingleton<AuthenticationRepository>(
+        AuthenticationRepository(authCacheManager: getIt<AuthCacheManager>()))
     ..registerLazySingleton<Talker>(() => talker);
 }
