@@ -1,9 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
-
 import '../../../../../../api_call/api_repositories/api_repositories.dart';
-import '../../movie_models.dart';
+import '../genre_data.dart';
 
 part 'genre_event.dart';
 part 'genre_state.dart';

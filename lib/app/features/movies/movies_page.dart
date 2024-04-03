@@ -4,10 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movies/bloc/movies_bloc.dart';
-import 'package:flutter_movie_app/app/features/movies/models/genre_data/bloc/genre_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/movies.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
+
+import '../genre_data/bloc/genre_bloc.dart';
 
 @RoutePage()
 class MoviesPage extends StatelessWidget {
@@ -34,14 +35,14 @@ class MoviesPage extends StatelessWidget {
                         CustomScrollViewAppBar(
                           implyLeading: false,
                           largeTitle: context.localization.movies_page_title,
-                          largeTitleStyle: theme.moviesViewHeaderTextStyle(
+                          largeTitleStyle: theme.mainPageViewHeaderTextStyle(
                             configuration.headerTextSize,
                           ),
                           appBarTitle:
                               context.localization.movies_page_app_bar_title,
                           appBarTitleStyle:
-                              theme.moviesPageAppBarTitleTextStyle(
-                                  configuration.moviePageAppBarTitleTextSize),
+                              theme.mainPageAppBarTitleTextStyle(
+                                  configuration.mainPageAppBarTitleTextSize),
                           backgroundColor: theme.themeData.primaryColorDark,
                           expandedHeight: configuration
                               .movieDetailSliverAppBarExpandableHeight,
@@ -73,15 +74,11 @@ class MoviesPage extends StatelessWidget {
                                         context.localization
                                             .movies_page_popular_title,
                                         style: theme
-                                            .moviesPageListViewTitleTextStyle(
+                                            .mainPageListViewTitleTextStyle(
                                                 configuration
-                                                    .moviePageListViewTitleTextSize),
+                                                    .mainPageListViewTitleTextSize),
                                       ),
-                                      _MovieListView(
-                                          movieCellHeight:
-                                              configuration.movieCellHeight,
-                                          movieCellSpacing:
-                                              configuration.movieCellSpacing)
+                                      _MovieListView()
                                     ],
                                   ),
                                 ),
@@ -103,13 +100,6 @@ class MoviesPage extends StatelessWidget {
 }
 
 class _MovieListView extends StatelessWidget {
-  const _MovieListView({
-    required this.movieCellHeight,
-    required this.movieCellSpacing,
-  });
-
-  final double movieCellHeight;
-  final double movieCellSpacing;
 
   @override
   Widget build(BuildContext context) {
@@ -122,11 +112,7 @@ class _MovieListView extends StatelessWidget {
           return const LoadingView();
         }
         if (state is MoviesSuccess) {
-          return SizedBox(
-            height:
-                (movieCellHeight + movieCellSpacing) * state.movieList.length,
-            child: MovieListView(movieList: state.movieList),
-          );
+          return MovieListView(movieList: state.movieList);
         }
         if (state is MoviesError) {
           return Center(
