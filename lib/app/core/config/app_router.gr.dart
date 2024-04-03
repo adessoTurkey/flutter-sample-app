@@ -67,6 +67,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const TvSeriesPage(),
       );
     },
+    WebView.name: (routeData) {
+      final args = routeData.argsAs<WebViewArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WebView(
+          url: args.url,
+          key: args.key,
+        ),
+      );
+    },
   };
 }
 
@@ -204,4 +214,41 @@ class TvSeriesRoute extends PageRouteInfo<void> {
   static const String name = 'TvSeriesRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [WebView]
+class WebView extends PageRouteInfo<WebViewArgs> {
+  WebView({
+    required String url,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          WebView.name,
+          args: WebViewArgs(
+            url: url,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'WebView';
+
+  static const PageInfo<WebViewArgs> page = PageInfo<WebViewArgs>(name);
+}
+
+class WebViewArgs {
+  const WebViewArgs({
+    required this.url,
+    this.key,
+  });
+
+  final String url;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'WebViewArgs{url: $url, key: $key}';
+  }
 }

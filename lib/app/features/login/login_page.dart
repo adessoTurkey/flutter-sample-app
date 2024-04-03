@@ -58,7 +58,7 @@ class LoginPage extends StatelessWidget {
                         Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () { },
                             child: Text(
                               context.localization.forgatPassword,
                               style: theme
