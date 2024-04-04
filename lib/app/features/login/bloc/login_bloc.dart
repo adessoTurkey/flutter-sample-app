@@ -67,7 +67,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         SessionResponseModel sessionResponse =
             await remoteDataSource.openSession(SessionRequestModel(
                 requestToken: validatedTokenResponse.requestToken.toString()));
-       
         authenticationRepository.logIn(sessionResponse.sessionId);
         emit(state.copyWith(status: FormzSubmissionStatus.success));
       } catch (_) {

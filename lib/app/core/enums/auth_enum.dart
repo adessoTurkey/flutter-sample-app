@@ -1,7 +1,7 @@
 enum AuthEnums {
   login('login'),
   introOff('introOff'),
-  token('token');
+  sessionId('sessionId');
 
   final String path;
   const AuthEnums(this.path);

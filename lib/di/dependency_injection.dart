@@ -64,7 +64,8 @@ void _configureInjection() {
     ..registerSingleton<ResponsiveConfigurationFactory>(
         ResponsiveConfigurationFactory())
     ..registerSingleton<AuthCacheManager>(AuthCacheManager())
-    ..registerSingleton<AuthenticationRepository>(
-        AuthenticationRepository(authCacheManager: getIt<AuthCacheManager>()))
+    ..registerSingleton<AuthenticationRepository>(AuthenticationRepository(
+        authCacheManager: getIt<AuthCacheManager>(),
+        remoteDataSource: getIt<RemoteDataSource>()))
     ..registerLazySingleton<Talker>(() => talker);
 }

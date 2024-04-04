@@ -15,4 +15,5 @@ abstract final class EnvConstants {
   static String favoriteAddPath = "FAVORITE_PATH_ADD";
   static String searchMultiPath = "SEARCH_PATH_MULTI";
   static String genrePath = "GENRE_PATH";
+  static String deleteSessionPath = "DELETE_SESSION_PATH";
 }

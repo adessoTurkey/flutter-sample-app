@@ -1,9 +1,11 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/api_call/models/login_credentials_request_model.dart';
 import 'package:flutter_movie_app/api_call/models/models.dart';
+import 'package:flutter_movie_app/api_call/models/session_delete/session_delete_request_model.dart';
 import 'package:flutter_movie_app/api_call/models/session_request_model.dart';
 import 'package:flutter_movie_app/api_call/models/session_response_model.dart';
 import 'package:flutter_movie_app/api_call/network/network.dart';
+import 'package:flutter_movie_app/app/core/cache/auth_cache_manager.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_models.dart';
@@ -16,11 +18,13 @@ import 'package:flutter_movie_app/localization/localization_helper.dart';
 
 import '../models/favorite/dto/add_to_favorite_dto.dart';
 import '../models/favorite/response/add_to_favorite_response.dart';
+import '../models/session_delete/session_delete_response_model.dart';
 
 abstract class RemoteDataSource {
   Future<RequestTokenModel> getRequestToken();
   Future<List<MovieData>> getMovieList(MovieCategoriesEnum categoryEndpoint);
-  Future<RequestTokenModel> loginWithCredentials(LoginCredentialsRequestModel requestBody);
+  Future<RequestTokenModel> loginWithCredentials(
+      LoginCredentialsRequestModel requestBody);
   Future<SessionResponseModel> openSession(SessionRequestModel requestBody);
   Future<MovieDetailModel> getMovieDetail(int movieId);
   Future<VideoModelResponse> getMovieVideos(int movieId);
@@ -32,6 +36,8 @@ abstract class RemoteDataSource {
       AddToFavoriteDto addToFavoriteDto);
   Future<List<SearchMultiData>> searchMulti(String query);
   Future<List<GenreData>> getGenres(GenreType genreType);
+  Future<SessionDeleteResponseModel> deleteSession(
+      SessionDeleteRequestModel sessionDeleteRequestModel);
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -86,7 +92,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
           path: dotenv.get(EnvConstants.loginWithCredentialsPath),
           data: NetworkRequestBody.json(requestBody.toJson()));
       var requestTokenResponse = await networkService.execute(
-         networkRequest, (json) => RequestTokenModel.fromJson(json));
+          networkRequest, (json) => RequestTokenModel.fromJson(json));
       return (requestTokenResponse as Ok<RequestTokenModel>).data;
     } catch (_) {
       rethrow;
@@ -165,6 +171,9 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       var accountDetailResponse = await networkService.execute(
           NetworkRequest(
               type: NetworkRequestType.get,
+              queryParams: {
+                "session_id": await AuthCacheManager().getSessionId()
+              },
               path: dotenv.get(EnvConstants.accountPath),
               data: const NetworkRequestBody.empty()),
           (json) => AccountDetail.fromJson(json));
@@ -181,6 +190,9 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       var favoriteMoviesResponse = await networkService.execute(
           NetworkRequest(
               type: NetworkRequestType.get,
+              queryParams: {
+                "session_id": await AuthCacheManager().getSessionId()
+              },
               path:
                   "${dotenv.get(EnvConstants.accountPath)}${dotenv.get(EnvConstants.favoriteMoviesPath)}",
               data: const NetworkRequestBody.empty()), (json) {
@@ -203,6 +215,9 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       var favoriteTVsResponse = await networkService.execute(
           NetworkRequest(
               type: NetworkRequestType.get,
+              queryParams: {
+                "session_id": await AuthCacheManager().getSessionId()
+              },
               path:
                   "${dotenv.get(EnvConstants.accountPath)}${dotenv.get(EnvConstants.favoriteTVPath)}",
               data: const NetworkRequestBody.empty()), (json) {
@@ -245,6 +260,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       var networkRequest = NetworkRequest(
         type: NetworkRequestType.post,
         path: dotenv.get(EnvConstants.favoriteAddPath),
+        queryParams: {"session_id": await AuthCacheManager().getSessionId()},
         data: NetworkRequestBody.json(
           addToFavoriteDto.toJson(),
         ),
@@ -289,4 +305,22 @@ class RemoteDataSourceImpl extends RemoteDataSource {
     }
   }
 
+  @override
+  Future<SessionDeleteResponseModel> deleteSession(
+      SessionDeleteRequestModel sessionDeleteRequestModel) async {
+    try {
+      var requestBody =
+          NetworkRequestBody.json(sessionDeleteRequestModel.toJson());
+      var networkRequest = NetworkRequest(
+        type: NetworkRequestType.delete,
+        path: dotenv.get(EnvConstants.deleteSessionPath),
+        data: requestBody,
+      );
+      var sessionDeleteResponse = await networkService.execute(
+          networkRequest, (json) => SessionDeleteResponseModel.fromJson(json));
+      return (sessionDeleteResponse as Ok<SessionDeleteResponseModel>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
 }
