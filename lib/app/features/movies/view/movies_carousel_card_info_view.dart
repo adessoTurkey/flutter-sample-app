@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/movies/models/genre_data/bloc/genre_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
+
+import '../../genre_data/bloc/genre_bloc.dart';
 
 class MoviesCarouselCardInfoView extends StatelessWidget {
   final MovieData movie;
