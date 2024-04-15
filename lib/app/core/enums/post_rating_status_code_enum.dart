@@ -1,0 +1,4 @@
+enum PostRatingStatusCodeEnum {
+  updated,
+  posted,
+}

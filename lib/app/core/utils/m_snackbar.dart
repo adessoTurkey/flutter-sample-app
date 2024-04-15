@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-SnackBar showSnackBar({
+SnackBar mSnackBar({
   required String title,
   required Color backgroundColor,
   TextStyle? textStyle,
