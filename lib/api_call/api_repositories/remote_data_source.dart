@@ -8,11 +8,14 @@ import 'package:flutter_movie_app/api_call/network/network.dart';
 import 'package:flutter_movie_app/app/core/cache/auth_cache_manager.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
+import 'package:flutter_movie_app/app/core/enums/tv_series_category_enum.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_models.dart';
 import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
 import 'package:flutter_movie_app/app/features/profile/models/account_detail/account_detail.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_movie/favorite_movie_data.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_tv/favorite_tv_data.dart';
+import '../../app/features/genre_data/genre_data.dart';
+import '../../app/features/tv_series/models/tv_series_data/tv_series_data.dart';
 import 'package:flutter_movie_app/app/features/search/models/search_multi/search_multi_data.dart';
 import 'package:flutter_movie_app/localization/localization_helper.dart';
 
@@ -32,6 +35,7 @@ abstract class RemoteDataSource {
   Future<AccountDetail> getAccountDetail();
   Future<List<FavoriteMovieData>> getFavoriteMovies();
   Future<List<FavoriteTvData>> getFavoriteTVs();
+  Future<List<TvSeriesData>> getTvSeries(TvSeriesCategory categoryEndpoint);
   Future<AddToFavoriteResponse> addToFavorite(
       AddToFavoriteDto addToFavoriteDto);
   Future<List<SearchMultiData>> searchMulti(String query);
@@ -229,6 +233,31 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       });
 
       return (favoriteTVsResponse as Ok<List<FavoriteTvData>>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<List<TvSeriesData>> getTvSeries(
+      TvSeriesCategory categoryEndpoint) async {
+    try {
+      var networkRequest = NetworkRequest(
+          type: NetworkRequestType.get,
+          path:
+          "${dotenv.get(EnvConstants.tvSeriesPath)}/${categoryEndpoint.value}",
+          data: const NetworkRequestBody.empty());
+      var tvSeriesDataList = await networkService.execute(
+        networkRequest,
+            (response) {
+          List<TvSeriesData> tvSeriesList = (response['results'] as List)
+              .map((e) => TvSeriesData.fromJson(e))
+              .toList();
+          return tvSeriesList;
+        },
+      );
+
+      return (tvSeriesDataList as Ok<List<TvSeriesData>>).data;
     } catch (_) {
       rethrow;
     }

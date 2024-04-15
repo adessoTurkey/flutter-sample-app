@@ -43,7 +43,7 @@ final class LightTheme extends ATheme {
   }
 
   @override
-  TextStyle moviesViewHeaderTextStyle(double fontSize) {
+  TextStyle mainPageViewHeaderTextStyle(double fontSize) {
     return const TextStyle().moviesViewHeaderTextStyle(fontSize, MColors.white);
   }
 
@@ -71,9 +71,9 @@ final class LightTheme extends ATheme {
   }
 
   @override
-  TextStyle moviesPageListViewTitleTextStyle(double fontSize) {
+  TextStyle mainPageListViewTitleTextStyle(double fontSize) {
     return const TextStyle()
-        .moviesPageListViewTitleTextStyle(fontSize, MColors.almostBlack);
+        .mainPageListViewTitleTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override
@@ -95,9 +95,9 @@ final class LightTheme extends ATheme {
   TextStyle registerNow(double fontSize) =>
       const TextStyle().textStyleW400(fontSize, MColors.white);
   @override
-  TextStyle moviesPageAppBarTitleTextStyle(double fontSize) {
+  TextStyle mainPageAppBarTitleTextStyle(double fontSize) {
     return const TextStyle()
-        .moviesPageAppBarTitleTextStyle(fontSize, MColors.white);
+        .mainPageAppBarTitleTextStyle(fontSize, MColors.white);
   }
 
   @override
@@ -191,6 +191,12 @@ final class LightTheme extends ATheme {
   TextStyle profileFavoriteListTitleTextStyle(double fontSize) {
     return const TextStyle()
         .profileFavoriteListTitleTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle tvSeriesCellNameTextStyle(double fontSize) {
+    return const TextStyle()
+        .tvSeriesCellNameTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override

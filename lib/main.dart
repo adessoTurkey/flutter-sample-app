@@ -7,6 +7,7 @@ import 'package:flutter_movie_app/api_call/network/network.dart';
 import 'package:flutter_movie_app/app/core/cache/auth_cache_manager.dart';
 import 'package:flutter_movie_app/app/core/config/app_router.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
+import 'package:flutter_movie_app/app/core/enums/tv_series_category_enum.dart';
 import 'package:flutter_movie_app/app/core/initialization/initialization_adapter.dart';
 import 'package:flutter_movie_app/app/core/logger/m_logger.dart';
 import 'package:flutter_movie_app/app/core/themes/bloc/theme_bloc.dart';
@@ -16,13 +17,14 @@ import 'package:flutter_movie_app/app/features/auth/repository/auth_repository.d
 import 'package:flutter_movie_app/app/features/login/bloc/login_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/bloc/movies_bloc.dart';
 import 'package:flutter_movie_app/app/features/profile/bloc/profile_bloc.dart';
+import 'package:flutter_movie_app/app/features/tv_series/bloc/tv_series_bloc.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/localization/bloc/localization_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_movie_app/responsive/responsive.dart';
 
 import 'app/core/constants/constants.dart';
-import 'app/features/movies/models/genre_data/bloc/genre_bloc.dart';
+import 'app/features/genre_data/bloc/genre_bloc.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
@@ -53,7 +55,11 @@ void main() async {
     BlocProvider(
         create: (_) => MoviesBloc(getIt<RemoteDataSource>())
           ..add(
-              const MoviesFetching(categoryType: MovieCategoriesEnum.popular))),
+              const MoviesFetching(categoryType: MovieCategoriesEnum.topRated))),
+    BlocProvider(
+        create: (_) => TvSeriesBloc(getIt<RemoteDataSource>())
+          ..add(
+              const TvSeriesFetching(categoryType: TvSeriesCategory.topRated))),
     BlocProvider(
       create: (_) => AuthenticationBloc(
         getIt<AuthCacheManager>(),
