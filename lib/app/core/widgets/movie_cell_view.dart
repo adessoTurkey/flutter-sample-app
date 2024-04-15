@@ -5,9 +5,12 @@ import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
+import '../../features/genre_data/genre_data.dart';
+
 class MovieCellView extends StatelessWidget {
   final MovieData movie;
-  const MovieCellView({required this.movie, super.key});
+  final List<GenreData>? genres;
+  const MovieCellView({required this.movie, super.key, required this.genres});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +50,7 @@ class MovieCellView extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      movie.getGenres(),
+                      movie.getGenres(genres),
                       style: theme.movieCellMovieGenresTextStyle(
                         configuration.movieCellMovieGenresTextSize,
                       ),
@@ -77,7 +80,7 @@ class MovieCellView extends StatelessWidget {
                         ),
                         RatingView(
                           rating: movie.getVoteAvarage,
-                          type: RatingViewType.movieCell
+                          type: RatingViewType.cell
                         ),
                       ],
                     )

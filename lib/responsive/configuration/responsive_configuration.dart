@@ -7,9 +7,9 @@ abstract class ResponsiveConfiguration {
   RatingViewSizeEnum get ratingViewMovieCell;
 
   //Movie Carousel View
-  double get movieCarouselBlueContainerHeight;
-  Size get movieCarouselContainerSize;
-  double get movieCarouselContainerHeight;
+  double get carouselBlueContainerHeight;
+  Size get carouselContainerSize;
+  double get carouselContainerHeight;
   double get movieCarouselHeaderTopPadding;
   double get movieCarouselHeaderLeftPadding;
 
@@ -17,8 +17,8 @@ abstract class ResponsiveConfiguration {
   double get moviePageListViewPaddingTop;
   double get moviePageListViewPaddingLeft;
   double get moviePageListViewPaddingRight;
-  double get moviePageListViewTitleTextSize;
-  double get moviePageAppBarTitleTextSize;
+  double get mainPageListViewTitleTextSize;
+  double get mainPageAppBarTitleTextSize;
 
   //Carousel
   double get carouselCardRightPadding;
@@ -96,6 +96,31 @@ abstract class ResponsiveConfiguration {
   double get profileFavoriteCellSubTitleTextSize;
   double get profileFavoriteCellIconSize;
   double get profileFavoriteListTitleTextSize;
+
+  //Tv Series Cell
+  double get tvSeriesCellImageWidth;
+  double get tvSeriesCellImageHeight;
+  double get tvSeriesCellInfoContainerHeight;
+  double get tvSeriesCellBodyPaddingLeft;
+  double get tvSeriesCellNameTextSize;
+  double get tvSeriesCellCardElevation;
+  double get tvSeriesGridMainAxisSpacing;
+  double get tvSeriesGridCrossAxisSpacing;
+  double get tvSeriesGridMainAxisExtent;
+
+  //Tv Series
+  double get tvSeriesDetailSliverAppBarExpandableHeight;
+  double get tvSeriesListViewPaddingTop;
+  double get tvSeriesListViewPaddingLeft;
+  double get tvSeriesListViewPaddingRight;
+
+  double get searchListCellViewTitleTextSize;
+  double get searchViewTitleTextSize;
+  double get searchTextFieldButtonTextSize;
+  double get searchListCellViewTypeTextSize;
+  double get searchListCellViewTypeIconSize;
+  double get searchListCellViewInfoTextSize;
+  double get searchViewNoResultTextSize;
 
   //Cinema
   double get cinemaMapViewTitleTextSize;

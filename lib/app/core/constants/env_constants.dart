@@ -10,9 +10,12 @@ abstract final class EnvConstants {
   static String accountPath = "ACCOUNT_PATH";
   static String favoriteMoviesPath = "FAVORITE_PATH_MOVIES";
   static String favoriteTVPath = "FAVORITE_PATH_TV";
+  static String tvSeriesPath = "TV_SERIES_PATH";
   static String loginWithCredentialsPath = "LOGIN_WITH_CREDENTIALS_PATH";
   static String openSessionPath = "OPEN_SESSION_PATH";
   static String favoriteAddPath = "FAVORITE_PATH_ADD";
+  static String searchMultiPath = "SEARCH_PATH_MULTI";
+  static String genrePath = "GENRE_PATH";
   static String googlePlacesApiBaseUrl = "GOOGLE_PLACES_API_BASE_URL";
   static String googlePlacesApiSearchByTextPath =
       "GOOGLE_PLACES_API_SEARCH_BY_TEXT_PATH";

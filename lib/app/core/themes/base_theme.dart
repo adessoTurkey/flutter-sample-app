@@ -13,7 +13,6 @@ abstract class ATheme {
 
   TextStyle movieCellMovieGenresTextStyle(double fontSize);
 
-  TextStyle moviesViewHeaderTextStyle(double fontSize);
 
   TextStyle carouselCardTitleTextStyle(double fontSize);
 
@@ -22,10 +21,6 @@ abstract class ATheme {
   TextStyle ratingViewRateTextStyle(double fontSize);
 
   TextStyle releaseDateViewDateTextStyle(double fontSize);
-
-  TextStyle moviesPageListViewTitleTextStyle(double fontSize);
-
-  TextStyle moviesPageAppBarTitleTextStyle(double fontSize);
 
   TextStyle durationViewTextStyle(double fontSize);
   TextStyle rateViewTextStyle(double fontSize);
@@ -42,6 +37,12 @@ abstract class ATheme {
   TextStyle profileFavoriteCellTitleTextStyle(double fontSize);
   TextStyle profileFavoriteCellSubTitleTextStyle(double fontSize);
   TextStyle profileFavoriteListTitleTextStyle(double fontSize);
+  TextStyle searchListCellViewTitleTextStyle(double fontSize);
+  TextStyle searchViewTitleTextStyle(double fontSize);
+  TextStyle searchTextFieldButtonTextStyle(double fontSize, bool isEnabled);
+  TextStyle searchListCellViewInfoTextStyle(double fontSize);
+  TextStyle searchListCellViewTypeTextStyle(double fontSize);
+  TextStyle searchViewNoResultTextStyle(double fontSize);
 
   TextStyle splashTextStyle(double fontSize);
 
@@ -56,6 +57,12 @@ abstract class ATheme {
   TextStyle dontHaveAccount(double fontSize);
 
   TextStyle registerNow(double fontSize);
+  //Tv Series
+  TextStyle mainPageListViewTitleTextStyle(double fontSize);
+  TextStyle mainPageAppBarTitleTextStyle(double fontSize);
+  TextStyle mainPageViewHeaderTextStyle(double fontSize);
+  TextStyle tvSeriesCellNameTextStyle(double fontSize);
+
 
   TextStyle cinemaMapViewTitleTextStyle(double fontSize);
   TextStyle mapInfoViewDisplayNameTextStyle(double fontSize);

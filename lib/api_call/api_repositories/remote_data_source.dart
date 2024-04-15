@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/api_call/models/login_credentials_request_model.dart';
 import 'package:flutter_movie_app/api_call/models/models.dart';
@@ -7,12 +6,17 @@ import 'package:flutter_movie_app/api_call/models/session_response_model.dart';
 import 'package:flutter_movie_app/api_call/network/network.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
+import 'package:flutter_movie_app/app/core/enums/tv_series_category_enum.dart';
 import 'package:flutter_movie_app/app/features/cinema_map/models/map_request_dto/map_request_dto.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_models.dart';
 import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
 import 'package:flutter_movie_app/app/features/profile/models/account_detail/account_detail.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_movie/favorite_movie_data.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_tv/favorite_tv_data.dart';
+import '../../app/features/genre_data/genre_data.dart';
+import '../../app/features/tv_series/models/tv_series_data/tv_series_data.dart';
+import 'package:flutter_movie_app/app/features/search/models/search_multi/search_multi_data.dart';
+import 'package:flutter_movie_app/localization/localization_helper.dart';
 
 import '../models/favorite/dto/add_to_favorite_dto.dart';
 import '../models/favorite/response/add_to_favorite_response.dart';
@@ -31,8 +35,11 @@ abstract class RemoteDataSource {
   Future<AccountDetail> getAccountDetail();
   Future<List<FavoriteMovieData>> getFavoriteMovies();
   Future<List<FavoriteTvData>> getFavoriteTVs();
+  Future<List<TvSeriesData>> getTvSeries(TvSeriesCategory categoryEndpoint);
   Future<AddToFavoriteResponse> addToFavorite(
       AddToFavoriteDto addToFavoriteDto);
+  Future<List<SearchMultiData>> searchMulti(String query);
+  Future<List<GenreData>> getGenres(GenreType genreType);
   Future<MapResponseModel> getCinemaBySearchText(MapRequestDto mapRequestDto);
 }
 
@@ -222,6 +229,50 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   }
 
   @override
+  Future<List<TvSeriesData>> getTvSeries(
+      TvSeriesCategory categoryEndpoint) async {
+    try {
+      var networkRequest = NetworkRequest(
+          type: NetworkRequestType.get,
+          path:
+          "${dotenv.get(EnvConstants.tvSeriesPath)}/${categoryEndpoint.value}",
+          data: const NetworkRequestBody.empty());
+      var tvSeriesDataList = await networkService.execute(
+        networkRequest,
+            (response) {
+          List<TvSeriesData> tvSeriesList = (response['results'] as List)
+              .map((e) => TvSeriesData.fromJson(e))
+              .toList();
+          return tvSeriesList;
+        },
+      );
+
+      return (tvSeriesDataList as Ok<List<TvSeriesData>>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<List<GenreData>> getGenres(GenreType genreType) async {
+    try {
+      var genreRequest = NetworkRequest(
+        type: NetworkRequestType.get,
+        path: "${dotenv.get(EnvConstants.genrePath)}${genreType.endpoint}",
+        data: const NetworkRequestBody.empty(),
+      );
+      var genreResponse = await networkService.execute(
+        genreRequest,
+        (json) =>
+            (json['genres'] as List).map((e) => GenreData.fromJson(e)).toList(),
+      );
+      return (genreResponse as Ok<List<GenreData>>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
   Future<AddToFavoriteResponse> addToFavorite(
       AddToFavoriteDto addToFavoriteDto) async {
     try {
@@ -244,6 +295,34 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       rethrow;
     }
   }
+
+  @override
+  Future<List<SearchMultiData>> searchMulti(String query) async {
+    try {
+      var networkRequest = await networkService.execute(
+        NetworkRequest(
+            type: NetworkRequestType.get,
+            path: dotenv.get(EnvConstants.searchMultiPath),
+            queryParams: {
+              "query": query,
+              "include_adult": false,
+              "language": LocalizationHelper.queryLanguage
+            },
+            data: const NetworkRequestBody.empty()),
+        (response) {
+          List<SearchMultiData> movieList = (response['results'] as List)
+              .map((e) => SearchMultiData.fromJson(e))
+              .toList();
+          return movieList;
+        },
+      );
+
+      return (networkRequest as Ok<List<SearchMultiData>>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
 
   @override
   Future<MapResponseModel> getCinemaBySearchText(

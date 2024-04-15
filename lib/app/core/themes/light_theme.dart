@@ -43,7 +43,7 @@ final class LightTheme extends ATheme {
   }
 
   @override
-  TextStyle moviesViewHeaderTextStyle(double fontSize) {
+  TextStyle mainPageViewHeaderTextStyle(double fontSize) {
     return const TextStyle().moviesViewHeaderTextStyle(fontSize, MColors.white);
   }
 
@@ -71,9 +71,9 @@ final class LightTheme extends ATheme {
   }
 
   @override
-  TextStyle moviesPageListViewTitleTextStyle(double fontSize) {
+  TextStyle mainPageListViewTitleTextStyle(double fontSize) {
     return const TextStyle()
-        .moviesPageListViewTitleTextStyle(fontSize, MColors.almostBlack);
+        .mainPageListViewTitleTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override
@@ -95,9 +95,9 @@ final class LightTheme extends ATheme {
   TextStyle registerNow(double fontSize) =>
       const TextStyle().textStyleW400(fontSize, MColors.white);
   @override
-  TextStyle moviesPageAppBarTitleTextStyle(double fontSize) {
+  TextStyle mainPageAppBarTitleTextStyle(double fontSize) {
     return const TextStyle()
-        .moviesPageAppBarTitleTextStyle(fontSize, MColors.white);
+        .mainPageAppBarTitleTextStyle(fontSize, MColors.white);
   }
 
   @override
@@ -195,6 +195,48 @@ final class LightTheme extends ATheme {
     return const TextStyle()
         .profileFavoriteListTitleTextStyle(fontSize, MColors.almostBlack);
   }
+
+  @override
+  TextStyle tvSeriesCellNameTextStyle(double fontSize) {
+    return const TextStyle()
+        .tvSeriesCellNameTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle searchListCellViewTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .searchListCellViewTitleTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle searchViewTitleTextStyle(double fontSize) {
+    return const TextStyle().searchViewTitleTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle searchTextFieldButtonTextStyle(double fontSize, bool isEnabled) {
+    return const TextStyle().searchTextFieldButtonTextStyle(
+        fontSize, isEnabled ? MColors.white : MColors.lightGrey);
+  }
+
+  @override
+  TextStyle searchListCellViewInfoTextStyle(double fontSize) {
+    return const TextStyle()
+        .searchListCellViewInfoTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle searchListCellViewTypeTextStyle(double fontSize) {
+    return const TextStyle()
+        .searchListCellViewTypeTextStyle(fontSize, MColors.black25);
+  }
+
+  @override
+  TextStyle searchViewNoResultTextStyle(double fontSize) {
+    return const TextStyle()
+        .searchViewNoResultTextStyle(fontSize, MColors.electricBlue);
+  }
+
 
   @override
   TextStyle cinemaMapViewTitleTextStyle(double fontSize) {

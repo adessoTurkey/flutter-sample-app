@@ -3,7 +3,7 @@ import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
-enum RatingViewType { carousel, movieCell }
+enum RatingViewType { carousel, cell }
 
 class RatingView extends StatelessWidget {
   final String rating;
