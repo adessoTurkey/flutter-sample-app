@@ -22,8 +22,13 @@ RatingResponseModel _$RatingResponseModelFromJson(Map<String, dynamic> json) {
 mixin _$RatingResponseModel {
   @JsonKey(name: "success")
   bool? get success => throw _privateConstructorUsedError;
-  @JsonKey(name: "status_code")
-  int? get statusCode => throw _privateConstructorUsedError;
+  @JsonKey(
+      name: "status_code",
+      disallowNullValue: true,
+      required: true,
+      unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  PostRatingStatusCodeEnum? get statusCode =>
+      throw _privateConstructorUsedError;
   @JsonKey(name: "status_message")
   String? get statusMessage => throw _privateConstructorUsedError;
 
@@ -41,7 +46,12 @@ abstract class $RatingResponseModelCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "success") bool? success,
-      @JsonKey(name: "status_code") int? statusCode,
+      @JsonKey(
+          name: "status_code",
+          disallowNullValue: true,
+          required: true,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      PostRatingStatusCodeEnum? statusCode,
       @JsonKey(name: "status_message") String? statusMessage});
 }
 
@@ -70,7 +80,7 @@ class _$RatingResponseModelCopyWithImpl<$Res, $Val extends RatingResponseModel>
       statusCode: freezed == statusCode
           ? _value.statusCode
           : statusCode // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as PostRatingStatusCodeEnum?,
       statusMessage: freezed == statusMessage
           ? _value.statusMessage
           : statusMessage // ignore: cast_nullable_to_non_nullable
@@ -89,7 +99,12 @@ abstract class _$$RatingResponseModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: "success") bool? success,
-      @JsonKey(name: "status_code") int? statusCode,
+      @JsonKey(
+          name: "status_code",
+          disallowNullValue: true,
+          required: true,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      PostRatingStatusCodeEnum? statusCode,
       @JsonKey(name: "status_message") String? statusMessage});
 }
 
@@ -116,7 +131,7 @@ class __$$RatingResponseModelImplCopyWithImpl<$Res>
       statusCode: freezed == statusCode
           ? _value.statusCode
           : statusCode // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as PostRatingStatusCodeEnum?,
       statusMessage: freezed == statusMessage
           ? _value.statusMessage
           : statusMessage // ignore: cast_nullable_to_non_nullable
@@ -130,7 +145,12 @@ class __$$RatingResponseModelImplCopyWithImpl<$Res>
 class _$RatingResponseModelImpl implements _RatingResponseModel {
   const _$RatingResponseModelImpl(
       {@JsonKey(name: "success") this.success,
-      @JsonKey(name: "status_code") this.statusCode,
+      @JsonKey(
+          name: "status_code",
+          disallowNullValue: true,
+          required: true,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      this.statusCode,
       @JsonKey(name: "status_message") this.statusMessage});
 
   factory _$RatingResponseModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -140,8 +160,12 @@ class _$RatingResponseModelImpl implements _RatingResponseModel {
   @JsonKey(name: "success")
   final bool? success;
   @override
-  @JsonKey(name: "status_code")
-  final int? statusCode;
+  @JsonKey(
+      name: "status_code",
+      disallowNullValue: true,
+      required: true,
+      unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  final PostRatingStatusCodeEnum? statusCode;
   @override
   @JsonKey(name: "status_message")
   final String? statusMessage;
@@ -186,7 +210,12 @@ class _$RatingResponseModelImpl implements _RatingResponseModel {
 abstract class _RatingResponseModel implements RatingResponseModel {
   const factory _RatingResponseModel(
           {@JsonKey(name: "success") final bool? success,
-          @JsonKey(name: "status_code") final int? statusCode,
+          @JsonKey(
+              name: "status_code",
+              disallowNullValue: true,
+              required: true,
+              unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+          final PostRatingStatusCodeEnum? statusCode,
           @JsonKey(name: "status_message") final String? statusMessage}) =
       _$RatingResponseModelImpl;
 
@@ -197,8 +226,12 @@ abstract class _RatingResponseModel implements RatingResponseModel {
   @JsonKey(name: "success")
   bool? get success;
   @override
-  @JsonKey(name: "status_code")
-  int? get statusCode;
+  @JsonKey(
+      name: "status_code",
+      disallowNullValue: true,
+      required: true,
+      unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  PostRatingStatusCodeEnum? get statusCode;
   @override
   @JsonKey(name: "status_message")
   String? get statusMessage;

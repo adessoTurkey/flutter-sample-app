@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/constants/m_colors.dart';
+import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/utils/m_snackbar.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
@@ -93,7 +94,8 @@ class MovieDetailPageInfoSection extends StatelessWidget {
           listenWhen: (previous, current) =>
               previous.ratingValue != current.ratingValue,
           listener: (context, state) {
-            if (state.ratingResponseModel?.statusCode == 12) {
+            if (state.ratingResponseModel?.statusCode ==
+                PostRatingStatusCodeEnum.updated) {
               context.showSnackbarAfterHide(
                 mSnackBar(
                   title: context.localization.snackbar_successfully_updated(
@@ -101,7 +103,8 @@ class MovieDetailPageInfoSection extends StatelessWidget {
                   backgroundColor: MColors.electricBlue,
                 ),
               );
-            } else if (state.ratingResponseModel?.statusCode == 1) {
+            } else if (state.ratingResponseModel?.statusCode ==
+                PostRatingStatusCodeEnum.posted) {
               context.showSnackbarAfterHide(
                 mSnackBar(
                   title: context.localization.snackbar_successfully_added(
