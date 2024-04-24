@@ -8,6 +8,9 @@ import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/enums/tv_series_category_enum.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_models.dart';
+import 'package:flutter_movie_app/app/features/movie_detail/models/rating/post_rating/request/rating_request_model.dart';
+import 'package:flutter_movie_app/app/features/movie_detail/models/rating/post_rating/response/rating_response_model.dart';
+import 'package:flutter_movie_app/app/features/movie_detail/models/rating/rated_list/rated_list_response.dart';
 import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
 import 'package:flutter_movie_app/app/features/profile/models/account_detail/account_detail.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_movie/favorite_movie_data.dart';
@@ -23,7 +26,8 @@ import '../models/favorite/response/add_to_favorite_response.dart';
 abstract class RemoteDataSource {
   Future<RequestTokenModel> getRequestToken();
   Future<List<MovieData>> getMovieList(MovieCategoriesEnum categoryEndpoint);
-  Future<RequestTokenModel> loginWithCredentials(LoginCredentialsRequestModel requestBody);
+  Future<RequestTokenModel> loginWithCredentials(
+      LoginCredentialsRequestModel requestBody);
   Future<SessionResponseModel> openSession(SessionRequestModel requestBody);
   Future<MovieDetailModel> getMovieDetail(int movieId);
   Future<VideoModelResponse> getMovieVideos(int movieId);
@@ -36,6 +40,9 @@ abstract class RemoteDataSource {
       AddToFavoriteDto addToFavoriteDto);
   Future<List<SearchMultiData>> searchMulti(String query);
   Future<List<GenreData>> getGenres(GenreType genreType);
+  Future<RatingResponseModel> postRating(
+      RatingEnpoints ratingType, int id, int ratingValue);
+  Future<List<RatedListResponse>> getRatedList(RatingEnpoints fetchType);
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -90,7 +97,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
           path: dotenv.get(EnvConstants.loginWithCredentialsPath),
           data: NetworkRequestBody.json(requestBody.toJson()));
       var requestTokenResponse = await networkService.execute(
-         networkRequest, (json) => RequestTokenModel.fromJson(json));
+          networkRequest, (json) => RequestTokenModel.fromJson(json));
       return (requestTokenResponse as Ok<RequestTokenModel>).data;
     } catch (_) {
       rethrow;
@@ -318,4 +325,48 @@ class RemoteDataSourceImpl extends RemoteDataSource {
     }
   }
 
+  @override
+  Future<RatingResponseModel> postRating(
+      RatingEnpoints ratingType, int id, int ratingValue) async {
+    try {
+      NetworkRequestBody networkRequestBody = NetworkRequestBody.json(
+          RatingRequestModel(value: ratingValue).toJson());
+      var networkRequest = NetworkRequest(
+        type: NetworkRequestType.post,
+        path: "${ratingType.endpoint}/$id/rating",
+        data: networkRequestBody,
+        headers: {"Content-Type": NetworkConstants.contentType},
+      );
+      var ratingResponseModel =
+          await networkService.execute(networkRequest, (json) {
+        return RatingResponseModel.fromJson(json);
+      });
+      return (ratingResponseModel as Ok<RatingResponseModel>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<List<RatedListResponse>> getRatedList(RatingEnpoints fetchType) async {
+    try {
+      NetworkRequest ratedListNetworkRequest = NetworkRequest(
+        type: NetworkRequestType.get,
+        path: "${dotenv.get(EnvConstants.accountPath)}/${fetchType.endpoint}",
+        data: const NetworkRequestBody.empty(),
+      );
+      var ratedListResponse = await networkService.execute(
+        ratedListNetworkRequest,
+        (json) {
+          return (json['results'] as List)
+              .map((e) => RatedListResponse.fromJson(e))
+              .toList();
+        },
+      );
+
+      return (ratedListResponse as Ok<List<RatedListResponse>>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
 }
