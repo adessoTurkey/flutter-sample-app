@@ -34,12 +34,15 @@ class MovieDetailPageCastSection extends StatelessWidget {
     return Column(
       children: [
         if (creditResponse.getDirector()!.isValid)
+        // TODO: localization eklenecek
           movieDetailCastLabel("Director", titleTextStyle,
               creditResponse.getDirector()!, infoTextStyle),
         if (creditResponse.getWriters()!.isValid)
+        // TODO: localization eklenecek
           movieDetailCastLabel("Writers", titleTextStyle,
               creditResponse.getWriters()!, infoTextStyle),
         if (creditResponse.getActors()!.isValid)
+        // TODO: localization eklenecek
           movieDetailCastLabel("Stars", titleTextStyle,
               creditResponse.getActors()!, infoTextStyle),
       ],

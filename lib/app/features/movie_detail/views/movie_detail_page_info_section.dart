@@ -9,7 +9,6 @@ import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail/
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:share_plus/share_plus.dart';
-
 import '../bloc/movie_detail_bloc.dart';
 
 class MovieDetailPageInfoSection extends StatelessWidget {
@@ -72,17 +71,9 @@ class MovieDetailPageInfoSection extends StatelessWidget {
         Row(
           children: [
             DurationView(durationTime: movieDetailModel?.runtime ?? 0),
-            const VerticalDividerWidget(
-              paddingAll: 10,
-              dividerHeight: 20,
-              dividerWidth: 2,
-            ),
+            _verticalDivider(),
             ReleaseDateView(releaseDate: movieDetailModel?.releaseDate ?? ""),
-            const VerticalDividerWidget(
-              paddingAll: 10,
-              dividerHeight: 20,
-              dividerWidth: 2,
-            ),
+            _verticalDivider(),
           ],
         ),
         20.verticalSizedBox,
@@ -135,5 +126,13 @@ class MovieDetailPageInfoSection extends StatelessWidget {
         const Divider(),
       ],
     );
+  }
+
+  VerticalDividerWidget _verticalDivider() {
+    return const VerticalDividerWidget(
+            paddingAll: 10,
+            dividerHeight: 20,
+            dividerWidth: 2,
+          );
   }
 }
