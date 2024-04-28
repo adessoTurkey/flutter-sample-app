@@ -3,15 +3,15 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class WebView extends StatefulWidget {
+class WebViewPage extends StatefulWidget {
   final String url;
-  const WebView({required this.url, super.key});
+  const WebViewPage({required this.url, super.key});
 
   @override
-  State<WebView> createState() => _WebViewState();
+  State<WebViewPage> createState() => _WebViewState();
 }
 
-class _WebViewState extends State<WebView> {
+class _WebViewState extends State<WebViewPage> {
   late final WebViewController controller;
 
   @override
@@ -26,9 +26,6 @@ class _WebViewState extends State<WebView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Flutter WebView'),
-      ),
       body: WebViewWidget(
         controller: controller,
       ),

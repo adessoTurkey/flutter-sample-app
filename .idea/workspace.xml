@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="bugfix">
-      <change afterPath="$PROJECT_DIR$/lib/app/features/login/views/web_view.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/core/config/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/config/app_router.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/core/config/app_router.gr.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/config/app_router.gr.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/constants/env_constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/constants/env_constants.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/login/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/gen/assets.gen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/gen/assets.gen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/login/views/web_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/views/web_view_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
@@ -58,7 +59,9 @@ class LoginPage extends StatelessWidget {
                         Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
-                            onPressed: () { },
+                            onPressed: () {
+                              context.pushRoute(WebViewRoute(url: dotenv.get(EnvConstants.forgotPasswordUrl)));
+                            },
                             child: Text(
                               context.localization.forgatPassword,
                               style: theme
@@ -77,7 +80,9 @@ class LoginPage extends StatelessWidget {
                                 .dontHaveAccount(config.dontHaveAccountTextSize),
                           ),
                           TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                context.pushRoute(WebViewRoute(url: dotenv.get(EnvConstants.registerNowUrl)));
+                              },
                               child: Text(
                                 context.localization.registerNow,
                                 style:

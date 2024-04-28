@@ -67,11 +67,11 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const TvSeriesPage(),
       );
     },
-    WebView.name: (routeData) {
-      final args = routeData.argsAs<WebViewArgs>();
+    WebViewRoute.name: (routeData) {
+      final args = routeData.argsAs<WebViewRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: WebView(
+        child: WebViewPage(
           url: args.url,
           key: args.key,
         ),
@@ -217,28 +217,29 @@ class TvSeriesRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [WebView]
-class WebView extends PageRouteInfo<WebViewArgs> {
-  WebView({
+/// [WebViewPage]
+class WebViewRoute extends PageRouteInfo<WebViewRouteArgs> {
+  WebViewRoute({
     required String url,
     Key? key,
     List<PageRouteInfo>? children,
   }) : super(
-          WebView.name,
-          args: WebViewArgs(
+          WebViewRoute.name,
+          args: WebViewRouteArgs(
             url: url,
             key: key,
           ),
           initialChildren: children,
         );
 
-  static const String name = 'WebView';
+  static const String name = 'WebViewRoute';
 
-  static const PageInfo<WebViewArgs> page = PageInfo<WebViewArgs>(name);
+  static const PageInfo<WebViewRouteArgs> page =
+      PageInfo<WebViewRouteArgs>(name);
 }
 
-class WebViewArgs {
-  const WebViewArgs({
+class WebViewRouteArgs {
+  const WebViewRouteArgs({
     required this.url,
     this.key,
   });
@@ -249,6 +250,6 @@ class WebViewArgs {
 
   @override
   String toString() {
-    return 'WebViewArgs{url: $url, key: $key}';
+    return 'WebViewRouteArgs{url: $url, key: $key}';
   }
 }
