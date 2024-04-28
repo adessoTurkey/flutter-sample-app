@@ -22,3 +22,25 @@ final class MovieDetailAddFavoriteEvent extends MovieDetailEvent {
   @override
   List<Object> get props => [movieId];
 }
+
+final class MovieDetailAddRatingEvent extends MovieDetailEvent {
+  const MovieDetailAddRatingEvent({
+    required this.ratingValue,
+  });
+
+  final int ratingValue;
+
+  @override
+  List<Object> get props => [ratingValue];
+}
+
+final class MovieDetailRatingCollapsed extends MovieDetailEvent {
+  const MovieDetailRatingCollapsed({
+    required this.isCollapsed,
+  });
+
+  final bool isCollapsed;
+
+  @override
+  List<Object> get props => [isCollapsed];
+}

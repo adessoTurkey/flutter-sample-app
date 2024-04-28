@@ -5,7 +5,7 @@ import '../../app/core/enums/enums.dart';
 
 class MediumConfiguration extends ResponsiveConfiguration {
   @override
-  Size get movieCarouselContainerSize => const Size(0, 300);
+  Size get carouselContainerSize => const Size(0, 300);
 
   @override
   double get movieCellMovieNameTextSize => 18;
@@ -34,10 +34,10 @@ class MediumConfiguration extends ResponsiveConfiguration {
 
   //Movie Carousel View
   @override
-  double get movieCarouselBlueContainerHeight => 200;
+  double get carouselBlueContainerHeight => 200;
 
   @override
-  double get movieCarouselContainerHeight => 450;
+  double get carouselContainerHeight => 450;
 
   @override
   double get movieCarouselHeaderLeftPadding => 32;
@@ -87,10 +87,10 @@ class MediumConfiguration extends ResponsiveConfiguration {
   double get registerNowTextSize => 12;
 
   @override
-  double get moviePageListViewTitleTextSize => 26;
+  double get mainPageListViewTitleTextSize => 26;
 
   @override
-  double get moviePageAppBarTitleTextSize => 14;
+  double get mainPageAppBarTitleTextSize => 14;
 
   //Carousel
   @override
@@ -236,6 +236,46 @@ class MediumConfiguration extends ResponsiveConfiguration {
 
   @override
   double get profileFavoriteListTitleTextSize => 28;
+
+  //Tv Series
+  @override
+  double get tvSeriesCellImageWidth => 150;
+
+  @override
+  double get tvSeriesCellImageHeight => 220;
+
+  @override
+  double get tvSeriesCellInfoContainerHeight => 90;
+
+  @override
+  double get tvSeriesCellBodyPaddingLeft => 18;
+
+  @override
+  double get tvSeriesCellCardElevation => 8;
+
+  @override
+  double get tvSeriesCellNameTextSize => 22;
+
+  @override
+  double get tvSeriesDetailSliverAppBarExpandableHeight => 100;
+
+  @override
+  double get tvSeriesListViewPaddingLeft => 32;
+
+  @override
+  double get tvSeriesListViewPaddingRight => 32;
+
+  @override
+  double get tvSeriesListViewPaddingTop => 24;
+
+  @override
+  double get tvSeriesGridMainAxisSpacing => 8;
+
+  @override
+  double get tvSeriesGridCrossAxisSpacing => 8;
+
+  @override
+  double get tvSeriesGridMainAxisExtent => 380;
 
   @override
   double get searchListCellViewTitleTextSize => 23;
