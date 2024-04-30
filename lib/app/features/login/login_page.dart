@@ -114,7 +114,7 @@ class LoginPage extends StatelessWidget {
                       },
                       listener: (context, state) {
                           if (state.status.isFailure) {
-                            showDialog(context: context, builder: (BuildContext context) => ErrorDialog());}
+                            showDialog(context: context, builder: (BuildContext context) => const ErrorDialog());}
 
                           if(state.status.isSuccess){
                             context.pushRoute(const HomeRoute());
