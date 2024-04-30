@@ -298,4 +298,19 @@ class MediumConfiguration extends ResponsiveConfiguration {
   @override
   double get searchViewNoResultTextSize => 26;
 
+  @override
+  double get dialogBannerHeight => 80;
+
+  @override
+  double get dialogButtonCornerRadius => 12;
+
+  @override
+  double get dialogButtonTextSize => 15;
+
+  @override
+  Size get dialogSize => const Size(275, 285);
+
+  @override
+  double get dialogInfoTextSize => 15;
+
 }

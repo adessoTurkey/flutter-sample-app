@@ -123,5 +123,12 @@ abstract class ResponsiveConfiguration {
   double get searchListCellViewInfoTextSize;
   double get searchViewNoResultTextSize;
 
+  //Login Error Dialog
+  Size get dialogSize;
+  double get dialogBannerHeight;
+  double get dialogInfoTextSize;
+  double get dialogButtonTextSize;
+  double get dialogButtonCornerRadius;
+
 }
 

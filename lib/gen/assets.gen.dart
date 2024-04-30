@@ -22,6 +22,10 @@ class $AssetsImagesGen {
   AssetGenImage get loginBg =>
       const AssetGenImage('assets/images/login_bg.png');
 
+  /// File path: assets/images/login_error_banner.png
+  AssetGenImage get loginErrorBanner =>
+      const AssetGenImage('assets/images/login_error_banner.png');
+
   /// File path: assets/images/logo.svg
   String get logo => 'assets/images/logo.svg';
 
@@ -38,8 +42,16 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/splash_bg.png');
 
   /// List of all assets
-  List<dynamic> get values =>
-      [eye, heart, loginBg, logo, noResult, poster1, splashBg];
+  List<dynamic> get values => [
+        eye,
+        heart,
+        loginBg,
+        loginErrorBanner,
+        logo,
+        noResult,
+        poster1,
+        splashBg
+      ];
 }
 
 class MovieAssets {

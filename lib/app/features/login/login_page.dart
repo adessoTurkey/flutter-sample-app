@@ -5,6 +5,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
+import 'package:flutter_movie_app/app/features/login/views/error_dialog.dart';
 import 'package:flutter_movie_app/app/features/login/views/login_button.dart';
 import 'package:flutter_movie_app/app/features/login/views/login_password_field.dart';
 import 'package:flutter_movie_app/app/features/login/views/login_text_field.dart';
@@ -113,9 +114,8 @@ class LoginPage extends StatelessWidget {
                       },
                       listener: (context, state) {
                           if (state.status.isFailure) {
-                            context.showSnackbarAfterHide(
-                              SnackBar(content: Text(context.localization.authentication_failed),),);
-                          }
+                            showDialog(context: context, builder: (BuildContext context) => ErrorDialog());}
+
                           if(state.status.isSuccess){
                             context.pushRoute(const HomeRoute());
                           }

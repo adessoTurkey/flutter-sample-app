@@ -232,4 +232,16 @@ final class DarkTheme extends ATheme {
         .searchViewNoResultTextStyle(fontSize, MColors.electricBlue);
   }
 
+  @override
+  TextStyle loginErrorDialogInfo(double fontSize) {
+    return const TextStyle()
+        .loginErrorDialogInfoTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle loginErrorDialogButton(double fontSize) {
+    return const TextStyle()
+        .loginErrorDialogButtonTextStyle(fontSize, MColors.white);
+  }
+
 }

@@ -297,4 +297,19 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   @override
   double get searchViewNoResultTextSize => 22;
+
+  @override
+  double get dialogBannerHeight => 80;
+
+  @override
+  double get dialogButtonCornerRadius => 12;
+
+  @override
+  double get dialogButtonTextSize => 17;
+
+  @override
+  double get dialogInfoTextSize => 15;
+
+  @override
+  Size get dialogSize => const Size(275, 285);
 }
