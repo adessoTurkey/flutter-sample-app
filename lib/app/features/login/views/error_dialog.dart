@@ -6,7 +6,12 @@ import '../../../../gen/assets.gen.dart';
 import '../../../core/constants/m_colors.dart';
 
 class ErrorDialog extends StatelessWidget {
-  const ErrorDialog({super.key});
+  final String message;
+  Function? onClick;
+
+  ErrorDialog({super.key, required this.message, this.onClick}){
+    onClick = _defaultOnClick;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +43,7 @@ class ErrorDialog extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  context.localization.login_error_dialog_info,
+                  message,
                   style: theme.loginErrorDialogInfo(config.dialogInfoTextSize),
                 ),
                 ElevatedButton(
@@ -67,5 +72,11 @@ class ErrorDialog extends StatelessWidget {
         );
       },
     );
+  }
+
+  _defaultOnClick(){
+    (BuildContext context) {
+      Navigator.of(context).pop();
+    };
   }
 }
