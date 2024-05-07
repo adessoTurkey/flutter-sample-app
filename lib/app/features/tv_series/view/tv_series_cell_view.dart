@@ -25,10 +25,7 @@ class TvSeriesCellView extends StatelessWidget {
             children: [
               ImageContainerView(
                 imageURL: tvSeriesData.getImageURL,
-                containerSize: Size(
-                  configuration.tvSeriesCellImageHeight,
-                  configuration.tvSeriesCellImageWidth,
-                ),
+                containerSize: configuration.tvSeriesCellImageSize,
                 placeholderImage: MovieAssets.images.poster1.path,
               ),
               Container(

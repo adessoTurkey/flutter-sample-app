@@ -6,10 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="bugfix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/tv_series_detail_model_extension.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/tv_series_detail_model_extension.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/constants/m_colors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/constants/m_colors.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/string_extension.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/string_extension.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/base_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/base_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/dark_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/dark_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/light_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/light_theme.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_info_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_info_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_main_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_main_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_trailer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_trailer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_description_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_description_section.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/responsive/configuration/large_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/configuration/large_configuration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/responsive/configuration/medium_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/configuration/medium_configuration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/responsive/configuration/responsive_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/configuration/responsive_configuration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/responsive/configuration/small_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/configuration/small_configuration.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

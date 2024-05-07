@@ -212,10 +212,7 @@ class MediumConfiguration extends ResponsiveConfiguration {
 
   //Tv Series
   @override
-  double get tvSeriesCellImageWidth => 150;
-
-  @override
-  double get tvSeriesCellImageHeight => 220;
+  Size get tvSeriesCellImageSize => const Size(150, 220);
 
   @override
   double get tvSeriesCellInfoContainerHeight => 90;
@@ -328,5 +325,11 @@ class MediumConfiguration extends ResponsiveConfiguration {
 
   @override
   double get detailPageRatingViewPositionedLeft => 30;
+
+  @override
+  double get durationAndReleaseDateDividerHeight => 20;
+
+  @override
+  double get durationAndReleaseDateDividerPaddingAll => 10;
 
 }

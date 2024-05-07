@@ -109,8 +109,7 @@ abstract class ResponsiveConfiguration {
 
 
   //Tv Series Cell
-  double get tvSeriesCellImageWidth;
-  double get tvSeriesCellImageHeight;
+  Size get tvSeriesCellImageSize;
   double get tvSeriesCellInfoContainerHeight;
   double get tvSeriesCellBodyPaddingLeft;
   double get tvSeriesCellNameTextSize;
@@ -135,6 +134,8 @@ abstract class ResponsiveConfiguration {
   double get tvSeriesDetailCastImageSize;
   double get tvSeriesDetailCastImageRadius;
   double get tvSeriesDetailCastNameTextSize;
+  double get durationAndReleaseDateDividerPaddingAll;
+  double get durationAndReleaseDateDividerHeight;
 
 }
 

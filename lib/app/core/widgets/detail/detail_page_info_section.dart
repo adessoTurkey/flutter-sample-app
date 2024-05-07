@@ -69,32 +69,35 @@ class DetailPageInfoSection extends StatelessWidget {
   }
 
   Widget _ratingAndSharingSection() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        10.verticalSizedBox,
-        Row(
-          children: [
-             DurationView(durationTime: runTime),
-            const VerticalDividerWidget(
-              paddingAll: 10,
-              dividerHeight: 20,
-              dividerWidth: 2,
-            ),
-            if(releaseDate != null)
-            ReleaseDateView(releaseDate: releaseDate!),
-            const VerticalDividerWidget(
-              paddingAll: 10,
-              dividerHeight: 20,
-              dividerWidth: 2,
-            ),
-          ],
-        ),
-        20.verticalSizedBox,
-        const RateView(),
-        20.verticalSizedBox,
-        const Divider(),
-      ],
-    );
+    return ConfigurationWidget(
+        onConfigurationReady: (configuration, theme) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              10.verticalSizedBox,
+              Row(
+                children: [
+                  DurationView(durationTime: runTime),
+                  VerticalDividerWidget(
+                    paddingAll: configuration.durationAndReleaseDateDividerPaddingAll,
+                    dividerHeight: configuration.durationAndReleaseDateDividerHeight,
+                    dividerWidth: 2,
+                  ),
+                  if(releaseDate != null)
+                    ReleaseDateView(releaseDate: releaseDate!),
+                  VerticalDividerWidget(
+                    paddingAll: configuration.durationAndReleaseDateDividerPaddingAll,
+                    dividerHeight: configuration.durationAndReleaseDateDividerHeight,
+                    dividerWidth: 2,
+                  ),
+                ],
+              ),
+              20.verticalSizedBox,
+              const RateView(),
+              20.verticalSizedBox,
+              const Divider(),
+            ],
+          );
+        });
   }
 }

@@ -40,13 +40,13 @@ class MovieDetailPageCastSection extends StatelessWidget {
   ) {
     return Column(
       children: [
-        if (creditResponse.getDirector() != null && creditResponse.getDirector()!.isValid)
+        if (creditResponse.getDirector().isValid)
           DetailCrewLabelSection(title: directorLabel, titleTextStyle: titleTextStyle,
               info: creditResponse.getDirector()!, infoTextStyle: infoTextStyle),
-        if (creditResponse.getWriters() != null && creditResponse.getWriters()!.isValid)
+        if (creditResponse.getWriters().isValid)
           DetailCrewLabelSection(title: writersLabel, titleTextStyle: titleTextStyle,
               info: creditResponse.getWriters()!, infoTextStyle: infoTextStyle),
-        if (creditResponse.getActors() != null && creditResponse.getActors()!.isValid)
+        if (creditResponse.getActors().isValid)
           DetailCrewLabelSection(title: starsLabel, titleTextStyle: titleTextStyle,
               info: creditResponse.getActors()!, infoTextStyle: infoTextStyle),
       ],

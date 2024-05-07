@@ -247,4 +247,7 @@ final class DarkTheme extends ATheme {
         .searchViewNoResultTextStyle(fontSize, MColors.electricBlue);
   }
 
+  @override
+  Color get progressIndicatorColor => MColors.youtubePlayed;
+
 }

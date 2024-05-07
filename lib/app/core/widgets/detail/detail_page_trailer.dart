@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -51,10 +52,10 @@ class _DetailPageTrailerSectionState
               player: YoutubePlayer(
                 controller: youtubePlayerController,
                 showVideoProgressIndicator: true,
-                progressIndicatorColor: Colors.amber,
+                progressIndicatorColor: theme.progressIndicatorColor,
                 progressColors: const ProgressBarColors(
-                  playedColor: Colors.amber,
-                  handleColor: Colors.amberAccent,
+                  playedColor: MColors.youtubePlayed,
+                  handleColor: MColors.youtubeHandle,
                 ),
                 onReady: () {
                   youtubePlayerController.addListener(() {});

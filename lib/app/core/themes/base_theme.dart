@@ -8,6 +8,7 @@ abstract class ATheme {
   Color get scaffoldBackgroundColor;
   Color get dividerColor;
   Color get shadowColor;
+  Color get progressIndicatorColor;
 
   TextStyle movieCellMovieNameTextStyle(double fontSize);
 

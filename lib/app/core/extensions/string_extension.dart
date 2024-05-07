@@ -8,3 +8,7 @@ extension StringExtension on String {
   String get toImageUrl =>
       "${dotenv.get(EnvConstants.imageUrl)}$this";
 }
+
+extension NullableStringExtension on String?{
+  bool get isValid => (this != null && this!.isNotEmpty);
+}
