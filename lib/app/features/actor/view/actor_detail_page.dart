@@ -5,6 +5,7 @@ import 'package:flutter_movie_app/app/features/actor/bloc/actor_detail_bloc.dart
 import 'package:flutter_movie_app/app/features/actor/view/actor_detail_main_view.dart';
 import '../../../../api_call/api_repositories/remote_data_source.dart';
 import '../../../../di/dependency_injection.dart';
+import '../../../core/enums/network_fetch_status.dart';
 import '../../../core/widgets/error_view.dart';
 import '../../../core/widgets/loading_view.dart';
 
@@ -23,15 +24,15 @@ class ActorDetailPage extends StatelessWidget{
         body: BlocBuilder<ActorDetailBloc, ActorDetailState>(
           builder: (context, state) {
             switch (state.status) {
-              case ActorDetailStatus.loading:
+              case NetworkFetchStatus.loading:
                 return const LoadingView();
-              case ActorDetailStatus.success:
+              case NetworkFetchStatus.success:
                 return ActorDetailMainView(actorDetailModel: state.actorDetailModel!);
-              case ActorDetailStatus.error:
+              case NetworkFetchStatus.error:
                 return ErrorView(
                   error: state.errorMessage,
                 );
-              case ActorDetailStatus.initial:
+              case NetworkFetchStatus.initial:
                 return const LoadingView();
             }
           },

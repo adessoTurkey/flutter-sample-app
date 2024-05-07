@@ -30,11 +30,8 @@ class ActorDetailMainView extends StatelessWidget{
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: configuration
-                      .actorDetailPagePaddingHorizontal,
-                  vertical:
-                  configuration.actorDetailPagePaddingVertical,
+                padding: configuration.actorDetailPagePaddingVertical.symmetric(
+                      horizontal:  configuration.actorDetailPagePaddingHorizontal
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

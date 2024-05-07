@@ -1,19 +1,12 @@
 part of 'actor_detail_bloc.dart';
 
-enum ActorDetailStatus {
-  initial,
-  loading,
-  success,
-  error,
-}
-
 final class ActorDetailState extends Equatable {
-  final ActorDetailStatus status;
+  final NetworkFetchStatus status;
   final ActorDetailModel? actorDetailModel;
   final String? errorMessage;
 
   const ActorDetailState({
-    this.status = ActorDetailStatus.initial,
+    this.status = NetworkFetchStatus.initial,
     this.actorDetailModel,
     this.errorMessage,
   });
@@ -26,7 +19,7 @@ final class ActorDetailState extends Equatable {
   ];
 
   ActorDetailState copyWith({
-    ActorDetailStatus? status,
+    NetworkFetchStatus? status,
     ActorDetailModel? actorDetailModel,
     String? errorMessage,
   }) {

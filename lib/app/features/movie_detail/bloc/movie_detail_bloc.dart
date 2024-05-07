@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
+import 'package:flutter_movie_app/app/core/enums/network_fetch_status.dart';
 import 'package:flutter_movie_app/app/core/extensions/add_to_favorite_response_extension.dart';
 import '../../../../api_call/models/favorite/dto/add_to_favorite_dto.dart';
 import '../../../../api_call/models/favorite/response/add_to_favorite_response.dart';
@@ -21,7 +22,7 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
 
   Future<void> _movieDetailInitialEvent(
       MovieDetailInitialEvent event, Emitter<MovieDetailState> emit) async {
-    emit(state.copyWith(status: MovieDetailStatusX.loading));
+    emit(state.copyWith(status: NetworkFetchStatus.loading));
     late MovieDetailModel movieDetailModel;
     late CreditResponse creditResponse;
     late VideoModelResponse videoModelResponse;
@@ -44,7 +45,7 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
       ]);
 
       emit(state.copyWith(
-        status: MovieDetailStatusX.success,
+        status: NetworkFetchStatus.success,
         movieDetailModel: movieDetailModel,
         creditResponse: creditResponse,
         videoModelResponse: videoModelResponse,
@@ -53,7 +54,7 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
       ));
     } catch (e) {
       emit(state.copyWith(
-        status: MovieDetailStatusX.error,
+        status: NetworkFetchStatus.error,
         errorMessage: e.toString(),
       ));
     }
@@ -71,7 +72,7 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
       emit(state.copyWith(isFavorite: response.isFavorite));
     } catch (e) {
       emit(state.copyWith(
-        status: MovieDetailStatusX.error,
+        status: NetworkFetchStatus.error,
         errorMessage: e.toString(),
       ));
     }

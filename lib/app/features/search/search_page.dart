@@ -10,6 +10,8 @@ import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
+import '../../core/enums/network_fetch_status.dart';
+
 @RoutePage()
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -36,17 +38,17 @@ class SearchPage extends StatelessWidget {
                 BlocBuilder<SearchBloc, SearchState>(
                   builder: (context, state) {
                     switch (state.status) {
-                      case SearchStateX.initial:
+                      case NetworkFetchStatus.initial:
                         return const _NoResultView();
-                      case SearchStateX.loading:
+                      case NetworkFetchStatus.loading:
                         return const LoadingView();
-                      case SearchStateX.success:
+                      case NetworkFetchStatus.success:
                         return state.searchList!.isNotEmpty
                             ? SearchListView(
                                 searchResults: state.searchList!,
                               )
                             : const _NoResultView();
-                      case SearchStateX.error:
+                      case NetworkFetchStatus.error:
                         return const _NoResultView();
                     }
                   },

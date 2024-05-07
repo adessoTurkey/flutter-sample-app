@@ -1,14 +1,7 @@
 part of 'movie_detail_bloc.dart';
 
-enum MovieDetailStatusX {
-  initial,
-  loading,
-  success,
-  error,
-}
-
 final class MovieDetailState extends Equatable {
-  final MovieDetailStatusX status;
+  final NetworkFetchStatus status;
   final MovieDetailModel? movieDetailModel;
   final CreditResponse? creditResponse;
   final VideoModelResponse? videoModelResponse;
@@ -16,7 +9,7 @@ final class MovieDetailState extends Equatable {
   final String? errorMessage;
 
   const MovieDetailState({
-    this.status = MovieDetailStatusX.initial,
+    this.status = NetworkFetchStatus.initial,
     this.movieDetailModel,
     this.creditResponse,
     this.videoModelResponse,
@@ -35,7 +28,7 @@ final class MovieDetailState extends Equatable {
       ];
 
   MovieDetailState copyWith({
-    MovieDetailStatusX? status,
+    NetworkFetchStatus? status,
     MovieDetailModel? movieDetailModel,
     CreditResponse? creditResponse,
     VideoModelResponse? videoModelResponse,
