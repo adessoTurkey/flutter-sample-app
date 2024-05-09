@@ -6,16 +6,20 @@ import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class RateView extends StatefulWidget {
-  const RateView({super.key});
-
-  @override
-  State<RateView> createState() => _RateViewState();
-}
-
-class _RateViewState extends State<RateView> {
-  bool isCollapsed = false;
-  int rating = 0;
+class RateView extends StatelessWidget {
+  final int rating;
+  final Function(int) onChanged;
+  final VoidCallback shareButtonTapped;
+  final VoidCallback starIconButtonTapped;
+  final bool isCollapsed;
+  const RateView({
+    super.key,
+    this.rating = 0,
+    required this.onChanged,
+    required this.shareButtonTapped,
+    this.isCollapsed = false,
+    required this.starIconButtonTapped,
+  });
   @override
   Widget build(BuildContext context) {
     return ConfigurationWidget(
@@ -26,22 +30,19 @@ class _RateViewState extends State<RateView> {
             _starIcon(
               rating,
               configuration.rateViewIconSize,
-              () {
-                setState(
-                  () {
-                    isCollapsed = !isCollapsed;
-                  },
-                );
-              },
+              starIconButtonTapped,
               theme.rateViewTextStyle(configuration.rateViewTextSize),
+              context,
             ),
             isCollapsed
                 ? _ratingStars(configuration.rateViewIconSize)
                 : _shareButton(
                     configuration.rateViewIconSize,
-                    () {},
+                    shareButtonTapped,
                     theme.rateViewTextStyle(configuration.rateViewTextSize),
-                    configuration.movieDetailShareButtonPaddingLeft),
+                    configuration.movieDetailShareButtonPaddingLeft,
+                    context,
+                  ),
           ],
         );
       },
@@ -49,7 +50,12 @@ class _RateViewState extends State<RateView> {
   }
 
   Widget _starIcon(
-      int rating, double size, VoidCallback onTap, TextStyle textStyle) {
+    int rating,
+    double size,
+    VoidCallback onTap,
+    TextStyle textStyle,
+    BuildContext context,
+  ) {
     return Column(
       children: [
         CircularButtonWidget(
@@ -67,8 +73,13 @@ class _RateViewState extends State<RateView> {
     );
   }
 
-  Widget _shareButton(double size, VoidCallback onTap, TextStyle textStyle,
-      double paddingLeft) {
+  Widget _shareButton(
+    double size,
+    VoidCallback onTap,
+    TextStyle textStyle,
+    double paddingLeft,
+    BuildContext context,
+  ) {
     return Padding(
       padding: EdgeInsets.only(left: paddingLeft),
       child: Column(
@@ -100,11 +111,7 @@ class _RateViewState extends State<RateView> {
         ),
         StarRating(
           value: rating,
-          onChanged: (index) {
-            setState(() {
-              rating = index;
-            });
-          },
+          onChanged: onChanged,
         ),
       ],
     );

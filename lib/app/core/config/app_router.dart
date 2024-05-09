@@ -10,6 +10,7 @@ import 'package:flutter_movie_app/app/features/search/search_page.dart';
 import 'package:flutter_movie_app/app/features/splash/splash_page.dart';
 import 'package:flutter_movie_app/app/features/tv_series/tv_series_page.dart';
 import 'package:flutter_movie_app/app/features/tv_series_detail/tv_series_detail.dart';
+import '../../features/login/views/web_view_page.dart';
 
 import '../../features/tv_series_detail/view/tv_series_detail_page.dart';
 
@@ -28,6 +29,7 @@ class AppRouter extends _$AppRouter {
           AutoRoute(page: ProfileRoute.page),
         ]),
         AutoRoute(page: MovieDetailRoute.page),
+        AutoRoute(page: WebViewRoute.page),
         AutoRoute(page: TvSeriesDetailRoute.page),
       ];
 }

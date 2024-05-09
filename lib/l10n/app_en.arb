@@ -51,4 +51,9 @@
   "movie_detail_director_label": "Director",
   "movie_detail_writers_label": "Writers",
   "movie_detail_stars_label": "Stars"
+  "search_page_short_search_text_error": "Please search more than 3 characters",
+  "snackbar_successfully_updated":"{title} Successfully updated",
+  "snackbar_successfully_added":"{title} Successfully added",
+  "login_error_dialog_info":"Wrong username or password",
+  "login_error_dialog_button":"Okay"
 }

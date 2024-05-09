@@ -3,7 +3,7 @@ import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart'
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
+import '../../../core/constants/constants.dart';
 class DetailPageTrailerSection extends StatelessWidget {
   final YoutubePlayerController controller;
   const DetailPageTrailerSection({required this.controller, super.key});
@@ -34,10 +34,10 @@ class DetailPageTrailerSection extends StatelessWidget {
           player: YoutubePlayer(
             controller: controller,
             showVideoProgressIndicator: true,
-            progressIndicatorColor: Colors.amber,
+            progressIndicatorColor: MColors.youtubeProgressIndicator,
             progressColors: const ProgressBarColors(
-              playedColor: Colors.amber,
-              handleColor: Colors.amberAccent,
+              playedColor: MColors.youtubePlayed,
+              handleColor: MColors.youtubeHandleColor,
             ),
             onReady: () {
               controller.addListener(() {});

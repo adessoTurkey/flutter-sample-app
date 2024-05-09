@@ -54,6 +54,9 @@ abstract class ATheme {
   TextStyle dontHaveAccount(double fontSize);
 
   TextStyle registerNow(double fontSize);
+
+  TextStyle loginErrorDialogInfo(double fontSize);
+  TextStyle loginErrorDialogButton(double fontSize);
   //Tv Series
   TextStyle mainPageListViewTitleTextStyle(double fontSize);
   TextStyle mainPageAppBarTitleTextStyle(double fontSize);

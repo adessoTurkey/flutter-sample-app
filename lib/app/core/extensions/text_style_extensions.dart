@@ -270,4 +270,17 @@ extension TextStyleExtensions on TextStyle {
         fontSize: fontSize,
         color: color,
       );
+  TextStyle loginErrorDialogInfoTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        color: color,
+      );
+
+  TextStyle loginErrorDialogButtonTextStyle(double fontSize, Color color) =>
+      copyWith(
+        fontSize: fontSize,
+        fontWeight: _bold,
+        color: color,
+      );
+
 }

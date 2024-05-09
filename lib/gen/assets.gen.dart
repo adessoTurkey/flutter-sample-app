@@ -12,10 +12,6 @@ import 'package:flutter/widgets.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/no_result.png
-  AssetGenImage get noResult =>
-      const AssetGenImage('assets/images/no_result.png');
-
   /// File path: assets/images/eye.svg
   String get eye => 'assets/images/eye.svg';
 
@@ -26,8 +22,16 @@ class $AssetsImagesGen {
   AssetGenImage get loginBg =>
       const AssetGenImage('assets/images/login_bg.png');
 
+  /// File path: assets/images/login_error_banner.png
+  AssetGenImage get loginErrorBanner =>
+      const AssetGenImage('assets/images/login_error_banner.png');
+
   /// File path: assets/images/logo.svg
   String get logo => 'assets/images/logo.svg';
+
+  /// File path: assets/images/no_result.png
+  AssetGenImage get noResult =>
+      const AssetGenImage('assets/images/no_result.png');
 
   /// File path: assets/images/poster_1.jpg
   AssetGenImage get poster1 =>
@@ -38,16 +42,15 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/splash_bg.png');
 
   /// List of all assets
-
   List<dynamic> get values => [
         eye,
         heart,
         loginBg,
+        loginErrorBanner,
         logo,
-        poster1,
-        splashBg,
         noResult,
         poster1,
+        splashBg
       ];
 }
 

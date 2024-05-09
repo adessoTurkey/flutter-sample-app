@@ -250,6 +250,18 @@ final class LightTheme extends ATheme {
   }
 
   @override
+  TextStyle loginErrorDialogInfo(double fontSize) {
+    return const TextStyle()
+        .loginErrorDialogInfoTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle loginErrorDialogButton(double fontSize) {
+    return const TextStyle()
+        .loginErrorDialogButtonTextStyle(fontSize, MColors.white);
+  }
+
+  @override
   Color get progressIndicatorColor => MColors.youtubePlayed;
 
 }
