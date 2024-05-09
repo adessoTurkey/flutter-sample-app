@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DurationView extends StatelessWidget {
   final String? durationTime;
-  const DurationView({required this.durationTime, super.key});
+  const DurationView({ this.durationTime, super.key});
 
   @override
   Widget build(BuildContext context) {

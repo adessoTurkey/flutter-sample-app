@@ -11,11 +11,11 @@ class DetailPageInfoSection extends StatelessWidget {
   final String? releaseDate;
 
   const DetailPageInfoSection({super.key,
-    required this.overview,
-    required this.title,
-    required this.genres,
-    required this.runTime,
-    required this.releaseDate, });
+     this.overview,
+     this.title,
+     this.genres,
+     this.runTime,
+     this.releaseDate, });
 
   @override
   Widget build(BuildContext context) {
