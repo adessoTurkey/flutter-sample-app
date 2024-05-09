@@ -30,6 +30,11 @@
   "profile_header_text": "Profile",
   "profile_sub_header_text": "Hello",
   "profile_favorite_title_text": "Favorite",
+  "tv_series_page_title": "Tv Series",
+  "tv_series_top_rated": "Top Rated",
+  "fetching_error": "Fetching Error",
+  "tv_series_app_bar_title": "Tv Series",
+  "profile_favorite_title_text": "Favorite",
   "movie_detail_duration_text": "min",
   "search_page_title": "Search",
   "search_page_text_field_title": "Search",
@@ -42,4 +47,9 @@
   "actor_detail_expand_text": "See full bio >>",
   "actor_detail_shrink_text": "See less >>",
   "actor_detail_info_label": "Born:"
+  "search_page_short_search_text_error": "Please search more than 3 characters",
+  "snackbar_successfully_updated":"{title} Successfully updated",
+  "snackbar_successfully_added":"{title} Successfully added",
+  "login_error_dialog_info":"Wrong username or password",
+  "login_error_dialog_button":"Okay"
 }

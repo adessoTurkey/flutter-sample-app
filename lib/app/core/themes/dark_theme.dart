@@ -58,7 +58,7 @@ final class DarkTheme extends ATheme {
   }
 
   @override
-  TextStyle moviesViewHeaderTextStyle(double fontSize) {
+  TextStyle mainPageViewHeaderTextStyle(double fontSize) {
     return const TextStyle()
         .moviesViewHeaderTextStyle(fontSize, MColors.almostBlack);
   }
@@ -87,15 +87,15 @@ final class DarkTheme extends ATheme {
   }
 
   @override
-  TextStyle moviesPageListViewTitleTextStyle(double fontSize) {
+  TextStyle mainPageListViewTitleTextStyle(double fontSize) {
     return const TextStyle()
-        .moviesPageListViewTitleTextStyle(fontSize, MColors.almostBlack);
+        .mainPageListViewTitleTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override
-  TextStyle moviesPageAppBarTitleTextStyle(double fontSize) {
+  TextStyle mainPageAppBarTitleTextStyle(double fontSize) {
     return const TextStyle()
-        .moviesPageAppBarTitleTextStyle(fontSize, MColors.white);
+        .mainPageAppBarTitleTextStyle(fontSize, MColors.white);
   }
 
   @override
@@ -192,6 +192,12 @@ final class DarkTheme extends ATheme {
   }
 
   @override
+  TextStyle tvSeriesCellNameTextStyle(double fontSize) {
+    return const TextStyle()
+        .tvSeriesCellNameTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
   TextStyle searchListCellViewTitleTextStyle(double fontSize) {
     return const TextStyle()
         .searchListCellViewTitleTextStyle(fontSize, MColors.almostBlack);
@@ -254,6 +260,18 @@ final class DarkTheme extends ATheme {
   TextStyle actorDetailName(double fontSize) {
     return const TextStyle()
         .actorDetailNameTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle loginErrorDialogInfo(double fontSize) {
+    return const TextStyle()
+        .loginErrorDialogInfoTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle loginErrorDialogButton(double fontSize) {
+    return const TextStyle()
+        .loginErrorDialogButtonTextStyle(fontSize, MColors.white);
   }
 
 }

@@ -5,7 +5,7 @@ import '../../app/core/enums/enums.dart';
 
 final class LargeConfiguration extends ResponsiveConfiguration {
   @override
-  Size get movieCarouselContainerSize => const Size(0, 350);
+  Size get carouselContainerSize => const Size(0, 350);
 
   @override
   double get movieCellMovieNameTextSize => 22;
@@ -34,10 +34,10 @@ final class LargeConfiguration extends ResponsiveConfiguration {
 
   //Movie Carousel View
   @override
-  double get movieCarouselBlueContainerHeight => 200;
+  double get carouselBlueContainerHeight => 200;
 
   @override
-  double get movieCarouselContainerHeight => 400;
+  double get carouselContainerHeight => 400;
 
   @override
   double get movieCarouselHeaderLeftPadding => 32;
@@ -87,10 +87,10 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   double get registerNowTextSize => 12;
 
   @override
-  double get moviePageListViewTitleTextSize => 28;
+  double get mainPageListViewTitleTextSize => 28;
 
   @override
-  double get moviePageAppBarTitleTextSize => 16;
+  double get mainPageAppBarTitleTextSize => 16;
 
   //Carousel
   @override
@@ -237,27 +237,82 @@ final class LargeConfiguration extends ResponsiveConfiguration {
 
   @override
   double get profileFavoriteListTitleTextSize => 28;
-  
+
+  //Tv Series
+  @override
+  double get tvSeriesCellImageWidth => 150;
+
+  @override
+  double get tvSeriesCellImageHeight => 220;
+
+  @override
+  double get tvSeriesCellInfoContainerHeight => 90;
+
+  @override
+  double get tvSeriesCellBodyPaddingLeft => 18;
+
+  @override
+  double get tvSeriesCellCardElevation => 8;
+
+  @override
+  double get tvSeriesCellNameTextSize => 22;
+
+  @override
+  double get tvSeriesDetailSliverAppBarExpandableHeight => 100;
+
+  @override
+  double get tvSeriesListViewPaddingLeft => 32;
+
+  @override
+  double get tvSeriesListViewPaddingRight => 32;
+
+  @override
+  double get tvSeriesListViewPaddingTop => 24;
+
+  @override
+  double get tvSeriesGridMainAxisSpacing => 8;
+
+  @override
+  double get tvSeriesGridCrossAxisSpacing => 8;
+
+  @override
+  double get tvSeriesGridMainAxisExtent => 380;
+
   @override
   double get searchListCellViewTitleTextSize => 23;
-  
+
   @override
   double get searchTextFieldButtonTextSize => 20;
-  
+
   @override
   double get searchViewTitleTextSize => 40;
-  
+
   @override
   double get searchListCellViewInfoTextSize => 20;
 
   @override
   double get searchListCellViewTypeIconSize => 20;
-  
+
   @override
   double get searchListCellViewTypeTextSize => 18;
-  
+
   @override
   double get searchViewNoResultTextSize => 26;
+
+  @override
+  double get dialogBannerHeight => 80;
+
+  @override
+  double get dialogButtonCornerRadius => 12;
+
+  @override
+  double get dialogButtonTextSize => 15;
+
+  @override
+  double get dialogInfoTextSize => 15;
+
+  @override
+  Size get dialogSize => const Size(275, 285);
 
   @override
   double get actorDetailBiographyTextSize => 17;

@@ -1,9 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
+import 'package:flutter_movie_app/app/features/login/views/error_dialog.dart';
 import 'package:flutter_movie_app/app/features/login/views/login_button.dart';
 import 'package:flutter_movie_app/app/features/login/views/login_password_field.dart';
 import 'package:flutter_movie_app/app/features/login/views/login_text_field.dart';
@@ -58,7 +60,9 @@ class LoginPage extends StatelessWidget {
                         Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              context.pushRoute(WebViewRoute(url: dotenv.get(EnvConstants.forgotPasswordUrl)));
+                            },
                             child: Text(
                               context.localization.forgatPassword,
                               style: theme
@@ -77,7 +81,9 @@ class LoginPage extends StatelessWidget {
                                 .dontHaveAccount(config.dontHaveAccountTextSize),
                           ),
                           TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                context.pushRoute(WebViewRoute(url: dotenv.get(EnvConstants.registerNowUrl)));
+                              },
                               child: Text(
                                 context.localization.registerNow,
                                 style:
@@ -108,9 +114,8 @@ class LoginPage extends StatelessWidget {
                       },
                       listener: (context, state) {
                           if (state.status.isFailure) {
-                            context.showSnackbarAfterHide(
-                              SnackBar(content: Text(context.localization.authentication_failed),),);
-                          }
+                            showDialog(context: context, builder: (BuildContext context) => const ErrorDialog());}
+
                           if(state.status.isSuccess){
                             context.pushRoute(const HomeRoute());
                           }

@@ -33,6 +33,11 @@
   "profile_header_text": "Profil",
   "profile_sub_header_text": "Merhaba",
   "profile_favorite_title_text": "Favori",
+  "tv_series_page_title": "Diziler",
+  "tv_series_top_rated": "En Çok Oy Alan",
+  "fetching_error": "Veri Çekme Hatası",
+  "tv_series_app_bar_title": "Diziler",
+  "profile_favorite_title_text": "Favori",
   "movie_detail_duration_text": "dk",
   "search_page_title": "Arama",
   "search_page_text_field_title": "Arama",
@@ -45,4 +50,9 @@
   "actor_detail_expand_text": "Hepsini göster >>",
   "actor_detail_shrink_text": "Daha az göster >>",
   "actor_detail_info_label": "Doğum:"
+  "search_page_short_search_text_error": "Lütfen arama yaparken 3 karakterden fazla kullanın.",
+  "snackbar_successfully_updated":"{title} Başarılı bir şekilde güncellendi",
+  "snackbar_successfully_added":"{title} Başarılı bir şekilde eklendi",
+  "login_error_dialog_info":"Yanlış kullanıcı adı yada şifre",
+  "login_error_dialog_button":"Tamam"
 }
