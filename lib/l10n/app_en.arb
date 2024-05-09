@@ -46,7 +46,7 @@
   "search_page_short_search_text_error": "Please search more than 3 characters",
   "actor_detail_expand_text": "See full bio >>",
   "actor_detail_shrink_text": "See less >>",
-  "actor_detail_info_label": "Born:"
+  "actor_detail_info_label": "Born:",
   "search_page_short_search_text_error": "Please search more than 3 characters",
   "snackbar_successfully_updated":"{title} Successfully updated",
   "snackbar_successfully_added":"{title} Successfully added",

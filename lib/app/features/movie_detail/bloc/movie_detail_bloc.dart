@@ -108,7 +108,7 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
       );
     } catch (e) {
       emit(state.copyWith(
-        status: MovieDetailStatusX.error,
+        status: NetworkFetchStatus.error,
         errorMessage: e.toString(),
       ));
     }
