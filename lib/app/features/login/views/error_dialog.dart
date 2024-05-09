@@ -7,11 +7,8 @@ import '../../../core/constants/m_colors.dart';
 
 class ErrorDialog extends StatelessWidget {
   final String message;
-  Function? onClick;
 
-  ErrorDialog({super.key, required this.message, this.onClick}){
-    onClick = _defaultOnClick;
-  }
+  const ErrorDialog({super.key, required this.message});
 
   @override
   Widget build(BuildContext context) {
@@ -72,11 +69,5 @@ class ErrorDialog extends StatelessWidget {
         );
       },
     );
-  }
-
-  _defaultOnClick(){
-    (BuildContext context) {
-      Navigator.of(context).pop();
-    };
   }
 }
