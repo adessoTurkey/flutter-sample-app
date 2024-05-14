@@ -172,7 +172,7 @@ class SmallConfiguration extends ResponsiveConfiguration {
   double get circularButtonWidgetDefaultRadiusSize => 22;
 
   @override
-  double get movieDetailShareButtonPaddingLeft => 18;
+  double get detailShareButtonPaddingLeft => 18;
 
   @override
   double get movieDetailSliverAppBarExpandableHeight => 100;
@@ -330,9 +330,6 @@ class SmallConfiguration extends ResponsiveConfiguration {
   double get durationAndReleaseDateDividerHeight => 20;
 
   @override
-  double get searchViewNoResultTextSize => 22;
-
-  @override
   double get dialogBannerHeight => 80;
 
   @override
@@ -346,5 +343,7 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   @override
   Size get dialogSize => const Size(275, 285);
+
+  @override
   double get durationAndReleaseDateDividerPaddingAll => 10;
 }

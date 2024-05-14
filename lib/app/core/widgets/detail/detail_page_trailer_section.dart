@@ -34,10 +34,10 @@ class DetailPageTrailerSection extends StatelessWidget {
           player: YoutubePlayer(
             controller: controller,
             showVideoProgressIndicator: true,
-            progressIndicatorColor: MColors.youtubeProgressIndicator,
+            progressIndicatorColor: MColors.youtubePlayed,
             progressColors: const ProgressBarColors(
               playedColor: MColors.youtubePlayed,
-              handleColor: MColors.youtubeHandleColor,
+              handleColor: MColors.youtubeHandle,
             ),
             onReady: () {
               controller.addListener(() {});

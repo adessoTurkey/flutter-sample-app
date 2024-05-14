@@ -80,7 +80,7 @@ abstract class ResponsiveConfiguration {
   double get starRatingIconSize;
   double get starRatingIconSpacingPaddingHorizontal;
   double get circularButtonWidgetDefaultRadiusSize;
-  double get movieDetailShareButtonPaddingLeft;
+  double get detailShareButtonPaddingLeft;
   double get movieDetailSliverAppBarExpandableHeight;
 
   double get loginFieldHintTextSize;

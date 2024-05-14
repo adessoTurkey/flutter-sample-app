@@ -169,7 +169,7 @@ class MediumConfiguration extends ResponsiveConfiguration {
   double get circularButtonWidgetDefaultRadiusSize => 26;
 
   @override
-  double get movieDetailShareButtonPaddingLeft => 20;
+  double get detailShareButtonPaddingLeft => 20;
 
   @override
   double get movieDetailSliverAppBarExpandableHeight => 100;

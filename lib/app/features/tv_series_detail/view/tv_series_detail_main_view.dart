@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
+import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/extensions/tv_series_detail_model_extension.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
@@ -50,6 +51,8 @@ class TvSeriesDetailMainView extends StatelessWidget {
                       runTime: tvSeriesDetailModel.getDuration(),
                       genres: tvSeriesDetailModel.getGenres(),
                       title: tvSeriesDetailModel.name,
+                      itemID: tvSeriesDetailModel.id ?? 0,
+                      ratingEndpoints: RatingEnpoints.postRatingTv,
                     ),
                     20.verticalSizedBox,
                     Container(

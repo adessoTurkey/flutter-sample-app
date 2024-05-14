@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
@@ -9,13 +10,17 @@ class DetailPageInfoSection extends StatelessWidget {
   final String? genres;
   final String? runTime;
   final String? releaseDate;
+  final int itemID;
+  final RatingEnpoints ratingEndpoints;
 
   const DetailPageInfoSection({super.key,
      this.overview,
      this.title,
      this.genres,
      this.runTime,
-     this.releaseDate, });
+     this.releaseDate,
+     required this.itemID,
+     required this.ratingEndpoints});
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +98,7 @@ class DetailPageInfoSection extends StatelessWidget {
                 ],
               ),
               20.verticalSizedBox,
-              const RateView(),
+              RateView(id: itemID, endpoint: ratingEndpoints, title: title ?? ""),
               20.verticalSizedBox,
               const Divider(),
             ],

@@ -55,6 +55,8 @@ class MovieDetailPage extends StatelessWidget {
                                   runTime: state.movieDetailModel?.runtime.toString(),
                                   genres: state.movieDetailModel?.getGenres(),
                                   title: state.movieDetailModel?.title,
+                                  itemID: state.movieDetailModel?.id ?? 0,
+                                  ratingEndpoints: RatingEnpoints.postRatingTv,
                                 ),
                                 20.verticalSizedBox,
                                 MovieDetailPageCastSection(

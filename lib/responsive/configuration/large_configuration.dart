@@ -173,7 +173,7 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   double get circularButtonWidgetDefaultRadiusSize => 30;
 
   @override
-  double get movieDetailShareButtonPaddingLeft => 24;
+  double get detailShareButtonPaddingLeft => 24;
   
   @override
   double get movieDetailSliverAppBarExpandableHeight => 100;
