@@ -235,6 +235,36 @@ final class LightTheme extends ATheme {
   }
 
   @override
+  TextStyle actorDetailBiography(double fontSize) {
+    return const TextStyle()
+        .actorDetailBiographyTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle actorDetailExpandText(double fontSize) {
+    return const TextStyle()
+        .actorDetailExpandTextStyle(fontSize, MColors.vibrantBlue);
+  }
+
+  @override
+  TextStyle actorDetailInfo(double fontSize) {
+    return const TextStyle()
+        .actorDetailInfoTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle actorDetailInfoLabel(double fontSize) {
+    return const TextStyle()
+        .actorDetailInfoLabelTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle actorDetailName(double fontSize) {
+    return const TextStyle()
+        .actorDetailNameTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
   TextStyle loginErrorDialogInfo(double fontSize) {
     return const TextStyle()
         .loginErrorDialogInfoTextStyle(fontSize, MColors.almostBlack);

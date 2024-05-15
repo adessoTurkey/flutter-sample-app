@@ -12,6 +12,8 @@ import 'package:flutter_movie_app/app/features/tv_series/tv_series_page.dart';
 import 'package:flutter_movie_app/app/features/tv_series_detail/tv_series_detail.dart';
 import '../../features/login/views/web_view_page.dart';
 
+import '../../features/actor/view/actor_detail_page.dart';
+
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()
@@ -29,5 +31,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: MovieDetailRoute.page),
         AutoRoute(page: WebViewRoute.page),
         AutoRoute(page: TvSeriesDetailRoute.page),
+        AutoRoute(page: ActorDetailRoute.page),
       ];
 }
