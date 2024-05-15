@@ -32,3 +32,14 @@ final class RatingCollapsedEvent extends RatingEvent {
   @override
   List<Object> get props => [isCollapsed];
 }
+
+final class RatingInitialEvent extends RatingEvent {
+  const RatingInitialEvent({
+    required this.id,
+  });
+
+  final int id;
+
+  @override
+  List<Object> get props => [id];
+}

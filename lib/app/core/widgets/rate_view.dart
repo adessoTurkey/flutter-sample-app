@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/constants/m_colors.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
+import 'package:flutter_movie_app/app/core/enums/network_fetch_status.dart';
 import 'package:flutter_movie_app/app/core/extensions/context_extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/rating/rating_bloc.dart';
@@ -21,7 +22,7 @@ class RateView extends StatelessWidget {
     super.key,
     required this.id,
     required this.endpoint,
-    required this.title,
+    required this.title
   });
   @override
   Widget build(BuildContext context) {
@@ -33,6 +34,10 @@ class RateView extends StatelessWidget {
       listenWhen: (previous, current) =>
       previous.ratingValue != current.ratingValue,
       listener: (context, state) {
+        if(state.status == NetworkFetchStatus.initial){
+          context.read<RatingBloc>().add(
+              RatingInitialEvent(id: id));
+        }
         if (state.ratingResponseModel?.statusCode ==
             PostRatingStatusCodeEnum.updated) {
           context.showSnackbarAfterHide(
