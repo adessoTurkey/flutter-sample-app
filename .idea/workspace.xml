@@ -4,29 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="bugfix for review">
-      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_info_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api_call/api_repositories/remote_data_source.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api_call/api_repositories/remote_data_source.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/base_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/base_theme.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/dark_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/dark_theme.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/light_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/light_theme.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_info_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_info_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/rate_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/rate_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/bloc/movie_detail_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/bloc/movie_detail_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/bloc/movie_detail_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/bloc/movie_detail_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/rating/rating_bloc.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/rating/rating_event.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/rating/rating_state.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_event.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_main_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_main_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-    </list>
+    <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="bugfix for review" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
