@@ -5,10 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="bugfix for review">
+      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_info_section.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api_call/api_repositories/remote_data_source.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api_call/api_repositories/remote_data_source.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/base_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/base_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/dark_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/dark_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/light_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/light_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_info_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_info_section.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/rate_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/rate_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/rating/rating_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/rating/rating_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/rating/rating_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/rating/rating_event.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/bloc/movie_detail_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/bloc/movie_detail_bloc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/bloc/movie_detail_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/bloc/movie_detail_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/rating/rating_bloc.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/rating/rating_event.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/rating/rating_state.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_event.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_main_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_main_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,11 +71,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/app/features/movie_detail/views" />
       <recent name="$PROJECT_DIR$/lib/app/features/tv_series_detail/view" />
       <recent name="$PROJECT_DIR$/lib/app/features" />
       <recent name="$PROJECT_DIR$/lib/app/features/login/bloc" />
       <recent name="$PROJECT_DIR$/lib/app/features/login/bloc/password" />
-      <recent name="$PROJECT_DIR$/lib/app/features/login/bloc/authentication" />
     </key>
   </component>
   <component name="RunManager">
@@ -111,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1715110641115</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="bugfix for review">
+      <created>1715757475486</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715757475486</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

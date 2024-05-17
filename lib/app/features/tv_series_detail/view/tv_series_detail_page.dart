@@ -5,6 +5,7 @@ import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.d
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
+import '../../../core/enums/network_fetch_status.dart';
 import '../tv_series_detail.dart';
 
 @RoutePage()
@@ -22,19 +23,19 @@ class TvSeriesDetailPage extends StatelessWidget {
         body: BlocBuilder<TvSeriesDetailBloc, TvSeriesDetailState>(
           builder: (context, state) {
             switch (state.status) {
-              case TvSeriesDetailStatus.loading:
+              case NetworkFetchStatus.loading:
                 return const LoadingView();
-              case TvSeriesDetailStatus.success:
+              case NetworkFetchStatus.success:
                 return TvSeriesDetailMainView(
                   tvSeriesDetailModel: state.tvSeriesDetailModel!,
                   creditResponse: state.creditResponse!,
                   videoModelResponse: state.videoModelResponse!,
                 );
-              case TvSeriesDetailStatus.error:
+              case NetworkFetchStatus.error:
                 return ErrorView(
                   error: state.errorMessage,
                 );
-              case TvSeriesDetailStatus.initial:
+              case NetworkFetchStatus.initial:
                 return const LoadingView();
             }
           },

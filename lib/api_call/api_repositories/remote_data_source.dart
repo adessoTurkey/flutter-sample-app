@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/api_call/models/login_credentials_request_model.dart';
 import 'package:flutter_movie_app/api_call/models/models.dart';
@@ -391,10 +392,12 @@ class RemoteDataSourceImpl extends RemoteDataSource {
         data: networkRequestBody,
         headers: {"Content-Type": NetworkConstants.contentType},
       );
+      debugPrint(networkRequestBody.toString());
       var ratingResponseModel =
           await networkService.execute(networkRequest, (json) {
         return RatingResponseModel.fromJson(json);
       });
+      debugPrint(ratingResponseModel.toString());
       return (ratingResponseModel as Ok<RatingResponseModel>).data;
     } catch (_) {
       rethrow;
@@ -409,6 +412,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
         path: "${dotenv.get(EnvConstants.accountPath)}/${fetchType.endpoint}",
         data: const NetworkRequestBody.empty(),
       );
+      debugPrint(ratedListNetworkRequest.toString());
       var ratedListResponse = await networkService.execute(
         ratedListNetworkRequest,
         (json) {
@@ -417,7 +421,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
               .toList();
         },
       );
-
+      debugPrint(ratedListResponse.toString());
       return (ratedListResponse as Ok<List<RatedListResponse>>).data;
     } catch (_) {
       rethrow;

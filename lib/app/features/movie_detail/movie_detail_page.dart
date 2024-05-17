@@ -8,6 +8,7 @@ import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/bloc/movie_detail_bloc.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
+import '../../core/enums/network_fetch_status.dart';
 import 'movie_detail.dart';
 
 @RoutePage()
@@ -25,9 +26,9 @@ class MovieDetailPage extends StatelessWidget {
         body: BlocBuilder<MovieDetailBloc, MovieDetailState>(
           builder: (context, state) {
             switch (state.status) {
-              case MovieDetailStatusX.loading:
+              case NetworkFetchStatus.loading:
                 return const LoadingView();
-              case MovieDetailStatusX.success:
+              case NetworkFetchStatus.success:
                 return ConfigurationWidget(
                   onConfigurationReady: (configuration, theme) {
                     return SingleChildScrollView(
@@ -49,14 +50,8 @@ class MovieDetailPage extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                DetailPageInfoSection(
-                                  overview: state.movieDetailModel?.overivew,
-                                  releaseDate: state.movieDetailModel?.releaseDate,
-                                  runTime: state.movieDetailModel?.runtime.toString(),
-                                  genres: state.movieDetailModel?.getGenres(),
-                                  title: state.movieDetailModel?.title,
-                                  itemID: state.movieDetailModel?.id ?? 0,
-                                  ratingEndpoints: RatingEnpoints.postRatingTv,
+                                MovieDetailPageInfoSection(
+                                  movieDetailModel: state.movieDetailModel,
                                 ),
                                 20.verticalSizedBox,
                                 MovieDetailPageCastSection(
@@ -74,11 +69,11 @@ class MovieDetailPage extends StatelessWidget {
                     );
                   },
                 );
-              case MovieDetailStatusX.error:
+              case NetworkFetchStatus.error:
                 return ErrorView(
                   error: state.errorMessage,
                 );
-              case MovieDetailStatusX.initial:
+              case NetworkFetchStatus.initial:
                 return const LoadingView();
             }
           },

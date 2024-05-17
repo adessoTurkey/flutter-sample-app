@@ -14,7 +14,6 @@ import 'package:flutter_movie_app/app/core/themes/theme_enum.dart';
 import 'package:flutter_movie_app/app/features/login/bloc/login_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/bloc/movies_bloc.dart';
 import 'package:flutter_movie_app/app/features/profile/bloc/profile_bloc.dart';
-import 'package:flutter_movie_app/app/features/rating/rating_bloc.dart';
 import 'package:flutter_movie_app/app/features/tv_series/bloc/tv_series_bloc.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/localization/bloc/localization_bloc.dart';
@@ -62,7 +61,6 @@ void main() async {
         create: (_) =>
             GenreBloc(getIt<RemoteDataSource>())..add(GenreFetching())),
     BlocProvider(create: (_) => LoginBloc(getIt<RemoteDataSource>())),
-    BlocProvider(create: (_) => RatingBloc(getIt<RemoteDataSource>())),
   ], child: const MyApp()));
 }
 

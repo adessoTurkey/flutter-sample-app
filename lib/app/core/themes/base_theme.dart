@@ -69,8 +69,8 @@ abstract class ATheme {
   TextStyle tvSeriesDetailCastNameTextStyle(double fontSize);
   TextStyle detailDescriptionTextStyle(double fontSize);
   TextStyle detailTrailerTextStyle(double fontSize);
-  TextStyle detailMovieTitleTextStyle(double fontSize);
-  TextStyle detailMovieGenresTextStyle(double fontSize);
+  TextStyle detailPageTitleTextStyle(double fontSize);
+  TextStyle detailPageGenresTextStyle(double fontSize);
 
   ThemeData get themeData => ThemeData(
       useMaterial3: true,

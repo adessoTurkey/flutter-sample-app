@@ -7,6 +7,7 @@ import 'package:flutter_movie_app/app/core/extensions/tv_series_detail_model_ext
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_models.dart';
 import 'package:flutter_movie_app/app/features/tv_series_detail/models/tv_series_detail_model.dart';
+import 'package:flutter_movie_app/app/features/tv_series_detail/view/tv_series_detail_info_section.dart';
 import 'tv_series_detail_cast_section.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
@@ -45,15 +46,7 @@ class TvSeriesDetailMainView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    DetailPageInfoSection(
-                      overview: tvSeriesDetailModel.overview,
-                      releaseDate: "${context.localization.tv_series_detail_date_title} ${tvSeriesDetailModel.getDates()}",
-                      runTime: tvSeriesDetailModel.getDuration(),
-                      genres: tvSeriesDetailModel.getGenres(),
-                      title: tvSeriesDetailModel.name,
-                      itemID: tvSeriesDetailModel.id ?? 0,
-                      ratingEndpoints: RatingEnpoints.postRatingTv,
-                    ),
+                    TvSeriesDetailPageInfoSection( tvSeriesDetailModel: tvSeriesDetailModel),
                     20.verticalSizedBox,
                     Container(
                         decoration: BoxDecoration(

@@ -22,3 +22,25 @@ final class TvSeriesDetailAddFavoriteEvent extends TvSeriesDetailEvent {
   @override
   List<Object> get props => [tvSeriesId];
 }
+
+final class TvSeriesDetailAddRatingEvent extends TvSeriesDetailEvent {
+  const TvSeriesDetailAddRatingEvent({
+    required this.ratingValue,
+  });
+
+  final int ratingValue;
+
+  @override
+  List<Object> get props => [ratingValue];
+}
+
+final class TvSeriesDetailRatingCollapsed extends TvSeriesDetailEvent {
+  const TvSeriesDetailRatingCollapsed({
+    required this.isCollapsed,
+  });
+
+  final bool isCollapsed;
+
+  @override
+  List<Object> get props => [isCollapsed];
+}

@@ -124,13 +124,13 @@ final class LightTheme extends ATheme {
   }
 
   @override
-  TextStyle detailMovieGenresTextStyle(double fontSize) {
+  TextStyle detailPageGenresTextStyle(double fontSize) {
     return const TextStyle()
         .movieDetailMovieGenresTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override
-  TextStyle detailMovieTitleTextStyle(double fontSize) {
+  TextStyle detailPageTitleTextStyle(double fontSize) {
     return const TextStyle()
         .movieDetailMovieTitleTextStyle(fontSize, MColors.almostBlack);
   }
