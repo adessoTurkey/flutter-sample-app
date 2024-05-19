@@ -46,6 +46,7 @@ class ActorDetailMainView extends StatelessWidget{
                     if(actorDetailModel.birthday != null && actorDetailModel.placeOfBirth != null)
                     FittedBox(
                         fit: BoxFit.fitWidth,
+                        alignment: AlignmentDirectional.centerStart,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [

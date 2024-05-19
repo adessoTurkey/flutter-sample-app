@@ -1,43 +1,61 @@
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
+import 'package:flutter_movie_app/app/features/actor/model/crew_model.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/credits/credit_response.dart';
 
 extension CreditResponseExtension on CreditResponse {
-  String? getActors() {
-    List<String?>? actorList = cast?.where((e) {
-      if (e.knownForDepartment == KnownForDepartmentEnum.acting) {
-        return true;
+
+  List<CrewModel>? getDirector() {
+    if (crew == null) {
+      return null;
+    }
+    List<CrewModel> directorList = [];
+
+    crew!.where((e) => e.knownForDepartment == KnownForDepartmentEnum.directing &&
+        e.job == CastJobEnum.director &&
+        e.name != null)
+        .fold<Set<String>>({}, (uniqueNames, e) {
+      if (uniqueNames.add(e.name!)) {
+        directorList.add(CrewModel(name: e.name, id: e.id));
       }
-      return false;
-    }).map((e) {
-      return e.originalName;
-    }).toList();
-    return actorList?.join(", ");
+      return uniqueNames;
+    });
+
+    return directorList;
   }
 
-  String? getWriters() {
-    List<String?>? writerList = crew?.where((e) {
-      if (e.knownForDepartment == KnownForDepartmentEnum.writing) {
-        return true;
-      }
-      return false;
-    }).map((e) {
-      return e.originalName;
-    }).toList();
+  List<CrewModel>? getWriters() {
+    if (crew == null) {
+      return null;
+    }
 
-    return writerList?.join(", ");
+    List<CrewModel> writerList = [];
+
+    crew!.where((e) => e.knownForDepartment == KnownForDepartmentEnum.writing && e.name != null)
+        .fold<Set<String>>({}, (uniqueNames, e) {
+      if (uniqueNames.add(e.name!)) {
+        writerList.add(CrewModel(name: e.name, id: e.id));
+      }
+      return uniqueNames;
+    });
+
+    return writerList;
   }
 
-  String? getDirector() {
-    List<String?>? directorList = crew?.where((e) {
-      if (e.knownForDepartment == KnownForDepartmentEnum.directing &&
-          e.job == CastJobEnum.director) {
-        return true;
-      }
-      return false;
-    }).map((e) {
-      return e.originalName;
-    }).toList();
+  List<CrewModel>? getActors() {
+    if (crew == null) {
+      return null;
+    }
 
-    return directorList?.join(", ");
+    List<CrewModel> actorList = [];
+
+    crew!.where((e) => e.knownForDepartment == KnownForDepartmentEnum.acting && e.name != null)
+        .fold<Set<String>>({}, (uniqueNames, e) {
+      if (uniqueNames.add(e.name!)) {
+        actorList.add(CrewModel(name: e.name, id: e.id));
+      }
+      return uniqueNames;
+    });
+
+    return actorList;
   }
 }

@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
@@ -13,7 +12,6 @@ import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import '../../../core/enums/favorite_entity_type.dart';
 
-@RoutePage()
 class TvSeriesDetailMainView extends StatelessWidget {
   final TvSeriesDetailModel tvSeriesDetailModel;
   final CreditResponse creditResponse;
@@ -68,7 +66,7 @@ class TvSeriesDetailMainView extends StatelessWidget {
                     20.verticalSizedBox,
                       TvSeriesDetailCastSection(
                         creditResponse: creditResponse,
-                        creators: tvSeriesDetailModel.getCreators,
+                        creators: tvSeriesDetailModel.getCreators(),
                       ),
                     20.verticalSizedBox,
                     DetailPageTrailer(

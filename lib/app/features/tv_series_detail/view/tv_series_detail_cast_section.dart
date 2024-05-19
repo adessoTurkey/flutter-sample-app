@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/detail/detail_crew_label_section.dart';
+import 'package:flutter_movie_app/app/features/actor/model/crew_model.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/credits/credit_response.dart';
 import 'package:flutter_movie_app/app/features/tv_series_detail/view/tv_series_detail_cast_list.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
@@ -8,7 +9,7 @@ import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class TvSeriesDetailCastSection extends StatelessWidget {
   final CreditResponse creditResponse;
-  final String? creators;
+  final List<CrewModel>? creators;
   const TvSeriesDetailCastSection({required this.creditResponse, required this.creators, super.key});
 
   @override
