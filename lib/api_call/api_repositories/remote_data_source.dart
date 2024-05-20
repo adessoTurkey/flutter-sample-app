@@ -32,8 +32,6 @@ abstract class RemoteDataSource {
   Future<List<MovieData>> getMovieList(MovieCategoriesEnum categoryEndpoint);
   Future<RequestTokenModel> loginWithCredentials(
       LoginCredentialsRequestModel requestBody);
-  Future<RequestTokenModel> loginWithCredentials(
-      LoginCredentialsRequestModel requestBody);
   Future<SessionResponseModel> openSession(SessionRequestModel requestBody);
   Future<MovieDetailModel> getMovieDetail(int movieId);
   Future<VideoModelResponse> getMovieVideos(int movieId);
@@ -106,7 +104,6 @@ class RemoteDataSourceImpl extends RemoteDataSource {
           path: dotenv.get(EnvConstants.loginWithCredentialsPath),
           data: NetworkRequestBody.json(requestBody.toJson()));
       var requestTokenResponse = await networkService.execute(
-          networkRequest, (json) => RequestTokenModel.fromJson(json));
           networkRequest, (json) => RequestTokenModel.fromJson(json));
       return (requestTokenResponse as Ok<RequestTokenModel>).data;
     } catch (_) {
