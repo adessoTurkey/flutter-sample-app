@@ -21,10 +21,10 @@ class AuthCacheManager {
   Future<void> updateSessionId(String? sessionId) async {
     if (sessionId != null) {
       await CacheManager.setString(AuthEnums.sessionId.path, sessionId);
-    } else {
-      if (await CacheManager.containsKey(AuthEnums.sessionId.path)) {
+    }
+
+     if (await CacheManager.containsKey(AuthEnums.sessionId.path)) {
         await CacheManager.remove(AuthEnums.sessionId.path);
       }
-    }
   }
 }

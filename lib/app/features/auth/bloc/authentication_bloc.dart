@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/cache/auth_cache_manager.dart';
 import 'package:flutter_movie_app/app/features/auth/repository/auth_repository.dart';
 import '../../../core/enums/enums.dart';
@@ -10,10 +10,8 @@ part 'authentication_state.dart';
 
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
-  final AuthCacheManager _authCacheManager;
   final AuthenticationRepository _authenticationRepository;
   AuthenticationBloc(
-    this._authCacheManager,
     this._authenticationRepository,
   ) : super(const AuthenticationState.unknown()) {
     on<_AuthenticationStatusChanged>(_onAuthenticationStatusChanged);
@@ -41,7 +39,7 @@ class AuthenticationBloc
       case AuthenticationStatus.unauthenticated:
         return emit(const AuthenticationState.unauthenticated());
       case AuthenticationStatus.authenticated:
-        var isLoggedIn = await _authCacheManager.isLoggedIn();
+        var isLoggedIn = await _authenticationRepository.authCacheManager.isLoggedIn();
         return emit(
           isLoggedIn
               ? const AuthenticationState.authenticated()

@@ -1,9 +1,5 @@
-import 'package:flutter/foundation.dart' show immutable;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-
-@immutable
-class CacheManager {
-  const CacheManager._();
+ abstract final class CacheManager {
 
   static const _androidOptions =
       AndroidOptions(encryptedSharedPreferences: true);
@@ -25,13 +21,10 @@ class CacheManager {
   static Future<bool?> getBool(String key) async {
     String? string = await _secureStorage.read(key: key);
     if (string == null) return null;
-    if (string == 'true') {
-      return true;
-    } else if (string == 'false') {
-      return false;
-    } else {
-      return null;
-    }
+    if (string == 'true') return true;
+    if (string == 'false') return false;
+
+    return null;
   }
 
   static Future<void> remove(String key) async =>

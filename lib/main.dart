@@ -22,8 +22,6 @@ import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/localization/bloc/localization_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_movie_app/responsive/responsive.dart';
-
-import 'app/core/constants/constants.dart';
 import 'app/features/genre_data/bloc/genre_bloc.dart';
 
 void main() async {
@@ -38,10 +36,6 @@ void main() async {
     feature.initialize();
     MLogger.log.debug('${feature.runtimeType} initialized');
   }
-
-  NetworkService networkService =
-      NetworkService(baseUrl: dotenv.get(EnvConstants.baseUrl))
-        ..addBasicAuth(dotenv.get(EnvConstants.accessToken));
 
   runApp(MultiBlocProvider(providers: [
     BlocProvider(create: (_) => LocalizationsBloc()),
@@ -62,7 +56,6 @@ void main() async {
               const TvSeriesFetching(categoryType: TvSeriesCategory.topRated))),
     BlocProvider(
       create: (_) => AuthenticationBloc(
-        getIt<AuthCacheManager>(),
         getIt<AuthenticationRepository>(),
       )..add(AppStarted()),
     ),

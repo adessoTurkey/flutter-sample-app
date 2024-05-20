@@ -25,11 +25,9 @@ class SplashPage extends StatelessWidget {
       listener: (context, state) {
         switch (state.status) {
           case AuthenticationStatus.authenticated:
-            Future.delayed(const Duration(seconds: 3),
-                () => context.pushRoute(const HomeRoute()));
+           context.pushRoute(const HomeRoute());
           default:
-            Future.delayed(const Duration(seconds: 3),
-                () => context.pushRoute(const LoginRoute()));
+           context.pushRoute(const LoginRoute());
         }
       },
       builder: (context, state) {

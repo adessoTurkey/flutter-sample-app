@@ -15,7 +15,6 @@ class AuthenticationRepository {
   final _controller = StreamController<AuthenticationStatus>();
 
   Stream<AuthenticationStatus> get status async* {
-    await Future<void>.delayed(const Duration(seconds: 1));
     yield AuthenticationStatus.unauthenticated;
     yield* _controller.stream;
   }
@@ -23,10 +22,7 @@ class AuthenticationRepository {
   Future<void> logIn(String? sessionId) async {
     await authCacheManager.updateSessionId(sessionId);
     await authCacheManager.updateLoggedIn(true);
-    await Future.delayed(
-      const Duration(milliseconds: 300),
-      () => _controller.add(AuthenticationStatus.authenticated),
-    );
+    _controller.add(AuthenticationStatus.authenticated);
   }
 
   Future<void> logOut() async {
@@ -42,11 +38,8 @@ class AuthenticationRepository {
 
   Future<void> appStarter() async {
     try {
-      if (await authCacheManager.isLoggedIn()) {
-        _controller.add(AuthenticationStatus.authenticated);
-      } else {
-        _controller.add(AuthenticationStatus.unauthenticated);
-      }
+      bool isLogged = await authCacheManager.isLoggedIn();
+      _controller.add(isLogged? AuthenticationStatus.authenticated: AuthenticationStatus.unauthenticated);
     } catch (e) {
       _controller.add(AuthenticationStatus.unknown);
     }

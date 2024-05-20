@@ -15,4 +15,7 @@ final class _AuthenticationStatusChanged extends AuthenticationEvent {
   const _AuthenticationStatusChanged(this.status);
 
   final AuthenticationStatus status;
+
+  @override
+  List<Object> get props => [status];
 }
