@@ -5,6 +5,8 @@ import 'package:flutter_movie_app/app/core/utils/data_mapper.dart';
 import 'package:flutter_movie_app/app/features/search/models/search_entity.dart';
 import 'package:flutter_movie_app/app/features/search/models/search_multi/search_multi_data.dart';
 
+import '../../../core/enums/network_fetch_status.dart';
+
 part 'search_event.dart';
 part 'search_state.dart';
 
@@ -17,17 +19,17 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
   Future<void> _searchButtonClicked(
       SearchButtonClicked event, Emitter<SearchState> emit) async {
-    emit(state.copyWith(status: SearchStateX.loading));
+    emit(state.copyWith(status: NetworkFetchStatus.loading));
     try {
       String searchText = state.searchText!;
       List<SearchMultiData> movies =
           await remoteDataSource.searchMulti(searchText);
       List<SearchEntity> searchResults = DataMapper.searchMovieMapper(movies);
       emit(state.copyWith(
-          status: SearchStateX.success, searchList: searchResults));
+          status: NetworkFetchStatus.success, searchList: searchResults));
     } catch (e) {
       emit(state.copyWith(
-          status: SearchStateX.error, errorMessage: e.toString()));
+          status: NetworkFetchStatus.error, errorMessage: e.toString()));
     }
   }
 

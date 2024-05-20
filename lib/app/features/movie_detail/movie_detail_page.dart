@@ -10,6 +10,7 @@ import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import '../../core/enums/network_fetch_status.dart';
 import 'movie_detail.dart';
 
 @RoutePage()
@@ -27,9 +28,9 @@ class MovieDetailPage extends StatelessWidget {
         body: BlocBuilder<MovieDetailBloc, MovieDetailState>(
           builder: (context, state) {
             switch (state.status) {
-              case MovieDetailStatusX.loading:
+              case NetworkFetchStatus.loading:
                 return const LoadingView();
-              case MovieDetailStatusX.success:
+              case NetworkFetchStatus.success:
                 return ConfigurationWidget(
                   onConfigurationReady: (configuration, theme) {
                     return SingleChildScrollView(
@@ -67,11 +68,11 @@ class MovieDetailPage extends StatelessWidget {
                     );
                   },
                 );
-              case MovieDetailStatusX.error:
+              case NetworkFetchStatus.error:
                 return ErrorView(
                   error: state.errorMessage,
                 );
-              case MovieDetailStatusX.initial:
+              case NetworkFetchStatus.initial:
                 return const LoadingView();
             }
           },

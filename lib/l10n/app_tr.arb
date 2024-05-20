@@ -46,5 +46,13 @@
   "search_page_cell_type_tv": "Dizi",
   "search_page_cell_type_person": "Aktör",
   "search_page_no_result": "Aramanız herhangi bir sonuç vermedi",
-  "search_page_short_search_text_error": "Lütfen arama yaparken 3 karakterden fazla kullanın."
+  "search_page_short_search_text_error": "Lütfen arama yaparken 3 karakterden fazla kullanın.",
+  "actor_detail_expand_text": "Hepsini göster >>",
+  "actor_detail_shrink_text": "Daha az göster >>",
+  "actor_detail_info_label": "Doğum:",
+  "search_page_short_search_text_error": "Lütfen arama yaparken 3 karakterden fazla kullanın.",
+  "snackbar_successfully_updated":"{title} Başarılı bir şekilde güncellendi",
+  "snackbar_successfully_added":"{title} Başarılı bir şekilde eklendi",
+  "login_error_dialog_info":"Yanlış kullanıcı adı yada şifre",
+  "login_error_dialog_button":"Tamam"
 }

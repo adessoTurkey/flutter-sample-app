@@ -43,5 +43,13 @@
   "search_page_cell_type_tv": "TV Series",
   "search_page_cell_type_person": "Actor",
   "search_page_no_result": "Your search didn't have any results",
-  "search_page_short_search_text_error": "Please search more than 3 characters"
+  "search_page_short_search_text_error": "Please search more than 3 characters",
+  "actor_detail_expand_text": "See full bio >>",
+  "actor_detail_shrink_text": "See less >>",
+  "actor_detail_info_label": "Born:",
+  "search_page_short_search_text_error": "Please search more than 3 characters",
+  "snackbar_successfully_updated":"{title} Successfully updated",
+  "snackbar_successfully_added":"{title} Successfully added",
+  "login_error_dialog_info":"Wrong username or password",
+  "login_error_dialog_button":"Okay"
 }

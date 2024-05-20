@@ -15,6 +15,16 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    ActorDetailRoute.name: (routeData) {
+      final args = routeData.argsAs<ActorDetailRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ActorDetailPage(
+          actorId: args.actorId,
+          key: args.key,
+        ),
+      );
+    },
     HomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -77,7 +87,55 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const TvSeriesPage(),
       );
     },
+    WebViewRoute.name: (routeData) {
+      final args = routeData.argsAs<WebViewRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WebViewPage(
+          url: args.url,
+          key: args.key,
+        ),
+      );
+    },
   };
+}
+
+/// generated route for
+/// [ActorDetailPage]
+class ActorDetailRoute extends PageRouteInfo<ActorDetailRouteArgs> {
+  ActorDetailRoute({
+    required int actorId,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ActorDetailRoute.name,
+          args: ActorDetailRouteArgs(
+            actorId: actorId,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ActorDetailRoute';
+
+  static const PageInfo<ActorDetailRouteArgs> page =
+      PageInfo<ActorDetailRouteArgs>(name);
+}
+
+class ActorDetailRouteArgs {
+  const ActorDetailRouteArgs({
+    required this.actorId,
+    this.key,
+  });
+
+  final int actorId;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'ActorDetailRouteArgs{actorId: $actorId, key: $key}';
+  }
 }
 
 /// generated route for
@@ -252,4 +310,42 @@ class TvSeriesRoute extends PageRouteInfo<void> {
   static const String name = 'TvSeriesRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [WebViewPage]
+class WebViewRoute extends PageRouteInfo<WebViewRouteArgs> {
+  WebViewRoute({
+    required String url,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          WebViewRoute.name,
+          args: WebViewRouteArgs(
+            url: url,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'WebViewRoute';
+
+  static const PageInfo<WebViewRouteArgs> page =
+      PageInfo<WebViewRouteArgs>(name);
+}
+
+class WebViewRouteArgs {
+  const WebViewRouteArgs({
+    required this.url,
+    this.key,
+  });
+
+  final String url;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'WebViewRouteArgs{url: $url, key: $key}';
+  }
 }
