@@ -25,6 +25,12 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    CinemaMapRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CinemaMapPage(),
+      );
+    },
     HomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -136,6 +142,20 @@ class ActorDetailRouteArgs {
   String toString() {
     return 'ActorDetailRouteArgs{actorId: $actorId, key: $key}';
   }
+}
+
+/// generated route for
+/// [CinemaMapPage]
+class CinemaMapRoute extends PageRouteInfo<void> {
+  const CinemaMapRoute({List<PageRouteInfo>? children})
+      : super(
+          CinemaMapRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CinemaMapRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

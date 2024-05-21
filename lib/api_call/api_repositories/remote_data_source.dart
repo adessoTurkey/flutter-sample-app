@@ -10,6 +10,7 @@ import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/features/actor/model/actor_detail_model.dart';
 import 'package:flutter_movie_app/app/core/enums/tv_series_category_enum.dart';
+import 'package:flutter_movie_app/app/features/cinema_map/models/map_request_dto/map_request_dto.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_models.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/rating/post_rating/request/rating_request_model.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/rating/post_rating/response/rating_response_model.dart';
@@ -26,6 +27,8 @@ import 'package:flutter_movie_app/localization/localization_helper.dart';
 import '../models/favorite/dto/add_to_favorite_dto.dart';
 import '../models/favorite/response/add_to_favorite_response.dart';
 import '../models/session_delete/session_delete_response_model.dart';
+
+import '../../app/features/cinema_map/models/response/map_response_model.dart/map_response_model.dart';
 
 abstract class RemoteDataSource {
   Future<RequestTokenModel> getRequestToken();
@@ -45,6 +48,7 @@ abstract class RemoteDataSource {
   Future<List<SearchMultiData>> searchMulti(String query);
   Future<ActorDetailModel> getActorDetail(int actorId);
   Future<List<GenreData>> getGenres(GenreType genreType);
+  Future<MapResponseModel> getCinemaBySearchText(MapRequestDto mapRequestDto);
   Future<RatingResponseModel> postRating(
       RatingEnpoints ratingType, int id, int ratingValue);
   Future<List<RatedListResponse>> getRatedList(RatingEnpoints fetchType);
@@ -345,6 +349,31 @@ class RemoteDataSourceImpl extends RemoteDataSource {
     }
   }
 
+
+  @override
+  Future<MapResponseModel> getCinemaBySearchText(
+      MapRequestDto mapRequestDto) async {
+    try {
+      var customNetworkService = NetworkService(
+        baseUrl: dotenv.get(EnvConstants.googlePlacesApiBaseUrl),
+        httpHeaders: NetworkConstants.googlePlacesHeader,
+      );
+      var getCinemaBySearchTextRequest = NetworkRequest(
+        type: NetworkRequestType.post,
+        path: dotenv.get(EnvConstants.googlePlacesApiSearchByTextPath),
+        data: NetworkRequestBody.json(
+          mapRequestDto.toJson(),
+        ),
+      );
+      var getCinemaBySearchTextResponse = await customNetworkService.execute(
+        getCinemaBySearchTextRequest,
+        (json) => MapResponseModel.fromJson(json),
+      );
+      return (getCinemaBySearchTextResponse as Ok<MapResponseModel>).data;
+    } catch (e) {
+      rethrow;
+    }
+  }
   @override
   Future<RatingResponseModel> postRating(
       RatingEnpoints ratingType, int id, int ratingValue) async {

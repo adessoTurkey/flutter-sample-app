@@ -47,7 +47,7 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   //Movie Page
   @override
-  double get moviePageListViewPaddingLeft => 32;
+  double get moviePageListViewPaddingHorizontal => 16;
 
   @override
   double get moviePageListViewPaddingRight => 32;
@@ -108,7 +108,7 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   //Movie Cell
   @override
-  double get movieCellBodyPaddingLeft => 18;
+  double get movieCellBodyPaddingLeft => 16;
 
   @override
   double get movieCellCardElevation => 8;
@@ -339,4 +339,16 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   @override
   Size get dialogSize => const Size(275, 285);
+
+  @override
+  double get cinemaMapViewTitleTextSize => 26;
+
+  @override
+  double get mapInfoViewAddressTextSize => 18;
+
+  @override
+  double get mapInfoViewDisplayNameTextSize => 24;
+
+  @override
+  double get mapInfoViewWebSiteTextSize => 16;
 }

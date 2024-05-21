@@ -3,9 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/api_repositories.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
-import 'package:flutter_movie_app/api_call/network/network.dart';
-import 'package:flutter_movie_app/app/core/cache/auth_cache_manager.dart';
-import 'package:flutter_movie_app/app/core/cache/cache_manager.dart';
 import 'package:flutter_movie_app/app/core/config/app_router.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/enums/tv_series_category_enum.dart';
@@ -48,6 +45,7 @@ void main() async {
         create: (_) => ThemeBloc()
           ..add(const ChangeThemeEvent(themeType: ThemeEnum.light)),
         lazy: false),
+    //TODO: Should fetch the films after login?.
     BlocProvider(
         create: (_) => MoviesBloc(getIt<RemoteDataSource>())
           ..add(
@@ -76,11 +74,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    var responSiveType = context.responsiveType();
+    var responsiveType = context.responsiveType();
     final router = AppRouter();
     return BlocProvider(
       create: (_) => ResponsiveConfigurationBloc()
-        ..add(ChangeConfigurationEvent(responsiveType: responSiveType)),
+        ..add(ChangeConfigurationEvent(responsiveType: responsiveType)),
       child: BlocBuilder<ThemeBloc, ThemeState>(builder: (_, state) {
         if (state is GetThemeState) {
           return MaterialApp.router(
