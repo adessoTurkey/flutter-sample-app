@@ -5,6 +5,7 @@ import 'package:flutter_movie_app/api_call/api_repositories/api_repositories.dar
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
 import 'package:flutter_movie_app/api_call/network/network.dart';
 import 'package:flutter_movie_app/app/core/cache/auth_cache_manager.dart';
+import 'package:flutter_movie_app/app/core/cache/cache_manager.dart';
 import 'package:flutter_movie_app/app/core/config/app_router.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/enums/tv_series_category_enum.dart';
@@ -31,6 +32,7 @@ void main() async {
     DependencyInjection.shared,
     // Add other features if needed
   ];
+
 
   for (final feature in features) {
     feature.initialize();

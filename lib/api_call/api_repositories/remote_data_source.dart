@@ -180,11 +180,12 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   @override
   Future<AccountDetail> getAccountDetail() async {
     try {
+      var sessionId= await AuthCacheManager().getSessionId();
       var accountDetailResponse = await networkService.execute(
           NetworkRequest(
               type: NetworkRequestType.get,
               queryParams: {
-                "session_id": await AuthCacheManager().getSessionId()
+                "session_id":sessionId
               },
               path: dotenv.get(EnvConstants.accountPath),
               data: const NetworkRequestBody.empty()),
@@ -199,11 +200,12 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   @override
   Future<List<FavoriteMovieData>> getFavoriteMovies() async {
     try {
+      var sessionId= await AuthCacheManager().getSessionId();
       var favoriteMoviesResponse = await networkService.execute(
           NetworkRequest(
               type: NetworkRequestType.get,
               queryParams: {
-                "session_id": await AuthCacheManager().getSessionId()
+                "session_id": sessionId
               },
               path:
                   "${dotenv.get(EnvConstants.accountPath)}${dotenv.get(EnvConstants.favoriteMoviesPath)}",
@@ -224,11 +226,12 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   @override
   Future<List<FavoriteTvData>> getFavoriteTVs() async {
     try {
+      var sessionId= await AuthCacheManager().getSessionId();
       var favoriteTVsResponse = await networkService.execute(
           NetworkRequest(
               type: NetworkRequestType.get,
               queryParams: {
-                "session_id": await AuthCacheManager().getSessionId()
+                "session_id": sessionId
               },
               path:
                   "${dotenv.get(EnvConstants.accountPath)}${dotenv.get(EnvConstants.favoriteTVPath)}",

@@ -1,4 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+
+import '../enums/auth_enum.dart';
  abstract final class CacheManager {
 
   static const _androidOptions =
@@ -33,5 +35,9 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
   static Future<bool> containsKey(String key) async =>
       await _secureStorage.containsKey(key: key);
 
-  static Future<void> clearAll() async => await _secureStorage.deleteAll();
+  static Future<void> clearAll() async{
+    await _secureStorage.delete(key: AuthEnums.login.path);
+    await _secureStorage.deleteAll();
+
+  }
 }

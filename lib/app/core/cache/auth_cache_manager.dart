@@ -10,7 +10,7 @@ class AuthCacheManager {
     await CacheManager.clearAll();
   }
 
-  Future<void> updateLoggedIn(bool isLoggedIn) async {
+  Future<void> updateLoggedIn(bool isLoggedIn) async {ebvie
     await CacheManager.setBool(AuthEnums.login.path, isLoggedIn);
   }
 
@@ -23,7 +23,7 @@ class AuthCacheManager {
       await CacheManager.setString(AuthEnums.sessionId.path, sessionId);
     }
 
-     if (await CacheManager.containsKey(AuthEnums.sessionId.path)) {
+     else if (await CacheManager.containsKey(AuthEnums.sessionId.path)) {
         await CacheManager.remove(AuthEnums.sessionId.path);
       }
   }
