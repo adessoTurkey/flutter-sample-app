@@ -27,6 +27,9 @@ dependencies:
   formz: ^0.7.0
   webview_flutter: ^4.7.0
   share_plus: ^7.2.2
+  url_launcher: ^6.2.6
+
+
 description: A new Flutter project.
 dev_dependencies:
   auto_route_generator: ^7.3.2

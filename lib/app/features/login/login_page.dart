@@ -2,9 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_movie_app/app/core/constants/app_constants.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
+import 'package:flutter_movie_app/app/core/utils/app_utils.dart';
 import 'package:flutter_movie_app/app/features/login/views/error_dialog.dart';
 import 'package:flutter_movie_app/app/features/login/views/login_button.dart';
 import 'package:flutter_movie_app/app/features/login/views/login_password_field.dart';
@@ -61,7 +63,8 @@ class LoginPage extends StatelessWidget {
                           alignment: Alignment.centerRight,
                           child: TextButton(
                             onPressed: () {
-                              context.pushRoute(WebViewRoute(url: dotenv.get(EnvConstants.forgotPasswordUrl)));
+                             // context.pushRoute(WebViewRoute(url: dotenv.get(EnvConstants.forgotPasswordUrl)));
+                              AppUtils.openLink(AppConstants.forgotPasswordUrl);
                             },
                             child: Text(
                               context.localization.forgatPassword,
@@ -82,7 +85,8 @@ class LoginPage extends StatelessWidget {
                           ),
                           TextButton(
                               onPressed: () {
-                                context.pushRoute(WebViewRoute(url: dotenv.get(EnvConstants.registerNowUrl)));
+                                //context.pushRoute(WebViewRoute(url: dotenv.get(EnvConstants.registerNowUrl)));
+                                AppUtils.openLink(AppConstants.registerUrl);
                               },
                               child: Text(
                                 context.localization.registerNow,
