@@ -10,3 +10,4 @@ export 'genre_type_enum.dart';
 export 'auth_enum.dart';
 export 'rating_endpoints_enum.dart';
 export 'post_rating_status_code_enum.dart';
+export 'network_fetch_status.dart';

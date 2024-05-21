@@ -3,13 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
 import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
-import 'package:flutter_movie_app/app/core/extensions/video_result_extension.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/bloc/movie_detail_bloc.dart';
-import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_models.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import '../../core/enums/network_fetch_status.dart';
 import 'movie_detail.dart';
 
@@ -57,7 +54,7 @@ class MovieDetailPage extends StatelessWidget {
                                   creditResponse: state.creditResponse!,
                                 ),
                                 20.verticalSizedBox,
-                                _MovieDetailPageTrailerSection(
+                                MovieDetailPageTrailerSection(
                                   videoModelResponse: state.videoModelResponse,
                                 )
                               ],
@@ -82,34 +79,4 @@ class MovieDetailPage extends StatelessWidget {
   }
 }
 
-class _MovieDetailPageTrailerSection extends StatefulWidget {
-  final VideoModelResponse? videoModelResponse;
 
-  const _MovieDetailPageTrailerSection({required this.videoModelResponse});
-
-  @override
-  State<_MovieDetailPageTrailerSection> createState() =>
-      _MovieDetailPageTrailerSectionState();
-}
-
-class _MovieDetailPageTrailerSectionState
-    extends State<_MovieDetailPageTrailerSection> {
-  late YoutubePlayerController youtubePlayerController;
-
-  @override
-  void dispose() {
-    youtubePlayerController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    youtubePlayerController = YoutubePlayerController(
-        initialVideoId: widget.videoModelResponse?.getTrailerURL() ?? "",
-        flags: const YoutubePlayerFlags(autoPlay: false));
-
-    return MovieDetailPageTrailerSection(
-      controller: youtubePlayerController,
-    );
-  }
-}
