@@ -4,7 +4,7 @@ import 'package:flutter_movie_app/app/core/constants/m_colors.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/extensions/tv_series_detail_model_extension.dart';
-import 'package:flutter_movie_app/app/core/utils/m_snackbar.dart';
+import 'package:flutter_movie_app/app/core/utils/app_utils.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart';
 import 'package:flutter_movie_app/app/features/tv_series_detail/models/tv_series_detail_model.dart';
@@ -89,7 +89,7 @@ class TvSeriesDetailPageInfoSection extends StatelessWidget {
             if (state.ratingResponseModel?.statusCode ==
                 PostRatingStatusCodeEnum.updated) {
               context.showSnackbarAfterHide(
-                mSnackBar(
+                AppUtils.mSnackBar(
                   title: context.localization.snackbar_successfully_updated(
                       tvSeriesDetailModel?.name ?? ""),
                   backgroundColor: MColors.electricBlue,
@@ -98,7 +98,7 @@ class TvSeriesDetailPageInfoSection extends StatelessWidget {
             } else if (state.ratingResponseModel?.statusCode ==
                 PostRatingStatusCodeEnum.posted) {
               context.showSnackbarAfterHide(
-                mSnackBar(
+                AppUtils.mSnackBar(
                   title: context.localization.snackbar_successfully_added(
                       tvSeriesDetailModel?.name ?? ""),
                   backgroundColor: MColors.vibrantBlue,

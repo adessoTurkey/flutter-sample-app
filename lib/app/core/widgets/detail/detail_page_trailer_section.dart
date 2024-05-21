@@ -4,7 +4,7 @@ import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import '../../../core/constants/constants.dart';
-import '../models/video_model/video_model_response.dart';
+import '../../../features/movie_detail/models/video_model/video_model_response.dart';
 
 
 class DetailPageTrailerSection extends StatefulWidget {
