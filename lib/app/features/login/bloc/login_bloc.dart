@@ -3,7 +3,6 @@ import 'package:flutter_movie_app/api_call/api_repositories/api_repositories.dar
 import 'package:flutter_movie_app/api_call/models/login_credentials_request_model.dart';
 import 'package:flutter_movie_app/api_call/models/models.dart';
 import 'package:flutter_movie_app/api_call/models/session_request_model.dart';
-import 'package:flutter_movie_app/api_call/models/session_response_model.dart';
 import 'package:flutter_movie_app/app/features/login/bloc/login_state.dart';
 import 'package:formz/formz.dart';
 import '../models/models.dart';
@@ -61,7 +60,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             password: state.password.value,
             requestToken: requestTokenResponse.requestToken.toString()));
 
-        SessionResponseModel sessionResponse = await remoteDataSource.openSession(
+        await remoteDataSource.openSession(
             SessionRequestModel(
                 requestToken: validatedTokenResponse.requestToken.toString()));
         emit(state.copyWith(status: FormzSubmissionStatus.success));

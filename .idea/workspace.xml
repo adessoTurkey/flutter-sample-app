@@ -4,21 +4,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="bugfix">
-      <change afterPath="$PROJECT_DIR$/lib/app/core/utils/utils.dart" afterDir="false" />
+    <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="register and forget password url launch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/constants/app_constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/constants/app_constants.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/utils/m_snackbar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/utils/app_utils.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_info_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_info_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/enums/enums.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/enums/enums.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/video_result_extension.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/video_result_extension.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/login/bloc/login_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/bloc/login_bloc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_trailer_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_trailer_section.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716214995323</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="register and forget password url launch">
+      <created>1716274519021</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716274519021</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -158,6 +157,28 @@
     <MESSAGE value="add login error dialog" />
     <MESSAGE value="add login error dialog image" />
     <MESSAGE value="bugfix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bugfix" />
+    <MESSAGE value="register and forget password url launch" />
+    <option name="LAST_COMMIT_MESSAGE" value="register and forget password url launch" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app/features/login/bloc/login_bloc.dart</url>
+          <line>68</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app/features/login/bloc/login_bloc.dart</url>
+          <line>70</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app/features/login/bloc/login_bloc.dart</url>
+          <line>66</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
