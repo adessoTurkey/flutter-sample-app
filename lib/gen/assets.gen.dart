@@ -33,6 +33,7 @@ class $AssetsImagesGen {
   AssetGenImage get noResult =>
       const AssetGenImage('assets/images/no_result.png');
 
+
   /// File path: assets/images/poster_1.jpg
   AssetGenImage get poster1 =>
       const AssetGenImage('assets/images/poster_1.jpg');
