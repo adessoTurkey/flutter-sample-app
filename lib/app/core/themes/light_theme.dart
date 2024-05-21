@@ -73,7 +73,7 @@ final class LightTheme extends ATheme {
   @override
   TextStyle mainPageListViewTitleTextStyle(double fontSize) {
     return const TextStyle()
-        .mainPageListViewTitleTextStyle(fontSize, MColors.almostBlack);
+        .mainPageListViewTitleTextStyle(fontSize, MColors.white);
   }
 
   @override
@@ -148,13 +148,16 @@ final class LightTheme extends ATheme {
   }
 
   @override
-  TextStyle loginTextFieldText(double fontSize) => const TextStyle().loginFieldTextTextStyle(fontSize , MColors.white);
+  TextStyle loginTextFieldText(double fontSize) =>
+      const TextStyle().loginFieldTextTextStyle(fontSize, MColors.white);
 
   @override
-  TextStyle loginTextFieldLabel(double fontSize) => const TextStyle().loginFieldLabelTextStyle(fontSize , MColors.white);
+  TextStyle loginTextFieldLabel(double fontSize) =>
+      const TextStyle().loginFieldLabelTextStyle(fontSize, MColors.white);
 
   @override
-  TextStyle loginTextFieldHint(double fontSize) => const TextStyle().loginFieldHintTextStyle(fontSize , MColors.white);
+  TextStyle loginTextFieldHint(double fontSize) =>
+      const TextStyle().loginFieldHintTextStyle(fontSize, MColors.white);
 
   //PROFILE
   @override
@@ -249,6 +252,30 @@ final class LightTheme extends ATheme {
         .searchViewNoResultTextStyle(fontSize, MColors.electricBlue);
   }
 
+
+  @override
+  TextStyle cinemaMapViewTitleTextStyle(double fontSize) {
+    return const TextStyle()
+        .cinemaMapViewTitleTextStyle(fontSize, MColors.white);
+  }
+
+  @override
+  TextStyle mapInfoViewAddressTextStyle(double fontSize) {
+    return const TextStyle()
+        .mapInfoViewAddressTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle mapInfoViewDisplayNameTextStyle(double fontSize) {
+    return const TextStyle()
+        .mapInfoViewDisplayNameTextStyle(fontSize, MColors.almostBlack);
+  }
+
+  @override
+  TextStyle mapInfoViewWebSiteTextStyle(double fontSize) {
+    return const TextStyle()
+        .mapInfoViewWebSiteTextStyle(fontSize, MColors.electricBlue);
+  }
   @override
   TextStyle actorDetailBiography(double fontSize) {
     return const TextStyle()

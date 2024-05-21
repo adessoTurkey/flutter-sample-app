@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/utils/widget_to_map_icon.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../features/profile/profile.dart';
 import '../../features/search/search.dart';
 import '../enums/enums.dart';
@@ -45,4 +48,8 @@ abstract final class DataMapper {
       );
     }).toList();
   }
+}
+
+Future<BitmapDescriptor> widgetToBitMap(Widget child) async {
+  return child.toBitmapDescriptor();
 }

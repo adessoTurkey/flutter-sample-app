@@ -79,6 +79,12 @@ abstract class ATheme {
   TextStyle detailPageTitleTextStyle(double fontSize);
   TextStyle detailPageGenresTextStyle(double fontSize);
 
+
+  TextStyle cinemaMapViewTitleTextStyle(double fontSize);
+  TextStyle mapInfoViewDisplayNameTextStyle(double fontSize);
+  TextStyle mapInfoViewAddressTextStyle(double fontSize);
+  TextStyle mapInfoViewWebSiteTextStyle(double fontSize);
+
   ThemeData get themeData => ThemeData(
       useMaterial3: true,
       appBarTheme: appbarTheme,

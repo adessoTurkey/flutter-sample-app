@@ -55,9 +55,12 @@
   "actor_detail_expand_text": "See full bio >>",
   "actor_detail_shrink_text": "See less >>",
   "actor_detail_info_label": "Born:",
-  "search_page_short_search_text_error": "Please search more than 3 characters",
   "snackbar_successfully_updated":"{title} Successfully updated",
   "snackbar_successfully_added":"{title} Successfully added",
   "login_error_dialog_info":"Wrong username or password",
-  "login_error_dialog_button":"Okay"
+  "login_error_dialog_button":"Okay",
+  "search_page_short_search_text_error": "Please search more than 3 characters",
+  "profile_favorite_title_text": "Favorite",
+  "cinema_map_view_title": "Cinema",
+  "cinema_map_info_view_go_button_title": "Go!"
 }

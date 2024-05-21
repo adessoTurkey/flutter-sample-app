@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../../app/core/enums/enums.dart';
 
 abstract class ResponsiveConfiguration {
-
   //Rating View
   RatingViewSizeEnum get ratingViewCarousel;
   RatingViewSizeEnum get ratingViewMovieCell;
@@ -16,7 +15,7 @@ abstract class ResponsiveConfiguration {
 
   //Movie Page
   double get moviePageListViewPaddingTop;
-  double get moviePageListViewPaddingLeft;
+  double get moviePageListViewPaddingHorizontal;
   double get moviePageListViewPaddingRight;
   double get mainPageListViewTitleTextSize;
   double get mainPageAppBarTitleTextSize;
@@ -155,5 +154,9 @@ abstract class ResponsiveConfiguration {
   double get dialogButtonTextSize;
   double get dialogButtonCornerRadius;
 
+  //Cinema
+  double get cinemaMapViewTitleTextSize;
+  double get mapInfoViewDisplayNameTextSize;
+  double get mapInfoViewAddressTextSize;
+  double get mapInfoViewWebSiteTextSize;
 }
-

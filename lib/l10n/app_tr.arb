@@ -22,7 +22,7 @@
   "registerNow" : "Kayıt ol",
   "movies_page_title": "Filmler",
   "movies_page_popular_title": "Popular",
-  "movies_page_app_bar_title": "Popular Movies",
+  "movies_page_app_bar_title": "Popüler Filmler",
   "rate_view_rate_button_text": "Rate",
   "rate_view_share_button_text": "Paylaş",
   "detail_trailer_text": "Fragman",
@@ -58,9 +58,12 @@
   "actor_detail_expand_text": "Hepsini göster >>",
   "actor_detail_shrink_text": "Daha az göster >>",
   "actor_detail_info_label": "Doğum:",
-  "search_page_short_search_text_error": "Lütfen arama yaparken 3 karakterden fazla kullanın.",
   "snackbar_successfully_updated":"{title} Başarılı bir şekilde güncellendi",
   "snackbar_successfully_added":"{title} Başarılı bir şekilde eklendi",
   "login_error_dialog_info":"Yanlış kullanıcı adı yada şifre",
-  "login_error_dialog_button":"Tamam"
+  "login_error_dialog_button":"Tamam",
+  "search_page_short_search_text_error": "Lütfen arama yaparken 3 karakterden fazla kullanın.",
+  "profile_favorite_title_text": "Favori",
+  "cinema_map_view_title": "Sinema",
+  "cinema_map_info_view_go_button_title": "Git!"
 }
