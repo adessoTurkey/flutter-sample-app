@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
+import 'package:flutter_movie_app/app/core/constants/app_constants.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/cinema_map/bloc/cinema_map_bloc.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
@@ -97,12 +98,12 @@ class _CinemaMapSuccessView extends StatelessWidget {
               initialCameraPosition: CameraPosition(
                 target:
                     state.initialCameraPosition, // San Francisco coordinates
-                zoom: 12,
+                zoom: AppConstants.cameraInitialZoom,
               ),
               markers: getMarkers(context) ?? {},
             ),
           ),
-          MapInfoView()
+          const MapInfoView()
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/constants/app_constants.dart';
 
 import '../../../core/constants/constants.dart';
 
@@ -11,16 +12,16 @@ class CustomMarker extends StatelessWidget {
       alignment: AlignmentDirectional.center,
       children: [
         Container(
-          width: 30.0,
-          height: 30.0,
+          width: AppConstants.outerMarkerSize,
+          height: AppConstants.outerMarkerSize,
           decoration: const BoxDecoration(
             color: MColors.white,
             shape: BoxShape.circle,
           ),
         ),
         Container(
-          width: 20.0,
-          height: 20.0,
+          width: AppConstants.innerMarkerSize,
+          height: AppConstants.innerMarkerSize,
           decoration: const BoxDecoration(
             color: MColors.electricBlue,
             shape: BoxShape.circle,

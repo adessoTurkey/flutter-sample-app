@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/app/core/constants/app_constants.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
 import 'package:flutter_movie_app/app/features/cinema_map/models/response/place_response_model/place_response_model.dart';
@@ -32,8 +33,8 @@ class MapInfoGoButton extends StatelessWidget {
                       title: Text(map.mapName),
                       leading: SvgPicture.asset(
                         map.icon,
-                        height: 30.0,
-                        width: 30.0,
+                        height: AppConstants.mapGoButtonSize,
+                        width: AppConstants.mapGoButtonSize,
                       ),
                     ),
                 ],
@@ -43,7 +44,7 @@ class MapInfoGoButton extends StatelessWidget {
         },
       );
     } catch (e) {
-      print(e);
+      rethrow;
     }
   }
 
@@ -54,6 +55,7 @@ class MapInfoGoButton extends StatelessWidget {
       {
         if(!context.mounted) return;
         final List<AvailableMap> availableMaps = await MapLauncher.installedMaps;
+        //Check later
         openMapsSheet(context,availableMaps);},
       child: Container(
         decoration: BoxDecoration(

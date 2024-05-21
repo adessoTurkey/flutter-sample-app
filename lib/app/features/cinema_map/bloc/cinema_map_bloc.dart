@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_movie_app/app/core/constants/app_constants.dart';
 import 'package:flutter_movie_app/app/core/utils/data_mapper.dart';
 import 'package:flutter_movie_app/app/features/cinema_map/models/center_dto.dart';
 import 'package:flutter_movie_app/app/features/cinema_map/models/circle_dto.dart';
@@ -48,11 +49,9 @@ class CinemaMapBloc extends Bloc<CinemaMapEvent, CinemaMapState> {
     }
 
     try {
-      await location.getLocation().then((value) {
-        print(value);
-      });
+      await location.getLocation();
     } catch (e) {
-      print(e.toString());
+      rethrow;
     }
 
     initialCameraPosition =
@@ -81,6 +80,7 @@ class CinemaMapBloc extends Bloc<CinemaMapEvent, CinemaMapState> {
               longitude: currentPosition?.longitude,
             ),
           ),
+          //Add to app constants
           radius: 200,
         ),
       );

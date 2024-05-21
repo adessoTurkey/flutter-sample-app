@@ -14,8 +14,7 @@ final class CinemaMapState extends Equatable {
   const CinemaMapState({
     this.status = CinemaMapStatusX.initial,
     this.mapResponseModel,
-    this.initialCameraPosition =
-        const LatLng(41.04497678214395, 29.00287763464729),
+    this.initialCameraPosition = AppConstants.initialCameraPosition,
     this.places,
     this.selectedPlace,
     this.controller,
