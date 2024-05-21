@@ -73,7 +73,7 @@ final class LightTheme extends ATheme {
   @override
   TextStyle mainPageListViewTitleTextStyle(double fontSize) {
     return const TextStyle()
-        .mainPageListViewTitleTextStyle(fontSize, MColors.almostBlack);
+        .mainPageListViewTitleTextStyle(fontSize, MColors.white);
   }
 
   @override

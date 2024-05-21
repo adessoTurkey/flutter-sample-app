@@ -47,7 +47,7 @@ class MediumConfiguration extends ResponsiveConfiguration {
 
   //Movie Page
   @override
-  double get moviePageListViewPaddingLeft => 32;
+  double get moviePageListViewPaddingHorizontal => 16;
 
   @override
   double get moviePageListViewPaddingRight => 32;
@@ -108,7 +108,7 @@ class MediumConfiguration extends ResponsiveConfiguration {
 
   //Movie Cell
   @override
-  double get movieCellBodyPaddingLeft => 18;
+  double get movieCellBodyPaddingLeft => 16;
 
   @override
   double get movieCellCardElevation => 8;

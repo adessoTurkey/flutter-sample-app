@@ -59,9 +59,9 @@ class MoviesPage extends StatelessWidget {
                                     top: configuration
                                         .moviePageListViewPaddingTop,
                                     left: configuration
-                                        .moviePageListViewPaddingLeft,
+                                        .moviePageListViewPaddingHorizontal,
                                     right: configuration
-                                        .moviePageListViewPaddingRight,
+                                        .moviePageListViewPaddingHorizontal,
                                   ),
                                   child: Column(
                                     crossAxisAlignment:

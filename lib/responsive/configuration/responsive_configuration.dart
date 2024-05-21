@@ -15,7 +15,7 @@ abstract class ResponsiveConfiguration {
 
   //Movie Page
   double get moviePageListViewPaddingTop;
-  double get moviePageListViewPaddingLeft;
+  double get moviePageListViewPaddingHorizontal;
   double get moviePageListViewPaddingRight;
   double get mainPageListViewTitleTextSize;
   double get mainPageAppBarTitleTextSize;
