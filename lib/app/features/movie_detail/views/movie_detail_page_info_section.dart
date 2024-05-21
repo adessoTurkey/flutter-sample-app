@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/extensions/movie_detail_extension.dart';
-import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_movie_app/app/core/constants/m_colors.dart';
+import 'package:flutter_movie_app/app/core/enums/enums.dart';
+import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
+import 'package:flutter_movie_app/app/core/utils/app_utils.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail/movie_detail_model.dart';
+import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
+import 'package:share_plus/share_plus.dart';
+import '../bloc/movie_detail_bloc.dart';
 
 class MovieDetailPageInfoSection extends StatelessWidget {
   final MovieDetailModel? movieDetailModel;
@@ -65,24 +71,68 @@ class MovieDetailPageInfoSection extends StatelessWidget {
         Row(
           children: [
             DurationView(durationTime: movieDetailModel?.runtime ?? 0),
-            const VerticalDividerWidget(
-              paddingAll: 10,
-              dividerHeight: 20,
-              dividerWidth: 2,
-            ),
+            _verticalDivider(),
             ReleaseDateView(releaseDate: movieDetailModel?.releaseDate ?? ""),
-            const VerticalDividerWidget(
-              paddingAll: 10,
-              dividerHeight: 20,
-              dividerWidth: 2,
-            ),
+            _verticalDivider(),
           ],
         ),
         20.verticalSizedBox,
-        const RateView(),
+        BlocConsumer<MovieDetailBloc, MovieDetailState>(
+          buildWhen: (previous, current) {
+            return previous.isCollapsed != current.isCollapsed ||
+                previous.ratingValue != current.ratingValue;
+          },
+          listenWhen: (previous, current) =>
+              previous.ratingValue != current.ratingValue,
+          listener: (context, state) {
+            if (state.ratingResponseModel?.statusCode ==
+                PostRatingStatusCodeEnum.updated) {
+              context.showSnackbarAfterHide(
+                AppUtils.mSnackBar(
+                  title: context.localization.snackbar_successfully_updated(
+                      movieDetailModel?.title ?? ""),
+                  backgroundColor: MColors.electricBlue,
+                ),
+              );
+            } else if (state.ratingResponseModel?.statusCode ==
+                PostRatingStatusCodeEnum.posted) {
+              context.showSnackbarAfterHide(
+                AppUtils.mSnackBar(
+                  title: context.localization.snackbar_successfully_added(
+                      movieDetailModel?.title ?? ""),
+                  backgroundColor: MColors.vibrantBlue,
+                ),
+              );
+            }
+          },
+          builder: (context, state) {
+            return RateView(
+              rating: state.ratingValue,
+              onChanged: (ratingValue) => context
+                  .read<MovieDetailBloc>()
+                  .add(MovieDetailAddRatingEvent(ratingValue: ratingValue)),
+              shareButtonTapped: () {
+                Share.share(state.movieDetailModel?.title ?? "",
+                    subject: state.movieDetailModel?.title ?? "");
+              },
+              starIconButtonTapped: () => context.read<MovieDetailBloc>().add(
+                    MovieDetailRatingCollapsed(isCollapsed: state.isCollapsed),
+                  ),
+              isCollapsed: state.isCollapsed,
+            );
+          },
+        ),
         20.verticalSizedBox,
         const Divider(),
       ],
     );
+  }
+
+  VerticalDividerWidget _verticalDivider() {
+    return const VerticalDividerWidget(
+            paddingAll: 10,
+            dividerHeight: 20,
+            dividerWidth: 2,
+          );
   }
 }

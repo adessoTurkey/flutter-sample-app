@@ -4,6 +4,7 @@ import 'package:flutter_movie_app/api_call/models/login_credentials_request_mode
 import 'package:flutter_movie_app/api_call/models/models.dart';
 import 'package:flutter_movie_app/api_call/models/session_request_model.dart';
 import 'package:flutter_movie_app/api_call/models/session_response_model.dart';
+import 'package:flutter_movie_app/app/features/auth/repository/auth_repository.dart';
 import 'package:flutter_movie_app/app/features/login/bloc/login_state.dart';
 import 'package:formz/formz.dart';
 import '../models/models.dart';
@@ -11,8 +12,10 @@ import 'login_event.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final RemoteDataSource remoteDataSource;
+  final AuthenticationRepository authenticationRepository;
   LoginBloc(
-      this.remoteDataSource) : super(const LoginState()) {
+      this.remoteDataSource, this.authenticationRepository)
+      : super(const LoginState()) {
     on<LoginUsernameChanged>(_onUsernameChanged);
     on<LoginPasswordChanged>(_onPasswordChanged);
     on<LoginSubmitted>(_onSubmitted);
@@ -20,9 +23,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   void _onUsernameChanged(
-      LoginUsernameChanged event,
-      Emitter<LoginState> emit,
-      ) {
+    LoginUsernameChanged event,
+    Emitter<LoginState> emit,
+  ) {
     final username = Username.dirty(event.username);
     emit(
       state.copyWith(
@@ -33,9 +36,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   void _onPasswordChanged(
-      LoginPasswordChanged event,
-      Emitter<LoginState> emit,
-      ) {
+    LoginPasswordChanged event,
+    Emitter<LoginState> emit,
+  ) {
     final password = Password.dirty(event.password);
     emit(
       state.copyWith(
@@ -46,24 +49,34 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   Future<void> _onSubmitted(
-      LoginSubmitted event,
+    LoginSubmitted event,
       Emitter<LoginState> emit,    ) async {
     if (state.isValid) {
       emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
       try {
         RequestTokenModel requestTokenResponse =
-        await remoteDataSource.getRequestToken();
+            await remoteDataSource.getRequestToken();
 
         RequestTokenModel validatedTokenResponse = await remoteDataSource
             .loginWithCredentials(LoginCredentialsRequestModel(
-            username: state.username.value,
-            password: state.password.value,
-            requestToken: requestTokenResponse.requestToken.toString()));
+                username: state.username.value,
+                password: state.password.value,
+                requestToken: requestTokenResponse.requestToken.toString()));
 
-        SessionResponseModel sessionResponse = await remoteDataSource.openSession(
-            SessionRequestModel(
+        SessionResponseModel sessionResponse =
+            await remoteDataSource.openSession(SessionRequestModel(
                 requestToken: validatedTokenResponse.requestToken.toString()));
-        emit(state.copyWith(status: FormzSubmissionStatus.success));
+
+        if(sessionResponse.success!=null && sessionResponse.success!){
+          authenticationRepository.logIn(sessionResponse.sessionId);
+          emit(state.copyWith(status: FormzSubmissionStatus.success));
+          Future.delayed(const Duration(microseconds: 300));
+          emit(state.copyWith(status: FormzSubmissionStatus.initial));
+        }
+        else{
+         throw "Login Failure";
+        }
+
       } catch (_) {
         emit(state.copyWith(status: FormzSubmissionStatus.failure));
         Future.delayed(const Duration(microseconds: 100));
@@ -73,10 +86,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   void _onLoginPasswordToggleVisibility(
-      LoginPasswordToggleVisibility event,
-      Emitter<LoginState> emit,
-      ) {
-    emit(state.copyWith(passwordVisible: !state.passwordVisible),
+    LoginPasswordToggleVisibility event,
+    Emitter<LoginState> emit,
+  ) {
+    emit(
+      state.copyWith(passwordVisible: !state.passwordVisible),
     );
   }
 }

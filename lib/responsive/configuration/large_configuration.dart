@@ -299,16 +299,58 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   @override
   double get searchViewNoResultTextSize => 26;
 
+  @override
+  double get dialogBannerHeight => 80;
+
+  @override
+  double get dialogButtonCornerRadius => 12;
+
+  @override
+  double get dialogButtonTextSize => 15;
+
+  @override
+  double get dialogInfoTextSize => 15;
+
+  @override
+  Size get dialogSize => const Size(275, 285);
+
+  @override
+  double get actorDetailBiographyTextSize => 17;
+
+  @override
+  double get actorDetailExpandTextSize => 17;
+
+  @override
+  double get actorDetailImageHeight => 400;
+
+  @override
+  double get actorDetailInfoLabelTextSize => 17;
+
+  @override
+  double get actorDetailInfoTextSize => 17;
+
+  @override
+  double get actorDetailNameTextSize => 28;
+
+  @override
+  double get actorDetailPagePaddingHorizontal => 24;
+
+  @override
+  double get actorDetailPagePaddingVertical => 24;
+
+  @override
+  double get actorDetailShrinkBioHeight => 100;
+
 
   @override
   double get cinemaMapViewTitleTextSize => 30;
-  
+
   @override
   double get mapInfoViewAddressTextSize => 18;
-  
+
   @override
   double get mapInfoViewDisplayNameTextSize => 24;
-  
+
   @override
   double get mapInfoViewWebSiteTextSize => 16;
 }

@@ -15,6 +15,7 @@ abstract final class EnvConstants {
   static String openSessionPath = "OPEN_SESSION_PATH";
   static String favoriteAddPath = "FAVORITE_PATH_ADD";
   static String searchMultiPath = "SEARCH_PATH_MULTI";
+  static String personPath = "PERSON_PATH";
   static String genrePath = "GENRE_PATH";
   static String googlePlacesApiBaseUrl = "GOOGLE_PLACES_API_BASE_URL";
   static String googlePlacesApiSearchByTextPath =
@@ -22,4 +23,7 @@ abstract final class EnvConstants {
   static String googlePlacesApiKey = "GOOGLE_PALCES_API_KEY";
   static String googlePlacesApiSearchByFieldMask =
       "GOOGLE_PLACES_API_SEARCH_BY_FIELD_MASK";
+  static String deleteSessionPath = "DELETE_SESSION_PATH";
+  static String registerNowUrl = "REGISTER_NOW_URL";
+  static String forgotPasswordUrl = "FORGOT_PASSWORD_URL";
 }

@@ -56,7 +56,17 @@ abstract class ATheme {
 
   TextStyle dontHaveAccount(double fontSize);
 
+  //Actor Detail
+  TextStyle actorDetailName(double fontSize);
+  TextStyle actorDetailBiography(double fontSize);
+  TextStyle actorDetailExpandText(double fontSize);
+  TextStyle actorDetailInfoLabel(double fontSize);
+  TextStyle actorDetailInfo(double fontSize);
+
   TextStyle registerNow(double fontSize);
+
+  TextStyle loginErrorDialogInfo(double fontSize);
+  TextStyle loginErrorDialogButton(double fontSize);
   //Tv Series
   TextStyle mainPageListViewTitleTextStyle(double fontSize);
   TextStyle mainPageAppBarTitleTextStyle(double fontSize);

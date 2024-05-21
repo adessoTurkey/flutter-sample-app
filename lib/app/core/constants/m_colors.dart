@@ -11,4 +11,8 @@ abstract final class MColors {
   static const Color borderColor = Color(0xffe5e5ea);
   static const Color tomato = Color(0xffe74c3c);
   static const Color transparent = Colors.transparent;
+  static const Color youtubeProgressIndicator =Colors.amber;
+  static const Color youtubePlayed = Colors.amber;
+  static const Color youtubeHandleColor=Colors.amberAccent;
+
 }

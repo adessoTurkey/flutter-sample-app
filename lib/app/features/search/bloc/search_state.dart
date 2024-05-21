@@ -1,24 +1,22 @@
 part of 'search_bloc.dart';
 
-enum SearchStateX { initial, loading, success, error }
-
 final class SearchState extends Equatable {
   const SearchState({
-    this.status = SearchStateX.initial,
+    this.status = NetworkFetchStatus.initial,
     this.searchText,
     this.searchList,
     this.errorMessage,
     this.isValid,
   });
 
-  final SearchStateX status;
+  final NetworkFetchStatus status;
   final String? searchText;
   final List<SearchEntity>? searchList;
   final String? errorMessage;
   final bool? isValid;
 
   SearchState copyWith({
-    SearchStateX? status,
+    NetworkFetchStatus? status,
     String? searchText,
     List<SearchEntity>? searchList,
     String? errorMessage,

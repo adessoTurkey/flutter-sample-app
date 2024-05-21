@@ -1,14 +1,20 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/api_call/models/login_credentials_request_model.dart';
 import 'package:flutter_movie_app/api_call/models/models.dart';
+import 'package:flutter_movie_app/api_call/models/session_delete/session_delete_request_model.dart';
 import 'package:flutter_movie_app/api_call/models/session_request_model.dart';
 import 'package:flutter_movie_app/api_call/models/session_response_model.dart';
 import 'package:flutter_movie_app/api_call/network/network.dart';
+import 'package:flutter_movie_app/app/core/cache/auth_cache_manager.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
+import 'package:flutter_movie_app/app/features/actor/model/actor_detail_model.dart';
 import 'package:flutter_movie_app/app/core/enums/tv_series_category_enum.dart';
 import 'package:flutter_movie_app/app/features/cinema_map/models/map_request_dto/map_request_dto.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_models.dart';
+import 'package:flutter_movie_app/app/features/movie_detail/models/rating/post_rating/request/rating_request_model.dart';
+import 'package:flutter_movie_app/app/features/movie_detail/models/rating/post_rating/response/rating_response_model.dart';
+import 'package:flutter_movie_app/app/features/movie_detail/models/rating/rated_list/rated_list_response.dart';
 import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
 import 'package:flutter_movie_app/app/features/profile/models/account_detail/account_detail.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_movie/favorite_movie_data.dart';
@@ -20,6 +26,7 @@ import 'package:flutter_movie_app/localization/localization_helper.dart';
 
 import '../models/favorite/dto/add_to_favorite_dto.dart';
 import '../models/favorite/response/add_to_favorite_response.dart';
+import '../models/session_delete/session_delete_response_model.dart';
 
 import '../../app/features/cinema_map/models/response/map_response_model.dart/map_response_model.dart';
 
@@ -39,8 +46,14 @@ abstract class RemoteDataSource {
   Future<AddToFavoriteResponse> addToFavorite(
       AddToFavoriteDto addToFavoriteDto);
   Future<List<SearchMultiData>> searchMulti(String query);
+  Future<ActorDetailModel> getActorDetail(int actorId);
   Future<List<GenreData>> getGenres(GenreType genreType);
   Future<MapResponseModel> getCinemaBySearchText(MapRequestDto mapRequestDto);
+  Future<RatingResponseModel> postRating(
+      RatingEnpoints ratingType, int id, int ratingValue);
+  Future<List<RatedListResponse>> getRatedList(RatingEnpoints fetchType);
+  Future<SessionDeleteResponseModel> deleteSession(
+      SessionDeleteRequestModel sessionDeleteRequestModel);
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -171,9 +184,13 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   @override
   Future<AccountDetail> getAccountDetail() async {
     try {
+      var sessionId= await AuthCacheManager().getSessionId();
       var accountDetailResponse = await networkService.execute(
           NetworkRequest(
               type: NetworkRequestType.get,
+              queryParams: {
+                "session_id":sessionId
+              },
               path: dotenv.get(EnvConstants.accountPath),
               data: const NetworkRequestBody.empty()),
           (json) => AccountDetail.fromJson(json));
@@ -187,9 +204,13 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   @override
   Future<List<FavoriteMovieData>> getFavoriteMovies() async {
     try {
+      var sessionId= await AuthCacheManager().getSessionId();
       var favoriteMoviesResponse = await networkService.execute(
           NetworkRequest(
               type: NetworkRequestType.get,
+              queryParams: {
+                "session_id": sessionId
+              },
               path:
                   "${dotenv.get(EnvConstants.accountPath)}${dotenv.get(EnvConstants.favoriteMoviesPath)}",
               data: const NetworkRequestBody.empty()), (json) {
@@ -209,9 +230,13 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   @override
   Future<List<FavoriteTvData>> getFavoriteTVs() async {
     try {
+      var sessionId= await AuthCacheManager().getSessionId();
       var favoriteTVsResponse = await networkService.execute(
           NetworkRequest(
               type: NetworkRequestType.get,
+              queryParams: {
+                "session_id": sessionId
+              },
               path:
                   "${dotenv.get(EnvConstants.accountPath)}${dotenv.get(EnvConstants.favoriteTVPath)}",
               data: const NetworkRequestBody.empty()), (json) {
@@ -279,6 +304,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       var networkRequest = NetworkRequest(
         type: NetworkRequestType.post,
         path: dotenv.get(EnvConstants.favoriteAddPath),
+        queryParams: {"session_id": await AuthCacheManager().getSessionId()},
         data: NetworkRequestBody.json(
           addToFavoriteDto.toJson(),
         ),
@@ -345,6 +371,85 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       );
       return (getCinemaBySearchTextResponse as Ok<MapResponseModel>).data;
     } catch (e) {
+      rethrow;
+    }
+  }
+  @override
+  Future<RatingResponseModel> postRating(
+      RatingEnpoints ratingType, int id, int ratingValue) async {
+    try {
+      NetworkRequestBody networkRequestBody = NetworkRequestBody.json(
+          RatingRequestModel(value: ratingValue).toJson());
+      var networkRequest = NetworkRequest(
+        type: NetworkRequestType.post,
+        path: "${ratingType.endpoint}/$id/rating",
+        data: networkRequestBody,
+        headers: {"Content-Type": NetworkConstants.contentType},
+      );
+      var ratingResponseModel =
+          await networkService.execute(networkRequest, (json) {
+        return RatingResponseModel.fromJson(json);
+      });
+      return (ratingResponseModel as Ok<RatingResponseModel>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<List<RatedListResponse>> getRatedList(RatingEnpoints fetchType) async {
+    try {
+      NetworkRequest ratedListNetworkRequest = NetworkRequest(
+        type: NetworkRequestType.get,
+        path: "${dotenv.get(EnvConstants.accountPath)}/${fetchType.endpoint}",
+        data: const NetworkRequestBody.empty(),
+      );
+      var ratedListResponse = await networkService.execute(
+        ratedListNetworkRequest,
+        (json) {
+          return (json['results'] as List)
+              .map((e) => RatedListResponse.fromJson(e))
+              .toList();
+        },
+      );
+
+      return (ratedListResponse as Ok<List<RatedListResponse>>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+  @override
+  Future<ActorDetailModel> getActorDetail(int actorId) async {
+    try {
+      var networkRequest = NetworkRequest(
+          type: NetworkRequestType.get,
+          path:
+          "${dotenv.get(EnvConstants.personPath)}/$actorId",
+          data: const NetworkRequestBody.empty());
+      var actorDetailResponse = await networkService.execute(
+              networkRequest,
+              (json) => ActorDetailModel.fromJson(json));
+
+      return (actorDetailResponse as Ok<ActorDetailModel>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+  @override
+  Future<SessionDeleteResponseModel> deleteSession(
+      SessionDeleteRequestModel sessionDeleteRequestModel) async {
+    try {
+      var requestBody =
+          NetworkRequestBody.json(sessionDeleteRequestModel.toJson());
+      var networkRequest = NetworkRequest(
+        type: NetworkRequestType.delete,
+        path: dotenv.get(EnvConstants.deleteSessionPath),
+        data: requestBody,
+      );
+      var sessionDeleteResponse = await networkService.execute(
+          networkRequest, (json) => SessionDeleteResponseModel.fromJson(json));
+      return (sessionDeleteResponse as Ok<SessionDeleteResponseModel>).data;
+    } catch (_) {
       rethrow;
     }
   }
