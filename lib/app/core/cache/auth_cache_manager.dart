@@ -10,7 +10,7 @@ class AuthCacheManager {
     await CacheManager.clearAll();
   }
 
-  Future<void> updateLoggedIn(bool isLoggedIn) async {ebvie
+  Future<void> updateLoggedIn(bool isLoggedIn) async {
     await CacheManager.setBool(AuthEnums.login.path, isLoggedIn);
   }
 
