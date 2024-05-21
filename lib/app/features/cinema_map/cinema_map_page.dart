@@ -23,7 +23,7 @@ class _CinemaMapPageState extends State<CinemaMapPage> {
     return BlocProvider(
       create: (context) => CinemaMapBloc(getIt<RemoteDataSource>())
         ..add(
-          CinemaFetching(),
+          const CinemaFetching(),
         ),
       child: ConfigurationWidget(
         onConfigurationReady: (configuration, theme) {

@@ -277,7 +277,6 @@ final class DarkTheme extends ATheme {
         .loginErrorDialogButtonTextStyle(fontSize, MColors.white);
   }
 
-}
 
   @override
   TextStyle cinemaMapViewTitleTextStyle(double fontSize) {
@@ -302,4 +301,8 @@ final class DarkTheme extends ATheme {
     return const TextStyle()
         .mapInfoViewWebSiteTextStyle(fontSize, MColors.electricBlue);
   }
+
+
 }
+
+

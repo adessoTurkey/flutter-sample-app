@@ -12,10 +12,8 @@ class MapInfoGoButton extends StatelessWidget {
   final PlaceResponseModel? place;
   const MapInfoGoButton({super.key, this.place});
 
-  openMapsSheet(BuildContext context) async {
+  openMapsSheet(BuildContext context,List<AvailableMap> availableMaps) async {
     try {
-      final List<AvailableMap> availableMaps = await MapLauncher.installedMaps;
-
       showModalBottomSheet(
         context: context,
         builder: (BuildContext context) {
@@ -51,8 +49,12 @@ class MapInfoGoButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () => openMapsSheet(context),
+    return InkWell(
+      onTap: () async
+      {
+        if(!context.mounted) return;
+        final List<AvailableMap> availableMaps = await MapLauncher.installedMaps;
+        openMapsSheet(context,availableMaps);},
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(

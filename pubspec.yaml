@@ -27,7 +27,7 @@ dependencies:
   formz: ^0.7.0
   geolocator: ^11.0.0
   latlong2: ^0.9.0
-  google_maps_flutter: ^2.5.3
+  google_maps_flutter: ^2.6.1
   latlng: ^2.0.7
   flutter_polyline_points: ^2.0.0
   location: ^5.0.3
@@ -47,7 +47,6 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-  json_serializable: ^6.7.1
   mocktail: ^1.0.3
 environment:
   sdk: '>=3.2.2 <4.0.0'

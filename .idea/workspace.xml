@@ -4,13 +4,22 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="register and forget password url launch">
+    <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="bugfix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/enums/enums.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/enums/enums.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/video_result_extension.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/video_result_extension.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/bloc/login_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/bloc/login_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_trailer_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_trailer_section.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/dark_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/dark_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/utils/widget_to_map_icon.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/utils/widget_to_map_icon.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_map_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_map_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/widgets/map_info_go_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/widgets/map_info_go_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/widgets/map_info_window_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/widgets/map_info_window_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/l10n/app_en.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/app_en.arb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/l10n/app_tr.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/app_tr.arb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,6 +186,76 @@
           <url>file://$PROJECT_DIR$/lib/app/features/login/bloc/login_bloc.dart</url>
           <line>66</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app/features/cinema_map/views/map_info_view.dart</url>
+          <line>24</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart</url>
+          <line>29</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart</url>
+          <line>34</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart</url>
+          <line>42</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart</url>
+          <line>50</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart</url>
+          <line>45</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart</url>
+          <line>54</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart</url>
+          <line>51</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart</url>
+          <line>57</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart</url>
+          <line>63</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart</url>
+          <line>49</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart</url>
+          <line>46</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart</url>
+          <line>47</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart</url>
+          <line>43</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
