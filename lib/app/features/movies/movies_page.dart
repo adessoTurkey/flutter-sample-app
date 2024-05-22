@@ -7,7 +7,10 @@ import 'package:flutter_movie_app/app/features/movies/bloc/movies_bloc.dart';
 import 'package:flutter_movie_app/app/features/movies/movies.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../core/config/app_router.dart';
+import '../../core/constants/m_colors.dart';
 import '../genre_data/bloc/genre_bloc.dart';
 
 @RoutePage()
@@ -40,20 +43,29 @@ class MoviesPage extends StatelessWidget {
                           ),
                           appBarTitle:
                               context.localization.movies_page_app_bar_title,
-                          appBarTitleStyle:
-                              theme.mainPageAppBarTitleTextStyle(
-                                  configuration.mainPageAppBarTitleTextSize),
+                          appBarTitleStyle: theme.mainPageAppBarTitleTextStyle(
+                              configuration.mainPageAppBarTitleTextSize),
                           backgroundColor: theme.themeData.primaryColorDark,
                           expandedHeight: configuration
                               .movieDetailSliverAppBarExpandableHeight,
+                          actions: [
+                            IconButton(
+                              onPressed: () {
+                                context.pushRoute(const CinemaMapRoute());
+                              },
+                              icon: const Icon(
+                                FontAwesomeIcons.locationPin,
+                                color: MColors.white,
+                              ),
+                            )
+                          ],
                         ),
                         SliverToBoxAdapter(
                           child: Column(
                             children: [
                               _CarouselView(),
                               Container(
-                                color:
-                                    theme.themeData.scaffoldBackgroundColor,
+                                color: theme.themeData.scaffoldBackgroundColor,
                                 child: Padding(
                                   padding: EdgeInsets.only(
                                     top: configuration
@@ -73,10 +85,9 @@ class MoviesPage extends StatelessWidget {
                                       Text(
                                         context.localization
                                             .movies_page_popular_title,
-                                        style: theme
-                                            .mainPageListViewTitleTextStyle(
-                                                configuration
-                                                    .mainPageListViewTitleTextSize),
+                                        style: theme.mainPageListViewTitleTextStyle(
+                                            configuration
+                                                .mainPageListViewTitleTextSize),
                                       ),
                                       _MovieListView()
                                     ],

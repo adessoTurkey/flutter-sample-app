@@ -7,8 +7,8 @@
     <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="bugfix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_trailer_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_trailer_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_info_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_info_section.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/custom_scroll_view_app_bar_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/custom_scroll_view_app_bar_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/movies_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/movies_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
