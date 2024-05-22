@@ -64,21 +64,22 @@ abstract class ResponsiveConfiguration {
   double get durationViewTextSize;
   double get rateViewIconSize;
   double get rateViewTextSize;
-  double get movieDetailDescriptionTextSize;
-  double get movieDetailTrailerTextSize;
-  double get movieDetailMovieTitleTextSize;
-  double get movieDetailMovieGenresTextSize;
-  double get movieDetailCastLabelTextSize;
-  double get movieDetailImageViewHeight;
-  double get movieDetailImageContainerHeight;
-  double get movieDetailRatingViewPositionedBottom;
+  double get detailPageDescriptionTextSize;
+  double get detailPageTrailerTextSize;
+  double get detailPageTitleTextSize;
+  double get detailPageGenresTextSize;
+  double get detailCastLabelTextSize;
+  double get detailPageImageViewHeight;
+  double get detailPageImageContainerHeight;
+  double get detailPageRatingViewPositionedBottom;
+  double get detailPageRatingViewPositionedLeft;
   double get movieDetailPagePaddingHorizontal;
   double get movieDetailPagePaddingVerical;
-  double get movieDetailPageRateAndShareIconSize;
+  double get detailPageRateAndShareIconSize;
   double get starRatingIconSize;
   double get starRatingIconSpacingPaddingHorizontal;
   double get circularButtonWidgetDefaultRadiusSize;
-  double get movieDetailShareButtonPaddingLeft;
+  double get detailShareButtonPaddingLeft;
   double get movieDetailSliverAppBarExpandableHeight;
 
   double get loginFieldHintTextSize;
@@ -97,9 +98,17 @@ abstract class ResponsiveConfiguration {
   double get profileFavoriteCellIconSize;
   double get profileFavoriteListTitleTextSize;
 
+  double get searchListCellViewTitleTextSize;
+  double get searchViewTitleTextSize;
+  double get searchTextFieldButtonTextSize;
+  double get searchListCellViewTypeTextSize;
+  double get searchListCellViewTypeIconSize;
+  double get searchListCellViewInfoTextSize;
+  double get searchViewNoResultTextSize;
+
+
   //Tv Series Cell
-  double get tvSeriesCellImageWidth;
-  double get tvSeriesCellImageHeight;
+  Size get tvSeriesCellImageSize;
   double get tvSeriesCellInfoContainerHeight;
   double get tvSeriesCellBodyPaddingLeft;
   double get tvSeriesCellNameTextSize;
@@ -114,13 +123,18 @@ abstract class ResponsiveConfiguration {
   double get tvSeriesListViewPaddingLeft;
   double get tvSeriesListViewPaddingRight;
 
-  double get searchListCellViewTitleTextSize;
-  double get searchViewTitleTextSize;
-  double get searchTextFieldButtonTextSize;
-  double get searchListCellViewTypeTextSize;
-  double get searchListCellViewTypeIconSize;
-  double get searchListCellViewInfoTextSize;
-  double get searchViewNoResultTextSize;
+  //Tv Series Detail
+  double get tvSeriesDetailSeasonsTextSize;
+  double get tvSeriesDetailSeasonsRadius;
+  double get tvSeriesDetailSeasonsHorizontalPadding;
+  double get tvSeriesDetailSeasonsVerticalPadding;
+  double get tvSeriesDetailCastTitleTextSize;
+  double get tvSeriesDetailCastListHeight;
+  double get tvSeriesDetailCastImageSize;
+  double get tvSeriesDetailCastImageRadius;
+  double get tvSeriesDetailCastNameTextSize;
+  double get durationAndReleaseDateDividerPaddingAll;
+  double get durationAndReleaseDateDividerHeight;
 
   //Actor Detail
   double get actorDetailNameTextSize;

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/api_call/models/login_credentials_request_model.dart';
 import 'package:flutter_movie_app/api_call/models/models.dart';
@@ -26,6 +27,7 @@ import 'package:flutter_movie_app/localization/localization_helper.dart';
 
 import '../models/favorite/dto/add_to_favorite_dto.dart';
 import '../models/favorite/response/add_to_favorite_response.dart';
+import 'package:flutter_movie_app/app/features/tv_series_detail/models/tv_series_detail_model.dart';
 import '../models/session_delete/session_delete_response_model.dart';
 
 import '../../app/features/cinema_map/models/response/map_response_model.dart/map_response_model.dart';
@@ -38,10 +40,13 @@ abstract class RemoteDataSource {
   Future<SessionResponseModel> openSession(SessionRequestModel requestBody);
   Future<MovieDetailModel> getMovieDetail(int movieId);
   Future<VideoModelResponse> getMovieVideos(int movieId);
+  Future<VideoModelResponse> getTvSeriesVideos(int tvSeriesId);
   Future<CreditResponse> getMovieCredits(int movieId);
   Future<AccountDetail> getAccountDetail();
   Future<List<FavoriteMovieData>> getFavoriteMovies();
   Future<List<FavoriteTvData>> getFavoriteTVs();
+  Future<TvSeriesDetailModel> getTvSeriesDetail(int tvSeriesId);
+  Future<CreditResponse> getTvSeriesCredits(int tvSeriesId);
   Future<List<TvSeriesData>> getTvSeries(TvSeriesCategory categoryEndpoint);
   Future<AddToFavoriteResponse> addToFavorite(
       AddToFavoriteDto addToFavoriteDto);
@@ -323,6 +328,56 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   }
 
   @override
+  Future<TvSeriesDetailModel> getTvSeriesDetail(int tvSeriesId) async {
+    try {
+      var networkRequest = NetworkRequest(
+          type: NetworkRequestType.get,
+          path: "${dotenv.get(EnvConstants.tvSeriesPath)}/$tvSeriesId",
+          data: const NetworkRequestBody.empty());
+      var tvSeriesDetailResponse = await networkService.execute(networkRequest,
+              (json) => TvSeriesDetailModel.fromJson(json));
+      return (tvSeriesDetailResponse as Ok<TvSeriesDetailModel>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<CreditResponse> getTvSeriesCredits(int tvSeriesId) async {
+    try {
+      var networkRequest = NetworkRequest(
+          type: NetworkRequestType.get,
+          path:
+          "${dotenv.get(EnvConstants.tvSeriesPath)}/$tvSeriesId/${dotenv.get(EnvConstants.creditPath)}",
+          data: const NetworkRequestBody.empty());
+      var tvSeriesDetailCreditResponse = await networkService.execute(
+          networkRequest,
+              (json) => CreditResponse.fromJson(json));
+
+      return (tvSeriesDetailCreditResponse as Ok<CreditResponse>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<VideoModelResponse> getTvSeriesVideos(int tvSeriesId) async {
+    try {
+      var tvSeriesDetailVideoResponse = await networkService.execute(
+          NetworkRequest(
+              type: NetworkRequestType.get,
+              path:
+              "${dotenv.get(EnvConstants.tvSeriesPath)}/$tvSeriesId/${dotenv.get(EnvConstants.videoPath)}",
+              data: const NetworkRequestBody.empty()),
+              (json) => VideoModelResponse.fromJson(json));
+
+      return (tvSeriesDetailVideoResponse as Ok<VideoModelResponse>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
   Future<List<SearchMultiData>> searchMulti(String query) async {
     try {
       var networkRequest = await networkService.execute(
@@ -386,10 +441,12 @@ class RemoteDataSourceImpl extends RemoteDataSource {
         data: networkRequestBody,
         headers: {"Content-Type": NetworkConstants.contentType},
       );
+      debugPrint(networkRequestBody.toString());
       var ratingResponseModel =
           await networkService.execute(networkRequest, (json) {
         return RatingResponseModel.fromJson(json);
       });
+      debugPrint(ratingResponseModel.toString());
       return (ratingResponseModel as Ok<RatingResponseModel>).data;
     } catch (_) {
       rethrow;
@@ -404,6 +461,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
         path: "${dotenv.get(EnvConstants.accountPath)}/${fetchType.endpoint}",
         data: const NetworkRequestBody.empty(),
       );
+      debugPrint(ratedListNetworkRequest.toString());
       var ratedListResponse = await networkService.execute(
         ratedListNetworkRequest,
         (json) {
@@ -412,7 +470,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
               .toList();
         },
       );
-
+      debugPrint(ratedListResponse.toString());
       return (ratedListResponse as Ok<List<RatedListResponse>>).data;
     } catch (_) {
       rethrow;

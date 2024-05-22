@@ -10,7 +10,7 @@ import '../../features/genre_data/genre_data.dart';
 class MovieCellView extends StatelessWidget {
   final MovieData movie;
   final List<GenreData>? genres;
-  const MovieCellView({required this.movie, super.key, required this.genres});
+  const MovieCellView({required this.movie, super.key,  this.genres});
 
   @override
   Widget build(BuildContext context) {

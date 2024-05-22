@@ -37,12 +37,12 @@ class RateView extends StatelessWidget {
             isCollapsed
                 ? _ratingStars(configuration.rateViewIconSize)
                 : _shareButton(
-                    configuration.rateViewIconSize,
-                    shareButtonTapped,
-                    theme.rateViewTextStyle(configuration.rateViewTextSize),
-                    configuration.movieDetailShareButtonPaddingLeft,
-                    context,
-                  ),
+              configuration.rateViewIconSize,
+              shareButtonTapped,
+              theme.rateViewTextStyle(configuration.rateViewTextSize),
+              configuration.detailShareButtonPaddingLeft,
+              context,
+            ),
           ],
         );
       },
@@ -50,12 +50,12 @@ class RateView extends StatelessWidget {
   }
 
   Widget _starIcon(
-    int rating,
-    double size,
-    VoidCallback onTap,
-    TextStyle textStyle,
-    BuildContext context,
-  ) {
+      int rating,
+      double size,
+      VoidCallback onTap,
+      TextStyle textStyle,
+      BuildContext context,
+      ) {
     return Column(
       children: [
         CircularButtonWidget(
@@ -74,12 +74,12 @@ class RateView extends StatelessWidget {
   }
 
   Widget _shareButton(
-    double size,
-    VoidCallback onTap,
-    TextStyle textStyle,
-    double paddingLeft,
-    BuildContext context,
-  ) {
+      double size,
+      VoidCallback onTap,
+      TextStyle textStyle,
+      double paddingLeft,
+      BuildContext context,
+      ) {
     return Padding(
       padding: EdgeInsets.only(left: paddingLeft),
       child: Column(

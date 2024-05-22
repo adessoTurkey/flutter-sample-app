@@ -3,17 +3,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/constants/m_colors.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
+import 'package:flutter_movie_app/app/core/extensions/tv_series_detail_model_extension.dart';
 import 'package:flutter_movie_app/app/core/utils/app_utils.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail/movie_detail_model.dart';
+import 'package:flutter_movie_app/app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart';
+import 'package:flutter_movie_app/app/features/tv_series_detail/models/tv_series_detail_model.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:share_plus/share_plus.dart';
-import '../bloc/movie_detail_bloc.dart';
 
-class MovieDetailPageInfoSection extends StatelessWidget {
-  final MovieDetailModel? movieDetailModel;
-  const MovieDetailPageInfoSection({super.key, required this.movieDetailModel});
+class TvSeriesDetailPageInfoSection extends StatelessWidget {
+  final TvSeriesDetailModel? tvSeriesDetailModel;
+  const TvSeriesDetailPageInfoSection({super.key, required this.tvSeriesDetailModel});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class MovieDetailPageInfoSection extends StatelessWidget {
             _movieRatingAndSharingSection(),
             20.verticalSizedBox,
             Text(
-              movieDetailModel?.overivew ?? "",
+              tvSeriesDetailModel?.overview ?? "",
               style: theme.detailDescriptionTextStyle(
                   configuration.detailPageDescriptionTextSize),
             ),
@@ -47,14 +48,14 @@ class MovieDetailPageInfoSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          movieDetailModel?.title ?? "",
+          tvSeriesDetailModel?.name ?? "",
           style: titleTextStyle,
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
         ),
         10.verticalSizedBox,
         Text(
-          movieDetailModel?.getGenres() ?? "",
+          tvSeriesDetailModel?.getGenres() ?? "",
           style: genresTextStyle,
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
@@ -70,14 +71,14 @@ class MovieDetailPageInfoSection extends StatelessWidget {
         10.verticalSizedBox,
         Row(
           children: [
-            DurationView(durationTime: movieDetailModel?.runtime.toString()),
+            DurationView(durationTime: tvSeriesDetailModel?.getDuration()),
             _verticalDivider(),
-            ReleaseDateView(releaseDate: movieDetailModel?.releaseDate ?? ""),
+            ReleaseDateView(releaseDate: tvSeriesDetailModel?.getDates() ?? ""),
             _verticalDivider(),
           ],
         ),
         20.verticalSizedBox,
-        BlocConsumer<MovieDetailBloc, MovieDetailState>(
+        BlocConsumer<TvSeriesDetailBloc, TvSeriesDetailState>(
           buildWhen: (previous, current) {
             return previous.isCollapsed != current.isCollapsed ||
                 previous.ratingValue != current.ratingValue;
@@ -90,7 +91,7 @@ class MovieDetailPageInfoSection extends StatelessWidget {
               context.showSnackbarAfterHide(
                 AppUtils.mSnackBar(
                   title: context.localization.snackbar_successfully_updated(
-                      movieDetailModel?.title ?? ""),
+                      tvSeriesDetailModel?.name ?? ""),
                   backgroundColor: MColors.electricBlue,
                 ),
               );
@@ -99,7 +100,7 @@ class MovieDetailPageInfoSection extends StatelessWidget {
               context.showSnackbarAfterHide(
                 AppUtils.mSnackBar(
                   title: context.localization.snackbar_successfully_added(
-                      movieDetailModel?.title ?? ""),
+                      tvSeriesDetailModel?.name ?? ""),
                   backgroundColor: MColors.vibrantBlue,
                 ),
               );
@@ -109,14 +110,14 @@ class MovieDetailPageInfoSection extends StatelessWidget {
             return RateView(
               rating: state.ratingValue,
               onChanged: (ratingValue) => context
-                  .read<MovieDetailBloc>()
-                  .add(MovieDetailAddRatingEvent(ratingValue: ratingValue)),
+                  .read<TvSeriesDetailBloc>()
+                  .add(TvSeriesDetailAddRatingEvent(ratingValue: ratingValue)),
               shareButtonTapped: () {
-                Share.share(state.movieDetailModel?.title ?? "",
-                    subject: state.movieDetailModel?.title ?? "");
+                Share.share(state.tvSeriesDetailModel?.name ?? "",
+                    subject: state.tvSeriesDetailModel?.name ?? "");
               },
-              starIconButtonTapped: () => context.read<MovieDetailBloc>().add(
-                MovieDetailRatingCollapsed(isCollapsed: state.isCollapsed),
+              starIconButtonTapped: () => context.read<TvSeriesDetailBloc>().add(
+                TvSeriesDetailRatingCollapsed(isCollapsed: state.isCollapsed),
               ),
               isCollapsed: state.isCollapsed,
             );

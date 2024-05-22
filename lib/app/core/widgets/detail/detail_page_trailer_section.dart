@@ -3,20 +3,19 @@ import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
 import '../../../core/constants/constants.dart';
-import '../models/video_model/video_model_response.dart';
+import '../../../features/movie_detail/models/video_model/video_model_response.dart';
 
 
-class MovieDetailPageTrailerSection extends StatefulWidget {
+class DetailPageTrailerSection extends StatefulWidget {
   final VideoModelResponse? videoModelResponse;
-  const MovieDetailPageTrailerSection({this.videoModelResponse, super.key});
+  const DetailPageTrailerSection({this.videoModelResponse, super.key});
 
   @override
-  State<MovieDetailPageTrailerSection> createState() => _MovieDetailPageTrailerSectionState();
+  State<DetailPageTrailerSection> createState() => _DetailPageTrailerSectionState();
 }
 
-class _MovieDetailPageTrailerSectionState extends State<MovieDetailPageTrailerSection> {
+class _DetailPageTrailerSectionState extends State<DetailPageTrailerSection> {
 
   late YoutubePlayerController? _youtubeController;
 
@@ -43,8 +42,8 @@ class _MovieDetailPageTrailerSectionState extends State<MovieDetailPageTrailerSe
       onConfigurationReady: (configuration, theme) {
         return _trailerSection(
           context,
-          theme.movieDetailTrailerTextStyle(
-              configuration.movieDetailTrailerTextSize),
+          theme.detailTrailerTextStyle(
+              configuration.detailPageTrailerTextSize),
         );
       },
     ):const SizedBox.shrink();
@@ -55,7 +54,7 @@ class _MovieDetailPageTrailerSectionState extends State<MovieDetailPageTrailerSe
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          context.localization.movie_detail_trailer_text,
+          context.localization.detail_trailer_text,
           style: textStyle,
         ),
         10.verticalSizedBox,
@@ -64,10 +63,10 @@ class _MovieDetailPageTrailerSectionState extends State<MovieDetailPageTrailerSe
           player: YoutubePlayer(
             controller: _youtubeController!,
             showVideoProgressIndicator: true,
-            progressIndicatorColor: MColors.youtubeProgressIndicator,
+            progressIndicatorColor: MColors.youtubePlayed,
             progressColors: const ProgressBarColors(
               playedColor: MColors.youtubePlayed,
-              handleColor: MColors.youtubeHandleColor,
+              handleColor: MColors.youtubeHandle,
             ),
             onReady: () {
               _youtubeController!.addListener(() {});

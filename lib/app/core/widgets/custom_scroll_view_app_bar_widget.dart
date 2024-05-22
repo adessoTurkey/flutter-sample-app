@@ -1,9 +1,6 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/config/app_router.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 ///CustomScrollViewAppBar only can be usable inside CustomScrollView
 class CustomScrollViewAppBar extends StatelessWidget {
@@ -14,6 +11,7 @@ class CustomScrollViewAppBar extends StatelessWidget {
   final Color backgroundColor;
   final double expandedHeight;
   final bool implyLeading;
+  final List<Widget>? actions;
 
   const CustomScrollViewAppBar({
     required this.largeTitle,
@@ -21,6 +19,7 @@ class CustomScrollViewAppBar extends StatelessWidget {
     required this.appBarTitle,
     required this.appBarTitleStyle,
     this.backgroundColor = MColors.electricBlue,
+    this.actions,
     required this.expandedHeight,
     this.implyLeading = true,
     super.key,
@@ -42,17 +41,7 @@ class CustomScrollViewAppBar extends StatelessWidget {
           ),
         );
       }),
-      actions: [
-        IconButton(
-          onPressed: () {
-            context.pushRoute(CinemaMapRoute());
-          },
-          icon: const Icon(
-            FontAwesomeIcons.film,
-            color: MColors.white,
-          ),
-        )
-      ],
+      actions:actions,
       backgroundColor: backgroundColor,
       expandedHeight: expandedHeight,
       primary: true,

@@ -82,8 +82,8 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: TvSeriesDetailPage(
-          key: args.key,
           tvSeriesId: args.tvSeriesId,
+          key: args.key,
         ),
       );
     },
@@ -284,14 +284,14 @@ class SplashRoute extends PageRouteInfo<void> {
 /// [TvSeriesDetailPage]
 class TvSeriesDetailRoute extends PageRouteInfo<TvSeriesDetailRouteArgs> {
   TvSeriesDetailRoute({
-    Key? key,
     required int tvSeriesId,
+    Key? key,
     List<PageRouteInfo>? children,
   }) : super(
           TvSeriesDetailRoute.name,
           args: TvSeriesDetailRouteArgs(
-            key: key,
             tvSeriesId: tvSeriesId,
+            key: key,
           ),
           initialChildren: children,
         );
@@ -304,17 +304,17 @@ class TvSeriesDetailRoute extends PageRouteInfo<TvSeriesDetailRouteArgs> {
 
 class TvSeriesDetailRouteArgs {
   const TvSeriesDetailRouteArgs({
-    this.key,
     required this.tvSeriesId,
+    this.key,
   });
-
-  final Key? key;
 
   final int tvSeriesId;
 
+  final Key? key;
+
   @override
   String toString() {
-    return 'TvSeriesDetailRouteArgs{key: $key, tvSeriesId: $tvSeriesId}';
+    return 'TvSeriesDetailRouteArgs{tvSeriesId: $tvSeriesId, key: $key}';
   }
 }
 

@@ -2,7 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
-import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
+import 'package:flutter_movie_app/app/core/enums/enums.dart';
+import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/bloc/movie_detail_bloc.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
@@ -33,8 +34,11 @@ class MovieDetailPage extends StatelessWidget {
                     return SingleChildScrollView(
                       child: Column(
                         children: [
-                          MovieDetailPageImageSection(
-                            movieDetailModel: state.movieDetailModel,
+                          DetailPageImageSection(
+                            favoriteEntityType: FavoriteEntityType.movie,
+                            id: state.movieDetailModel?.id,
+                            voteAverage: state.movieDetailModel?.getVoteAvarage,
+                            imageUrl: state.movieDetailModel?.getImageURL,
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(
@@ -54,7 +58,7 @@ class MovieDetailPage extends StatelessWidget {
                                   creditResponse: state.creditResponse!,
                                 ),
                                 20.verticalSizedBox,
-                                MovieDetailPageTrailerSection(
+                                DetailPageTrailer(
                                   videoModelResponse: state.videoModelResponse,
                                 )
                               ],
@@ -78,5 +82,3 @@ class MovieDetailPage extends StatelessWidget {
     );
   }
 }
-
-

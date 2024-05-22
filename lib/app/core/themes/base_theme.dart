@@ -8,6 +8,7 @@ abstract class ATheme {
   Color get scaffoldBackgroundColor;
   Color get dividerColor;
   Color get shadowColor;
+  Color get progressIndicatorColor;
 
   TextStyle movieCellMovieNameTextStyle(double fontSize);
 
@@ -24,10 +25,6 @@ abstract class ATheme {
 
   TextStyle durationViewTextStyle(double fontSize);
   TextStyle rateViewTextStyle(double fontSize);
-  TextStyle movieDetailDescriptionTextStyle(double fontSize);
-  TextStyle movieDetailTrailerTextStyle(double fontSize);
-  TextStyle movieDetailMovieTitleTextStyle(double fontSize);
-  TextStyle movieDetailMovieGenresTextStyle(double fontSize);
   TextStyle movieDetailCastLeftLabelTextStyle(double fontSize);
   TextStyle movieDetailCastRightLabelTextStyle(double fontSize);
   //Profile
@@ -72,6 +69,15 @@ abstract class ATheme {
   TextStyle mainPageAppBarTitleTextStyle(double fontSize);
   TextStyle mainPageViewHeaderTextStyle(double fontSize);
   TextStyle tvSeriesCellNameTextStyle(double fontSize);
+
+  //Tv Series Detail
+  TextStyle tvSeriesDetailSeasonsTextStyle(double fontSize);
+  TextStyle tvSeriesDetailCastTitleTextStyle(double fontSize);
+  TextStyle tvSeriesDetailCastNameTextStyle(double fontSize);
+  TextStyle detailDescriptionTextStyle(double fontSize);
+  TextStyle detailTrailerTextStyle(double fontSize);
+  TextStyle detailPageTitleTextStyle(double fontSize);
+  TextStyle detailPageGenresTextStyle(double fontSize);
 
 
   TextStyle cinemaMapViewTitleTextStyle(double fontSize);

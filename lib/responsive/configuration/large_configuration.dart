@@ -155,28 +155,7 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   double get rateViewTextSize => 18;
 
   @override
-  double get movieDetailDescriptionTextSize => 18;
-
-  @override
-  double get movieDetailTrailerTextSize => 20;
-
-  @override
-  double get movieDetailMovieGenresTextSize => 24;
-
-  @override
-  double get movieDetailMovieTitleTextSize => 36;
-
-  @override
-  double get movieDetailCastLabelTextSize => 18;
-
-  @override
-  double get movieDetailImageViewHeight => 450;
-
-  @override
-  double get movieDetailImageContainerHeight => 470;
-
-  @override
-  double get movieDetailPageRateAndShareIconSize => 30;
+  double get detailCastLabelTextSize => 18;
 
   @override
   double get movieDetailPagePaddingHorizontal => 24;
@@ -194,11 +173,8 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   double get circularButtonWidgetDefaultRadiusSize => 30;
 
   @override
-  double get movieDetailShareButtonPaddingLeft => 24;
-
-  @override
-  double get movieDetailRatingViewPositionedBottom => 0;
-
+  double get detailShareButtonPaddingLeft => 24;
+  
   @override
   double get movieDetailSliverAppBarExpandableHeight => 100;
 
@@ -240,10 +216,7 @@ final class LargeConfiguration extends ResponsiveConfiguration {
 
   //Tv Series
   @override
-  double get tvSeriesCellImageWidth => 150;
-
-  @override
-  double get tvSeriesCellImageHeight => 220;
+  Size get tvSeriesCellImageSize => const Size(150, 220);
 
   @override
   double get tvSeriesCellInfoContainerHeight => 90;
@@ -279,6 +252,57 @@ final class LargeConfiguration extends ResponsiveConfiguration {
   double get tvSeriesGridMainAxisExtent => 380;
 
   @override
+  double get tvSeriesDetailSeasonsTextSize => 14;
+
+  @override
+  double get tvSeriesDetailSeasonsHorizontalPadding => 10;
+
+  @override
+  double get tvSeriesDetailSeasonsRadius => 15;
+
+  @override
+  double get tvSeriesDetailSeasonsVerticalPadding => 5;
+
+  @override
+  double get detailPageDescriptionTextSize => 18;
+
+  @override
+  double get detailPageGenresTextSize => 24;
+
+  @override
+  double get detailPageImageContainerHeight => 470;
+
+  @override
+  double get detailPageImageViewHeight => 450;
+
+  @override
+  double get detailPageRateAndShareIconSize => 30;
+
+  @override
+  double get detailPageRatingViewPositionedBottom => 0;
+
+  @override
+  double get detailPageTitleTextSize => 36;
+
+  @override
+  double get detailPageTrailerTextSize => 20;
+
+  @override
+  double get tvSeriesDetailCastTitleTextSize => 28;
+
+  @override
+  double get tvSeriesDetailCastImageRadius => 35;
+
+  @override
+  double get tvSeriesDetailCastImageSize => 100;
+
+  @override
+  double get tvSeriesDetailCastListHeight => 140;
+
+  @override
+  double get tvSeriesDetailCastNameTextSize => 16;
+
+  @override
   double get searchListCellViewTitleTextSize => 23;
 
   @override
@@ -298,6 +322,15 @@ final class LargeConfiguration extends ResponsiveConfiguration {
 
   @override
   double get searchViewNoResultTextSize => 26;
+
+  @override
+  double get detailPageRatingViewPositionedLeft => 30;
+
+  @override
+  double get durationAndReleaseDateDividerHeight => 20;
+
+  @override
+  double get durationAndReleaseDateDividerPaddingAll => 10;
 
   @override
   double get dialogBannerHeight => 80;

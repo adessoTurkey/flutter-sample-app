@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
+import 'package:flutter_movie_app/app/core/widgets/detail/detail_crew_label_section.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/credits/credit_response.dart';
+import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class MovieDetailPageCastSection extends StatelessWidget {
@@ -16,10 +17,13 @@ class MovieDetailPageCastSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             movieDetailCastSection(
+              context.localization.movie_detail_director_label,
+              context.localization.movie_detail_writers_label,
+              context.localization.movie_detail_stars_label,
               theme.movieDetailCastLeftLabelTextStyle(
-                  configuration.movieDetailCastLabelTextSize),
+                  configuration.detailCastLabelTextSize),
               theme.movieDetailCastRightLabelTextStyle(
-                  configuration.movieDetailCastLabelTextSize),
+                  configuration.detailCastLabelTextSize),
             ),
           ],
         );
@@ -28,44 +32,23 @@ class MovieDetailPageCastSection extends StatelessWidget {
   }
 
   Widget movieDetailCastSection(
-    TextStyle titleTextStyle,
-    TextStyle infoTextStyle,
+      String directorLabel,
+      String writersLabel,
+      String starsLabel,
+      TextStyle titleTextStyle,
+      TextStyle infoTextStyle,
   ) {
     return Column(
       children: [
-        if (creditResponse.getDirector()!.isValid)
-        // TODO: localization eklenecek
-          movieDetailCastLabel("Director", titleTextStyle,
-              creditResponse.getDirector()!, infoTextStyle),
-        if (creditResponse.getWriters()!.isValid)
-        // TODO: localization eklenecek
-          movieDetailCastLabel("Writers", titleTextStyle,
-              creditResponse.getWriters()!, infoTextStyle),
-        if (creditResponse.getActors()!.isValid)
-        // TODO: localization eklenecek
-          movieDetailCastLabel("Stars", titleTextStyle,
-              creditResponse.getActors()!, infoTextStyle),
-      ],
-    );
-  }
-
-  Widget movieDetailCastLabel(
-    String title,
-    TextStyle titleTextStyle,
-    String info,
-    TextStyle infoTextStyle,
-  ) {
-    return Row(
-      children: [
-        CastLabelWidget(
-          textStyle: titleTextStyle,
-          title: "$title: ",
-        ),
-        Flexible(
-            child: CastLabelWidget(
-          textStyle: infoTextStyle,
-          title: info,
-        )),
+        if (creditResponse.getDirector() != null && creditResponse.getDirector()!.isNotEmpty)
+          DetailCrewLabelSection(title: directorLabel, titleTextStyle: titleTextStyle,
+              info: creditResponse.getDirector()!, infoTextStyle: infoTextStyle),
+        if (creditResponse.getWriters() != null && creditResponse.getWriters()!.isNotEmpty)
+          DetailCrewLabelSection(title: writersLabel, titleTextStyle: titleTextStyle,
+              info: creditResponse.getWriters()!, infoTextStyle: infoTextStyle),
+        if (creditResponse.getActors() != null && creditResponse.getActors()!.isNotEmpty)
+          DetailCrewLabelSection(title: starsLabel, titleTextStyle: titleTextStyle,
+              info: creditResponse.getActors()!, infoTextStyle: infoTextStyle),
       ],
     );
   }

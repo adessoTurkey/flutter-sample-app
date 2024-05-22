@@ -8,6 +8,7 @@ import 'package:flutter_movie_app/app/features/movie_detail/models/rating/rated_
 import '../../../../api_call/models/favorite/dto/add_to_favorite_dto.dart';
 import '../../../../api_call/models/favorite/response/add_to_favorite_response.dart';
 import '../../../core/enums/enums.dart';
+import '../../../core/enums/network_fetch_status.dart';
 import '../../profile/profile.dart';
 import '../models/movie_detail_models.dart';
 import 'package:collection/collection.dart';

@@ -154,28 +154,7 @@ class SmallConfiguration extends ResponsiveConfiguration {
   double get rateViewTextSize => 20;
 
   @override
-  double get movieDetailDescriptionTextSize => 14;
-
-  @override
-  double get movieDetailTrailerTextSize => 16;
-
-  @override
-  double get movieDetailMovieGenresTextSize => 20;
-
-  @override
-  double get movieDetailMovieTitleTextSize => 36;
-
-  @override
-  double get movieDetailCastLabelTextSize => 18;
-
-  @override
-  double get movieDetailImageViewHeight => 400;
-
-  @override
-  double get movieDetailImageContainerHeight => 420;
-
-  @override
-  double get movieDetailPageRateAndShareIconSize => 22;
+  double get detailCastLabelTextSize => 18;
 
   @override
   double get movieDetailPagePaddingHorizontal => 20;
@@ -193,10 +172,7 @@ class SmallConfiguration extends ResponsiveConfiguration {
   double get circularButtonWidgetDefaultRadiusSize => 22;
 
   @override
-  double get movieDetailShareButtonPaddingLeft => 18;
-
-  @override
-  double get movieDetailRatingViewPositionedBottom => 0;
+  double get detailShareButtonPaddingLeft => 18;
 
   @override
   double get movieDetailSliverAppBarExpandableHeight => 100;
@@ -237,12 +213,30 @@ class SmallConfiguration extends ResponsiveConfiguration {
   @override
   double get profileFavoriteListTitleTextSize => 28;
 
-  //Tv Series
   @override
-  double get tvSeriesCellImageWidth => 150;
+  double get searchListCellViewTitleTextSize => 23;
 
   @override
-  double get tvSeriesCellImageHeight => 220;
+  double get searchTextFieldButtonTextSize => 20;
+
+  @override
+  double get searchViewTitleTextSize => 40;
+
+  @override
+  double get searchListCellViewInfoTextSize => 20;
+
+  @override
+  double get searchListCellViewTypeIconSize => 20;
+
+  @override
+  double get searchListCellViewTypeTextSize => 20;
+
+  @override
+  double get searchViewNoResultTextSize => 22;
+
+  //Tv Series
+  @override
+  Size get tvSeriesCellImageSize => const Size(150, 220);
 
   @override
   double get tvSeriesCellInfoContainerHeight => 90;
@@ -278,25 +272,62 @@ class SmallConfiguration extends ResponsiveConfiguration {
   double get tvSeriesGridMainAxisExtent => 380;
 
   @override
-  double get searchListCellViewTitleTextSize => 23;
+  double get tvSeriesDetailSeasonsTextSize => 14;
 
   @override
-  double get searchTextFieldButtonTextSize => 20;
+  double get tvSeriesDetailSeasonsHorizontalPadding => 10;
 
   @override
-  double get searchViewTitleTextSize => 40;
+  double get tvSeriesDetailSeasonsRadius => 15;
 
   @override
-  double get searchListCellViewInfoTextSize => 20;
+  double get tvSeriesDetailSeasonsVerticalPadding => 5;
+
 
   @override
-  double get searchListCellViewTypeIconSize => 20;
+  double get detailPageDescriptionTextSize => 18;
 
   @override
-  double get searchListCellViewTypeTextSize => 20;
+  double get detailPageGenresTextSize => 24;
 
   @override
-  double get searchViewNoResultTextSize => 22;
+  double get detailPageImageContainerHeight => 470;
+
+  @override
+  double get detailPageImageViewHeight => 450;
+
+  @override
+  double get detailPageRateAndShareIconSize => 30;
+
+  @override
+  double get detailPageRatingViewPositionedBottom => 0;
+
+  @override
+  double get detailPageTitleTextSize => 36;
+
+  @override
+  double get detailPageTrailerTextSize => 20;
+
+  @override
+  double get tvSeriesDetailCastTitleTextSize => 28;
+
+  @override
+  double get tvSeriesDetailCastImageRadius => 35;
+
+  @override
+  double get tvSeriesDetailCastImageSize => 100;
+
+  @override
+  double get tvSeriesDetailCastListHeight => 140;
+
+  @override
+  double get tvSeriesDetailCastNameTextSize => 16;
+
+  @override
+  double get detailPageRatingViewPositionedLeft => 30;
+
+  @override
+  double get durationAndReleaseDateDividerHeight => 20;
 
   @override
   double get actorDetailBiographyTextSize => 17;
@@ -351,4 +382,7 @@ class SmallConfiguration extends ResponsiveConfiguration {
 
   @override
   double get mapInfoViewWebSiteTextSize => 16;
+
+  @override
+  double get durationAndReleaseDateDividerPaddingAll => 10;
 }
