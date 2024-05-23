@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/config/app_router.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
@@ -75,10 +76,15 @@ class FavoritesCell extends StatelessWidget {
                   flex: 2,
                   child: Padding(
                     padding: 10.symmetric(horizontal: 20),
-                    child: Icon(
-                      Icons.favorite,
-                      size: configuration.profileFavoriteCellIconSize,
-                      color: MColors.tomato,
+                    child: IconButton(
+                      onPressed: (){
+                        context.read<ProfileBloc>().add(RemoveFromFavoriteEvent(favoriteModel));
+                      },
+                      icon: Icon(
+                        Icons.favorite,
+                        size: configuration.profileFavoriteCellIconSize,
+                        color: MColors.tomato,
+                      ),
                     ),
                   ),
                 ),

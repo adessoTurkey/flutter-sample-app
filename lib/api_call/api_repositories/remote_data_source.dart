@@ -59,6 +59,9 @@ abstract class RemoteDataSource {
   Future<List<RatedListResponse>> getRatedList(RatingEnpoints fetchType);
   Future<SessionDeleteResponseModel> deleteSession(
       SessionDeleteRequestModel sessionDeleteRequestModel);
+
+  Future<bool>  removeMovieFavorite(int id);
+  Future<bool>  removeTvSeriesFavorite(int id);
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -510,5 +513,17 @@ class RemoteDataSourceImpl extends RemoteDataSource {
     } catch (_) {
       rethrow;
     }
+  }
+
+  @override
+  Future<bool> removeMovieFavorite(int id) {
+    // TODO: implement removeMovieFavorite
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool> removeTvSeriesFavorite(int id) {
+    // TODO: implement removeTvSeriesFavorite
+    throw UnimplementedError();
   }
 }

@@ -1,14 +1,12 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
-import 'package:flutter_movie_app/app/core/enums/network_fetch_status.dart';
 import 'package:flutter_movie_app/app/core/extensions/add_to_favorite_response_extension.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/rating/post_rating/response/rating_response_model.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/models/rating/rated_list/rated_list_response.dart';
 import '../../../../api_call/models/favorite/dto/add_to_favorite_dto.dart';
 import '../../../../api_call/models/favorite/response/add_to_favorite_response.dart';
 import '../../../core/enums/enums.dart';
-import '../../../core/enums/network_fetch_status.dart';
 import '../../profile/profile.dart';
 import '../models/movie_detail_models.dart';
 import 'package:collection/collection.dart';

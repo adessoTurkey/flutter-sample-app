@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/api_repositories.dart';
 import '../../../core/enums/tv_series_category_enum.dart';
 import '../models/tv_series_data/tv_series_data.dart';
