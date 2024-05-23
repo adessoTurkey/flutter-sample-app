@@ -20,7 +20,7 @@ class MoviesCarouselView extends StatelessWidget {
     return ConfigurationWidget(
       onConfigurationReady: (configuration, theme) {
         return Container(
-          color: theme.themeData.scaffoldBackgroundColor,
+          color: theme.mainPageBackgroundColor,
           height: configuration.carouselContainerHeight,
           child: Stack(
             children: [

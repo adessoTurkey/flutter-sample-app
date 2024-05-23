@@ -65,7 +65,7 @@ class MoviesPage extends StatelessWidget {
                             children: [
                               _CarouselView(),
                               Container(
-                                color: theme.themeData.scaffoldBackgroundColor,
+                                color: theme.mainPageBackgroundColor,
                                 child: Padding(
                                   padding: EdgeInsets.only(
                                     top: configuration
@@ -89,7 +89,7 @@ class MoviesPage extends StatelessWidget {
                                             configuration
                                                 .mainPageListViewTitleTextSize),
                                       ),
-                                      _MovieListView()
+                                      const _MovieListView()
                                     ],
                                   ),
                                 ),

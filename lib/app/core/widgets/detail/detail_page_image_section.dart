@@ -11,6 +11,8 @@ import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../appbar_back_button.dart';
+
 class DetailPageImageSection extends StatefulWidget {
   final String? imageUrl;
   final String? voteAverage;
@@ -51,7 +53,7 @@ class _DetailPageImageSectionState
                     ),
                   ),
                   topRow(context,
-                      configuration.detailPageRateAndShareIconSize),
+                      configuration.detailPageRateAndShareIconSize,theme.appbarBackButtonColor),
                 ],
               ),
               if(widget.voteAverage != null)
@@ -70,22 +72,19 @@ class _DetailPageImageSectionState
     );
   }
 
-  Widget topRow(BuildContext context, double iconSize) {
+  Widget topRow(BuildContext context, double iconSize,Color backButtonColor) {
     return SafeArea(
       child: Padding(
         padding: 12.all,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CircularButtonWidget(
-              radiusSize: iconSize,
-              onTap: () {
-                context.popRoute();
-              },
-              iconData: FontAwesomeIcons.arrowLeft,
-              backgroundColor: MColors.transparent,
-              iconColor: MColors.white,
-            ),
+            AppbarBackButton(
+                iconColor: backButtonColor,
+                onPressed: () {
+                  context.popRoute();
+                }),
             switch(widget.favoriteEntityType){
               FavoriteEntityType.tv => _getTvDetailFavoriteButton(iconSize),
               FavoriteEntityType.movie => _getMovieDetailFavoriteButton(iconSize),

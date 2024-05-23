@@ -25,13 +25,14 @@ class TvSeriesCellView extends StatelessWidget {
             children: [
               ImageContainerView(
                 imageURL: tvSeriesData.getImageURL,
-                containerSize: configuration.tvSeriesCellImageSize,
+                containerSize: Size(double.infinity,configuration.tvSeriesCellImageSize.height),
                 placeholderImage: MovieAssets.images.poster1.path,
               ),
               Container(
-                height: configuration.tvSeriesCellInfoContainerHeight,
+                color: theme.mainPageCardBackgroundColor,
                 padding: EdgeInsets.only(
                   left: configuration.tvSeriesCellBodyPaddingLeft,
+                  bottom: configuration.tvSeriesCellBodyPaddingLeft
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,7 +43,8 @@ class TvSeriesCellView extends StatelessWidget {
                       style: theme.tvSeriesCellNameTextStyle(
                         configuration.tvSeriesCellNameTextSize,
                       ),
-                      maxLines: 1,
+                      maxLines: 2,
+
                     ),
                     10.verticalSizedBox,
                     if(tvSeriesData.getVoteAverage != null)

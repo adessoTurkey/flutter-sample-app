@@ -31,11 +31,14 @@ class TvSeriesCarouselCardInfo extends StatelessWidget {
                     configuration.carouselCardTitleTextSize),
                 maxLines: 1,
               ),
-              Text(
-                tvSeries.getGenres(state.tvGenres),
-                style: theme.carouselCardSubTitleTextStyle(
-                    configuration.carouselCardSubTitleTextSize),
-                maxLines: 1,
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Text(
+                  tvSeries.getGenres(state.tvGenres),
+                  style: theme.carouselCardSubTitleTextStyle(
+                      configuration.carouselCardSubTitleTextSize),
+                  maxLines: 1,
+                ),
               )
             ],
           );

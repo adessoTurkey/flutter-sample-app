@@ -29,11 +29,14 @@ class MoviesCarouselCardInfoView extends StatelessWidget {
                         configuration.carouselCardTitleTextSize),
                     maxLines: 1,
                   ),
-                Text(
-                  movie.getGenres(state.movieGenres),
-                  style: theme.carouselCardSubTitleTextStyle(
-                      configuration.carouselCardSubTitleTextSize),
-                  maxLines: 1,
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Text(
+                    movie.getGenres(state.movieGenres),
+                    style: theme.carouselCardSubTitleTextStyle(
+                        configuration.carouselCardSubTitleTextSize),
+                    maxLines: 1,
+                  ),
                 )
               ],
             );

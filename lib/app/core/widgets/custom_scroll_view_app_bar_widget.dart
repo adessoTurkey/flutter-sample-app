@@ -37,7 +37,7 @@ class CustomScrollViewAppBar extends StatelessWidget {
           centerTitle: top < expandedHeight ? true : false,
           title: Text(
             top < expandedHeight ? appBarTitle : largeTitle,
-            style: top < expandedHeight ? null : largeTitleStyle,
+            style: top < expandedHeight ? appBarTitleStyle : largeTitleStyle,
           ),
         );
       }),

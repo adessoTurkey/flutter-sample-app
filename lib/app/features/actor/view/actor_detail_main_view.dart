@@ -20,12 +20,12 @@ class ActorDetailMainView extends StatelessWidget{
         return SingleChildScrollView(
           child: Column(
             children: [
-              if(actorDetailModel.profilePath != null)
+
               SizedBox(
                 height: configuration.actorDetailImageHeight,
                 width: context.screenSize.width,
                 child: ImageContainerView(
-                  imageURL: actorDetailModel.profilePath!.toImageUrl,
+                  imageURL: actorDetailModel.profilePath?.toImageUrl??"",
                   placeholderImage: MovieAssets.images.poster1.path,
                 ),
               ),
@@ -33,6 +33,7 @@ class ActorDetailMainView extends StatelessWidget{
                 padding: configuration.actorDetailPagePaddingVertical.symmetric(
                       horizontal:  configuration.actorDetailPagePaddingHorizontal
                 ),
+
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -40,8 +41,8 @@ class ActorDetailMainView extends StatelessWidget{
                     Text(actorDetailModel.name!,
                       style: theme.actorDetailName(configuration.actorDetailNameTextSize),),
                     20.verticalSizedBox,
-                    if(actorDetailModel.biography != null)
-                    ExpandableText(text: actorDetailModel.biography! , maxLines: AppConstants.textShrinkMaxLine),
+                    if(actorDetailModel.biography != null && actorDetailModel.biography.isValid)
+                    ExpandableText(text: actorDetailModel.biography , maxLines: AppConstants.textShrinkMaxLine),
                     20.verticalSizedBox,
                     if(actorDetailModel.birthday != null && actorDetailModel.placeOfBirth != null)
                     FittedBox(

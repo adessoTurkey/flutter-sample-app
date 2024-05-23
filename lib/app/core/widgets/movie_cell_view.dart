@@ -19,7 +19,7 @@ class MovieCellView extends StatelessWidget {
         return CustomCard(
           elevation: configuration.movieCellCardElevation,
           shadowColor: Colors.black26,
-          backgroundColor: theme.themeData.scaffoldBackgroundColor,
+          backgroundColor: theme.mainPageCardBackgroundColor,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -27,64 +27,67 @@ class MovieCellView extends StatelessWidget {
                 imageURL: movie.getImageURL,
                 containerSize: Size(
                   configuration.movieCellImageWidth,
-                  configuration.movieCellImageWidth,
+                  0
                 ),
                 placeholderImage: MovieAssets.images.poster1.path,
               ),
-              Container(
-                width: configuration.movieCellInfoContainerWidth,
-                padding: EdgeInsets.only(
-                  left: configuration.movieCellBodyPaddingLeft,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      movie.movieTitle ?? "",
-                      style: theme.movieCellMovieNameTextStyle(
-                        configuration.movieCellMovieNameTextSize,
-                      ),
-                      maxLines: 1,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      movie.getGenres(genres),
-                      style: theme.movieCellMovieGenresTextStyle(
-                        configuration.movieCellMovieGenresTextSize,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    10.verticalSizedBox,
-                    Row(
-                      children: [
-                        ReleaseDateView(
-                          releaseDate: movie.releaseDate ?? "",
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: configuration.movieCellBodyPaddingLeft,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        movie.movieTitle ?? "",
+                        style: theme.movieCellMovieNameTextStyle(
+                          configuration.movieCellMovieNameTextSize,
                         ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal:
-                                configuration.movieCellDividerPaddingHorizontal,
-                            vertical:
-                                configuration.movieCellDividerPaddingVertical,
+                        maxLines: 2,
+                      ),
+                      10.verticalSizedBox,
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Text(
+                          movie.getGenres(genres),
+                          style: theme.movieCellMovieGenresTextStyle(
+                            configuration.movieCellMovieGenresTextSize,
                           ),
-                          child: SizedBox(
-                            height: configuration.movieCellDividerHeight,
-                            child: VerticalDivider(
-                              width: configuration.movieCellDividerWidth,
-                              color: Colors.black,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      10.verticalSizedBox,
+                      Row(
+                        children: [
+                          ReleaseDateView(
+                            releaseDate: movie.releaseDate ?? "",
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  configuration.movieCellDividerPaddingHorizontal,
+                              vertical:
+                                  configuration.movieCellDividerPaddingVertical,
+                            ),
+                            child: SizedBox(
+                              height: configuration.movieCellDividerHeight,
+                              child: VerticalDivider(
+                                width: configuration.movieCellDividerWidth,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
-                        ),
-                        RatingView(
-                          rating: movie.getVoteAvarage,
-                          type: RatingViewType.cell
-                        ),
-                      ],
-                    )
-                  ],
+                          RatingView(
+                            rating: movie.getVoteAvarage,
+                            type: RatingViewType.cell
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               )
             ],

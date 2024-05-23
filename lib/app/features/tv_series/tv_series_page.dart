@@ -8,6 +8,7 @@ import 'package:flutter_movie_app/app/features/tv_series/tv_series.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
+
 @RoutePage()
 class TvSeriesPage extends StatelessWidget {
   const TvSeriesPage({super.key});
@@ -46,7 +47,7 @@ class TvSeriesPage extends StatelessWidget {
                         children: [
                           _CarouselView(),
                           Container(
-                            color: theme.themeData.scaffoldBackgroundColor,
+                            color: theme.mainPageBackgroundColor,
                             child: Padding(
                               padding: EdgeInsets.only(
                                 top: configuration.tvSeriesListViewPaddingTop,
@@ -99,7 +100,7 @@ class _TvSeriesListView extends StatelessWidget {
           return const LoadingView();
         }
         if (state is TvSeriesSuccess) {
-          return TvSeriesListView(tvSeriesList: state.tvSeriesList);
+          return TvSeriesGridView(tvSeriesList: state.tvSeriesList);
         }
         if (state is TvSeriesError) {
           return Center(
