@@ -30,7 +30,9 @@ class TvSeriesDetailMainView extends StatelessWidget {
             children: [
               DetailPageImageSection(
                 favoriteEntityType: FavoriteEntityType.tv,
-                id: tvSeriesDetailModel.id,
+                id: tvSeriesDetailModel.id??-1,
+                releaseDate: tvSeriesDetailModel.firstAirDate??"",
+                title: tvSeriesDetailModel.name??"",
                 voteAverage: tvSeriesDetailModel.getVoteAverage,
                 imageUrl: tvSeriesDetailModel.getImageURL,
               ),

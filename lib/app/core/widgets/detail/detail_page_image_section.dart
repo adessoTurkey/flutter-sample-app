@@ -6,6 +6,7 @@ import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/bloc/movie_detail_bloc.dart';
+import 'package:flutter_movie_app/app/features/profile/bloc/profile_bloc.dart';
 import 'package:flutter_movie_app/app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
@@ -16,22 +17,26 @@ import '../appbar_back_button.dart';
 class DetailPageImageSection extends StatefulWidget {
   final String? imageUrl;
   final String? voteAverage;
-  final int? id;
+  final int id;
+  final String title;
+  final String releaseDate;
   final FavoriteEntityType favoriteEntityType;
-  const DetailPageImageSection(
-      {super.key,
-      required this.imageUrl,
-      required this.voteAverage,
-      required this.id,
-      required this.favoriteEntityType});
+
+  const DetailPageImageSection({
+    super.key,
+    required this.imageUrl,
+    required this.voteAverage,
+    required this.id,
+    required this.favoriteEntityType,
+    required this.title,
+    required this.releaseDate,
+  });
 
   @override
-  State<DetailPageImageSection> createState() =>
-      _DetailPageImageSectionState();
+  State<DetailPageImageSection> createState() => _DetailPageImageSectionState();
 }
 
-class _DetailPageImageSectionState
-    extends State<DetailPageImageSection> {
+class _DetailPageImageSectionState extends State<DetailPageImageSection> {
   @override
   Widget build(BuildContext context) {
     return ConfigurationWidget(
@@ -42,29 +47,28 @@ class _DetailPageImageSectionState
             children: [
               Stack(
                 children: [
-                  if(widget.imageUrl != null)
-                  SizedBox(
-                    height: configuration.detailPageImageViewHeight,
-                    width: context.screenSize.width,
-                    child:
-                    ImageContainerView(
-                      imageURL: widget.imageUrl!,
-                      placeholderImage: MovieAssets.images.poster1.path,
+                  if (widget.imageUrl != null)
+                    SizedBox(
+                      height: configuration.detailPageImageViewHeight,
+                      width: context.screenSize.width,
+                      child: ImageContainerView(
+                        imageURL: widget.imageUrl!,
+                        placeholderImage: MovieAssets.images.poster1.path,
+                      ),
                     ),
-                  ),
-                  topRow(context,
-                      configuration.detailPageRateAndShareIconSize,theme.appbarBackButtonColor),
+                  topRow(context, configuration.detailPageRateAndShareIconSize,
+                      theme.appbarBackButtonColor),
                 ],
               ),
-              if(widget.voteAverage != null)
-              Positioned(
-                bottom: configuration.detailPageRatingViewPositionedBottom,
-                left: configuration.detailPageRatingViewPositionedLeft,
-                child: RatingView(
-                  rating: widget.voteAverage!,
-                  type: RatingViewType.carousel,
-                ),
-              )
+              if (widget.voteAverage != null)
+                Positioned(
+                  bottom: configuration.detailPageRatingViewPositionedBottom,
+                  left: configuration.detailPageRatingViewPositionedLeft,
+                  child: RatingView(
+                    rating: widget.voteAverage!,
+                    type: RatingViewType.carousel,
+                  ),
+                )
             ],
           ),
         );
@@ -72,7 +76,7 @@ class _DetailPageImageSectionState
     );
   }
 
-  Widget topRow(BuildContext context, double iconSize,Color backButtonColor) {
+  Widget topRow(BuildContext context, double iconSize, Color backButtonColor) {
     return SafeArea(
       child: Padding(
         padding: 12.all,
@@ -85,9 +89,10 @@ class _DetailPageImageSectionState
                 onPressed: () {
                   context.popRoute();
                 }),
-            switch(widget.favoriteEntityType){
+            switch (widget.favoriteEntityType) {
               FavoriteEntityType.tv => _getTvDetailFavoriteButton(iconSize),
-              FavoriteEntityType.movie => _getMovieDetailFavoriteButton(iconSize),
+              FavoriteEntityType.movie =>
+                _getMovieDetailFavoriteButton(iconSize),
             }
           ],
         ),
@@ -95,16 +100,20 @@ class _DetailPageImageSectionState
     );
   }
 
-
-  BlocBuilder<MovieDetailBloc, MovieDetailState> _getMovieDetailFavoriteButton(double iconSize){
+  BlocBuilder<MovieDetailBloc, MovieDetailState> _getMovieDetailFavoriteButton(
+      double iconSize) {
     return BlocBuilder<MovieDetailBloc, MovieDetailState>(
       builder: (context, state) {
         return CircularButtonWidget(
           radiusSize: iconSize,
           onTap: () {
-            context.read<MovieDetailBloc>().add(
-                MovieDetailAddFavoriteEvent(
-                    movieId: widget.id ?? 0));
+            context.read<ProfileBloc>().add(AddFavoriteEvent(
+                posterPath: widget.imageUrl!,
+                title: widget.title,
+                releaseDate: widget.releaseDate,
+                id: widget.id ?? 0,
+                isFavorite: true,
+                favoriteType: FavoriteEntityType.movie));
           },
           iconData: state.isFavorite
               ? FontAwesomeIcons.solidHeart
@@ -116,15 +125,20 @@ class _DetailPageImageSectionState
     );
   }
 
-  BlocBuilder<TvSeriesDetailBloc, TvSeriesDetailState> _getTvDetailFavoriteButton(double iconSize){
+  BlocBuilder<TvSeriesDetailBloc, TvSeriesDetailState>
+      _getTvDetailFavoriteButton(double iconSize) {
     return BlocBuilder<TvSeriesDetailBloc, TvSeriesDetailState>(
       builder: (context, state) {
         return CircularButtonWidget(
           radiusSize: iconSize,
           onTap: () {
-            context.read<TvSeriesDetailBloc>().add(
-                TvSeriesDetailAddFavoriteEvent(
-                    tvSeriesId: widget.id ?? 0));
+            context.read<ProfileBloc>().add(AddFavoriteEvent(
+                posterPath: widget.imageUrl!,
+                title: widget.title,
+                releaseDate: widget.releaseDate,
+                id: widget.id,
+                isFavorite: true,
+                favoriteType: FavoriteEntityType.tv));
           },
           iconData: state.isFavorite
               ? FontAwesomeIcons.solidHeart

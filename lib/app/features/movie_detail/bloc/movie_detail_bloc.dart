@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
@@ -16,13 +18,20 @@ part 'movie_detail_state.dart';
 
 class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
   final RemoteDataSource remoteDataSource;
-
-  MovieDetailBloc({required this.remoteDataSource})
+  final ProfileBloc profileBloc;
+  late StreamSubscription _streamSubscription;
+  MovieDetailBloc({required this.remoteDataSource,required this.profileBloc})
       : super(const MovieDetailState()) {
     on<MovieDetailInitialEvent>(_movieDetailInitialEvent);
     on<MovieDetailAddFavoriteEvent>(_movieDetailAddToFavoriteEventTriggered);
     on<MovieDetailAddRatingEvent>(_movieDetailAddRatingEventTriggered);
     on<MovieDetailRatingCollapsed>(_movieDetailRatingCollapsedTriggered);
+
+   _streamSubscription = profileBloc.stream.listen((state){
+        if(state  is AddRemoveFromFavoriteState){
+            add(MovieDetailAddFavoriteEvent(isFavorite: state.isFavorite));
+        }
+    });
   }
 
   Future<void> _movieDetailInitialEvent(
@@ -76,13 +85,13 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
   Future<void> _movieDetailAddToFavoriteEventTriggered(
       MovieDetailAddFavoriteEvent event, Emitter<MovieDetailState> emit) async {
     try {
-      AddToFavoriteResponse response =
+    /*  AddToFavoriteResponse response =
           await remoteDataSource.addToFavorite(AddToFavoriteDto(
         mediaType: "movie",
-        favoriteId: event.movieId,
+        //favoriteId: event.movieId,
         favorite: !state.isFavorite,
-      ));
-      emit(state.copyWith(isFavorite: response.isFavorite));
+      )); */
+      emit(state.copyWith(isFavorite: event.isFavorite));
     } catch (e) {
       emit(state.copyWith(
         status: NetworkFetchStatus.error,
@@ -116,5 +125,11 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
   Future<void> _movieDetailRatingCollapsedTriggered(
       MovieDetailRatingCollapsed event, Emitter<MovieDetailState> emit) async {
     emit(state.copyWith(isCollapsed: !event.isCollapsed));
+  }
+
+  @override
+  Future<void> close() {
+    _streamSubscription.cancel();
+    return super.close();
   }
 }

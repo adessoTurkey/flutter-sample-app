@@ -7,19 +7,19 @@
     <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="General App Review">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/api_call/api_repositories/remote_data_source.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api_call/api_repositories/remote_data_source.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/actor/bloc/actor_detail_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/actor/bloc/actor_detail_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/genre_data/bloc/genre_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/genre_data/bloc/genre_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/bloc/login_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/bloc/login_bloc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/utils/data_mapper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/utils/data_mapper.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_image_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_image_section.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/bloc/movie_detail_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/bloc/movie_detail_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/bloc/movies_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/bloc/movies_bloc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/bloc/movie_detail_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/bloc/movie_detail_event.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/profile/bloc/profile_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/profile/bloc/profile_bloc.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/profile/bloc/profile_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/profile/bloc/profile_event.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/profile/bloc/profile_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/profile/bloc/profile_state.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/profile/views/favorites_cell.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/profile/views/favorites_cell.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/search/bloc/search_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/search/bloc/search_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/bloc/tv_series_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/bloc/tv_series_bloc.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_event.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_main_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_main_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716468490320</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="General App Review">
+      <created>1716499567925</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1716499567925</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -11,12 +11,34 @@ final class ProfileFetchingEvent extends ProfileEvent {
   const ProfileFetchingEvent();
 }
 
-final class RemoveFromFavoriteEvent extends ProfileEvent{
-  final FavoriteEntity favorite;
-  const RemoveFromFavoriteEvent(this.favorite);
+final class AddFavoriteEvent extends ProfileEvent {
+  final int id;
+  final bool isFavorite;
+  final FavoriteEntityType favoriteType;
+  final String title;
+  final String releaseDate;
+  final String posterPath;
+
+  const AddFavoriteEvent(
+      {required this.title,
+      required this.releaseDate,
+      required this.posterPath,
+      required this.id,
+      required this.favoriteType,
+      required this.isFavorite});
 
   @override
-  // TODO: implement props
-  List<Object> get props => [favorite];
+  List<Object> get props => [id, favoriteType];
 }
 
+final class RemoveFavoriteEvent extends ProfileEvent {
+  final int id;
+  final bool isFavorite;
+  final FavoriteEntityType favoriteType;
+
+  const RemoveFavoriteEvent(
+      {required this.id, required this.favoriteType, required this.isFavorite});
+
+  @override
+  List<Object> get props => [id, favoriteType];
+}

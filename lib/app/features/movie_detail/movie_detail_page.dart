@@ -6,6 +6,7 @@ import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/movie_detail/bloc/movie_detail_bloc.dart';
+import 'package:flutter_movie_app/app/features/profile/bloc/profile_bloc.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import '../../core/enums/network_fetch_status.dart';
@@ -20,7 +21,7 @@ class MovieDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          MovieDetailBloc(remoteDataSource: getIt<RemoteDataSource>())
+          MovieDetailBloc(remoteDataSource: getIt<RemoteDataSource>(),profileBloc: context.read<ProfileBloc>())
             ..add(MovieDetailInitialEvent(movieId: movieId)),
       child: Scaffold(
         body: BlocBuilder<MovieDetailBloc, MovieDetailState>(
@@ -36,7 +37,9 @@ class MovieDetailPage extends StatelessWidget {
                         children: [
                           DetailPageImageSection(
                             favoriteEntityType: FavoriteEntityType.movie,
-                            id: state.movieDetailModel?.id,
+                            id: state.movieDetailModel?.id??-1,
+                            title: state.movieDetailModel?.title??"",
+                            releaseDate: state.movieDetailModel?.releaseDate??"",
                             voteAverage: state.movieDetailModel?.getVoteAvarage,
                             imageUrl: state.movieDetailModel?.getImageURL,
                           ),

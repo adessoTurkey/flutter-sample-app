@@ -11,9 +11,9 @@ import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import '../profile.dart';
 
-
 class FavoritesCell extends StatelessWidget {
   final FavoriteEntity favoriteModel;
+
   const FavoritesCell({super.key, required this.favoriteModel});
 
   @override
@@ -23,7 +23,8 @@ class FavoritesCell extends StatelessWidget {
         return InkWell(
           onTap: () {
             if (favoriteModel.favoriteEntityType == FavoriteEntityType.movie) {
-              context.pushRoute(MovieDetailRoute(movieId: favoriteModel.id ?? 0));
+              context
+                  .pushRoute(MovieDetailRoute(movieId: favoriteModel.id ?? 0));
             }
           },
           child: CustomCard(
@@ -36,59 +37,65 @@ class FavoritesCell extends StatelessWidget {
               borderRadius: BorderRadius.circular(10.0),
             ),
             backgroundColor: theme.themeData.scaffoldBackgroundColor,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  flex: 3,
-                  child: ImageContainerView(
-                    imageURL: favoriteModel.posterURL,
-                    placeholderImage: MovieAssets.images.poster1.path,
-                  ),
-                ),
-                10.horizontalSizedBox,
-                Expanded(
-                  flex: 7,
-                  child: Padding(
-                    padding: 10.topToBottom(bottom: 20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          favoriteModel.title ?? "",
-                          style: theme.profileFavoriteCellTitleTextStyle(
-                            configuration.profileFavoriteCellTitleTextSize,
-                          ),
-                          maxLines: 1,
-                        ),
-                        20.verticalSizedBox,
-                        ReleaseDateView(
-                          releaseDate: favoriteModel.releaseDate ?? "",
-                        ),
-                      ],
+            child: Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: ImageContainerView(
+                      imageURL: favoriteModel.posterURL,
+                      placeholderImage: MovieAssets.images.poster1.path,
                     ),
                   ),
-                ),
-                10.horizontalSizedBox,
-                Expanded(
-                  flex: 2,
-                  child: Padding(
-                    padding: 10.symmetric(horizontal: 20),
-                    child: IconButton(
-                      onPressed: (){
-                        context.read<ProfileBloc>().add(RemoveFromFavoriteEvent(favoriteModel));
-                      },
-                      icon: Icon(
-                        Icons.favorite,
-                        size: configuration.profileFavoriteCellIconSize,
-                        color: MColors.tomato,
+                  10.horizontalSizedBox,
+                  Expanded(
+                    flex: 7,
+                    child: Padding(
+                      padding: 10.topToBottom(bottom: 20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            favoriteModel.title ?? "",
+                            style: theme.profileFavoriteCellTitleTextStyle(
+                              configuration.profileFavoriteCellTitleTextSize,
+                            ),
+                            maxLines: 1,
+                          ),
+                          20.verticalSizedBox,
+                          ReleaseDateView(
+                            releaseDate: favoriteModel.releaseDate ?? "",
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                ),
-              ],
+                  10.horizontalSizedBox,
+                  Expanded(
+                    flex: 2,
+                    child: InkWell(
+                      onTap: () {
+                        context.read<ProfileBloc>().add(RemoveFavoriteEvent(
+                            id: favoriteModel.id ?? 0,
+                            isFavorite: false,
+                            favoriteType: favoriteModel.favoriteEntityType));
+                      },
+                      child: Padding(
+                        padding: 10.symmetric(horizontal: 20),
+                        child: Icon(
+                          Icons.favorite,
+                          size: configuration.profileFavoriteCellIconSize,
+                          color: MColors.tomato,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         );

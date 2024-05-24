@@ -60,8 +60,8 @@ abstract class RemoteDataSource {
   Future<SessionDeleteResponseModel> deleteSession(
       SessionDeleteRequestModel sessionDeleteRequestModel);
 
-  Future<bool>  removeMovieFavorite(int id);
-  Future<bool>  removeTvSeriesFavorite(int id);
+  Future<AddToFavoriteResponse>  removeFavorite(AddToFavoriteDto favorite);
+  Future<AddToFavoriteResponse>  removeTvSeriesFavorite(AddToFavoriteDto favorite);
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -516,14 +516,52 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   }
 
   @override
-  Future<bool> removeMovieFavorite(int id) {
-    // TODO: implement removeMovieFavorite
-    throw UnimplementedError();
+  Future<AddToFavoriteResponse> removeFavorite(AddToFavoriteDto favorite)async {
+    AddToFavoriteDto newFavorite = favorite.copyWith(favorite: false);
+      try {
+      var networkRequest = NetworkRequest(
+        type: NetworkRequestType.post,
+        path: dotenv.get(EnvConstants.favoriteAddPath),
+        queryParams: {"session_id": await AuthCacheManager().getSessionId()},
+        data: NetworkRequestBody.json(
+          newFavorite.toJson(),
+        ),
+      );
+      var addToFavoriteResponse =
+          await networkService.execute(networkRequest, (json) {
+        AddToFavoriteResponse favoriteresponse =
+        AddToFavoriteResponse.fromJson(json);
+
+        return favoriteresponse;
+      });
+      return (addToFavoriteResponse as Ok<AddToFavoriteResponse>).data;
+    } catch (_) {
+      rethrow;
+    }
   }
 
   @override
-  Future<bool> removeTvSeriesFavorite(int id) {
-    // TODO: implement removeTvSeriesFavorite
-    throw UnimplementedError();
+  Future<AddToFavoriteResponse> removeTvSeriesFavorite(AddToFavoriteDto favorite) async{
+    AddToFavoriteDto newFavorite = favorite.copyWith(favorite: false);
+    try {
+      var networkRequest = NetworkRequest(
+        type: NetworkRequestType.post,
+        path: dotenv.get(EnvConstants.favoriteAddPath),
+        queryParams: {"session_id": await AuthCacheManager().getSessionId()},
+        data: NetworkRequestBody.json(
+          newFavorite.toJson(),
+        ),
+      );
+      var addToFavoriteResponse =
+          await networkService.execute(networkRequest, (json) {
+        AddToFavoriteResponse favoriteresponse =
+        AddToFavoriteResponse.fromJson(json);
+
+        return favoriteresponse;
+      });
+      return (addToFavoriteResponse as Ok<AddToFavoriteResponse>).data;
+    } catch (_) {
+      rethrow;
+    }
   }
 }
