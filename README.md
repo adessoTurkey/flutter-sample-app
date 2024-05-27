@@ -59,16 +59,21 @@ GOOGLE_MAP_ANDROID_API_KEY = <Google Map Android Key>
 
 ## Architecture
 
-- Single Activity
-- MVVM Pattern
+- BLoC Pattern
+- Localization
+- Configuration
+- Assets
+- Freezed Data Classes
 
-**View:** Renders UI and delegates user actions to ViewModel.
+**View:** Renders UI and delegates user actions to Bloc. Each page is separated as a feature.
 
-**ViewModel:** Can have simple UI logic but mostly gets the data from UseCase.
+**Bloc:** Manages UI state and retrieves data from the data source asynchronously.
 
-**UseCase:** Contains all business rules and they are written in the manner of the single responsibility principle.
+**Localization:** Holds text for various languages.
 
-**Repository:** Single source of data, responsible for getting data from one or more data sources.
+**Assets:** Contains assets like images.
+
+**Freezed Data Classes:** Data classes are created with Freezed.
 
 ## Tech Stack
 
