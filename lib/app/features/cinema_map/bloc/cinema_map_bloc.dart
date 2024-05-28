@@ -2,17 +2,11 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/constants/app_constants.dart';
 import 'package:flutter_movie_app/app/core/utils/data_mapper.dart';
-import 'package:flutter_movie_app/app/features/cinema_map/models/center_dto.dart';
-import 'package:flutter_movie_app/app/features/cinema_map/models/circle_dto.dart';
-import 'package:flutter_movie_app/app/features/cinema_map/models/location_bias_dto.dart';
-import 'package:flutter_movie_app/app/features/cinema_map/models/map_request_dto/map_request_dto.dart';
-import 'package:flutter_movie_app/app/features/cinema_map/models/response/map_response_model.dart/map_response_model.dart';
-import 'package:flutter_movie_app/app/features/cinema_map/models/response/place_response_model/place_response_model.dart';
-import 'package:flutter_movie_app/app/features/cinema_map/widgets/custom_marker.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
 import '../../../../api_call/api_repositories/api_repositories.dart';
+import '../cinema_map.dart';
 
 part 'cinema_map_event.dart';
 part 'cinema_map_state.dart';

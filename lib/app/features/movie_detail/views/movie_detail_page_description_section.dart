@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/widgets/detail/detail_crew_label_section.dart';
-import 'package:flutter_movie_app/app/features/movie_detail/models/credits/credit_response.dart';
-import 'package:flutter_movie_app/localization/localization.dart';
+import 'package:flutter_movie_app/app/app.dart';
+import 'package:flutter_movie_app/localization/app_localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class MovieDetailPageCastSection extends StatelessWidget {
   final CreditResponse creditResponse;
+
   const MovieDetailPageCastSection({required this.creditResponse, super.key});
 
   @override

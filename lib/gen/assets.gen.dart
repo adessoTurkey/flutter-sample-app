@@ -45,8 +45,7 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/splash_bg.png');
 
   /// List of all assets
-  List<dynamic> get values =>
-      [
+  List<dynamic> get values => [
         eye,
         heart,
         locationIcon,

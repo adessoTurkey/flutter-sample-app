@@ -1,18 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/app/core/constants/m_colors.dart';
-import 'package:flutter_movie_app/app/core/enums/enums.dart';
-import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/movie_detail/bloc/movie_detail_bloc.dart';
-import 'package:flutter_movie_app/app/features/profile/bloc/profile_bloc.dart';
-import 'package:flutter_movie_app/app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart';
+import 'package:flutter_movie_app/app/app.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../appbar_back_button.dart';
 
 class DetailPageImageSection extends StatefulWidget {
   final String? imageUrl;

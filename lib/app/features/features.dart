@@ -1,0 +1,11 @@
+export 'actor/actor.dart';
+export 'cinema_map/cinema_map.dart';
+export 'home/home.dart';
+export 'login/login.dart';
+export 'movie_detail/movie_detail.dart';
+export 'movies/movies.dart';
+export 'profile/profile.dart';
+export 'search/search.dart';
+export 'splash/splash.dart';
+export 'tv_series/tv_series.dart';
+export 'tv_series_detail/tv_series_detail.dart';

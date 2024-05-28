@@ -1,7 +1,7 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_movie_app/app/core/constants/constants.dart';
-import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
-import '../../features/genre_data/genre_data.dart';
+import 'package:flutter_movie_app/app/features/movies/models/models.dart';
+
+import '../core.dart';
 
 extension MovieDataExtension on MovieData {
   String get getImageURL =>

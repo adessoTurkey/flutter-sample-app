@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/constants/constants.dart';
-import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
+import 'package:flutter_movie_app/app/app.dart';
 
-///CustomScrollViewAppBar only can be usable inside CustomScrollView
 class CustomScrollViewAppBar extends StatelessWidget {
   final String largeTitle;
   final TextStyle largeTitleStyle;

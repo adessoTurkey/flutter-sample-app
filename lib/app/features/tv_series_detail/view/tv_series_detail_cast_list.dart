@@ -1,22 +1,19 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/config/app_router.dart';
-import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
-import 'package:flutter_movie_app/app/features/tv_series_detail/view/tv_series_detail_cast_item.dart';
+import 'package:flutter_movie_app/app/app.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
-import '../../movie_detail/models/credits/cast/cast_results.dart';
 
 class DetailHorizontalCastList extends StatelessWidget {
   final List<CastResults> castList;
+
   const DetailHorizontalCastList({required this.castList, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ConfigurationWidget(
-        onConfigurationReady: (configuration, theme)
-    {
+    return ConfigurationWidget(onConfigurationReady: (configuration, theme) {
       return SizedBox(
-        height: configuration.tvSeriesDetailCastListHeight, // Height of the horizontal list
+        height: configuration.tvSeriesDetailCastListHeight,
+        // Height of the horizontal list
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: castList.length, // Number of items in the list
@@ -26,7 +23,8 @@ class DetailHorizontalCastList extends StatelessWidget {
               padding: 8.onlyHorizontal,
               child: GestureDetector(
                 onTap: () {
-                  context.pushRoute(ActorDetailRoute(actorId: castItem.id ?? 0));
+                  context
+                      .pushRoute(ActorDetailRoute(actorId: castItem.id ?? 0));
                 },
                 child: DetailPageCastItem(
                   cast: castItem,

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/constants/app_constants.dart';
-import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/localization/localization.dart';
-import 'package:flutter_movie_app/responsive/configuration_widget.dart';
+import 'package:flutter_movie_app/app/app.dart';
+import 'package:flutter_movie_app/localization/app_localization.dart';
 
-class ExpandableText extends StatefulWidget{
+import '../../../../responsive/configuration_widget.dart';
+
+class ExpandableText extends StatefulWidget {
   final String? text;
   final int maxLines;
+
   const ExpandableText({this.text, required this.maxLines, super.key});
 
   @override

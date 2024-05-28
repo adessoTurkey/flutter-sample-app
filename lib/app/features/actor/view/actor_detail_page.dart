@@ -1,15 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/app/core/widgets/appbar_back_button.dart';
-import 'package:flutter_movie_app/app/features/actor/bloc/actor_detail_bloc.dart';
-import 'package:flutter_movie_app/app/features/actor/view/actor_detail_main_view.dart';
+import 'package:flutter_movie_app/app/app.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
+
 import '../../../../api_call/api_repositories/remote_data_source.dart';
 import '../../../../di/dependency_injection.dart';
-import '../../../core/enums/network_fetch_status.dart';
-import '../../../core/widgets/error_view.dart';
-import '../../../core/widgets/loading_view.dart';
 
 @RoutePage()
 class ActorDetailPage extends StatelessWidget {

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_movie_app/app/app.dart';
+import 'package:flutter_movie_app/localization/app_localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
-import '../../../core/constants/m_colors.dart';
-import '../bloc/login_bloc.dart';
-import '../bloc/login_event.dart';
-import '../bloc/login_state.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({super.key});

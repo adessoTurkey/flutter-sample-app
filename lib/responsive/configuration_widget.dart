@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/app/core/themes/bloc/theme_bloc.dart';
 import 'package:flutter_movie_app/app/core/themes/themes.dart';
 import 'package:flutter_movie_app/responsive/configuration/configuration.dart';
 import 'package:flutter_movie_app/responsive/responsive_bloc/responsive_configuration_bloc.dart';

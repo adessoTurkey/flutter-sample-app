@@ -1,16 +1,13 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_movie_app/app/core/constants/app_constants.dart';
-import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/features/actor/model/actor_detail_model.dart';
-import 'package:flutter_movie_app/app/features/actor/view/expandable_text.dart';
-import 'package:flutter_movie_app/localization/localization.dart';
+import 'package:flutter_movie_app/app/app.dart';
+import 'package:flutter_movie_app/localization/app_localization.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../../responsive/configuration_widget.dart';
-import '../../../core/widgets/image_container_view.dart';
 
-class ActorDetailMainView extends StatelessWidget{
+class ActorDetailMainView extends StatelessWidget {
   final ActorDetailModel actorDetailModel;
+
   const ActorDetailMainView({required this.actorDetailModel, super.key});
 
   @override

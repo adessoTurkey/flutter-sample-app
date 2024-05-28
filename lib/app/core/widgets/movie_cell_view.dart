@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
-import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
+import 'package:flutter_movie_app/app/app.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
-
-import '../../features/genre_data/genre_data.dart';
 
 class MovieCellView extends StatelessWidget {
   final MovieData movie;
   final List<GenreData>? genres;
-  const MovieCellView({required this.movie, super.key,  this.genres});
+
+  const MovieCellView({required this.movie, super.key, this.genres});
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +22,7 @@ class MovieCellView extends StatelessWidget {
             children: [
               ImageContainerView(
                 imageURL: movie.getImageURL,
-                containerSize: Size(
-                  configuration.movieCellImageWidth,
-                  0
-                ),
+                containerSize: Size(configuration.movieCellImageWidth, 0),
                 placeholderImage: MovieAssets.images.poster1.path,
               ),
               Expanded(
@@ -67,8 +61,8 @@ class MovieCellView extends StatelessWidget {
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(
-                              horizontal:
-                                  configuration.movieCellDividerPaddingHorizontal,
+                              horizontal: configuration
+                                  .movieCellDividerPaddingHorizontal,
                               vertical:
                                   configuration.movieCellDividerPaddingVertical,
                             ),
@@ -81,9 +75,8 @@ class MovieCellView extends StatelessWidget {
                             ),
                           ),
                           RatingView(
-                            rating: movie.getVoteAvarage,
-                            type: RatingViewType.cell
-                          ),
+                              rating: movie.getVoteAvarage,
+                              type: RatingViewType.cell),
                         ],
                       )
                     ],

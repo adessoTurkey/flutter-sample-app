@@ -4,12 +4,10 @@ import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
-import 'package:flutter_movie_app/app/features/movie_detail/models/rating/post_rating/response/rating_response_model.dart';
-import 'package:flutter_movie_app/app/features/movie_detail/models/rating/rated_list/rated_list_response.dart';
 
 import '../../../core/enums/enums.dart';
 import '../../profile/profile.dart';
-import '../models/movie_detail_models.dart';
+import '../models/models.dart';
 
 part 'movie_detail_event.dart';
 part 'movie_detail_state.dart';

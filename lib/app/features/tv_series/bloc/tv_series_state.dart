@@ -21,8 +21,8 @@ final class TvSeriesSuccess extends TvSeriesState {
   List<Object?> get props => [tvSeriesList, tvSeries];
 }
 
-final class CarouselSlideSuccess extends TvSeriesState {
-  const CarouselSlideSuccess({required this.tvSeriesModel});
+final class TvCarouselSlideSuccess extends TvSeriesState {
+  const TvCarouselSlideSuccess({required this.tvSeriesModel});
 
   final TvSeriesData tvSeriesModel;
 

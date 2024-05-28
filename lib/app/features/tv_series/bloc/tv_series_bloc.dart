@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/api_repositories.dart';
+
 import '../../../core/enums/tv_series_category_enum.dart';
 import '../models/tv_series_data/tv_series_data.dart';
 
@@ -11,7 +12,7 @@ class TvSeriesBloc extends Bloc<TvSeriesEvent, TvSeriesState> {
   final RemoteDataSource remoteDataSource;
   TvSeriesBloc(this.remoteDataSource) : super(TvSeriesInitial()) {
     on<TvSeriesFetching>(_tvSeriesFetched);
-    on<CarouselSliding>(_carouselSliding);
+    on<TvCarouselSliding>(_carouselSliding);
   }
 
   late List<TvSeriesData> list;
@@ -21,15 +22,16 @@ class TvSeriesBloc extends Bloc<TvSeriesEvent, TvSeriesState> {
       emit(TvSeriesLoading());
 
       List<TvSeriesData> tvSeriesList =
-      await remoteDataSource.getTvSeries(event.categoryType);
+          await remoteDataSource.getTvSeries(event.categoryType);
       list = tvSeriesList;
-      emit(TvSeriesSuccess(tvSeriesList: tvSeriesList, tvSeries: tvSeriesList.first));
+      emit(TvSeriesSuccess(
+          tvSeriesList: tvSeriesList, tvSeries: tvSeriesList.first));
     } catch (e) {
       emit(TvSeriesError(errorMessage: e.toString()));
     }
   }
 
-  void _carouselSliding(CarouselSliding event, Emitter<TvSeriesState> emit) {
-    emit(CarouselSlideSuccess(tvSeriesModel: list[event.currentIndex]));
+  void _carouselSliding(TvCarouselSliding event, Emitter<TvSeriesState> emit) {
+    emit(TvCarouselSlideSuccess(tvSeriesModel: list[event.currentIndex]));
   }
 }

@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/config/app_router.dart';
-import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
+import 'package:flutter_movie_app/app/app.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class MoviesCarouselView extends StatelessWidget {
@@ -38,7 +36,8 @@ class MoviesCarouselView extends StatelessWidget {
                     return CarouselImageCardWidget(
                       imageUrl: movieList[index].getImageURL,
                       onTapped: () {
-                        context.pushRoute(MovieDetailRoute(movieId: movieList[index].id!));
+                        context.pushRoute(
+                            MovieDetailRoute(movieId: movieList[index].id!));
                       },
                     );
                   },

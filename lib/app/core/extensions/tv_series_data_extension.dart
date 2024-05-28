@@ -1,7 +1,7 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_movie_app/app/core/constants/constants.dart';
-import '../../features/genre_data/genre_data.dart';
+
 import '../../features/tv_series/models/tv_series_data/tv_series_data.dart';
+import '../core.dart';
 
 extension TvSeriesDataExtension on TvSeriesData {
   String get getImageURL =>
