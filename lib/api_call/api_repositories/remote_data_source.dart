@@ -22,7 +22,9 @@ import '../models/session_delete/session_delete_response_model.dart';
 
 abstract class RemoteDataSource {
   Future<RequestTokenModel> getRequestToken();
+
   Future<List<MovieData>> getMovieList(MovieCategoriesEnum categoryEndpoint);
+
   Future<RequestTokenModel> loginWithCredentials(
       LoginCredentialsRequestModel requestBody);
   Future<SessionResponseModel> openSession(SessionRequestModel requestBody);

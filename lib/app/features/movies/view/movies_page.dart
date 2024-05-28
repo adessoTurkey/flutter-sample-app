@@ -39,6 +39,8 @@ class MoviesPage extends StatelessWidget {
                           scrollBehavior: const ScrollBehavior(),
                           slivers: [
                             CustomScrollViewAppBar(
+                              paddingHorizontal: configuration
+                                  .moviePageListViewPaddingHorizontal,
                               implyLeading: false,
                               largeTitle:
                                   context.localization.movies_page_title,
@@ -50,19 +52,25 @@ class MoviesPage extends StatelessWidget {
                                   .localization.movies_page_app_bar_title,
                               appBarTitleStyle: theme
                                   .mainPageAppBarTitleTextStyle(configuration
-                                      .mainPageAppBarTitleTextSize),
+                                  .mainPageAppBarTitleTextSize),
                               backgroundColor: theme.themeData.primaryColorDark,
                               expandedHeight: configuration
                                   .movieDetailSliverAppBarExpandableHeight,
                               actions: [
-                                CircleAvatar(
-                                  foregroundColor: MColors.white,
-                                  child: IconButton(
-                                    onPressed: () {
-                                      context.pushRoute(const CinemaMapRoute());
-                                    },
-                                    icon: SvgPicture.asset(
-                                        MovieAssets.images.locationIcon),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: configuration
+                                          .moviePageListViewPaddingHorizontal),
+                                  child: CircleAvatar(
+                                    foregroundColor: MColors.white,
+                                    child: IconButton(
+                                      onPressed: () {
+                                        context
+                                            .pushRoute(const CinemaMapRoute());
+                                      },
+                                      icon: SvgPicture.asset(
+                                          MovieAssets.images.locationIcon),
+                                    ),
                                   ),
                                 )
                               ],

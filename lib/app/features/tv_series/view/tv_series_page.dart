@@ -34,6 +34,8 @@ class TvSeriesPage extends StatelessWidget {
                       scrollBehavior: const ScrollBehavior(),
                       slivers: [
                         CustomScrollViewAppBar(
+                          paddingHorizontal:
+                              configuration.moviePageListViewPaddingHorizontal,
                           largeTitle: context.localization.tv_series_page_title,
                           largeTitleStyle: theme.mainPageViewHeaderTextStyle(
                             configuration.headerTextSize,

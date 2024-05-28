@@ -10,6 +10,7 @@ class CustomScrollViewAppBar extends StatelessWidget {
   final double expandedHeight;
   final bool implyLeading;
   final List<Widget>? actions;
+  final double paddingHorizontal;
 
   const CustomScrollViewAppBar({
     required this.largeTitle,
@@ -21,39 +22,37 @@ class CustomScrollViewAppBar extends StatelessWidget {
     required this.expandedHeight,
     this.implyLeading = true,
     super.key,
+    required this.paddingHorizontal,
   });
 
   @override
   Widget build(BuildContext context) {
     double top;
+
     return SliverAppBar(
       automaticallyImplyLeading: implyLeading,
       flexibleSpace: LayoutBuilder(builder: (context, constraints) {
         top = constraints.biggest.height;
-        return Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
-            mainAxisAlignment: top < expandedHeight
-                ? MainAxisAlignment.center
-                : MainAxisAlignment.end,
-            children: [
-              SizedBox(
-                width: 200,
-                child: FlexibleSpaceBar(
-                  titlePadding: 10.symmetric(horizontal: 0),
-                  centerTitle: top < expandedHeight,
-                  title: Text(
-                    top < expandedHeight ? appBarTitle : largeTitle,
-                    style: top < expandedHeight
-                        ? appBarTitleStyle
-                        : largeTitleStyle,
-                  ),
+        return Row(
+          mainAxisAlignment: top < expandedHeight
+              ? MainAxisAlignment.center
+              : MainAxisAlignment.end,
+          children: [
+            SizedBox(
+              width: 300,
+              child: FlexibleSpaceBar(
+                titlePadding: 15.symmetric(horizontal: paddingHorizontal),
+                centerTitle: top < expandedHeight,
+                title: Text(
+                  top < expandedHeight ? appBarTitle : largeTitle,
+                  style:
+                      top < expandedHeight ? appBarTitleStyle : largeTitleStyle,
                 ),
               ),
-              if (top >= expandedHeight) const Spacer(),
-              if (top >= expandedHeight) ...actions ?? []
-            ],
-          ),
+            ),
+            if (top >= expandedHeight) const Spacer(),
+            if (top >= expandedHeight) ...actions ?? []
+          ],
         );
       }),
       backgroundColor: backgroundColor,

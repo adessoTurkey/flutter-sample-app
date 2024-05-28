@@ -13,7 +13,7 @@ class ConfigurationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Builder(builder: (context) {
-      final stateResponsiveConfiguation =
+      final stateResponsiveConfiguration =
           context.watch<ResponsiveConfigurationBloc>().state;
       final themeState = context.watch<ThemeBloc>().state;
 
@@ -25,23 +25,13 @@ class ConfigurationWidget extends StatelessWidget {
      
       }
 
-      if (stateResponsiveConfiguation is GetResponsiveconfigurationState) {
+      if (stateResponsiveConfiguration is GetResponsiveconfigurationState) {
         Widget child = onConfigurationReady(
-            stateResponsiveConfiguation.configuration, theme);
+            stateResponsiveConfiguration.configuration, theme);
         return child;
       }
 
       return Container();
     });
-
-    /*   return BlocBuilder<ResponsiveConfigurationBloc,
-        ResposiveConfigurationState>(builder: (context, state) {
-      if (state is GetResponsiveconfigurationState) {
-        Widget child = onConfigurationReady(state.configuration,theme);
-        return child;
-      }
-      //TODO add error widget here
-      return Container();
-    });  */
   }
 }

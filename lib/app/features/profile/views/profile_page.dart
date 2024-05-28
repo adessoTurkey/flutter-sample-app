@@ -28,7 +28,7 @@ class ProfilePage extends StatelessWidget {
                       children: [
                         Container(
                           color: theme.themeData.primaryColorDark,
-                          height: context.heightFactor(.35),
+                          height: context.heightFactor(.25),
                           width: context.screenSize.width,
                         ),
                         _ProfileHeaderView(
@@ -61,26 +61,39 @@ class _ProfileHeaderView extends StatelessWidget {
     return ConfigurationWidget(
       onConfigurationReady: (configuration, theme) {
         return Padding(
-          padding: 10.symmetric(horizontal: 20),
+          padding:
+              const EdgeInsets.only(left: 20, right: 20, top: 80, bottom: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  85.verticalSizedBox,
                   Text(
                     context.localization.profile_header_text,
                     style: theme.profileHeaderLabelTextStyle(
                       configuration.profileHeaderLabelTextSize,
                     ),
                   ),
-                  50.verticalSizedBox,
-                  Text(
-                    context.localization.profile_sub_header_text,
-                    style: theme.profileSubHeaderLabelTextStyle(
-                      configuration.profileSubHeaderLabelTextSize,
-                    ),
+                  25.verticalSizedBox,
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        context.localization.profile_sub_header_text,
+                        style: theme.profileSubHeaderLabelTextStyle(
+                          configuration.profileSubHeaderLabelTextSize,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 8,
+                      ),
+                      const Icon(
+                        Icons.waving_hand_sharp,
+                        color: Colors.yellow,
+                      )
+                    ],
                   ),
                   Text(
                     username,
@@ -91,13 +104,14 @@ class _ProfileHeaderView extends StatelessWidget {
                 ],
               ),
               IconButton(
+                  padding: EdgeInsets.zero,
                   onPressed: () {
                     context.read<AuthenticationBloc>().add(LogoutRequested());
                     context.replaceRoute(const LoginRoute());
                   },
                   icon: const FaIcon(
-                    FontAwesomeIcons.doorOpen,
-                    color: MColors.tomato,
+                    Icons.logout,
+                    color: MColors.white,
                   ))
             ],
           ),

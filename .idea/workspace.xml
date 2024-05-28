@@ -5,190 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="App review">
-      <change afterPath="$PROJECT_DIR$/lib/api_call/api_call.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/app.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/core/auth/auth.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/core/cache/cache.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/core/config/config.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/core/core.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/core/genre/genre.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/core/initialization/initialization.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/actor/actor.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/cinema_models.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/response.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/views/views.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/features.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/login/views/views.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/models/credits/credits.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/models/rating/rating.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/views/views.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/movies/view/view.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/profile/models/favorites/favorites.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/profile/models/models.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/profile/views/views.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/search/models/models.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/search/views/views.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series/models/models.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series/view/view.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/models/models.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/view.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/localization/app_localization.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api_call/api_repositories/data_source.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/api_call/api_repositories/remote_data_source.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api_call/api_repositories/remote_data_source.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api_call/error/error_parser.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api_call/error/error_parser.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api_call/models/models.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api_call/models/models.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api_call/network/error_parser.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/api_call/network/network.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api_call/network/network.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/config/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/config/app_router.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/constants/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/constants/constants.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/enums/enums.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/enums/enums.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/extensions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/extensions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/media_type_enum_extension.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/media_type_enum_extension.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/movie_data_extension.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/movie_data_extension.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/search_failure_extension.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/search_failure_extension.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/tv_series_data_extension.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/tv_series_data_extension.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/core/extensions/video_result_extension.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/extensions/video_result_extension.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/logger/m_logger.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/config/m_logger.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/bloc/theme_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/bloc/theme_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/themes/theme_factory.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/theme_factory.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/core/themes/themes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/themes/themes.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/utils/utils.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/utils/utils.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/utils/widget_to_map_icon.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/utils/widget_to_map_icon.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/carousel_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/carousel_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/cast_label_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/cast_label_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/custom_scroll_view_app_bar_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/custom_scroll_view_app_bar_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_crew_label_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_crew_label_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_image_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_image_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_trailer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_trailer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_trailer_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_trailer_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/detail/duration_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/duration_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/image_container_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/image_container_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/movie_cell_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/movie_cell_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/rate_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/rate_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/rating_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/rating_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/star_rating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/star_rating.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/vertical_divider_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/vertical_divider_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/widgets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/widgets.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/actor/actor_detail.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/actor/bloc/actor_detail_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/actor/bloc/actor_detail_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/actor/view/actor_detail_main_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/actor/view/actor_detail_main_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/actor/view/actor_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/actor/view/actor_detail_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/actor/view/expandable_text.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/actor/view/expandable_text.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/auth/bloc/authentication_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/auth/bloc/authentication_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/auth/bloc/authentication_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/auth/bloc/authentication_event.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/auth/bloc/authentication_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/auth/bloc/authentication_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/auth/repository/auth_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/auth/auth_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/bloc/cinema_map_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_map.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_map.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_map_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/views/cinema_map_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/center_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/center_dto.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/center_dto.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/center_dto.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/center_dto.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/center_dto.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/circle_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/circle_dto.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/circle_dto.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/circle_dto.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/circle_dto.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/circle_dto.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/location_bias_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/location_bias_dto.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/location_bias_dto.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/location_bias_dto.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/location_bias_dto.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/location_bias_dto.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/map_request_dto/map_request_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/map_request_dto/map_request_dto.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/map_request_dto/map_request_dto.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/map_request_dto/map_request_dto.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/map_request_dto/map_request_dto.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/map_request_dto/map_request_dto.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/response/map_response_model.dart/map_response_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/map_response_model.dart/map_response_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/response/map_response_model.dart/map_response_model.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/map_response_model.dart/map_response_model.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/response/map_response_model.dart/map_response_model.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/map_response_model.dart/map_response_model.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/response/place_display_name_model/place_display_name_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/place_display_name_model/place_display_name_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/response/place_display_name_model/place_display_name_model.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/place_display_name_model/place_display_name_model.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/response/place_display_name_model/place_display_name_model.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/place_display_name_model/place_display_name_model.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/response/place_location_model/place_location_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/place_location_model/place_location_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/response/place_location_model/place_location_model.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/place_location_model/place_location_model.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/response/place_location_model/place_location_model.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/place_location_model/place_location_model.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/response/place_response_model/place_response_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/place_response_model/place_response_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/response/place_response_model/place_response_model.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/place_response_model/place_response_model.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/models/response/place_response_model/place_response_model.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/place_response_model/place_response_model.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/views/cinema_map_header_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/views/cinema_map_header_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/views/map_info_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/views/map_info_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/widgets/custom_marker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/views/custom_marker.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/widgets/map_info_go_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/views/map_info_go_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/widgets/map_info_window_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/views/map_info_window_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/genre_data/bloc/genre_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/genre/bloc/genre_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/genre_data/bloc/genre_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/genre/bloc/genre_event.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/genre_data/bloc/genre_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/genre/bloc/genre_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/genre_data/genre_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/genre/genre_data.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/genre_data/genre_data.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/genre/genre_data.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/genre_data/genre_data.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/genre/genre_data.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/home/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/home/home_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/bloc/login_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/bloc/login_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/bloc/login_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/bloc/login_event.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/bloc/login_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/bloc/login_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/login.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/views/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/views/error_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/error_dialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/views/login_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/views/login_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/views/login_password_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/views/login_password_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/views/login_text_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/views/login_text_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/views/web_view_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/views/web_view_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/bloc/movie_detail_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/bloc/movie_detail_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/models/credits/cast/cast_results.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/models/credits/cast_results.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/models/credits/cast/cast_results.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/models/credits/cast_results.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/models/credits/cast/cast_results.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/models/credits/cast_results.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/models/credits/credit_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/models/credits/credit_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/models/credits/crew/crew_results.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/models/credits/crew_results.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/models/credits/crew/crew_results.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/models/credits/crew_results.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/models/credits/crew/crew_results.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/models/credits/crew_results.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/models/movie_detail_models.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/models/models.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/place_display_name_model/place_display_name_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/place_display_name_model/place_display_name_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/place_location_model/place_location_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/place_location_model/place_location_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/place_response_model/place_response_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_models/response/place_response_model/place_response_model.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/models/video_model/video_model_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/models/video_model/video_model_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/models/video_model/video_results.dart/video_results.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/models/video_model/video_results/video_results.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/models/video_model/video_results.dart/video_results.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/models/video_model/video_results/video_results.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/models/video_model/video_results.dart/video_results.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/models/video_model/video_results/video_results.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_description_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_description_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_info_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/views/movie_detail_page_info_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/bloc/movies_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/bloc/movies_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/bloc/movies_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/bloc/movies_event.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/bloc/movies_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/bloc/movies_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/models/mock_movies.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/models/movie_data/movie_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/models/movie_data.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/models/movie_data/movie_data.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/models/movie_data.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/models/movie_data/movie_data.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/models/movie_data.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/models/movie_models.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/models/models.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/movies.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/movies.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/movies_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/view/movies_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/view/movie_list_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/view/movie_list_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/view/movies_carousel_card_info_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/view/movies_carousel_card_info_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/view/movies_carousel_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/view/movies_carousel_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/profile/profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/profile/profile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/profile/profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/profile/views/profile_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/profile/views/favorites_cell.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/profile/views/favorites_cell.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/search/search.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/search/search.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/search/search_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/search/views/search_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/search/views/search_header_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/search/views/search_header_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/search/views/search_list_cell_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/search/views/search_list_cell_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/search/views/search_list_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/search/views/search_list_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/splash/splash_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/splash/splash_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/models/video_model/video_results/video_results.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/models/video_model/video_results/video_results.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/view/movies_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/view/movies_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/profile/views/profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/profile/views/profile_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/bloc/tv_series_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/bloc/tv_series_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/bloc/tv_series_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/bloc/tv_series_event.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/bloc/tv_series_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/bloc/tv_series_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/tv_series.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/tv_series.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/tv_series_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_carousel_card_info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_carousel_card_info.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_carousel_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_carousel_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_cell_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_cell_view.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_list_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_list_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/tv_series_detail.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/tv_series_detail.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_cast_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_cast_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_cast_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_cast_list.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_cast_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_cast_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_info_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_info_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_main_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_main_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/di/dependency_injection.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/di/dependency_injection.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/gen/assets.gen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/gen/assets.gen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/i10n.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/i10n.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/localization/localization.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/localization/localization.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/responsive/configuration_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/configuration_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/responsive/responsive.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/responsive/responsive.dart" afterDir="false" />
     </list>
@@ -361,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716900518657</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="App review">
+      <created>1716930767593</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1716930767593</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
