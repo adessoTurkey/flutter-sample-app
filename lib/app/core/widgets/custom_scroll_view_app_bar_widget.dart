@@ -28,20 +28,36 @@ class CustomScrollViewAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double top;
-    return SliverAppBar.large(
+    return SliverAppBar(
       automaticallyImplyLeading: implyLeading,
       flexibleSpace: LayoutBuilder(builder: (context, constraints) {
         top = constraints.biggest.height;
-        return FlexibleSpaceBar(
-          titlePadding: 10.symmetric(horizontal: 20),
-          centerTitle: top < expandedHeight ? true : false,
-          title: Text(
-            top < expandedHeight ? appBarTitle : largeTitle,
-            style: top < expandedHeight ? appBarTitleStyle : largeTitleStyle,
+        return Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            mainAxisAlignment: top < expandedHeight
+                ? MainAxisAlignment.center
+                : MainAxisAlignment.end,
+            children: [
+              SizedBox(
+                width: 200,
+                child: FlexibleSpaceBar(
+                  titlePadding: 10.symmetric(horizontal: 0),
+                  centerTitle: top < expandedHeight,
+                  title: Text(
+                    top < expandedHeight ? appBarTitle : largeTitle,
+                    style: top < expandedHeight
+                        ? appBarTitleStyle
+                        : largeTitleStyle,
+                  ),
+                ),
+              ),
+              if (top >= expandedHeight) const Spacer(),
+              if (top >= expandedHeight) ...actions ?? []
+            ],
           ),
         );
       }),
-      actions:actions,
       backgroundColor: backgroundColor,
       expandedHeight: expandedHeight,
       primary: true,

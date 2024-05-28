@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/constants/m_colors.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
 import 'package:flutter_movie_app/app/features/cinema_map/cinema_map.dart';
 import 'package:flutter_movie_app/app/features/cinema_map/models/response/place_response_model/place_response_model.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';

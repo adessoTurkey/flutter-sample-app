@@ -18,68 +18,81 @@ class TvSeriesPage extends StatelessWidget {
     return ConfigurationWidget(
       onConfigurationReady: (configuration, theme) {
         return Scaffold(
-          body: Stack(
-            children: [
-              Container(
-                color: theme.themeData.primaryColorDark,
-                height: context.screenSize.width,
-                width: context.screenSize.width,
-              ),
-              SafeArea(
-                child: CustomScrollView(
-                  scrollBehavior: const ScrollBehavior(),
-                  slivers: [
-                    CustomScrollViewAppBar(
-                      largeTitle: context.localization.tv_series_page_title,
-                      largeTitleStyle: theme.mainPageViewHeaderTextStyle(
-                        configuration.headerTextSize,
-                      ),
-                      appBarTitle:
-                      context.localization.tv_series_app_bar_title,
-                      appBarTitleStyle: theme.mainPageAppBarTitleTextStyle(
-                          configuration.mainPageAppBarTitleTextSize),
-                      backgroundColor: theme.themeData.primaryColorDark,
-                      expandedHeight:
-                      configuration.tvSeriesDetailSliverAppBarExpandableHeight,
-                    ),
-                    SliverToBoxAdapter(
-                      child: Column(
-                        children: [
-                          _CarouselView(),
-                          Container(
-                            color: theme.mainPageBackgroundColor,
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                top: configuration.tvSeriesListViewPaddingTop,
-                                left: configuration.tvSeriesListViewPaddingLeft,
-                                right:
-                                configuration.tvSeriesListViewPaddingRight,
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  _CarouselCardInfoView(),
-                                  const Divider(),
-                                  16.verticalSizedBox,
-                                  Text(
-                                    context
-                                        .localization.tv_series_top_rated,
-                                    style: theme.mainPageListViewTitleTextStyle(
-                                        configuration
-                                            .mainPageListViewTitleTextSize),
+          body: BlocBuilder<TvSeriesBloc, TvSeriesState>(
+            builder: (context, state) {
+              if (state is TvSeriesLoading) {
+                return const LoadingView();
+              } else if (state is TvSeriesError) {
+                return ErrorWidget(
+                    state.errorMessage ?? context.localization.fetching_error);
+              }
+              return Stack(
+                children: [
+                  Container(
+                    color: theme.themeData.primaryColorDark,
+                    height: context.screenSize.width,
+                    width: context.screenSize.width,
+                  ),
+                  SafeArea(
+                    child: CustomScrollView(
+                      scrollBehavior: const ScrollBehavior(),
+                      slivers: [
+                        CustomScrollViewAppBar(
+                          largeTitle: context.localization.tv_series_page_title,
+                          largeTitleStyle: theme.mainPageViewHeaderTextStyle(
+                            configuration.headerTextSize,
+                          ),
+                          appBarTitle:
+                              context.localization.tv_series_app_bar_title,
+                          appBarTitleStyle: theme.mainPageAppBarTitleTextStyle(
+                              configuration.mainPageAppBarTitleTextSize),
+                          backgroundColor: theme.themeData.primaryColorDark,
+                          expandedHeight: configuration
+                              .tvSeriesDetailSliverAppBarExpandableHeight,
+                        ),
+                        SliverToBoxAdapter(
+                          child: Column(
+                            children: [
+                              _CarouselView(),
+                              Container(
+                                color: theme.mainPageBackgroundColor,
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                    top: configuration
+                                        .tvSeriesListViewPaddingTop,
+                                    left: configuration
+                                        .tvSeriesListViewPaddingLeft,
+                                    right: configuration
+                                        .tvSeriesListViewPaddingRight,
                                   ),
-                                  _TvSeriesListView()
-                                ],
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      _CarouselCardInfoView(),
+                                      const Divider(),
+                                      16.verticalSizedBox,
+                                      Text(
+                                        context
+                                            .localization.tv_series_top_rated,
+                                        style: theme.mainPageListViewTitleTextStyle(
+                                            configuration
+                                                .mainPageListViewTitleTextSize),
+                                      ),
+                                      _TvSeriesListView()
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-            ],
+                  ),
+                ],
+              );
+            },
           ),
         );
       },
@@ -96,9 +109,6 @@ class _TvSeriesListView extends StatelessWidget {
         return current is TvSeriesSuccess;
       },
       builder: (context, state) {
-        if (state is TvSeriesLoading) {
-          return const LoadingView();
-        }
         if (state is TvSeriesSuccess) {
           return TvSeriesGridView(tvSeriesList: state.tvSeriesList);
         }
@@ -128,7 +138,7 @@ class _CarouselCardInfoView extends StatelessWidget {
             tvSeries: state.tvSeriesModel,
           );
         }
-        return const LoadingView();
+        return Container();
       },
     );
   }
@@ -142,9 +152,6 @@ class _CarouselView extends StatelessWidget {
         return current is TvSeriesSuccess && previous is! CarouselSlideSuccess;
       },
       builder: (context, state) {
-        if (state is TvSeriesLoading) {
-          return const LoadingView();
-        }
         if (state is TvSeriesSuccess) {
           return TvSeriesCarouselView(
             tvSeriesList: state.tvSeriesList,
@@ -160,7 +167,7 @@ class _CarouselView extends StatelessWidget {
             child: Text(context.localization.fetching_error),
           );
         }
-        return const LoadingView();
+        return Container();
       },
     );
   }

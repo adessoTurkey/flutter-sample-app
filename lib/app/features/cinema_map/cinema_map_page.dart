@@ -8,6 +8,7 @@ import 'package:flutter_movie_app/app/features/cinema_map/bloc/cinema_map_bloc.d
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 import 'cinema_map.dart';
 
 @RoutePage()
@@ -19,13 +20,20 @@ class CinemaMapPage extends StatefulWidget {
 }
 
 class _CinemaMapPageState extends State<CinemaMapPage> {
+  var sinemaMapBloc = CinemaMapBloc(getIt<RemoteDataSource>());
+
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+
+    sinemaMapBloc.add(const CinemaFetching());
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CinemaMapBloc(getIt<RemoteDataSource>())
-        ..add(
-          const CinemaFetching(),
-        ),
+      create: (context) => sinemaMapBloc,
       child: ConfigurationWidget(
         onConfigurationReady: (configuration, theme) {
           return Scaffold(
@@ -34,24 +42,26 @@ class _CinemaMapPageState extends State<CinemaMapPage> {
               child: Column(
                 children: [
                   const CinemaMapHeaderView(),
-                  BlocBuilder<CinemaMapBloc, CinemaMapState>(
-                    buildWhen: (previous, current) =>
-                        previous.initialCameraPosition !=
-                        current.initialCameraPosition,
-                    builder: (context, state) {
-                      switch (state.status) {
-                        case CinemaMapStatusX.initial:
-                          return const LoadingView();
-                        case CinemaMapStatusX.loading:
-                          return const LoadingView();
-                        case CinemaMapStatusX.success:
-                          return _CinemaMapSuccessView(
-                            state: state,
-                          );
-                        case CinemaMapStatusX.error:
-                          return const LoadingView();
-                      }
-                    },
+                  Expanded(
+                    child: BlocBuilder<CinemaMapBloc, CinemaMapState>(
+                      buildWhen: (previous, current) =>
+                          previous.initialCameraPosition !=
+                          current.initialCameraPosition,
+                      builder: (context, state) {
+                        switch (state.status) {
+                          case CinemaMapStatusX.initial:
+                            return const LoadingView();
+                          case CinemaMapStatusX.loading:
+                            return const LoadingView();
+                          case CinemaMapStatusX.success:
+                            return _CinemaMapSuccessView(
+                              state: state,
+                            );
+                          case CinemaMapStatusX.error:
+                            return const LoadingView();
+                        }
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -88,24 +98,19 @@ class _CinemaMapSuccessView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Stack(
-        children: [
-          Expanded(
-            child: GoogleMap(
-              mapType: MapType.normal,
-              myLocationEnabled: true,
-              initialCameraPosition: CameraPosition(
-                target:
-                    state.initialCameraPosition, // San Francisco coordinates
-                zoom: AppConstants.cameraInitialZoom,
-              ),
-              markers: getMarkers(context) ?? {},
-            ),
+    return Stack(
+      children: [
+        GoogleMap(
+          mapType: MapType.normal,
+          myLocationEnabled: true,
+          initialCameraPosition: CameraPosition(
+            target: state.initialCameraPosition, // San Francisco coordinates
+            zoom: AppConstants.cameraInitialZoom,
           ),
-          const MapInfoView()
-        ],
-      ),
+          markers: getMarkers(context) ?? {},
+        ),
+        const MapInfoView()
+      ],
     );
   }
 }

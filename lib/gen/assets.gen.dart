@@ -18,6 +18,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/heart.png
   AssetGenImage get heart => const AssetGenImage('assets/images/heart.png');
 
+  /// File path: assets/images/location_icon.svg
+  String get locationIcon => 'assets/images/location_icon.svg';
+
   /// File path: assets/images/login_bg.png
   AssetGenImage get loginBg =>
       const AssetGenImage('assets/images/login_bg.png');
@@ -33,7 +36,6 @@ class $AssetsImagesGen {
   AssetGenImage get noResult =>
       const AssetGenImage('assets/images/no_result.png');
 
-
   /// File path: assets/images/poster_1.jpg
   AssetGenImage get poster1 =>
       const AssetGenImage('assets/images/poster_1.jpg');
@@ -43,9 +45,11 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/splash_bg.png');
 
   /// List of all assets
-  List<dynamic> get values => [
+  List<dynamic> get values =>
+      [
         eye,
         heart,
+        locationIcon,
         loginBg,
         loginErrorBanner,
         logo,
@@ -60,7 +64,7 @@ class MovieAssets {
 
   static const String package = 'flutter_movie_app';
 
-  static const String genres = 'packages/flutter_movie_app/assets/genres.json';
+  static const String genres = 'assets/genres.json';
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const AssetGenImage teams01 = AssetGenImage('assets/teams.01.jpg');
 
@@ -143,5 +147,5 @@ class AssetGenImage {
 
   String get path => _assetName;
 
-  String get keyName => 'packages/flutter_movie_app/$_assetName';
+  String get keyName => '$_assetName';
 }

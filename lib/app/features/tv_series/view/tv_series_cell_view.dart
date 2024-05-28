@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/extensions/sized_box_extensions.dart';
-import 'package:flutter_movie_app/app/core/extensions/tv_series_data_extension.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/tv_series/models/tv_series_data/tv_series_data.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';

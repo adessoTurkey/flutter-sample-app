@@ -111,7 +111,7 @@ class _DetailPageImageSectionState extends State<DetailPageImageSection> {
                 posterPath: widget.imageUrl!,
                 title: widget.title,
                 releaseDate: widget.releaseDate,
-                id: widget.id ?? 0,
+                id: widget.id,
                 isFavorite: true,
                 favoriteType: FavoriteEntityType.movie));
           },
@@ -137,7 +137,7 @@ class _DetailPageImageSectionState extends State<DetailPageImageSection> {
                 title: widget.title,
                 releaseDate: widget.releaseDate,
                 id: widget.id,
-                isFavorite: true,
+                isFavorite: !state.isFavorite,
                 favoriteType: FavoriteEntityType.tv));
           },
           iconData: state.isFavorite

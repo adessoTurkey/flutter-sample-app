@@ -21,7 +21,6 @@ dependencies:
   talker_flutter: ^3.6.0
   cached_network_image: ^3.3.1
   youtube_player_flutter: ^8.1.2
-  hive: ^2.2.3
   isar_flutter_libs: ^4.0.0-dev.13
   path_provider: ^2.1.0
   formz: ^0.7.0
@@ -61,7 +60,8 @@ flutter:
   uses-material-design: true
 flutter_gen:
   line_length: 80
-  flutter_svg : true
+  integration:
+    flutter_svg: true
   output: lib/gen/
   assets:
     enabled: true

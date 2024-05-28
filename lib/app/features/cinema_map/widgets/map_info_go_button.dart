@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/constants/app_constants.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
 import 'package:flutter_movie_app/app/features/cinema_map/models/response/place_response_model/place_response_model.dart';
 import 'package:flutter_movie_app/localization/localization.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../../core/constants/constants.dart';
 import 'package:map_launcher/map_launcher.dart';
+
+import '../../../core/constants/constants.dart';
 
 class MapInfoGoButton extends StatelessWidget {
   final PlaceResponseModel? place;

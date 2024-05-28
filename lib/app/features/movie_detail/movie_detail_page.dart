@@ -9,7 +9,7 @@ import 'package:flutter_movie_app/app/features/movie_detail/bloc/movie_detail_bl
 import 'package:flutter_movie_app/app/features/profile/bloc/profile_bloc.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
-import '../../core/enums/network_fetch_status.dart';
+
 import 'movie_detail.dart';
 
 @RoutePage()

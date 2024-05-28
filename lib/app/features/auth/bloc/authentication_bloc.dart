@@ -1,8 +1,9 @@
 import 'dart:async';
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/app/core/cache/auth_cache_manager.dart';
 import 'package:flutter_movie_app/app/features/auth/repository/auth_repository.dart';
+
 import '../../../core/enums/enums.dart';
 
 part 'authentication_event.dart';

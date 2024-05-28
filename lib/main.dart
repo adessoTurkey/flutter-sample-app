@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/api_repositories.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
 import 'package:flutter_movie_app/app/core/config/app_router.dart';
@@ -18,9 +19,10 @@ import 'package:flutter_movie_app/app/features/profile/bloc/profile_bloc.dart';
 import 'package:flutter_movie_app/app/features/tv_series/bloc/tv_series_bloc.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 import 'package:flutter_movie_app/localization/bloc/localization_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_movie_app/responsive/responsive.dart';
+
 import 'app/features/genre_data/bloc/genre_bloc.dart';
+import 'app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
@@ -64,7 +66,11 @@ void main() async {
             GenreBloc(getIt<RemoteDataSource>())..add(GenreFetching())),
     BlocProvider(
         create: (_) => LoginBloc(
-            getIt<RemoteDataSource>(), getIt<AuthenticationRepository>()))
+            getIt<RemoteDataSource>(), getIt<AuthenticationRepository>())),
+    BlocProvider(
+        create: (context) => TvSeriesDetailBloc(
+            remoteDataSource: getIt<RemoteDataSource>(),
+            profileBloc: context.read<ProfileBloc>())),
   ], child: const MyApp()));
 }
 

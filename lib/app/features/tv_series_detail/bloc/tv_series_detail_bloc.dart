@@ -1,14 +1,13 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
 import 'package:flutter_movie_app/app/core/enums/network_fetch_status.dart';
-import 'package:flutter_movie_app/app/core/extensions/add_to_favorite_response_extension.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_tv/favorite_tv_data.dart';
-import '../../../../api_call/models/favorite/dto/add_to_favorite_dto.dart';
-import '../../../../api_call/models/favorite/response/add_to_favorite_response.dart';
+
 import '../../../core/enums/rating_endpoints_enum.dart';
 import '../../movie_detail/models/credits/credit_response.dart';
 import '../../movie_detail/models/rating/post_rating/response/rating_response_model.dart';
@@ -16,10 +15,8 @@ import '../../movie_detail/models/rating/rated_list/rated_list_response.dart';
 import '../../movie_detail/models/video_model/video_model_response.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../models/tv_series_detail_model.dart';
-import 'package:collection/collection.dart';
 
 part 'tv_series_detail_event.dart';
-
 part 'tv_series_detail_state.dart';
 
 class TvSeriesDetailBloc
@@ -139,5 +136,11 @@ class TvSeriesDetailBloc
       TvSeriesDetailRatingCollapsed event,
       Emitter<TvSeriesDetailState> emit) async {
     emit(state.copyWith(isCollapsed: !event.isCollapsed));
+  }
+
+  @override
+  Future<void> close() {
+    _streamSubscription.cancel();
+    return super.close();
   }
 }

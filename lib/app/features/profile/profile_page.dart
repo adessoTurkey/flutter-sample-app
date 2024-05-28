@@ -1,11 +1,9 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/app/core/config/app_router.dart';
 import 'package:flutter_movie_app/app/core/constants/m_colors.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/auth/bloc/authentication_bloc.dart';
 import 'package:flutter_movie_app/localization/localization.dart';

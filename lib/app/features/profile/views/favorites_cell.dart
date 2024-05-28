@@ -5,10 +5,10 @@ import 'package:flutter_movie_app/app/core/config/app_router.dart';
 import 'package:flutter_movie_app/app/core/constants/constants.dart';
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
 import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
+
 import '../profile.dart';
 
 class FavoritesCell extends StatelessWidget {
@@ -22,9 +22,14 @@ class FavoritesCell extends StatelessWidget {
       onConfigurationReady: (configuration, theme) {
         return InkWell(
           onTap: () {
-            if (favoriteModel.favoriteEntityType == FavoriteEntityType.movie) {
-              context
-                  .pushRoute(MovieDetailRoute(movieId: favoriteModel.id ?? 0));
+            switch (favoriteModel.favoriteEntityType) {
+              case FavoriteEntityType.movie:
+                context.pushRoute(
+                    MovieDetailRoute(movieId: favoriteModel.id ?? 0));
+
+              case FavoriteEntityType.tv:
+                context.pushRoute(
+                    TvSeriesDetailRoute(tvSeriesId: favoriteModel.id ?? 0));
             }
           },
           child: CustomCard(
