@@ -4,37 +4,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="Favorite add-remove and show on the list status edited">
-      <change afterPath="$PROJECT_DIR$/assets/images/location_icon.svg" afterDir="false" />
+    <list default="true" id="1409fda5-f213-44e3-830f-74abcdde188b" name="Changes" comment="App review">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/AppDelegate.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/custom_scroll_view_app_bar_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/custom_scroll_view_app_bar_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_image_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/widgets/detail/detail_page_image_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/auth/bloc/authentication_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/auth/bloc/authentication_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_map_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/cinema_map_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/views/cinema_map_header_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/views/cinema_map_header_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/widgets/map_info_go_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/widgets/map_info_go_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/cinema_map/widgets/map_info_window_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/cinema_map/widgets/map_info_window_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/login/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/login/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/bloc/movie_detail_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/bloc/movie_detail_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movie_detail/movie_detail_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/movies/movies_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/movies/movies_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/profile/bloc/profile_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/profile/bloc/profile_bloc.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/profile/bloc/profile_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/profile/bloc/profile_event.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/profile/profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/profile/profile_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/profile/views/favorites_cell.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/profile/views/favorites_cell.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/splash/splash_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/splash/splash_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/tv_series_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/tv_series_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_cell_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series/view/tv_series_cell_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/features/tv_series_detail/view/tv_series_detail_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/gen/assets.gen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/gen/assets.gen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/i10n.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/i10n.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/unit_tests/remote_data_source_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/unit_tests/remote_data_source_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/untranslated_localizations.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716562896106</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="App review">
+      <created>1716894741383</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1716894741383</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -212,7 +194,8 @@
     <MESSAGE value="fix for merge to develop" />
     <MESSAGE value="General App Review" />
     <MESSAGE value="Favorite add-remove and show on the list status edited" />
-    <option name="LAST_COMMIT_MESSAGE" value="Favorite add-remove and show on the list status edited" />
+    <MESSAGE value="App review" />
+    <option name="LAST_COMMIT_MESSAGE" value="App review" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

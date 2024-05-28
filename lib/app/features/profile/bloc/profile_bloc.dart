@@ -4,12 +4,12 @@ import 'package:flutter_movie_app/api_call/api_repositories/api_repositories.dar
 import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/core/extensions/add_to_favorite_response_extension.dart';
 import 'package:flutter_movie_app/app/core/utils/data_mapper.dart';
+
 import '../../../../api_call/models/favorite/dto/add_to_favorite_dto.dart';
 import '../../../../api_call/models/favorite/response/add_to_favorite_response.dart';
 import '../profile.dart';
 
 part 'profile_event.dart';
-
 part 'profile_state.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {

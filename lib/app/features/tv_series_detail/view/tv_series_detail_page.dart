@@ -6,6 +6,7 @@ import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
 import 'package:flutter_movie_app/app/features/profile/bloc/profile_bloc.dart';
 import 'package:flutter_movie_app/app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
+
 import '../../../core/enums/network_fetch_status.dart';
 import '../tv_series_detail.dart';
 

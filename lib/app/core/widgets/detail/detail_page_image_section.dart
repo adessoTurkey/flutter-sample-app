@@ -107,13 +107,23 @@ class _DetailPageImageSectionState extends State<DetailPageImageSection> {
         return CircularButtonWidget(
           radiusSize: iconSize,
           onTap: () {
-            context.read<ProfileBloc>().add(AddFavoriteEvent(
-                posterPath: widget.imageUrl!,
-                title: widget.title,
-                releaseDate: widget.releaseDate,
-                id: widget.id,
-                isFavorite: true,
-                favoriteType: FavoriteEntityType.movie));
+            if (state.isFavorite) {
+              context.read<ProfileBloc>().add(RemoveFavoriteEvent(
+                  posterPath: widget.imageUrl!,
+                  title: widget.title,
+                  releaseDate: widget.releaseDate,
+                  id: widget.id,
+                  isFavorite: !state.isFavorite,
+                  favoriteType: FavoriteEntityType.movie));
+            } else {
+              context.read<ProfileBloc>().add(AddFavoriteEvent(
+                  posterPath: widget.imageUrl!,
+                  title: widget.title,
+                  releaseDate: widget.releaseDate,
+                  id: widget.id,
+                  isFavorite: !state.isFavorite,
+                  favoriteType: FavoriteEntityType.movie));
+            }
           },
           iconData: state.isFavorite
               ? FontAwesomeIcons.solidHeart
@@ -132,13 +142,23 @@ class _DetailPageImageSectionState extends State<DetailPageImageSection> {
         return CircularButtonWidget(
           radiusSize: iconSize,
           onTap: () {
-            context.read<ProfileBloc>().add(AddFavoriteEvent(
-                posterPath: widget.imageUrl!,
-                title: widget.title,
-                releaseDate: widget.releaseDate,
-                id: widget.id,
-                isFavorite: !state.isFavorite,
-                favoriteType: FavoriteEntityType.tv));
+            if (state.isFavorite) {
+              context.read<ProfileBloc>().add(RemoveFavoriteEvent(
+                  posterPath: widget.imageUrl!,
+                  title: widget.title,
+                  releaseDate: widget.releaseDate,
+                  id: widget.id,
+                  isFavorite: !state.isFavorite,
+                  favoriteType: FavoriteEntityType.tv));
+            } else {
+              context.read<ProfileBloc>().add(AddFavoriteEvent(
+                  posterPath: widget.imageUrl!,
+                  title: widget.title,
+                  releaseDate: widget.releaseDate,
+                  id: widget.id,
+                  isFavorite: !state.isFavorite,
+                  favoriteType: FavoriteEntityType.tv));
+            }
           },
           iconData: state.isFavorite
               ? FontAwesomeIcons.solidHeart

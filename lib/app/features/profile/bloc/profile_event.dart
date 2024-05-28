@@ -28,17 +28,25 @@ final class AddFavoriteEvent extends ProfileEvent {
       required this.isFavorite});
 
   @override
-  List<Object> get props => [id, favoriteType];
+  List<Object> get props => [id, isFavorite, favoriteType];
 }
 
 final class RemoveFavoriteEvent extends ProfileEvent {
   final int id;
   final bool isFavorite;
   final FavoriteEntityType favoriteType;
+  final String? title;
+  final String? releaseDate;
+  final String? posterPath;
 
   const RemoveFavoriteEvent(
-      {required this.id, required this.favoriteType, required this.isFavorite});
+      {this.title,
+      this.releaseDate,
+      this.posterPath,
+      required this.id,
+      required this.favoriteType,
+      required this.isFavorite});
 
   @override
-  List<Object> get props => [id, favoriteType, isFavorite];
+  List<Object> get props => [id, isFavorite, favoriteType];
 }
