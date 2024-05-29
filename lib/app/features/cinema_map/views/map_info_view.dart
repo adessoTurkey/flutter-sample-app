@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
-import 'package:flutter_movie_app/app/features/cinema_map/cinema_map.dart';
-
-import '../../../core/widgets/widgets.dart';
-import '../bloc/cinema_map_bloc.dart';
+import 'package:flutter_movie_app/app/app.dart';
 
 class MapInfoView extends StatelessWidget {
   const MapInfoView({

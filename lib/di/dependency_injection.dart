@@ -1,18 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_movie_app/api_call/api_repositories/api_repositories.dart';
-import 'package:flutter_movie_app/api_call/network/network.dart';
-import 'package:flutter_movie_app/app/core/cache/auth_cache_manager.dart';
-import 'package:flutter_movie_app/app/core/themes/themes.dart';
-import 'package:flutter_movie_app/app/features/auth/repository/auth_repository.dart';
+import 'package:flutter_movie_app/api_call/api_call.dart';
 import 'package:flutter_movie_app/localization/localization_helper.dart';
 import 'package:flutter_movie_app/responsive/configuration/configuration.dart';
 import 'package:get_it/get_it.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
-import '../app/core/config/app_router.dart';
-import '../app/core/constants/env_constants.dart';
-import '../app/core/initialization/initialization_adapter.dart';
+import '../app/core/core.dart';
 
 final getIt = GetIt.instance;
 

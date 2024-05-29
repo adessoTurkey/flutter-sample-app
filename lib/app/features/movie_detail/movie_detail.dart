@@ -1,2 +1,3 @@
-export 'movie_detail_page.dart';
-export 'views/movie_detail_page_description_section.dart';
+export 'bloc/movie_detail_bloc.dart';
+export 'models/models.dart';
+export 'views/views.dart';

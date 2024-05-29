@@ -16,11 +16,11 @@ final class MovieDetailInitialEvent extends MovieDetailEvent {
 }
 
 final class MovieDetailAddFavoriteEvent extends MovieDetailEvent {
-  final int movieId;
-  const MovieDetailAddFavoriteEvent({required this.movieId});
+  final bool isFavorite;
+  const MovieDetailAddFavoriteEvent({required this.isFavorite});
 
   @override
-  List<Object> get props => [movieId];
+  List<Object> get props => [isFavorite];
 }
 
 final class MovieDetailAddRatingEvent extends MovieDetailEvent {

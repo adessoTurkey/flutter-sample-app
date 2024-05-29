@@ -9,6 +9,9 @@ abstract class ATheme {
   Color get dividerColor;
   Color get shadowColor;
   Color get progressIndicatorColor;
+  Color get mainPageBackgroundColor;
+  Color get mainPageCardBackgroundColor;
+  Color get appbarBackButtonColor;
 
   TextStyle movieCellMovieNameTextStyle(double fontSize);
 

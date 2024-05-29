@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
 import 'package:flutter_movie_app/app/core/utils/data_mapper.dart';
 import 'package:flutter_movie_app/app/features/search/models/search_entity.dart';

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
+import 'package:flutter_movie_app/app/app.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
-
-import '../../genre_data/bloc/genre_bloc.dart';
 
 class MoviesCarouselCardInfoView extends StatelessWidget {
   final MovieData movie;
+
   const MoviesCarouselCardInfoView({required this.movie, super.key});
 
   @override
@@ -29,11 +27,14 @@ class MoviesCarouselCardInfoView extends StatelessWidget {
                         configuration.carouselCardTitleTextSize),
                     maxLines: 1,
                   ),
-                Text(
-                  movie.getGenres(state.movieGenres),
-                  style: theme.carouselCardSubTitleTextStyle(
-                      configuration.carouselCardSubTitleTextSize),
-                  maxLines: 1,
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Text(
+                    movie.getGenres(state.movieGenres),
+                    style: theme.carouselCardSubTitleTextStyle(
+                        configuration.carouselCardSubTitleTextSize),
+                    maxLines: 1,
+                  ),
                 )
               ],
             );

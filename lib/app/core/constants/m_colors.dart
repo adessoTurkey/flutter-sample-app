@@ -14,4 +14,5 @@ abstract final class MColors {
   static const Color transparent = Colors.transparent;
   static const Color youtubePlayed = Color(0xFFFFC107);
   static const Color youtubeHandle = Color(0xFFFFD740);
+  static const Color mainPageBackgroundColor =Color(0xFFECEFF1);
 }

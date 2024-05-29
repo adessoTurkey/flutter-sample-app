@@ -29,3 +29,13 @@ final class ProfileError extends ProfileState {
   @override
   List<Object?> get props => [errorMessage];
 }
+
+final class AddRemoveFromFavoriteState extends ProfileState{
+  final bool isFavorite;
+
+  const AddRemoveFromFavoriteState(this.isFavorite);
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [isFavorite];
+}

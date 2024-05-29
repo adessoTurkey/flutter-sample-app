@@ -73,7 +73,7 @@ final class LightTheme extends ATheme {
   @override
   TextStyle mainPageListViewTitleTextStyle(double fontSize) {
     return const TextStyle()
-        .mainPageListViewTitleTextStyle(fontSize, MColors.white);
+        .mainPageListViewTitleTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override
@@ -321,4 +321,12 @@ final class LightTheme extends ATheme {
   @override
   Color get progressIndicatorColor => MColors.youtubePlayed;
 
+  @override
+  Color get mainPageBackgroundColor => MColors.mainPageBackgroundColor;
+
+  @override
+  Color get mainPageCardBackgroundColor => MColors.white;
+
+  @override
+  Color get appbarBackButtonColor => Colors.white;
 }

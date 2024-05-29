@@ -1,9 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/config/app_router.dart';
-import 'package:flutter_movie_app/app/core/extensions/tv_series_data_extension.dart';
-import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/tv_series/models/tv_series_data/tv_series_data.dart';
+import 'package:flutter_movie_app/app/app.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class TvSeriesCarouselView extends StatelessWidget {
@@ -21,7 +18,7 @@ class TvSeriesCarouselView extends StatelessWidget {
     return ConfigurationWidget(
       onConfigurationReady: (configuration, theme) {
         return Container(
-          color: theme.themeData.scaffoldBackgroundColor,
+          color: theme.mainPageBackgroundColor,
           height: configuration.carouselContainerHeight,
           child: Stack(
             children: [
@@ -39,8 +36,9 @@ class TvSeriesCarouselView extends StatelessWidget {
                     return CarouselImageCardWidget(
                       imageUrl: tvSeriesList[index].getImageURL,
                       onTapped: () {
-                        if(tvSeriesList[index].id != null) {
-                          context.pushRoute(TvSeriesDetailRoute(tvSeriesId: tvSeriesList[index].id!));
+                        if (tvSeriesList[index].id != null) {
+                          context.pushRoute(TvSeriesDetailRoute(
+                              tvSeriesId: tvSeriesList[index].id!));
                         }
                       },
                     );

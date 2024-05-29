@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_movie_app/app/app.dart';
+import 'package:flutter_movie_app/app/core/widgets/loading_view.dart';
 
 class ImageContainerView extends StatelessWidget {
   final String imageURL;
@@ -18,20 +19,21 @@ class ImageContainerView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: containerSize?.width,
-      child: ClipRRect(
-        child: CachedNetworkImage(
+      height: containerSize != null && containerSize!.height > 0
+          ? containerSize?.height
+          : null,
+      child: CachedNetworkImage(
           fit: BoxFit.fill,
           imageUrl: imageURL,
           placeholder: (context, url) {
+            return const LoadingView();
+          },
+          errorWidget: (context, url, error) {
             return Image.asset(
               placeholderImage,
               fit: BoxFit.fill,
             );
-          },
-          errorWidget: (context, url, error) =>
-              const FaIcon(FontAwesomeIcons.exclamation),
-        ),
-      ),
+          }),
     );
   }
 }

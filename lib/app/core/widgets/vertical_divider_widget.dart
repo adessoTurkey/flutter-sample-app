@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/constants/constants.dart';
+import 'package:flutter_movie_app/app/app.dart';
 
 class VerticalDividerWidget extends StatelessWidget {
   final double paddingAll;

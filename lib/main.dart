@@ -1,35 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_movie_app/api_call/api_repositories/api_repositories.dart';
-import 'package:flutter_movie_app/api_call/api_repositories/remote_data_source.dart';
-import 'package:flutter_movie_app/app/core/config/app_router.dart';
-import 'package:flutter_movie_app/app/core/enums/enums.dart';
-import 'package:flutter_movie_app/app/core/enums/tv_series_category_enum.dart';
-import 'package:flutter_movie_app/app/core/initialization/initialization_adapter.dart';
-import 'package:flutter_movie_app/app/core/logger/m_logger.dart';
-import 'package:flutter_movie_app/app/core/themes/bloc/theme_bloc.dart';
-import 'package:flutter_movie_app/app/core/themes/theme_enum.dart';
-import 'package:flutter_movie_app/app/features/auth/bloc/authentication_bloc.dart';
-import 'package:flutter_movie_app/app/features/auth/repository/auth_repository.dart';
-import 'package:flutter_movie_app/app/features/login/bloc/login_bloc.dart';
-import 'package:flutter_movie_app/app/features/movies/bloc/movies_bloc.dart';
-import 'package:flutter_movie_app/app/features/profile/bloc/profile_bloc.dart';
-import 'package:flutter_movie_app/app/features/tv_series/bloc/tv_series_bloc.dart';
-import 'package:flutter_movie_app/di/dependency_injection.dart';
-import 'package:flutter_movie_app/localization/bloc/localization_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_movie_app/responsive/responsive.dart';
-import 'app/features/genre_data/bloc/genre_bloc.dart';
+
+import 'api_call/api_call.dart';
+import 'app/app.dart';
+import 'di/dependency_injection.dart';
+import 'localization/localization.dart';
+import 'responsive/responsive.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
 
   final features = <InitializationAdapter>[
     DependencyInjection.shared,
-    // Add other features if needed
   ];
-
 
   for (final feature in features) {
     feature.initialize();
@@ -48,8 +33,8 @@ void main() async {
     //TODO: Should fetch the films after login?.
     BlocProvider(
         create: (_) => MoviesBloc(getIt<RemoteDataSource>())
-          ..add(
-              const MoviesFetching(categoryType: MovieCategoriesEnum.topRated))),
+          ..add(const MoviesFetching(
+              categoryType: MovieCategoriesEnum.topRated))),
     BlocProvider(
         create: (_) => TvSeriesBloc(getIt<RemoteDataSource>())
           ..add(
@@ -64,7 +49,11 @@ void main() async {
             GenreBloc(getIt<RemoteDataSource>())..add(GenreFetching())),
     BlocProvider(
         create: (_) => LoginBloc(
-            getIt<RemoteDataSource>(), getIt<AuthenticationRepository>()))
+            getIt<RemoteDataSource>(), getIt<AuthenticationRepository>())),
+    BlocProvider(
+        create: (context) => TvSeriesDetailBloc(
+            remoteDataSource: getIt<RemoteDataSource>(),
+            profileBloc: context.read<ProfileBloc>())),
   ], child: const MyApp()));
 }
 
