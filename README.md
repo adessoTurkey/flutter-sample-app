@@ -8,17 +8,17 @@ This application is the Flutter Mobile sample app developed by Adesso Turkey. Th
 #### Android
 
 <div style="display: flex; width: 100%">
-  <img src="assets/images/android_main.png" width="25%"/>
-  <img src="assets/images/android_detail.png" width="25%"/>
-  <img src="assets/images/android_map.png" width="25%"/>
+  <img src="assets/screenshots/android_main.png" width="25%"/>
+  <img src="assets/screenshots/android_detail.png" width="25%"/>
+  <img src="assets/screenshots/android_map.png" width="25%"/>
 </div>
 
 #### iOS
 
 <div style="display: flex">
-  <img src="assets/images/ios_main.png" width="25%"/>
-  <img src="assets/images/ios_detail.png" width="25%"/>
-  <img src="assets/images/ios_map.png" width="25%"/>
+  <img src="assets/screenshots/ios_main.png" width="25%"/>
+  <img src="assets/screenshots/ios_detail.png" width="25%"/>
+  <img src="assets/screenshots/ios_map.png" width="25%"/>
 </div>
 
 ## Table of Contents
