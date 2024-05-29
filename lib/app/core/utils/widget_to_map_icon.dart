@@ -15,11 +15,6 @@ extension ToBitDescription on Widget {
   }
 }
 
-/// Creates an image from the given widget by first spinning up a element and render tree,
-/// wait [waitToRender] to render the widget that take time like network and asset images
-
-/// The final image will be of size [imageSize] and the the widget will be layout, ... with the given [logicalSize].
-/// By default Value of  [imageSize] and [logicalSize] will be calculate from the app main window
 
 Future<Uint8List> createImageFromWidget(Widget widget, {Size? logicalSize, required Duration waitToRender, Size? imageSize}) async {
   final RenderRepaintBoundary repaintBoundary = RenderRepaintBoundary();

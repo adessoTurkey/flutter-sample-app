@@ -15,9 +15,10 @@ final class MoviesFetching extends MoviesEvent {
   List<Object> get props => [categoryType];
 }
 
-final class CarouselSliding extends MoviesEvent {
+final class MovieCarouselSliding extends MoviesEvent {
   final int currentIndex;
-  const CarouselSliding({required this.currentIndex});
+
+  const MovieCarouselSliding({required this.currentIndex});
 
   @override
   List<Object> get props => [currentIndex];

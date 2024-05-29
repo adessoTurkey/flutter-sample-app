@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/constants/constants.dart';
-import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/localization/localization.dart';
+import 'package:flutter_movie_app/app/app.dart';
+import 'package:flutter_movie_app/localization/app_localization.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+
 import '../../../../responsive/configuration_widget.dart';
-import '../../../features/movie_detail/models/video_model/video_model_response.dart';
 
 class DetailPageTrailer extends StatefulWidget {
   final VideoModelResponse? videoModelResponse;
@@ -12,12 +11,10 @@ class DetailPageTrailer extends StatefulWidget {
   const DetailPageTrailer({super.key, required this.videoModelResponse});
 
   @override
-  State<DetailPageTrailer> createState() =>
-      _DetailPageTrailerSectionState();
+  State<DetailPageTrailer> createState() => _DetailPageTrailerSectionState();
 }
 
-class _DetailPageTrailerSectionState
-    extends State<DetailPageTrailer> {
+class _DetailPageTrailerSectionState extends State<DetailPageTrailer> {
   late YoutubePlayerController youtubePlayerController;
 
   @override
@@ -25,7 +22,6 @@ class _DetailPageTrailerSectionState
     youtubePlayerController.dispose();
     super.dispose();
   }
-
 
   @override
   void initState() {

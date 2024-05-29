@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/constants/constants.dart';
-import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
+import 'package:flutter_movie_app/app/app.dart';
 
-///CustomScrollViewAppBar only can be usable inside CustomScrollView
 class CustomScrollViewAppBar extends StatelessWidget {
   final String largeTitle;
   final TextStyle largeTitleStyle;
@@ -12,6 +10,7 @@ class CustomScrollViewAppBar extends StatelessWidget {
   final double expandedHeight;
   final bool implyLeading;
   final List<Widget>? actions;
+  final double paddingHorizontal;
 
   const CustomScrollViewAppBar({
     required this.largeTitle,
@@ -23,25 +22,39 @@ class CustomScrollViewAppBar extends StatelessWidget {
     required this.expandedHeight,
     this.implyLeading = true,
     super.key,
+    required this.paddingHorizontal,
   });
 
   @override
   Widget build(BuildContext context) {
     double top;
-    return SliverAppBar.large(
+
+    return SliverAppBar(
       automaticallyImplyLeading: implyLeading,
       flexibleSpace: LayoutBuilder(builder: (context, constraints) {
         top = constraints.biggest.height;
-        return FlexibleSpaceBar(
-          titlePadding: 10.symmetric(horizontal: 20),
-          centerTitle: top < expandedHeight ? true : false,
-          title: Text(
-            top < expandedHeight ? appBarTitle : largeTitle,
-            style: top < expandedHeight ? null : largeTitleStyle,
-          ),
+        return Row(
+          mainAxisAlignment: top < expandedHeight
+              ? MainAxisAlignment.center
+              : MainAxisAlignment.end,
+          children: [
+            SizedBox(
+              width: 300,
+              child: FlexibleSpaceBar(
+                titlePadding: 15.symmetric(horizontal: paddingHorizontal),
+                centerTitle: top < expandedHeight,
+                title: Text(
+                  top < expandedHeight ? appBarTitle : largeTitle,
+                  style:
+                      top < expandedHeight ? appBarTitleStyle : largeTitleStyle,
+                ),
+              ),
+            ),
+            if (top >= expandedHeight) const Spacer(),
+            if (top >= expandedHeight) ...actions ?? []
+          ],
         );
       }),
-      actions:actions,
       backgroundColor: backgroundColor,
       expandedHeight: expandedHeight,
       primary: true,

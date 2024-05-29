@@ -1,40 +1,30 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_movie_app/api_call/models/login_credentials_request_model.dart';
 import 'package:flutter_movie_app/api_call/models/models.dart';
 import 'package:flutter_movie_app/api_call/models/session_delete/session_delete_request_model.dart';
-import 'package:flutter_movie_app/api_call/models/session_request_model.dart';
-import 'package:flutter_movie_app/api_call/models/session_response_model.dart';
 import 'package:flutter_movie_app/api_call/network/network.dart';
-import 'package:flutter_movie_app/app/core/cache/auth_cache_manager.dart';
-import 'package:flutter_movie_app/app/core/constants/constants.dart';
-import 'package:flutter_movie_app/app/core/enums/enums.dart';
 import 'package:flutter_movie_app/app/features/actor/model/actor_detail_model.dart';
-import 'package:flutter_movie_app/app/core/enums/tv_series_category_enum.dart';
-import 'package:flutter_movie_app/app/features/cinema_map/models/map_request_dto/map_request_dto.dart';
-import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_models.dart';
-import 'package:flutter_movie_app/app/features/movie_detail/models/rating/post_rating/request/rating_request_model.dart';
-import 'package:flutter_movie_app/app/features/movie_detail/models/rating/post_rating/response/rating_response_model.dart';
-import 'package:flutter_movie_app/app/features/movie_detail/models/rating/rated_list/rated_list_response.dart';
-import 'package:flutter_movie_app/app/features/movies/models/movie_models.dart';
+import 'package:flutter_movie_app/app/features/movie_detail/models/models.dart';
+import 'package:flutter_movie_app/app/features/movies/models/models.dart';
 import 'package:flutter_movie_app/app/features/profile/models/account_detail/account_detail.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_movie/favorite_movie_data.dart';
 import 'package:flutter_movie_app/app/features/profile/models/favorites/favorites_tv/favorite_tv_data.dart';
-import '../../app/features/genre_data/genre_data.dart';
-import '../../app/features/tv_series/models/tv_series_data/tv_series_data.dart';
 import 'package:flutter_movie_app/app/features/search/models/search_multi/search_multi_data.dart';
+import 'package:flutter_movie_app/app/features/tv_series_detail/models/tv_series_detail_model.dart';
 import 'package:flutter_movie_app/localization/localization_helper.dart';
 
+import '../../app/core/core.dart';
+import '../../app/features/cinema_map/cinema_map.dart';
+import '../../app/features/tv_series/models/tv_series_data/tv_series_data.dart';
 import '../models/favorite/dto/add_to_favorite_dto.dart';
 import '../models/favorite/response/add_to_favorite_response.dart';
-import 'package:flutter_movie_app/app/features/tv_series_detail/models/tv_series_detail_model.dart';
 import '../models/session_delete/session_delete_response_model.dart';
-
-import '../../app/features/cinema_map/models/response/map_response_model.dart/map_response_model.dart';
 
 abstract class RemoteDataSource {
   Future<RequestTokenModel> getRequestToken();
+
   Future<List<MovieData>> getMovieList(MovieCategoriesEnum categoryEndpoint);
+
   Future<RequestTokenModel> loginWithCredentials(
       LoginCredentialsRequestModel requestBody);
   Future<SessionResponseModel> openSession(SessionRequestModel requestBody);
@@ -59,6 +49,9 @@ abstract class RemoteDataSource {
   Future<List<RatedListResponse>> getRatedList(RatingEnpoints fetchType);
   Future<SessionDeleteResponseModel> deleteSession(
       SessionDeleteRequestModel sessionDeleteRequestModel);
+
+  Future<AddToFavoriteResponse>  removeFavorite(AddToFavoriteDto favorite);
+  Future<AddToFavoriteResponse>  removeTvSeriesFavorite(AddToFavoriteDto favorite);
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -507,6 +500,56 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       var sessionDeleteResponse = await networkService.execute(
           networkRequest, (json) => SessionDeleteResponseModel.fromJson(json));
       return (sessionDeleteResponse as Ok<SessionDeleteResponseModel>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<AddToFavoriteResponse> removeFavorite(AddToFavoriteDto favorite)async {
+    AddToFavoriteDto newFavorite = favorite.copyWith(favorite: false);
+      try {
+      var networkRequest = NetworkRequest(
+        type: NetworkRequestType.post,
+        path: dotenv.get(EnvConstants.favoriteAddPath),
+        queryParams: {"session_id": await AuthCacheManager().getSessionId()},
+        data: NetworkRequestBody.json(
+          newFavorite.toJson(),
+        ),
+      );
+      var addToFavoriteResponse =
+          await networkService.execute(networkRequest, (json) {
+        AddToFavoriteResponse favoriteresponse =
+        AddToFavoriteResponse.fromJson(json);
+
+        return favoriteresponse;
+      });
+      return (addToFavoriteResponse as Ok<AddToFavoriteResponse>).data;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<AddToFavoriteResponse> removeTvSeriesFavorite(AddToFavoriteDto favorite) async{
+    AddToFavoriteDto newFavorite = favorite.copyWith(favorite: false);
+    try {
+      var networkRequest = NetworkRequest(
+        type: NetworkRequestType.post,
+        path: dotenv.get(EnvConstants.favoriteAddPath),
+        queryParams: {"session_id": await AuthCacheManager().getSessionId()},
+        data: NetworkRequestBody.json(
+          newFavorite.toJson(),
+        ),
+      );
+      var addToFavoriteResponse =
+          await networkService.execute(networkRequest, (json) {
+        AddToFavoriteResponse favoriteresponse =
+        AddToFavoriteResponse.fromJson(json);
+
+        return favoriteresponse;
+      });
+      return (addToFavoriteResponse as Ok<AddToFavoriteResponse>).data;
     } catch (_) {
       rethrow;
     }

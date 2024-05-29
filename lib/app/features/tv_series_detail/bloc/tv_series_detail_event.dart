@@ -16,11 +16,11 @@ final class TvSeriesDetailInitialEvent extends TvSeriesDetailEvent {
 }
 
 final class TvSeriesDetailAddFavoriteEvent extends TvSeriesDetailEvent {
-  final int tvSeriesId;
-  const TvSeriesDetailAddFavoriteEvent({required this.tvSeriesId});
+  final bool isFavorite;
+  const TvSeriesDetailAddFavoriteEvent({required this.isFavorite});
 
   @override
-  List<Object> get props => [tvSeriesId];
+  List<Object> get props => [isFavorite];
 }
 
 final class TvSeriesDetailAddRatingEvent extends TvSeriesDetailEvent {

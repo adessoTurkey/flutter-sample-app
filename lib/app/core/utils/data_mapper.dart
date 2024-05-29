@@ -33,6 +33,20 @@ abstract final class DataMapper {
     }).toList();
   }
 
+  static FavoriteEntity favoriteEntityFromDetail(
+      FavoriteEntityType favoriteType,
+      int id,
+      String url,
+      String title,
+      String releaseDate) {
+    return FavoriteEntity(
+        favoriteEntityType: favoriteType,
+        id: id,
+        posterPath: url,
+        title: title,
+        releaseDate: releaseDate);
+  }
+
   static List<SearchEntity> searchMovieMapper(
       List<SearchMultiData> searchList) {
     return searchList.map((e) {

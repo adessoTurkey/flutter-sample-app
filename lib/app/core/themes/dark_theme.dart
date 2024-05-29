@@ -89,7 +89,7 @@ final class DarkTheme extends ATheme {
   @override
   TextStyle mainPageListViewTitleTextStyle(double fontSize) {
     return const TextStyle()
-        .mainPageListViewTitleTextStyle(fontSize, MColors.white);
+        .mainPageListViewTitleTextStyle(fontSize, MColors.almostBlack);
   }
 
   @override
@@ -319,6 +319,15 @@ final class DarkTheme extends ATheme {
     return const TextStyle()
         .mapInfoViewWebSiteTextStyle(fontSize, MColors.electricBlue);
   }
+
+  @override
+  Color get mainPageBackgroundColor => MColors.mainPageBackgroundColor;
+
+  @override
+  Color get mainPageCardBackgroundColor => MColors.white;
+
+  @override
+  Color get appbarBackButtonColor => Colors.white;
 
 
 }

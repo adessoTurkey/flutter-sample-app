@@ -1,16 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/config/app_router.dart';
-import 'package:flutter_movie_app/app/core/constants/constants.dart';
-import 'package:flutter_movie_app/app/core/enums/enums.dart';
-import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/search/models/search_entity.dart';
+import 'package:flutter_movie_app/app/app.dart';
 import 'package:flutter_movie_app/gen/assets.gen.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class SearchListViewCell extends StatelessWidget {
   final SearchEntity searchEntity;
+
   const SearchListViewCell({super.key, required this.searchEntity});
 
   @override
@@ -21,6 +17,9 @@ class SearchListViewCell extends StatelessWidget {
           onTap: () {
             if (searchEntity.type == MediaTypeEnum.movie) {
               context.pushRoute(MovieDetailRoute(movieId: searchEntity.id));
+            } else if (searchEntity.type == MediaTypeEnum.tv) {
+              context
+                  .pushRoute(TvSeriesDetailRoute(tvSeriesId: searchEntity.id));
             }
           },
           child: CustomCard(

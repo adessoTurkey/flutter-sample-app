@@ -32,8 +32,6 @@
 	<string>always permissions</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>When in use permissions</string>
-	<key>UIApplicationSupportsIndirectInputEvents</key>
-	<true/>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
@@ -55,11 +53,14 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-
 	<key>LSApplicationQueriesSchemes</key>
-    <array>
-      <string>sms</string>
-      <string>tel</string>
-    </array>
+	<array>
+		<string>sms</string>
+		<string>tel</string>
+	</array>
+
+	<key>io.flutter.embedded_views_preview</key>
+    <true/>
+
 </dict>
 </plist>

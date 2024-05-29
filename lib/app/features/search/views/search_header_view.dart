@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/app/core/constants/constants.dart';
-import 'package:flutter_movie_app/app/core/enums/enums.dart';
-import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/extensions/search_failure_extension.dart';
-import 'package:flutter_movie_app/app/features/search/search.dart';
-import 'package:flutter_movie_app/localization/localization.dart';
+import 'package:flutter_movie_app/app/app.dart';
+import 'package:flutter_movie_app/localization/app_localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 
 class SearchHeaderView extends StatelessWidget {
@@ -74,7 +70,7 @@ class _SearchTextFieldView extends StatelessWidget {
                       ),
                     ),
                   );
-                } 
+                }
               },
               builder: (context, state) {
                 return Expanded(

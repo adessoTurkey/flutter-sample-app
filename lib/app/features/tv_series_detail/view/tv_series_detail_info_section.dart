@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/app/core/constants/m_colors.dart';
-import 'package:flutter_movie_app/app/core/enums/enums.dart';
-import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/extensions/tv_series_detail_model_extension.dart';
-import 'package:flutter_movie_app/app/core/utils/app_utils.dart';
-import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/tv_series_detail/bloc/tv_series_detail_bloc.dart';
-import 'package:flutter_movie_app/app/features/tv_series_detail/models/tv_series_detail_model.dart';
-import 'package:flutter_movie_app/localization/localization.dart';
+import 'package:flutter_movie_app/app/app.dart';
+import 'package:flutter_movie_app/localization/app_localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:share_plus/share_plus.dart';
 
 class TvSeriesDetailPageInfoSection extends StatelessWidget {
   final TvSeriesDetailModel? tvSeriesDetailModel;
-  const TvSeriesDetailPageInfoSection({super.key, required this.tvSeriesDetailModel});
+
+  const TvSeriesDetailPageInfoSection(
+      {super.key, required this.tvSeriesDetailModel});
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +79,7 @@ class TvSeriesDetailPageInfoSection extends StatelessWidget {
                 previous.ratingValue != current.ratingValue;
           },
           listenWhen: (previous, current) =>
-          previous.ratingValue != current.ratingValue,
+              previous.ratingValue != current.ratingValue,
           listener: (context, state) {
             if (state.ratingResponseModel?.statusCode ==
                 PostRatingStatusCodeEnum.updated) {
@@ -116,9 +111,11 @@ class TvSeriesDetailPageInfoSection extends StatelessWidget {
                 Share.share(state.tvSeriesDetailModel?.name ?? "",
                     subject: state.tvSeriesDetailModel?.name ?? "");
               },
-              starIconButtonTapped: () => context.read<TvSeriesDetailBloc>().add(
-                TvSeriesDetailRatingCollapsed(isCollapsed: state.isCollapsed),
-              ),
+              starIconButtonTapped: () =>
+                  context.read<TvSeriesDetailBloc>().add(
+                        TvSeriesDetailRatingCollapsed(
+                            isCollapsed: state.isCollapsed),
+                      ),
               isCollapsed: state.isCollapsed,
             );
           },

@@ -1,25 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/constants/constants.dart';
-import 'package:flutter_movie_app/app/core/enums/enums.dart';
-import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/extensions/tv_series_detail_model_extension.dart';
-import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/app/features/movie_detail/models/movie_detail_models.dart';
-import 'package:flutter_movie_app/app/features/tv_series_detail/models/tv_series_detail_model.dart';
-import 'package:flutter_movie_app/app/features/tv_series_detail/view/tv_series_detail_info_section.dart';
-import 'tv_series_detail_cast_section.dart';
-import 'package:flutter_movie_app/localization/localization.dart';
+import 'package:flutter_movie_app/app/app.dart';
+import 'package:flutter_movie_app/localization/app_localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
-import '../../../core/enums/favorite_entity_type.dart';
 
 class TvSeriesDetailMainView extends StatelessWidget {
   final TvSeriesDetailModel tvSeriesDetailModel;
   final CreditResponse creditResponse;
   final VideoModelResponse videoModelResponse;
-  const TvSeriesDetailMainView({
-    required this.tvSeriesDetailModel,
-    required this.creditResponse,
-    required this.videoModelResponse, super.key});
+
+  const TvSeriesDetailMainView(
+      {required this.tvSeriesDetailModel,
+      required this.creditResponse,
+      required this.videoModelResponse,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,44 +23,45 @@ class TvSeriesDetailMainView extends StatelessWidget {
             children: [
               DetailPageImageSection(
                 favoriteEntityType: FavoriteEntityType.tv,
-                id: tvSeriesDetailModel.id,
+                id: tvSeriesDetailModel.id ?? -1,
+                releaseDate: tvSeriesDetailModel.firstAirDate ?? "",
+                title: tvSeriesDetailModel.name ?? "",
                 voteAverage: tvSeriesDetailModel.getVoteAverage,
                 imageUrl: tvSeriesDetailModel.getImageURL,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: configuration
-                      .movieDetailPagePaddingHorizontal,
-                  vertical:
-                  configuration.movieDetailPagePaddingVerical,
+                  horizontal: configuration.movieDetailPagePaddingHorizontal,
+                  vertical: configuration.movieDetailPagePaddingVerical,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TvSeriesDetailPageInfoSection( tvSeriesDetailModel: tvSeriesDetailModel),
+                    TvSeriesDetailPageInfoSection(
+                        tvSeriesDetailModel: tvSeriesDetailModel),
                     20.verticalSizedBox,
                     Container(
                         decoration: BoxDecoration(
                             color: MColors.charcoalGrey,
                             borderRadius: BorderRadius.all(Radius.circular(
-                                configuration.tvSeriesDetailSeasonsRadius
-                            ))
-                        ),
+                                configuration.tvSeriesDetailSeasonsRadius))),
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                              vertical: configuration.tvSeriesDetailSeasonsVerticalPadding,
-                              horizontal: configuration.tvSeriesDetailSeasonsHorizontalPadding),
+                              vertical: configuration
+                                  .tvSeriesDetailSeasonsVerticalPadding,
+                              horizontal: configuration
+                                  .tvSeriesDetailSeasonsHorizontalPadding),
                           child: Text(
                             "${tvSeriesDetailModel.getNumberOfSeasons} ${context.localization.tv_series_detail_seasons}",
-                            style: theme.tvSeriesDetailSeasonsTextStyle(configuration.tvSeriesDetailSeasonsTextSize),
+                            style: theme.tvSeriesDetailSeasonsTextStyle(
+                                configuration.tvSeriesDetailSeasonsTextSize),
                           ),
-                        )
-                    ),
+                        )),
                     20.verticalSizedBox,
-                      TvSeriesDetailCastSection(
-                        creditResponse: creditResponse,
-                        creators: tvSeriesDetailModel.getCreators(),
-                      ),
+                    TvSeriesDetailCastSection(
+                      creditResponse: creditResponse,
+                      creators: tvSeriesDetailModel.getCreators(),
+                    ),
                     20.verticalSizedBox,
                     DetailPageTrailer(
                       videoModelResponse: videoModelResponse,

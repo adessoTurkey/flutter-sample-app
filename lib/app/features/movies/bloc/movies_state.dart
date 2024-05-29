@@ -21,8 +21,8 @@ final class MoviesSuccess extends MoviesState {
   List<Object?> get props => [movieList, movie];
 }
 
-final class CarouselSlideSuccess extends MoviesState {
-  const CarouselSlideSuccess({required this.movieModel});
+final class MovieCarouselSlideSuccess extends MoviesState {
+  const MovieCarouselSlideSuccess({required this.movieModel});
 
   final MovieData movieModel;
 

@@ -1,8 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/app/core/extensions/extensions.dart';
-import 'package:flutter_movie_app/app/core/extensions/padding_extension.dart';
-import 'package:flutter_movie_app/localization/localization.dart';
+import 'package:flutter_movie_app/localization/app_localization.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../responsive/configuration_widget.dart';

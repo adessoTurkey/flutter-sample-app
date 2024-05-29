@@ -1,6 +1,7 @@
-import 'package:flutter_movie_app/app/features/movie_detail/models/credits/cast/cast_results.dart';
-import 'package:flutter_movie_app/app/features/movie_detail/models/credits/crew/crew_results.dart';
+import 'package:flutter_movie_app/app/features/movie_detail/models/credits/cast_results.dart';
+import 'package:flutter_movie_app/app/features/movie_detail/models/credits/crew_results.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'credit_response.freezed.dart';
 part 'credit_response.g.dart';
 

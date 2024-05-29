@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/app/core/constants/constants.dart';
-import 'package:flutter_movie_app/app/core/constants/m_colors.dart';
-import 'package:flutter_movie_app/app/core/widgets/widgets.dart';
-import 'package:flutter_movie_app/localization/localization.dart';
+import 'package:flutter_movie_app/app/app.dart';
+import 'package:flutter_movie_app/localization/app_localization.dart';
 import 'package:flutter_movie_app/responsive/configuration_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -12,6 +10,7 @@ class RateView extends StatelessWidget {
   final VoidCallback shareButtonTapped;
   final VoidCallback starIconButtonTapped;
   final bool isCollapsed;
+
   const RateView({
     super.key,
     this.rating = 0,
@@ -20,6 +19,7 @@ class RateView extends StatelessWidget {
     this.isCollapsed = false,
     required this.starIconButtonTapped,
   });
+
   @override
   Widget build(BuildContext context) {
     return ConfigurationWidget(
@@ -37,12 +37,12 @@ class RateView extends StatelessWidget {
             isCollapsed
                 ? _ratingStars(configuration.rateViewIconSize)
                 : _shareButton(
-              configuration.rateViewIconSize,
-              shareButtonTapped,
-              theme.rateViewTextStyle(configuration.rateViewTextSize),
-              configuration.detailShareButtonPaddingLeft,
-              context,
-            ),
+                    configuration.rateViewIconSize,
+                    shareButtonTapped,
+                    theme.rateViewTextStyle(configuration.rateViewTextSize),
+                    configuration.detailShareButtonPaddingLeft,
+                    context,
+                  ),
           ],
         );
       },
@@ -50,12 +50,12 @@ class RateView extends StatelessWidget {
   }
 
   Widget _starIcon(
-      int rating,
-      double size,
-      VoidCallback onTap,
-      TextStyle textStyle,
-      BuildContext context,
-      ) {
+    int rating,
+    double size,
+    VoidCallback onTap,
+    TextStyle textStyle,
+    BuildContext context,
+  ) {
     return Column(
       children: [
         CircularButtonWidget(
@@ -74,12 +74,12 @@ class RateView extends StatelessWidget {
   }
 
   Widget _shareButton(
-      double size,
-      VoidCallback onTap,
-      TextStyle textStyle,
-      double paddingLeft,
-      BuildContext context,
-      ) {
+    double size,
+    VoidCallback onTap,
+    TextStyle textStyle,
+    double paddingLeft,
+    BuildContext context,
+  ) {
     return Padding(
       padding: EdgeInsets.only(left: paddingLeft),
       child: Column(

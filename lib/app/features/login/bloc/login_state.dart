@@ -1,6 +1,4 @@
-import 'package:equatable/equatable.dart';
-import 'package:formz/formz.dart';
-import '../models/models.dart';
+part of 'login_bloc.dart';
 
 final class LoginState extends Equatable {
   const LoginState({

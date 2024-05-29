@@ -1,4 +1,3 @@
-import 'package:flutter_movie_app/app/core/themes/theme_enum.dart';
 import 'package:flutter_movie_app/app/core/themes/themes.dart';
 import 'package:flutter_movie_app/di/dependency_injection.dart';
 

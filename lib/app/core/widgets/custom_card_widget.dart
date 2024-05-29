@@ -25,7 +25,8 @@ class CustomCard extends StatelessWidget {
       clipBehavior: clip ?? Clip.hardEdge,
       shape: shapeBorder,
       shadowColor: shadowColor,
-      surfaceTintColor: backgroundColor,
+      color: backgroundColor,
+
       child: child,
     );
   }
