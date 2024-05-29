@@ -94,19 +94,22 @@ class _CinemaMapSuccessView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        GoogleMap(
-          mapType: MapType.normal,
-          myLocationEnabled: true,
-          initialCameraPosition: CameraPosition(
-            target: state.initialCameraPosition, // San Francisco coordinates
-            zoom: AppConstants.cameraInitialZoom,
+    return Expanded(
+      child: Stack(
+        children: [
+          GoogleMap(
+            mapType: MapType.normal,
+            myLocationEnabled: true,
+            initialCameraPosition: CameraPosition(
+                target:
+                    state.initialCameraPosition, // San Francisco coordinates
+              zoom: AppConstants.cameraInitialZoom,
+            ),
+            markers: getMarkers(context) ?? {},
           ),
-          markers: getMarkers(context) ?? {},
-        ),
-        const MapInfoView()
-      ],
+          const MapInfoView()
+        ],
+      ),
     );
   }
 }

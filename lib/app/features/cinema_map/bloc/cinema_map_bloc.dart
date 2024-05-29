@@ -43,7 +43,7 @@ class CinemaMapBloc extends Bloc<CinemaMapEvent, CinemaMapState> {
     }
 
     try {
-      await location.getLocation();
+      currentPosition = await location.getLocation();
     } catch (e) {
       rethrow;
     }
