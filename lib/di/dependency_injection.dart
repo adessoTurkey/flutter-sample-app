@@ -1,11 +1,12 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_movie_app/api_call/api_call.dart';
 import 'package:flutter_movie_app/localization/localization_helper.dart';
+import 'package:flutter_movie_app/responsive/configuration/configuration.dart';
 import 'package:get_it/get_it.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
-import '../app/core/config/app_router.dart';
-import '../app/core/initialization/initialization_adapter.dart';
-
+import '../app/core/core.dart';
 
 final getIt = GetIt.instance;
 
@@ -31,16 +32,34 @@ void _configureBlocInjection() {
 
 // Used for class injections
 void _configureInjection() {
-    final talker = TalkerFlutter.init(
+  final talker = TalkerFlutter.init(
     settings: TalkerSettings(enabled: !kReleaseMode),
   );
 
+  final networkService =
+      NetworkService(baseUrl: dotenv.get(EnvConstants.baseUrl))
+        ..addBasicAuth(dotenv.get(EnvConstants.accessToken));
 
   // Register singleton instances using GetIt
   getIt
     ..registerLazySingleton<LocalizationHelper>(
       LocalizationHelper.new,
     )
+    ..registerSingleton<RemoteDataSource>(
+        RemoteDataSourceImpl(networkService: networkService))
+    ..registerSingleton<LocalDataSource>(LocalDataSourceImpl())
     ..registerSingleton<AppRouter>(AppRouter())
+    ..registerSingleton<LightTheme>(LightTheme())
+    ..registerSingleton<DarkTheme>(DarkTheme())
+    ..registerSingleton<ErrorParser>(ErrorParser())
+    ..registerSingleton<LargeConfiguration>(LargeConfiguration())
+    ..registerSingleton<MediumConfiguration>(MediumConfiguration())
+    ..registerSingleton<SmallConfiguration>(SmallConfiguration())
+    ..registerSingleton<ResponsiveConfigurationFactory>(
+        ResponsiveConfigurationFactory())
+    ..registerSingleton<AuthCacheManager>(AuthCacheManager())
+    ..registerSingleton<AuthenticationRepository>(AuthenticationRepository(
+        authCacheManager: getIt<AuthCacheManager>(),
+        remoteDataSource: getIt<RemoteDataSource>()))
     ..registerLazySingleton<Talker>(() => talker);
 }

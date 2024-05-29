@@ -1,11 +1,11 @@
 import 'dart:ui';
 
-import 'package:flutter_movie_app/localization/i10n.dart';
+import 'package:flutter_movie_app/l10n/i10n.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Class for handling localization
 class LocalizationHelper {
-  static const String defaultLocale="tr";
+  static const String defaultLocale = "tr";
   String currentLocale = 'en';
   static const String localeLanguageCodeKey = 'localeLanguageCode';
 
@@ -16,9 +16,7 @@ class LocalizationHelper {
 
       await prefs.setString(localeLanguageCodeKey, locale.languageCode);
       currentLocale = locale.languageCode;
-    } catch (e) {
-     
-    }
+    } catch (e) {}
   }
 
   /// Get the locale from [SharedPreferences]
@@ -43,10 +41,9 @@ class LocalizationHelper {
     try {
       final prefs = await SharedPreferences.getInstance();
       await prefs.remove(localeLanguageCodeKey);
-    } catch (e) {
-    }
+    } catch (e) {}
   }
 
-
-  static  String platformLocale="en";
+  static String platformLocale = "en";
+  static const String queryLanguage = "en-US";
 }
