@@ -38,23 +38,43 @@ This application is the Flutter Mobile sample app developed by Adesso Turkey. Th
 
 ### TMDB API Key
 
-To run the application, you need to supply an API key from [TMDB](https://developers.themoviedb.org/3/getting-started/introduction). When you get the key, please add the following variable to the `.env` file in the root of the project:
-
-```
-API_KEY = Your TMDB API Key
-```
+To run the application, you need to supply an API key from [TMDB](https://developers.themoviedb.org/3/getting-started/introduction). When you get the key, please add the following variable to the `.env` file in the root of the project.
 
 ### MAP API Key
 
-To view Google Maps, you need to supply three API keys from [Google Web Services](https://developers.google.com/maps/documentation/places/web-service).
+To view Google Maps, you need to supply three API keys from [Google Web Services](https://developers.google.com/maps/documentation/places/web-service). Add these keys to `.env` file.
 
-Add your API keys to `.env` accordingly:
+### .env File
+
+You need to create a file named `.env` and at root of project. Fill the file accordingly:
 
 ```
 # .env
+API_KEY= <Your TMDB API Key>
+ACCESS_TOKEN= <Access Token>
 GOOGLE_PLACES_API_KEY = <Google Places API Key>
 GOOGLE_MAP_IOS_API_KEY = <Google Map iOS API Key>
 GOOGLE_MAP_ANDROID_API_KEY = <Google Map Android Key>
+GOOGLE_PLACES_API_SEARCH_BY_FIELD_MASK = places.displayName,places.formattedAddress,places.location,places.types,places.websiteUri
+BASE_URL=https://api.themoviedb.org/3
+REQUEST_TOKEN_PATH=/authentication/token/new
+MOVIE_PATH=/movie
+IMAGE_URL = https://image.tmdb.org/t/p/w500
+VIDEO_PATH = /videos
+LOGIN_WITH_CREDENTIALS_PATH = /authentication/token/validate_with_login
+OPEN_SESSION_PATH= /authentication/session/new
+DELETE_SESSION_PATH = /authentication/session
+TV_SERIES_PATH = /tv
+CREDITS_PATH = /credits
+ACCOUNT_PATH = /account/1234567
+FAVORITE_PATH_MOVIES = /favorite/movies
+FAVORITE_PATH_TV = /favorite/tv
+SEARCH_PATH_MULTI = /search/multi
+GENRE_PATH = /genre
+FAVORITE_PATH_ADD = /account/1234567/favorite
+GOOGLE_PLACES_API_BASE_URL = https://places.googleapis.com
+GOOGLE_PLACES_API_SEARCH_BY_TEXT_PATH = /v1/places:searchText
+PERSON_PATH = /person
 ```
 
 ## Architecture
@@ -112,7 +132,7 @@ Gitflow is a legacy Git workflow that was originally a disruptive and novel stra
 ## License
 
 ```
-Copyright 2023 adesso Turkey
+Copyright 2024 adesso Turkey
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
